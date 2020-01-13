@@ -6,6 +6,8 @@ I am a postdoctoral scholar in the Department of Aeronautics and Astronautics at
 
 <a href="Thesis_short_version.pdf" target="_blank">PDF.</a>
 
+![dp](https://user-images.githubusercontent.com/34644464/72252765-f9bfae00-3625-11ea-969e-6a32a1921e99.png)
+
 
 ### Markdown
 
