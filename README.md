@@ -1,6 +1,6 @@
 ## Welcome to my website
 
-I am a postdoctorate scholar in the Department of Aeronautics and Astronautics, [Kyushu University]https://www.kyushu-u.ac.jp/en/, Japan. I have been working here since September 2019, having obtained my PhD from [Indian Institute of Technology Guwahati]http://www.iitg.ac.in/ in June 2019, from the Department of Mechanical Engineering. 
+I am a postdoctorate scholar in the Department of Aeronautics and Astronautics, [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan. I have been working here since September 2019, having obtained my PhD from [Indian Institute of Technology Guwahati](http://www.iitg.ac.in/) in June 2019, from the Department of Mechanical Engineering. 
 
 You can use the [editor on GitHub](https://github.com/shuvayanb/home-page/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
