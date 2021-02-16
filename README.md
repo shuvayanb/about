@@ -41,6 +41,7 @@ I am a postdoctoral research fellow in the Department of Aeronautics and Astrona
 `Graduate School of Engineering, Kyushu University`<br/>
 `744 Motooka, Nishi-ku, Fukuoka 819-0395, Japan`<br/>
 
+[![google_scholar](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en)
 [![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
 [![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
 
