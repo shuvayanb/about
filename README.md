@@ -35,11 +35,12 @@ I am a postdoctoral research fellow in the Department of Aeronautics and Astrona
 
 
 ### Contact
+`brahmachary.shuvayan.140@m.kyushu-u.ac.jp`
 
-<div class="panel panel-info">
-**Note**
-{: .panel-heading}
-<div class="panel-body">
+<!-- icons with padding -->
 
-NOTE DESCRIPTION
+<![1.1]: http://i.imgur.com/tXSoThF.png (http://www.twitter.com/carlsednaoui)
+
+
+
 
