@@ -37,6 +37,6 @@ I am a postdoctoral research fellow in the Department of Aeronautics and Astrona
 ### Contact
 `brahmachary.shuvayan.140@m.kyushu-u.ac.jp`
 
-![http://i.imgur.com/tXSoThF.png](https://twitter.com/b_shuvayan)
+[![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
 
 
