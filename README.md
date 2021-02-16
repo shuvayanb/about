@@ -35,8 +35,13 @@ I am a postdoctoral research fellow in the Department of Aeronautics and Astrona
 
 
 ### Contact
-`brahmachary.shuvayan.140@m.kyushu-u.ac.jp`
+`brahmachary.shuvayan.140@m.kyushu-u.ac.jp`<br/>
+`Space Transportation Systems Engineering Laboratory`<br/>
+`Department of Aeronautics and Astronautics`<br/>
+`Graduate School of Engineering, Kyushu University`<br/>
+`744 Motooka, Nishi-ku, Fukuoka 819-0395, Japan`<br/>
 
 [![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
+[![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
 
 
