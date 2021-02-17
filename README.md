@@ -24,6 +24,18 @@
    - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
    - **Subjects**: Fluid Mechanics, Thermal Science
 
+### Research Interest
+
+- Computational Fluid Dynamics: Finite Volume Method 
+- Non-conformal flow solvers: Immersed Boundary Method
+- Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
+- Reduced Order Modelling: Proper Orthogonal Decomposition
+- Machine Learning: Fluid flowfield reconstruction using regression models
+
+### Memberships
+
+- Life member of the Society for Shock Wave Research (SSWR)
+- Member of the Soft Computing Research Society (SCRS)
 
 ### Contact
 `brahmachary.shuvayan.140@m.kyushu-u.ac.jp`<br/>
