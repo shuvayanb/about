@@ -9,5 +9,6 @@ title: Projects
 
 # Aerodynamic Shape Optimization
 
-![IB](https://user-images.githubusercontent.com/34644464/108243146-1adfc000-7191-11eb-9bab-9232ea725253.gif)
-![FV](https://user-images.githubusercontent.com/34644464/108243196-2b903600-7191-11eb-9f3a-0485d006c521.gif)
+![IB_resize](https://user-images.githubusercontent.com/34644464/108243816-db65a380-7191-11eb-87ae-7eb40e182c92.gif)
+![FV_resize](https://user-images.githubusercontent.com/34644464/108243889-eddfdd00-7191-11eb-8ebc-6c92b30d9415.gif)
+
