@@ -1,5 +1,14 @@
 ![banner](https://user-images.githubusercontent.com/34644464/72253356-60919700-3627-11ea-9537-e5819c77f373.jpg)
 
+### Education
+
+- **Doctor of Philosophy in Fluids and Thermal Engineering** `2013 Jan. - 2019 June` <br/>
+  Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India <br/>
+  Supervisor: [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/about-me) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417)
+  
+- **Bachelor of Engineering in Mechanical Engineering** `2008 Aug. - 2012 May` <br/>
+  Department of Mechanical Engineering, _Girijananda Chowdhury Institute of Management and Technology_, India <br/>
+
 ### Experience
 
 - `2019 Sept. - Present`: **Postdoctoral Research Fellow**
@@ -43,6 +52,8 @@
 `Department of Aeronautics and Astronautics`<br/>
 `Graduate School of Engineering, Kyushu University`<br/>
 `744 Motooka, Nishi-ku, Fukuoka 819-0395, Japan`<br/>
+
+### Additional Links
 
 [![google_scholar](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en)
 [![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
