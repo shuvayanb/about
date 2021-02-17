@@ -12,8 +12,8 @@ title: Projects
 
 # Aerodynamic Shape Optimization
 
-![IB_resize](https://user-images.githubusercontent.com/34644464/108243816-db65a380-7191-11eb-87ae-7eb40e182c92.gif)
-![FV_resize](https://user-images.githubusercontent.com/34644464/108243889-eddfdd00-7191-11eb-8ebc-6c92b30d9415.gif)
+<img align="left" width="400" height="400" src="https://user-images.githubusercontent.com/34644464/108243816-db65a380-7191-11eb-87ae-7eb40e182c92.gif">
+<img align="right" width="400" height="400" src="https://user-images.githubusercontent.com/34644464/108243889-eddfdd00-7191-11eb-8ebc-6c92b30d9415.gif">
 
 # Scramjet Unstart
 
