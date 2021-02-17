@@ -1,5 +1,7 @@
 ## Welcome to my website
 
+![banner](https://user-images.githubusercontent.com/34644464/72253356-60919700-3627-11ea-9537-e5819c77f373.jpg)
+
 ### Experience
 
 - `2019 Sept. - Present`: **Postdoctoral Research Fellow**
