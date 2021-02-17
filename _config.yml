@@ -1,10 +1,9 @@
 # basic options
 title: Shuvayan Brahmachary
 author: shuvayanb
-email: your-email@domain.com
+
 description: 
-twitter_username: jekyllrb
-github_username:  jekyll
+
 
 # Build settings
 markdown: kramdown
