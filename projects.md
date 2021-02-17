@@ -5,7 +5,9 @@ title: Projects
 
 # Immersed Boundary-Finite Volume (IB-FV)s solver for compressible flows
 
-![lift_off](https://user-images.githubusercontent.com/34644464/108244406-88402080-7192-11eb-9bfc-60ada4e3d62f.gif)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/34644464/108244406-88402080-7192-11eb-9bfc-60ada4e3d62f.gif">
+</p>
 
 
 # Aerodynamic Shape Optimization
@@ -15,4 +17,6 @@ title: Projects
 
 # Scramjet Unstart
 
-![unstart](https://user-images.githubusercontent.com/34644464/108244778-ea992100-7192-11eb-82e4-5e0a50b2908c.gif)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/34644464/108244778-ea992100-7192-11eb-82e4-5e0a50b2908c.gif">
+</p>
