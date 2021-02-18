@@ -51,6 +51,7 @@
 `b.shuvayan@gmail.com`<br/>
 `Space Transportation Systems Engineering Laboratory`<br/>
 `Department of Aeronautics and Astronautics`<br/>
+`Kyushu University`<br/>
 
 
 ### Additional Links
