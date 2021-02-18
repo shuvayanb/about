@@ -7,7 +7,7 @@ I am a postdoctoral research fellow working in the Department of Aeronautics and
 
 My research experience and interest include development of novel algorithms aimed at the accurate numerical simulation of high-speed compressible using non-conformal flow solvers, aerodynamic design and optimisation, as well as the use of machine learning to learn fluid flow pattern (requires the use of reduced order modelling approaches like Proper Orthogonal Decomposition). 
 
-I am an avid Chelsea FC fan since 2002, ocassional reader/runner and mindfulness practioner. 
+I am an avid Chelsea FC fan since 2002, occasional reader/runner and mindfulness practitioner. 
 
 ![dp](https://user-images.githubusercontent.com/34644464/72252765-f9bfae00-3625-11ea-969e-6a32a1921e99.png)
 
