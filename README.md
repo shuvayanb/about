@@ -29,7 +29,7 @@
    - **Research Topic**: Shock tube development and verification of existing correlations for stagnation point heat transfer
    - **PI**: [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417)
 
-- `2014 Jan. - 2016 June.`: **Teachine Assistant**
+- `2014 Jan. - 2016 June.`: **Teaching Assistant**
    - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
    - **Subjects**: Fluid Mechanics, Thermal Science
 
