@@ -51,8 +51,7 @@
 `b.shuvayan@gmail.com`<br/>
 `Space Transportation Systems Engineering Laboratory`<br/>
 `Department of Aeronautics and Astronautics`<br/>
-`Graduate School of Engineering, Kyushu University`<br/>
-`744 Motooka, Nishi-ku, Fukuoka 819-0395, Japan`<br/>
+
 
 ### Additional Links
 
