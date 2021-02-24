@@ -6,8 +6,9 @@ title: Projects
 # Immersed Boundary-Finite Volume (IB-FV) solver for compressible flows
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/34644464/108244406-88402080-7192-11eb-9bfc-60ada4e3d62f.gif">
+<img src="https://user-images.githubusercontent.com/34644464/108954142-af758100-76af-11eb-9e4b-3f7667e141f9.gif">
 </p>
+
 
 # Aerodynamic Shape Optimization
 
