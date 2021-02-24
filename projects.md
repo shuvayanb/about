@@ -24,5 +24,4 @@ Non-conformal approach             |  Conformal approach
 
 # Reduced Order Modelling
 
-![10_modes](https://user-images.githubusercontent.com/34644464/108247599-36999500-7196-11eb-82a9-113a1f091a21.png)
-![1000_modes](https://user-images.githubusercontent.com/34644464/108247680-4fa24600-7196-11eb-9097-07bb1a86eb81.png)
+![POD](https://user-images.githubusercontent.com/34644464/108963083-ff0e7980-76bc-11eb-8efb-a1bedbdea510.gif)
