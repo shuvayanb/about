@@ -11,12 +11,3 @@ I am an avid Chelsea FC fan since 2002, occasional reader/runner and mindfulness
 
 ![dp](https://user-images.githubusercontent.com/34644464/72252765-f9bfae00-3625-11ea-969e-6a32a1921e99.png)
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y0SF8Q03P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6Y0SF8Q03P');
-</script>
