@@ -9,5 +9,6 @@ My research experience and interest include development of novel algorithms aime
 
 I am an avid Chelsea FC fan since 2002, occasional reader/runner and mindfulness practitioner. 
 
-![dp](https://user-images.githubusercontent.com/34644464/72252765-f9bfae00-3625-11ea-969e-6a32a1921e99.png)
+<img src="https://user-images.githubusercontent.com/34644464/110095588-6bd1f400-7de0-11eb-8ea9-c4b44a6f7860.jpg" width="400" height="600">
+
 
