@@ -12,12 +12,8 @@ title: Projects
 # Pareto optimal front for Busemann based intake optimisation
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/34644464/111059494-732c8800-84d9-11eb-99e4-0209ff26bf0d.gif">
+<img src="https://user-images.githubusercontent.com/34644464/111057214-0610f680-84c9-11eb-9029-d815f40adcb7.gif">
 </p>
-<p align="center">
-<img src="https://user-images.githubusercontent.com/34644464/111059514-93f4dd80-84d9-11eb-84f7-2c312423de22.gif">
-</p>
-
 
 # Aerodynamic Shape Optimization
 
