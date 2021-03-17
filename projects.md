@@ -6,7 +6,7 @@ title: Projects
 # Immersed Boundary-Finite Volume (IB-FV) solver for compressible flows
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/34644464/108954142-af758100-76af-11eb-9e4b-3f7667e141f9.gif">
+<img src="https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif">
 </p>
 
 # Pareto optimal front for Busemann based intake optimisation
