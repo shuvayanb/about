@@ -3,7 +3,7 @@ layout: page
 title: Projects
 ---
 
-* # item Immersed Boundary-Finite Volume (IB-FV) solver for compressible flows
+* # Immersed Boundary-Finite Volume (IB-FV) solver for compressible flows
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif">
