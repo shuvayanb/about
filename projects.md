@@ -9,7 +9,7 @@ title: Projects
 <img src="https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif">
 </p>
 
-* # Pareto optimal front for Busemann based intake optimisation
+* # Pareto optimal front
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/34644464/111464158-c6197000-8763-11eb-83db-28ae69c9c746.gif">
