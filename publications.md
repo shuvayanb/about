@@ -14,7 +14,7 @@ title: Publications
 7. Deka, M., **Brahmachary, S.**, Thirumalaisamy, R., Dalal, A., and Natarajan, G., _"A new Green-Gauss Reconstruction on Unstructured Meshes. Part I: Gradient Reconstruction",_ **Journal of Computational Physics**, 2018 [DOI-Link](https://doi.org/10.1016/j.jcp.2018.10.023)
 8. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"A sharp interface immersed boundary framework for simulations of high speed inviscid compressible flows",_ **International Journal of Numerical Methods in Fluids**, 2018 [DOI-Link](https://doi.org/10.1002/fld.4479)
 9. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"On Maximum Ballistic Coefficient Axisymmetric Geometries in Hypersonic Flows",_ **Journal of Spacecraft and Rockets**, 2018 [DOI-Link](https://doi.org/10.2514/1.A33887)
-10. {+ addition 1 +}
+
 
 
 # <span style="color:blue">Book Chapters</span>
