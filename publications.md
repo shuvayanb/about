@@ -3,7 +3,7 @@ layout: page
 title: Publications
 ---
 
-# Journals
+<span style="color:blue"># Journals</span>.
 
 1. **Brahmachary, S**., Natarajan, G., Kulkarni, V., Sahoo, N., Ashok, V., and Kumar, V., "_On the role of solution reconstruction for hypersonic viscous computations using sharp interface immersed boundary method"_, **Physical Review E**, 2021 (Accepted for publication)
 2. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)
@@ -14,7 +14,7 @@ title: Publications
 7. Deka, M., **Brahmachary, S.**, Thirumalaisamy, R., Dalal, A., and Natarajan, G., _"A new Green-Gauss Reconstruction on Unstructured Meshes. Part I: Gradient Reconstruction",_ **Journal of Computational Physics**, 2018 [DOI-Link](https://doi.org/10.1016/j.jcp.2018.10.023)
 8. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"A sharp interface immersed boundary framework for simulations of high speed inviscid compressible flows",_ **International Journal of Numerical Methods in Fluids**, 2018 [DOI-Link](https://doi.org/10.1002/fld.4479)
 9. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"On Maximum Ballistic Coefficient Axisymmetric Geometries in Hypersonic Flows",_ **Journal of Spacecraft and Rockets**, 2018 [DOI-Link](https://doi.org/10.2514/1.A33887)
-Some Markdown text with <span style="color:blue">some *blue* text</span>.
+<span style="color:blue"># Journals</span>.
 
 # Book Chapters
 
