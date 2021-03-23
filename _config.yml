@@ -1,37 +1,57 @@
-# basic options
-title: Home Page
-author: Shuvayan Brahmachary
-email: b.shuvayan@gmail.com
-description: Shuvayan Brahmachary
-
-# Build settings
-markdown: kramdown
+# Site Settings
+title: Mere Blog Theme
+tagline: Mere Blog Theme
+email: your-email@domain.com
+description: >
+  The demo site for Mere Blog Theme, made for Jekyll and GitHub pages websites
+baseurl: "/mere-blog-theme"
+url: "https://www.csrhymes.com"
 permalink: pretty
+
+paginate: 6
+paginate_path: "/page:num"
+
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll/tagging
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - kramdown
+  - rouge
 
-paginate: 5
-paginate_path: "/page/:num"
+exclude:
+  - Gemfile
+  - clean-theme.gemspec
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
-
-# Pages Path
-defaults:
-  - scope:
-      path: '_pages'
-    values:
-      permalink: /:basename:output_ext
-
-include:
-  - _pages
-
-
-# Tags
-tag_page_dir:         tag
-tag_page_layout:      tag_page
-tag_permalink_style:  pretty
+livereload: true
 
 sass:
-  sass_dir: _sass
   style: compressed
+  source_dir: _sass
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "C.S. Rhymes"
+      layout: post
+      image: /img/home.jpg
+      show_sidebar: true
+  -
+    scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+
+collections:
+  authors:
+    output: true
