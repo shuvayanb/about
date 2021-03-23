@@ -3,7 +3,7 @@ layout: page
 title: Publications
 ---
 
-# <span style="color:blue">Journals</span>.
+# <span style="color:blue">Journals</span>
 
 1. **Brahmachary, S**., Natarajan, G., Kulkarni, V., Sahoo, N., Ashok, V., and Kumar, V., "_On the role of solution reconstruction for hypersonic viscous computations using sharp interface immersed boundary method"_, **Physical Review E**, 2021 (Accepted for publication)
 2. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)
@@ -16,13 +16,13 @@ title: Publications
 9. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"On Maximum Ballistic Coefficient Axisymmetric Geometries in Hypersonic Flows",_ **Journal of Spacecraft and Rockets**, 2018 [DOI-Link](https://doi.org/10.2514/1.A33887)
 <span style="color:blue"># Journals</span>.
 
-# Book Chapters
+# <span style="color:blue">Book Chapters</span>
 
 1. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., Sahoo, N., _"A sharp-interface Immersed Boundary method for high-speed compressible flows",_ **Immersed Boundary Methods**, Springer Nature, Singapore, 2020 [DOI-Link](https://doi.org/10.1007/978-981-15-3940-4)
 2. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., Sahoo, N., and Nanda, S.R.,_"Application of greedy and heuristic algorithm based optimisation methods towards aerodynamic shape optimization",_ **Soft Computing for Problem Solving. Advances in Intelligent Systems and Computing**, Springer, Singapore, 2019 [DOI-Link](https://doi.org/10.1007/978-981-13-1592-3)
 3. **Brahmachary, S.**, Natarajan, G., and Sahoo, N., _"A Hybrid Aerodynamic Shape Optimisation Approach for Axisymmetric Body in Hypersonic Flow"_ **Fluid Mechanics and Fluid Power -- Contemporary Research**, Springer, India, 2017 [DOI-Link](https://doi.org/10.1007/978-81-322-2743-4)
 
-# Conferences
+# <span style="color:blue">Conferences</span>
 
 1. **Brahmachary, S.**, and Ogawa, H., _Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight via Surrogate-Assisted Evolutionary Algorithms”,_ In proceedings of the **AIAA SciTech Forum**, 11-15 January, USA, 2021 [DOI link](https://doi.org/10.2514/6.2021-1960)
 2. **Brahmachary, S.**, Fujio, C., Aksay, M., and Ogawa, H., _“Design optimisation and off-design performance study of an axisymmetric scramjet intake for ascent flight”,_ Proceedings of the **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP)** December 9-11, 2020 IIT Guwahati, Assam, India
