@@ -6,4 +6,9 @@ description: Shuvayan Brahmachary
 
 # Build settings
 markdown: kramdown
-theme: minima
+permalink: pretty
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll/tagging
+
