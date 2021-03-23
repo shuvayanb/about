@@ -3,7 +3,7 @@ layout: page
 title: Publications
 ---
 
-<span style="color:blue"># Journals</span>.
+# <span style="color:blue">Journals</span>.
 
 1. **Brahmachary, S**., Natarajan, G., Kulkarni, V., Sahoo, N., Ashok, V., and Kumar, V., "_On the role of solution reconstruction for hypersonic viscous computations using sharp interface immersed boundary method"_, **Physical Review E**, 2021 (Accepted for publication)
 2. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)
