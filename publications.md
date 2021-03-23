@@ -6,7 +6,7 @@ title: Publications
 # Journals
 
 1. **Brahmachary, S**., Natarajan, G., Kulkarni, V., Sahoo, N., Ashok, V., and Kumar, V., "_On the role of solution reconstruction for hypersonic viscous computations using sharp interface immersed boundary method"_, **Physical Review E**, 2021 (Accepted for publication)
-2. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)
+`2. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)`
 3. **Brahmachary, S.**, Fujio, C., and Ogawa, H.,_"Multi-point design optimization of a high-performance intake for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2020 [DOI-Link](https://doi.org/10.1016/j.ast.2020.106362)
 4. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N.,_"Comment on ‘A new approach for the design of hypersonic scramjet inlets'",_ **Physics of Fluids**, 2020 [DOI-Link](https://doi.org/10.1063/5.0006408)
 5. Dudas, E., David, N.S., **Brahmachary, S.**, Kulkarni, V., Benidar, A., Kassi, S., Charles, C., and Georges, R.,_"High-temperature hypersonic Laval nozzle for non-LTE Cavity Ringdown Spectroscopy",_ **Journal of Chemical Physics**, 2020 [DOI-Link](https://doi.org/10.1063/5.0003886)
@@ -14,6 +14,9 @@ title: Publications
 7. Deka, M., **Brahmachary, S.**, Thirumalaisamy, R., Dalal, A., and Natarajan, G., _"A new Green-Gauss Reconstruction on Unstructured Meshes. Part I: Gradient Reconstruction",_ **Journal of Computational Physics**, 2018 [DOI-Link](https://doi.org/10.1016/j.jcp.2018.10.023)
 8. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"A sharp interface immersed boundary framework for simulations of high speed inviscid compressible flows",_ **International Journal of Numerical Methods in Fluids**, 2018 [DOI-Link](https://doi.org/10.1002/fld.4479)
 9. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"On Maximum Ballistic Coefficient Axisymmetric Geometries in Hypersonic Flows",_ **Journal of Spacecraft and Rockets**, 2018 [DOI-Link](https://doi.org/10.2514/1.A33887)
+10. <div class="text-blue mb-2">
+  .text-blue on white
+</div>
 
 # Book Chapters
 
