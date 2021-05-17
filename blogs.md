@@ -11,4 +11,4 @@ Does a successful PhD warrant accomplishments of all research objectives? This b
 
 * [**Principal component analysis in aerodynamic shape optimisation**](https://backpackandbliss.wordpress.com/2021/05/16/principal-component-analysis-in-aerodynamic-shape-optimisation/)
 
-This article highlights the utility of dimensionality reduction technique, i.e. Principal Component Analysis (PCA) for data compression and image (or flowfield) classification 
+This article highlights the utility of dimensionality reduction technique, i.e. Principal Component Analysis (PCA) for data compression and image (or flowfield) classification. 
