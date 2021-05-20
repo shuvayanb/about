@@ -5,6 +5,11 @@ title: Publications
 
 # <span style="color:blue">Journals</span>
 
+** Under preparation**
+1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Fast Internal Flowfield Predictions Using Proper Orthogonal Decomposition based Reduced-Order Predictive Framework",
+
+** Published **
+
 1. **Brahmachary, S.**, Ogawa, H.,_"Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight",_ **Journal of Propulsion and Power**, 2021 (Accepted for publication)
 2. **Brahmachary, S**., Natarajan, G., Kulkarni, V., Sahoo, N., Ashok, V., and Kumar, V., "_Role of solution reconstruction in hypersonic viscous computations using a sharp interface immersed boundary method"_, **Physical Review E**, 2021 [DOI-Link](https://link.aps.org/doi/10.1103/PhysRevE.103.043302)
 3. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)
