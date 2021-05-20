@@ -6,7 +6,7 @@ title: Publications
 # <span style="color:blue">Journals</span>
 
 **Under preparation**
-1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Fast Internal Flowfield Predictions Using Proper Orthogonal Decomposition based Reduced-Order Predictive Framework",
+1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Fast Internal Flowfield Predictions Using Proper Orthogonal Decomposition based Reduced-Order Predictive Framework"_
 
 **Published**
 
