@@ -42,11 +42,12 @@
 
 ### Research Interest
 
-- Computational Fluid Dynamics: Finite Volume Method 
+- Machine Learning: Fluid flowfield reconstruction
+- Computational Modelling: Finite Volume Method for high-fidelity fluid simulations
 - Non-conformal flow solvers: Immersed Boundary Method
 - Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
 - Reduced Order Modelling: Proper Orthogonal Decomposition
-- Machine Learning: Fluid flowfield reconstruction using regression models
+
 
 ### Memberships
 
