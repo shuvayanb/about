@@ -33,6 +33,12 @@
    - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
    - **Subjects**: Fluid Mechanics, Thermal Science
 
+### Training
+
+- Institute for Computational and Mathematical Engineering [`ICME`](https://icme.stanford.edu/icme-summer-workshops-2021-class-descriptions) , Stanford University, Sum- mer Workshops 2021 | Fundamentals of Data Science: Machine learning, Deep learning, High Performance Computing 
+- Non-conformal flow solvers: Immersed Boundary Method
+
+
 ### Research Interest
 
 - Computational Fluid Dynamics: Finite Volume Method 
