@@ -5,7 +5,7 @@ title: Publications
 
 # <span style="color:blue">Journals</span>
 
-[!Presentation1.pdf](https://github.com/shuvayanb/about/files/6922317/Presentation1.pdf)](https://arc.aiaa.org/doi/10.2514/1.B38383)
+[![Presentation1.pdf](https://github.com/shuvayanb/about/files/6922317/Presentation1.pdf)](https://arc.aiaa.org/doi/10.2514/1.B38383)
 
 [![name](link to image on GH)](link to your URL)
 
