@@ -5,6 +5,10 @@ title: Publications
 
 # <span style="color:blue">Journals</span>
 
+[!Presentation1.pdf](https://github.com/shuvayanb/about/files/6922317/Presentation1.pdf)](https://arc.aiaa.org/doi/10.2514/1.B38383)
+
+[![name](link to image on GH)](link to your URL)
+
 **Under review**
 1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Fast Internal Flowfield Predictions Using Proper Orthogonal Decomposition based Reduced-Order Predictive Framework"_
 
