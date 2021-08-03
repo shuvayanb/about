@@ -3,16 +3,39 @@ layout: page
 title: Publications
 ---
 
-# <span style="color:blue">Journals</span>
-
-[![file](https://user-images.githubusercontent.com/34644464/127982223-b172d91d-0ca0-41df-af02-141e0cfe2b26.png)](https://arc.aiaa.org/doi/10.2514/1.B38383)
-
 **Under review**
 1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Fast Internal Flowfield Predictions Using Proper Orthogonal Decomposition based Reduced-Order Predictive Framework"_
 
 **Published**
 
-1. **Brahmachary, S.**, Ogawa, H.,_"Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight",_ **Journal of Propulsion and Power**, 2021 [DOI-Link](https://doi.org/10.2514/1.B38383)
+# <span style="color:blue">Journals</span>
+
+[![1](https://user-images.githubusercontent.com/34644464/128012337-5a2d518e-b711-4547-8869-bc5a6742147d.png)](https://arc.aiaa.org/doi/10.2514/1.B38383)
+
+[![2](https://user-images.githubusercontent.com/34644464/128012536-8a970ccb-ef49-45da-928b-023a18082640.png)](https://link.aps.org/doi/10.1103/PhysRevE.103.043302)
+
+[![3](https://user-images.githubusercontent.com/34644464/128012624-a2783fd3-5869-4089-a8d3-70969bb613ed.png)](https://doi.org/10.1016/j.ast.2021.106531)
+
+[![4](https://user-images.githubusercontent.com/34644464/128012745-c30fb0c5-40c3-493a-a7c6-8f99f50860cd.png)](https://doi.org/10.1016/j.ast.2020.106362)
+
+[![5](https://user-images.githubusercontent.com/34644464/128012881-8421f54a-cce2-4940-8727-611842061928.png)](https://doi.org/10.1063/5.0006408)
+
+[![6](https://user-images.githubusercontent.com/34644464/128012930-9f2931be-c6d1-424a-b549-b313b99fff53.png)](https://doi.org/10.1063/5.0003886)
+
+[![7](https://user-images.githubusercontent.com/34644464/128013042-6f6e3a46-2576-4e14-87e8-d17d27ca694f.png)](https://doi.org/10.1061/(ASCE)AS.1943-5525.0001085)
+
+[![8](https://user-images.githubusercontent.com/34644464/128013115-c12b3709-7e19-4d08-a9bc-395b0ffb538d.png)](https://doi.org/10.1016/j.jcp.2018.10.023)
+
+[![9](https://user-images.githubusercontent.com/34644464/128013169-3dbf6207-a993-40fb-8073-e432decee5bc.png)](https://doi.org/10.1002/fld.4479)
+
+[![10](https://user-images.githubusercontent.com/34644464/128013235-633f9b6c-e8bc-4fea-bc3c-c1875fbaf190.png)](https://doi.org/10.2514/1.A33887)
+
+
+
+
+
+
+<!--1. **Brahmachary, S.**, Ogawa, H.,_"Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight",_ **Journal of Propulsion and Power**, 2021 [DOI-Link](https://doi.org/10.2514/1.B38383)
 2. **Brahmachary, S**., Natarajan, G., Kulkarni, V., Sahoo, N., Ashok, V., and Kumar, V., "_Role of solution reconstruction in hypersonic viscous computations using a sharp interface immersed boundary method"_, **Physical Review E**, 2021 [DOI-Link](https://link.aps.org/doi/10.1103/PhysRevE.103.043302)
 3. Fujio, C., **Brahmachary, S**., and Ogawa, H.,_"Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2021 [DOI-Link](https://doi.org/10.1016/j.ast.2021.106531)
 4. **Brahmachary, S.**, Fujio, C., and Ogawa, H.,_"Multi-point design optimization of a high-performance intake for scramjet-powered ascent flight",_ **Aerospace Science and Technology**, 2020 [DOI-Link](https://doi.org/10.1016/j.ast.2020.106362)
@@ -21,15 +44,23 @@ title: Publications
 7. Desai, S., **Brahmachary, S.**, Gadgil, H., and Kulkarni, V., _"Probing Real Gas and Leading-Edge Bluntness Effects on Shock Wave Boundary-Layer Interaction at Hypersonic Speeds",_ **Journal of Aerospace Engineering**, 2019 [DOI-Link](https://doi.org/10.1061/(ASCE)AS.1943-5525.0001085)
 8. Deka, M., **Brahmachary, S.**, Thirumalaisamy, R., Dalal, A., and Natarajan, G., _"A new Green-Gauss Reconstruction on Unstructured Meshes. Part I: Gradient Reconstruction",_ **Journal of Computational Physics**, 2018 [DOI-Link](https://doi.org/10.1016/j.jcp.2018.10.023)
 9. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"A sharp interface immersed boundary framework for simulations of high speed inviscid compressible flows",_ **International Journal of Numerical Methods in Fluids**, 2018 [DOI-Link](https://doi.org/10.1002/fld.4479)
-10. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"On Maximum Ballistic Coefficient Axisymmetric Geometries in Hypersonic Flows",_ **Journal of Spacecraft and Rockets**, 2018 [DOI-Link](https://doi.org/10.2514/1.A33887)
+10. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., and Sahoo, N., _"On Maximum Ballistic Coefficient Axisymmetric Geometries in Hypersonic Flows",_ **Journal of Spacecraft and Rockets**, 2018 [DOI-Link](https://doi.org/10.2514/1.A33887)-->
 
 
 
 # <span style="color:blue">Book Chapters</span>
 
+
+[![11](https://user-images.githubusercontent.com/34644464/128013294-af7c9ee0-6d00-437a-ba65-5a354afb881c.png)](https://doi.org/10.1007/978-981-15-3940-4)
+
+[![12](https://user-images.githubusercontent.com/34644464/128013396-163ab4fd-0465-4748-bad7-06e16aec26ca.png)](https://doi.org/10.1007/978-981-13-1592-3)
+
+[![13](https://user-images.githubusercontent.com/34644464/128013462-34b904c1-52b2-4d53-a9b8-27f3be00f575.png)](https://doi.org/10.1007/978-81-322-2743-4)
+
+<!--
 1. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., Sahoo, N., _"A sharp-interface Immersed Boundary method for high-speed compressible flows",_ **Immersed Boundary Methods**, Springer Nature, Singapore, 2020 [DOI-Link](https://doi.org/10.1007/978-981-15-3940-4)
 2. **Brahmachary, S.**, Natarajan, G., Kulkarni, V., Sahoo, N., and Nanda, S.R.,_"Application of greedy and heuristic algorithm based optimisation methods towards aerodynamic shape optimization",_ **Soft Computing for Problem Solving. Advances in Intelligent Systems and Computing**, Springer, Singapore, 2019 [DOI-Link](https://doi.org/10.1007/978-981-13-1592-3)
-3. **Brahmachary, S.**, Natarajan, G., and Sahoo, N., _"A Hybrid Aerodynamic Shape Optimisation Approach for Axisymmetric Body in Hypersonic Flow"_ **Fluid Mechanics and Fluid Power -- Contemporary Research**, Springer, India, 2017 [DOI-Link](https://doi.org/10.1007/978-81-322-2743-4)
+3. **Brahmachary, S.**, Natarajan, G., and Sahoo, N., _"A Hybrid Aerodynamic Shape Optimisation Approach for Axisymmetric Body in Hypersonic Flow"_ **Fluid Mechanics and Fluid Power -- Contemporary Research**, Springer, India, 2017 [DOI-Link](https://doi.org/10.1007/978-81-322-2743-4)-->
 
 # <span style="color:blue">Conferences</span>
 
