@@ -51,7 +51,7 @@ title: Publications
 # <span style="color:blue">Book Chapters</span>
 
 
-[![11](https://user-images.githubusercontent.com/34644464/128013294-af7c9ee0-6d00-437a-ba65-5a354afb881c.png)](https://doi.org/10.1007/978-981-15-3940-4)
+[![11](https://user-images.githubusercontent.com/34644464/128014870-929a458a-2b59-41c7-b6a1-48dc2ffdc1ba.png)](https://doi.org/10.1007/978-981-15-3940-4)
 
 [![12](https://user-images.githubusercontent.com/34644464/128013396-163ab4fd-0465-4748-bad7-06e16aec26ca.png)](https://doi.org/10.1007/978-981-13-1592-3)
 
