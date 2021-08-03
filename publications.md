@@ -9,25 +9,25 @@ title: Publications
 **Published**
 
 # <span style="color:blue">Journals</span>
-
+1.
 [![1](https://user-images.githubusercontent.com/34644464/128012337-5a2d518e-b711-4547-8869-bc5a6742147d.png)](https://arc.aiaa.org/doi/10.2514/1.B38383)
-
+2.
 [![2](https://user-images.githubusercontent.com/34644464/128012536-8a970ccb-ef49-45da-928b-023a18082640.png)](https://link.aps.org/doi/10.1103/PhysRevE.103.043302)
-
+3.
 [![3](https://user-images.githubusercontent.com/34644464/128012624-a2783fd3-5869-4089-a8d3-70969bb613ed.png)](https://doi.org/10.1016/j.ast.2021.106531)
-
+4.
 [![4](https://user-images.githubusercontent.com/34644464/128012745-c30fb0c5-40c3-493a-a7c6-8f99f50860cd.png)](https://doi.org/10.1016/j.ast.2020.106362)
-
+5.
 [![5](https://user-images.githubusercontent.com/34644464/128012881-8421f54a-cce2-4940-8727-611842061928.png)](https://doi.org/10.1063/5.0006408)
-
+6.
 [![6](https://user-images.githubusercontent.com/34644464/128012930-9f2931be-c6d1-424a-b549-b313b99fff53.png)](https://doi.org/10.1063/5.0003886)
-
+7.
 [![7](https://user-images.githubusercontent.com/34644464/128013042-6f6e3a46-2576-4e14-87e8-d17d27ca694f.png)](https://doi.org/10.1061/(ASCE)AS.1943-5525.0001085)
-
+8.
 [![8](https://user-images.githubusercontent.com/34644464/128013115-c12b3709-7e19-4d08-a9bc-395b0ffb538d.png)](https://doi.org/10.1016/j.jcp.2018.10.023)
-
+9.
 [![9](https://user-images.githubusercontent.com/34644464/128013169-3dbf6207-a993-40fb-8073-e432decee5bc.png)](https://doi.org/10.1002/fld.4479)
-
+10.
 [![10](https://user-images.githubusercontent.com/34644464/128013235-633f9b6c-e8bc-4fea-bc3c-c1875fbaf190.png)](https://doi.org/10.2514/1.A33887)
 
 
@@ -50,11 +50,11 @@ title: Publications
 
 # <span style="color:blue">Book Chapters</span>
 
-
+1.
 [![11](https://user-images.githubusercontent.com/34644464/128014870-929a458a-2b59-41c7-b6a1-48dc2ffdc1ba.png)](https://doi.org/10.1007/978-981-15-3940-4)
-
+2.
 [![12](https://user-images.githubusercontent.com/34644464/128013396-163ab4fd-0465-4748-bad7-06e16aec26ca.png)](https://doi.org/10.1007/978-981-13-1592-3)
-
+3.
 [![13](https://user-images.githubusercontent.com/34644464/128013462-34b904c1-52b2-4d53-a9b8-27f3be00f575.png)](https://doi.org/10.1007/978-81-322-2743-4)
 
 <!--
