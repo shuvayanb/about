@@ -9,9 +9,9 @@ title: Projects
 <img src="https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif">
 </p>
 
-<p align="center">
+
 ![Immersed Boudnary Method](https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif)
-</p>
+
 
 
 * # <span style="color:blue">Pareto optimal front</span>
