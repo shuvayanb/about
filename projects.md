@@ -10,7 +10,7 @@ title: Projects
 </p>
 
 
-![Immersed Boudnary Method](https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif)
+![Immersed Boudnary Method](https://user-images.githubusercontent.com/34644464/111479099-0254cc80-8774-11eb-9037-56fb165df8f4.gif "Test capion")
 
 
 
