@@ -3,8 +3,8 @@ layout: page
 title: Publications
 ---
 
-**Under review**
-1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Fast Internal Flowfield Predictions Using Proper Orthogonal Decomposition based Reduced-Order Predictive Framework"_
+**Under Preparation**
+1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Reduced Order Model and Machine Learning Assisted Evolutionary Algorithm"_
 
 **Published**
 
