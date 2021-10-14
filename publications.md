@@ -10,7 +10,7 @@ title: Publications
 
 # <span style="color:blue">Journals</span>
 1. <span style="color:red">Chosen as Featured Article</span>
-[![1](https://user-images.githubusercontent.com/34644464/133360126-141b81cb-5160-4158-ad0d-a92a71bfde72.png)]()
+[![1](https://user-images.githubusercontent.com/34644464/133360126-141b81cb-5160-4158-ad0d-a92a71bfde72.png)](https://aip.scitation.org/doi/10.1063/5.0064724)
 2.
 [![2](https://user-images.githubusercontent.com/34644464/128012337-5a2d518e-b711-4547-8869-bc5a6742147d.png)](https://arc.aiaa.org/doi/10.2514/1.B38383)
 3.
