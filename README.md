@@ -9,7 +9,7 @@
 
 - `2019 Sept. - 2021 Sept.`: **Postdoctoral Research Fellow**
    - Space Transportation System Engineering Laboratory. Department of Aeronautics and Astronautics, _Kyushu University_, Japan
-   - **Research Topic**: Numerical and experimental design of scramjet engines for ascent flight
+   - **Research Topic**: Scramjet engines design and optimisation for ascent flight using machine learning
    - **Advisor**: [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html)
    
 - `2018 Feb. - 2018 Dec.`: **Junior Research Fellow**
