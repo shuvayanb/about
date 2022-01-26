@@ -1,14 +1,5 @@
 ![banner](https://user-images.githubusercontent.com/34644464/72253356-60919700-3627-11ea-9537-e5819c77f373.jpg)
 
-### Education
-
-- **Doctor of Philosophy in Fluids and Thermal Engineering** `2013 Jan. - 2019 June` <br/>
-  Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India <br/>
-  Supervisor: [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/about-me) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417)
-  
-- **Bachelor of Engineering in Mechanical Engineering** `2008 Aug. - 2012 May` <br/>
-  Department of Mechanical Engineering, _Girijananda Chowdhury Institute of Management and Technology_, India <br/>
-
 ### Experience
 
 - `2022 Jan. - Present`: **Postdoctoral Research Fellow**
@@ -38,6 +29,15 @@
    - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
    - **Subjects**: Fluid Mechanics, Thermal Science
 
+### Education
+
+- **Doctor of Philosophy in Fluids and Thermal Engineering** `2013 Jan. - 2019 June` <br/>
+  Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India <br/>
+  Supervisor: [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/about-me) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417)
+  
+- **Bachelor of Engineering in Mechanical Engineering** `2008 Aug. - 2012 May` <br/>
+  Department of Mechanical Engineering, _Gauhati University_, India <br/>
+  
 ### Training
 
 - Institute for Computational and Mathematical Engineering [`ICME`](https://icme.stanford.edu/icme-summer-workshops-2021-class-descriptions) , Stanford University, Summer Workshops 2021. Fundamentals of Data Science: Machine learning, Deep learning, High Performance Computing 
