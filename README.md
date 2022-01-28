@@ -59,9 +59,9 @@
 ### Contact
 `s.brahmachary@tum.de`<br/>
 `b.shuvayan@gmail.com`<br/>
-`Space Transportation Systems Engineering Laboratory`<br/>
-`Department of Aeronautics and Astronautics`<br/>
-`Kyushu University`<br/>
+`Thuerey group`<br/>
+`Department of Informatics`<br/>
+`Technical University of Munich`<br/>
 
 
 ### Additional Links
