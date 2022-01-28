@@ -57,7 +57,7 @@
 - Member of the Soft Computing Research Society (SCRS)
 
 ### Contact
-`brahmachary.shuvayan.140@m.kyushu-u.ac.jp`<br/>
+`s.brahmachary@tum.de`<br/>
 `b.shuvayan@gmail.com`<br/>
 `Space Transportation Systems Engineering Laboratory`<br/>
 `Department of Aeronautics and Astronautics`<br/>
