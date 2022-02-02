@@ -3,7 +3,7 @@ layout: page
 title: Publications
 ---
 
-**Under Preparation**
+**Under Review**
 1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Reduced Order Model and Machine Learning Assisted Evolutionary Algorithm"_
 
 **Published**
