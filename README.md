@@ -81,13 +81,3 @@
 
   gtag('config', 'G-6Y0SF8Q03P');
 </script>
-
-
-
-{::options parse_block_html="false" /}
-
-<div class="center">
-
-<blockquote class="twitter-timeline" href="https://twitter.com/b_shuvayan?ref_src=twsrc%5Etfw">Tweets by b_shuvayan</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-</div>
