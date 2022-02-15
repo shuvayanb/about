@@ -88,7 +88,6 @@
 
 <div class="center">
 
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Thanks to <a href="https://twitter.com/gitlab">@gitlab</a> for joining <a href="https://twitter.com/RailsGirlsCluj">@RailsGirlsCluj</a>! <a href="https://t.co/NOoiqDWKVY">pic.twitter.com/NOoiqDWKVY</a></p>&mdash; RailsGirlsCluj (@RailsGirlsCluj) <a href="https://twitter.com/RailsGirlsCluj/status/784847271645028352">October 8, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-timeline" href="https://twitter.com/b_shuvayan?ref_src=twsrc%5Etfw">Tweets by b_shuvayan</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </div>
