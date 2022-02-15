@@ -15,3 +15,11 @@ Feel free to browse through the projects and publications page and email for que
 
 <img src="https://user-images.githubusercontent.com/34644464/110095588-6bd1f400-7de0-11eb-8ea9-c4b44a6f7860.jpg" width="400" height="600">
 
+
+{::options parse_block_html="false" /}
+
+<div class="center">
+
+<blockquote class="twitter-timeline" href="https://twitter.com/b_shuvayan?ref_src=twsrc%5Etfw">Tweets by b_shuvayan</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
