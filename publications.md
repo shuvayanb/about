@@ -6,11 +6,6 @@ title: Publications
 **Under Preparation**
 1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Reduced Order Model and Machine Learning Assisted Evolutionary Algorithm"_
 
-**Under Review**
-1. **Brahmachary, S.**, Fujio, C., Aksay, M., and Ogawa, H.,_"Design Optimization and Off-Design Performance Analysis of Axisymmetric Scramjet Intakes for Ascent Flight"_
-
-<img width="1617" alt="15" src="https://user-images.githubusercontent.com/34644464/155010389-353a304c-0db3-43c9-9751-4e80ea0fe3ab.png">
-
 **Published**
 
 # <span style="color:blue">Journals</span>
