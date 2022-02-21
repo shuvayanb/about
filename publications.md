@@ -9,12 +9,13 @@ title: Publications
 **Under Review**
 1. **Brahmachary, S.**, Fujio, C., Aksay, M., and Ogawa, H.,_"Design Optimization and Off-Design Performance Analysis of Axisymmetric Scramjet Intakes for Ascent Flight"_
 
+<img width="1617" alt="15" src="https://user-images.githubusercontent.com/34644464/155010389-353a304c-0db3-43c9-9751-4e80ea0fe3ab.png">
 
 **Published**
 
 # <span style="color:blue">Journals</span>
 1.
-[![1](https://https://user-images.githubusercontent.com/34644464/155010007-05ea0827-bb2c-478b-9421-62a36cbd41d2.png)](https://shuvayanb.github.io/about/publications.html)
+[![1](https://user-images.githubusercontent.com/34644464/155010389-353a304c-0db3-43c9-9751-4e80ea0fe3ab.png)](https://shuvayanb.github.io/about/publications.html)
 2. <span style="color:red">Chosen as Featured Article</span>
 [![2](https://user-images.githubusercontent.com/34644464/137574628-ce3d9787-5d7f-4209-805c-df9e0c8297c7.png)](https://aip.scitation.org/doi/10.1063/5.0064724)
 3.
