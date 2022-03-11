@@ -10,7 +10,7 @@ title: Publications
 
 # <span style="color:blue">Journals</span>
 1. <span style="color:red">Special issue: Frontiers of Fluid Mechanics</span>
-[![1](https://user-images.githubusercontent.com/34644464/155010389-353a304c-0db3-43c9-9751-4e80ea0fe3ab.png)](https://aip.scitation.org/doi/10.1063/5.0080272)
+[![1](https://user-images.githubusercontent.com/34644464/157897806-9d020913-af82-48da-9aa7-4d5720751bed.png)](https://aip.scitation.org/doi/10.1063/5.0080272)
 2. <span style="color:red">Chosen as Featured Article</span>
 [![2](https://user-images.githubusercontent.com/34644464/137574628-ce3d9787-5d7f-4209-805c-df9e0c8297c7.png)](https://aip.scitation.org/doi/10.1063/5.0064724)
 3.
