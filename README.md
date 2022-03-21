@@ -1,14 +1,6 @@
 ![banner](https://user-images.githubusercontent.com/34644464/72253356-60919700-3627-11ea-9537-e5819c77f373.jpg)
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-057G3SESDF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-057G3SESDF');
-</script>
+[![Analytics](https://ga-beacon.appspot.com/UA-XXXXX-X/welcome-page)](https://github.com/shuvayanb/about)
 
 ### Experience
 
