@@ -1,7 +1,5 @@
 ![banner](https://user-images.githubusercontent.com/34644464/72253356-60919700-3627-11ea-9537-e5819c77f373.jpg)
 
-[![Analytics](https://ga-beacon.appspot.com/UA-XXXXX-X/welcome-page)](https://www.googletagmanager.com/gtag/js?id=G-13WJ6TW3YD)
-
 ### Experience
 
 - `2022 Jan. - Present`: **Postdoctoral Research Fellow**
