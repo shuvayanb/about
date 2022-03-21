@@ -73,12 +73,11 @@
 [![rg_resized](https://user-images.githubusercontent.com/34644464/112087898-2da34580-8bd2-11eb-9e31-ee5ccfabc35c.png)](https://www.researchgate.net/profile/Shuvayan-Brahmachary)
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXXMYEJS4T"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-401VWK985V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-SXXMYEJS4T');
+  gtag('config', 'G-401VWK985V');
 </script>
-
