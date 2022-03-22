@@ -14,14 +14,3 @@ I am an avid Chelsea FC fan since 2002, occasional reader and mindfulness practi
 Feel free to browse through the projects and publications page and email for queries. Have a good one!
 
 <img src="https://user-images.githubusercontent.com/34644464/110095588-6bd1f400-7de0-11eb-8ea9-c4b44a6f7860.jpg" width="400" height="600">
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-13WJ6TW3YD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-13WJ6TW3YD');
-</script>
