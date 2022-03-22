@@ -71,13 +71,3 @@
 [![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
 [![logo_resized](https://user-images.githubusercontent.com/34644464/112086346-6130a080-8bcf-11eb-90ad-7c1ad5a3c6ed.png)](https://orcid.org/0000-0003-4383-0875)
 [![rg_resized](https://user-images.githubusercontent.com/34644464/112087898-2da34580-8bd2-11eb-9e31-ee5ccfabc35c.png)](https://www.researchgate.net/profile/Shuvayan-Brahmachary)
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN90DYVJYX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JN90DYVJYX');
-</script>
