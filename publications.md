@@ -23,7 +23,7 @@ title: Publications
 [![6](https://user-images.githubusercontent.com/34644464/128012745-c30fb0c5-40c3-493a-a7c6-8f99f50860cd.png)](https://doi.org/10.1016/j.ast.2020.106362)
 7.
 [![7](https://user-images.githubusercontent.com/34644464/128012881-8421f54a-cce2-4940-8727-611842061928.png)](https://doi.org/10.1063/5.0006408)
-8. <span style="color:red">Chosen as Featured Article</span>
+8.<span style="color:red"> Chosen as Featured Article</span>
 [![8](https://user-images.githubusercontent.com/34644464/128012930-9f2931be-c6d1-424a-b549-b313b99fff53.png)](https://doi.org/10.1063/5.0003886)
 9.
 [![9](https://user-images.githubusercontent.com/34644464/128013042-6f6e3a46-2576-4e14-87e8-d17d27ca694f.png)](https://doi.org/10.1061/(ASCE)AS.1943-5525.0001085)
