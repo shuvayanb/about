@@ -1,6 +1,6 @@
 ---
 layout: page
-title: GitHub repo
+title: GitHub_repo
 ---
 
 Here's a list of Github repos that might be useful
