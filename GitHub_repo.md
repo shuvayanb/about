@@ -11,3 +11,4 @@ This repository is meant for the validation test-cases performed using Phiflow f
 
 * [**LFF for aerodynamic design and shape optimisation**](https://github.com/shuvayanb/LFF-for-design-and-optimisation)
 
+This repository stores various low-fidelity framework for aerodynamic design and shape optimisation for canonical configurations
