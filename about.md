@@ -13,4 +13,4 @@ I am an avid Chelsea FC fan since 2002, occasional reader and mindfulness practi
 
 Feel free to browse through the projects and publications page and email for queries. Have a good one!
 
-<img src="https://user-images.githubusercontent.com/34644464/110095588-6bd1f400-7de0-11eb-8ea9-c4b44a6f7860.jpg" width="400" height="600">
+<img src="https://user-images.githubusercontent.com/34644464/169360231-ee3289bd-8821-4e3d-90cf-43a6c5f35a74.JPG" width="400" height="600">
