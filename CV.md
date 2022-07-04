@@ -56,19 +56,3 @@ title: CV
 
 - Life member of the Society for Shock Wave Research (SSWR)
 - Member of the Soft Computing Research Society (SCRS)
-
-### Contact
-`s.brahmachary@tum.de`<br/>
-`b.shuvayan@gmail.com`<br/>
-`Thuerey group`<br/>
-`Department of Informatics`<br/>
-`Technical University of Munich`<br/>
-
-
-### Additional Links
-
-[![google_scholar](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en)
-[![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
-[![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
-[![logo_resized](https://user-images.githubusercontent.com/34644464/112086346-6130a080-8bcf-11eb-90ad-7c1ad5a3c6ed.png)](https://orcid.org/0000-0003-4383-0875)
-[![rg_resized](https://user-images.githubusercontent.com/34644464/112087898-2da34580-8bd2-11eb-9e31-ee5ccfabc35c.png)](https://www.researchgate.net/profile/Shuvayan-Brahmachary)
