@@ -1,7 +1,4 @@
----
-layout: page
-title: About
----
+
 
 # <span style="color:blue">Shuvayan Brahmachary
 
