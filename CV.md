@@ -43,14 +43,6 @@ title: CV
 - Institute for Computational and Mathematical Engineering [`ICME`](https://icme.stanford.edu/icme-summer-workshops-2021-class-descriptions) , Stanford University, Summer Workshops 2021. Fundamentals of Data Science: Machine learning, Deep learning, High Performance Computing 
 - GPU programming and applications with hands on training on NVIDIA’s CUDA environment at IITG, 2014
 
-### Research Interest
-
-- Machine Learning: Fluid flowfield reconstruction
-- Computational Modelling: Finite Volume Method for high-fidelity fluid simulations
-- Non-conformal flow solvers: Immersed Boundary Method
-- Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
-- Reduced Order Modelling: Proper Orthogonal Decomposition
-
 ### Memberships
 
 - Life member of the Society for Shock Wave Research (SSWR)
