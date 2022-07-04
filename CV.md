@@ -51,7 +51,6 @@ title: CV
 - Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
 - Reduced Order Modelling: Proper Orthogonal Decomposition
 
-
 ### Memberships
 
 - Life member of the Society for Shock Wave Research (SSWR)
