@@ -7,8 +7,8 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 ### Research Interest
 
 - Computational Modelling: Finite Volume Method for high-fidelity fluid simulations
- * Sub Item A
-  * Sub Item B
+  - stuff here
+  - stuff another
 - Machine Learning: Fluid flowfield reconstruction and fluid control [`Phiflow`](https://github.com/tum-pbs/PhiFlow)
 - Non-conformal flow solvers: Immersed Boundary Method
 - Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
