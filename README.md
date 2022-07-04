@@ -21,7 +21,7 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 ### Contact
 `s.brahmachary@tum.de`<br/>
 `b.shuvayan@gmail.com`<br/>
-`Thuerey group`<br/>
+`Thuerey group, Physics-based simulation`<br/>
 `Department of Informatics`<br/>
 `Technical University of Munich`<br/>
 
