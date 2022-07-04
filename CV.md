@@ -7,12 +7,12 @@ title: CV
 
 - `2022 Jan. - Present`: **Postdoctoral Research Fellow**
    - Department of Informatics, _Technical University Munich_, Germany
-   - **Research Topic**: Developement of an immersed boundary based differentiable flow solver
+   - **Research Topic**: Developement of an immersed boundary-based differentiable flow solver for machine learning assisted fluid control
    - **Advisor**: [Dr. Nils Thuerey](https://ge.in.tum.de/)
 
 - `2019 Sept. - 2021 Sept.`: **Postdoctoral Research Fellow**
    - Space Transportation System Engineering Laboratory. Department of Aeronautics and Astronautics, _Kyushu University_, Japan
-   - **Research Topic**: Scramjet engine design and optimisation for ascent flight using machine learning
+   - **Research Topic**: Scramjet engine design and optimisation for ascent flight using data driven techniques
    - **Advisor**: [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html)
    
 - `2018 Feb. - 2018 Dec.`: **Junior Research Fellow**
