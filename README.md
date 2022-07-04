@@ -13,7 +13,7 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
   - Fluid flowfield reconstruction and fluid control [`Phiflow`](https://github.com/tum-pbs/PhiFlow)
   - Reduced-order model assisted supervised learning as surrogates for aerodynamic shape optimisation
 - Aerodynamic Shape Optimisation and Design: 
-  - Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
+  - Surrogate Assisted Evolutionary Algo [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
   - [`Low-Fidelity Framework`](https://github.com/shuvayanb/LFF-for-design-and-optimisation) for design and optimisation
 - Reduced Order Modelling:
   - Proper Orthogonal Decomposition
