@@ -6,18 +6,17 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 ### Research Interest
 
-- Computational Modelling: Finite Volume Method for high-fidelity fluid simulations
-  - stuff here
-  - stuff another
-- Machine Learning: Fluid flowfield reconstruction and fluid control [`Phiflow`](https://github.com/tum-pbs/PhiFlow)
-- Non-conformal flow solvers: Immersed Boundary Method
-- Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
-- Reduced Order Modelling: Proper Orthogonal Decomposition
-
-
-
-
-
+- Computational Modelling: 
+  - In-house non-conformal immersed boundary solver for high-speed flows
+  - [`FoamExtend`](https://openfoamwiki.net/index.php/Installation/Linux/foam-extend-4.1)
+- Machine Learning: 
+  - Fluid flowfield reconstruction and fluid control [`Phiflow`](https://github.com/tum-pbs/PhiFlow)
+  - Supervised learning based surrogates for aerodynamic shape optimisation
+- Aerodynamic Shape Optimisation: 
+  - Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html)
+  - Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
+- Reduced Order Modelling:
+  - Proper Orthogonal Decomposition
 
 ### Contact
 `s.brahmachary@tum.de`<br/>
