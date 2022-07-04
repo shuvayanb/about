@@ -1,73 +1,16 @@
-![banner](https://user-images.githubusercontent.com/34644464/72253356-60919700-3627-11ea-9537-e5819c77f373.jpg)
+---
+layout: page
+title: About
+---
 
-### Experience
+# <span style="color:blue">Shuvayan Brahmachary
 
-- `2022 Jan. - Present`: **Postdoctoral Research Fellow**
-   - Department of Informatics, _Technical University Munich_, Germany
-   - **Research Topic**: Developement of an immersed boundary based differentiable flow solver
-   - **Advisor**: [Dr. Nils Thuerey](https://ge.in.tum.de/)
+I am a postdoctoral research fellow in the Department of Informatics, at the [Technical University of Munich](https://www.tum.de/en/), Germany, under the supervision of [Dr. Nils Thuerey](https://ge.in.tum.de/) (Jan. 2022- present). Previously, I have worked as a postdoc fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, under the mentorship of [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html) (Sept. 2019 untill Sept. 2021). I have obtained my Ph.D from [Indian Institute of Technology Guwahati](http://www.iitg.ac.in/) in the Department of Mechanical Engineering under the guidance of [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417). My Ph.D <a href="Thesis_short_version.pdf" target="_blank">thesis.</a> title is "Finite Volume/Immersed Boundary Solvers for Compressible Flows: Development and Applications". 
 
-- `2019 Sept. - 2021 Sept.`: **Postdoctoral Research Fellow**
-   - Space Transportation System Engineering Laboratory. Department of Aeronautics and Astronautics, _Kyushu University_, Japan
-   - **Research Topic**: Scramjet engine design and optimisation for ascent flight using machine learning
-   - **Advisor**: [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html)
-   
-- `2018 Feb. - 2018 Dec.`: **Junior Research Fellow**
-   - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
-   - **Research Topic**: Compressible flow solver with immersed boundary approach
-   - **PI**: [Prof. Vinayak Kulkarni](https://sites.google.com/site/kulksaero/)
+My research experience and interest include development of novel algorithms aimed at the accurate numerical simulation of fluid flows using non-conformal flow solvers, its seamless integration to aerodynamic design and optimisation. I have developed a keen interest in the *responsible* use of data-driven approaches for fluid mechanics related problems, *e.g.,* shape optimisation, fluid-flow reconstruction, flow control, etc. 
 
-- `2012 Sept. - 2012 Dec.`: **Assistant Project Engineer**
-   - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
-   - **Research Topic**: Shock tube development and verification of existing correlations for stagnation point heat transfer
-   - **PI**: [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417)
+I am an avid Chelsea FC fan since 2002, occasional reader and mindfulness practitioner. 
 
-- `2014 Jan. - 2016 June.`: **Teaching Assistant**
-   - Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India
-   - **Subjects**: Fluid Mechanics, Thermal Science
+Feel free to browse through the projects and publications page and email for queries. Have a good one!
 
-### Education
-
-- **Doctor of Philosophy in Fluids and Thermal Engineering** `2013 Jan. - 2019 June` <br/>
-  Department of Mechanical Engineering, _Indian Institute of Technology Guwahati_, India <br/>
-  Supervisor: [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/about-me) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417)
-  
-- **Bachelor of Engineering in Mechanical Engineering** `2008 Aug. - 2012 May` <br/>
-  Department of Mechanical Engineering, _Gauhati University_, India <br/>
-  
-### Training
-
-- Institute for Computational and Mathematical Engineering [`ICME`](https://icme.stanford.edu/icme-summer-workshops-2021-class-descriptions) , Stanford University, Summer Workshops 2021. Fundamentals of Data Science: Machine learning, Deep learning, High Performance Computing 
-- GPU programming and applications with hands on training on NVIDIA’s CUDA environment at IITG, 2014
-- French 6 months A1+ French course at IITG
-
-
-### Research Interest
-
-- Machine Learning: Fluid flowfield reconstruction
-- Computational Modelling: Finite Volume Method for high-fidelity fluid simulations
-- Non-conformal flow solvers: Immersed Boundary Method
-- Aerodynamic Shape Optimisation: Surrogate Assisted Evolutionary Algorithm [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
-- Reduced Order Modelling: Proper Orthogonal Decomposition
-
-
-### Memberships
-
-- Life member of the Society for Shock Wave Research (SSWR)
-- Member of the Soft Computing Research Society (SCRS)
-
-### Contact
-`s.brahmachary@tum.de`<br/>
-`b.shuvayan@gmail.com`<br/>
-`Thuerey group`<br/>
-`Department of Informatics`<br/>
-`Technical University of Munich`<br/>
-
-
-### Additional Links
-
-[![google_scholar](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en)
-[![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
-[![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
-[![logo_resized](https://user-images.githubusercontent.com/34644464/112086346-6130a080-8bcf-11eb-90ad-7c1ad5a3c6ed.png)](https://orcid.org/0000-0003-4383-0875)
-[![rg_resized](https://user-images.githubusercontent.com/34644464/112087898-2da34580-8bd2-11eb-9e31-ee5ccfabc35c.png)](https://www.researchgate.net/profile/Shuvayan-Brahmachary)
+<img src="https://user-images.githubusercontent.com/34644464/169360231-ee3289bd-8821-4e3d-90cf-43a6c5f35a74.JPG" width="300" height="400">
