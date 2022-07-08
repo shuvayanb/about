@@ -29,7 +29,7 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 ### Additional Links
 
 [![google_scholar](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en)
-[![github_logo](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://github.com/shuvayanb)
+[![github](https://user-images.githubusercontent.com/34644464/177961687-afd93f93-cd63-45b8-a7cc-aa2bff368e87.png)](https://github.com/shuvayanb)
 [![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
 [![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
 [![logo_resized](https://user-images.githubusercontent.com/34644464/112086346-6130a080-8bcf-11eb-90ad-7c1ad5a3c6ed.png)](https://orcid.org/0000-0003-4383-0875)
