@@ -10,7 +10,7 @@ title: Projects
 
 * # <span style="color:blue">Aerodynamic Shape Optimization</span>
 * 
-![Aerodynamic Shape Optimisation]([https://user-images.githubusercontent.com/34644464/221931342-03a1ca28-8e8f-4b9f-b0ce-3d7afe8deb33.jpg](https://user-images.githubusercontent.com/34644464/221939728-604d996e-00fb-4fa2-aa73-5115299b72c4.png) 
+![Aerodynamic Shape Optimisation](https://user-images.githubusercontent.com/34644464/221939728-604d996e-00fb-4fa2-aa73-5115299b72c4.png "")
 
 
 
