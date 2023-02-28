@@ -15,10 +15,3 @@ title: Projects
 * # <span style="color:blue">Scramjet Design Optimization</span>
 
 ![Multiobjective Design Optimization](https://user-images.githubusercontent.com/34644464/221941371-42842284-3a87-4abc-b823-212dcbafb916.png)
-
-
-* # <span style="color:blue">Reduced Order Modelling</span>
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/34644464/111465352-573d1680-8765-11eb-940d-bd39a0e49fef.gif">
-</p>
