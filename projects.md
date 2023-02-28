@@ -3,7 +3,7 @@ layout: page
 title: Projects
 ---
 
-* # <span style="color:blue">Deep-learning assisted fluid mechanics </span>
+* # <span style="color:blue">Deep-Learning Assisted Fluid Mechanics </span>
 
 ![Deep-learning assisted fluid mechanics](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png)
 
