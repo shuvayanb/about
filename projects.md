@@ -9,10 +9,10 @@ title: Projects
 
 
 * # <span style="color:blue">Aerodynamic Shape Optimization</span>
+* 
+![Aerodynamic Shape Optimisation]([https://user-images.githubusercontent.com/34644464/221931342-03a1ca28-8e8f-4b9f-b0ce-3d7afe8deb33.jpg](https://user-images.githubusercontent.com/34644464/221939728-604d996e-00fb-4fa2-aa73-5115299b72c4.png) 
 
-Non-conformal approach             |  Conformal approach
-:-------------------------:|:-------------------------:
-![IB_mod_resize](https://user-images.githubusercontent.com/34644464/108954560-53f7c300-76b0-11eb-920f-6f26172d9079.gif)  |  ![FV_resize](https://user-images.githubusercontent.com/34644464/108243889-eddfdd00-7191-11eb-8ebc-6c92b30d9415.gif)
+
 
 
 * # <span style="color:blue">Reduced Order Modelling</span>
