@@ -5,11 +5,7 @@ title: Projects
 
 * # <span style="color:blue">[Deep-Learning Assisted Fluid Mechanics](Sub_projects/p_deep_learning.md) </span>
 
-<img src="https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png" width="500" height="300"> 
-
-![Block image](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png#block)
-
-![Avatar](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png#avatar)
+![Deep Learning](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png)
 
 
 * # <span style="color:blue">[Immersed Boundary Method](Sub_projects/p_immersed_boundary.md) </span>
