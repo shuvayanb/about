@@ -7,6 +7,7 @@ title: Projects
 
 ![Deep-learning assisted fluid mechanics](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png)
 
+![Deep-learning assisted fluid mechanics]<img src="[https://your-image-url.type](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png)" width="100" height="100">
 
 * # <span style="color:blue">[Immersed Boundary Method](Sub_projects/p_immersed_boundary.md) </span>
 
