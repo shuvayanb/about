@@ -9,6 +9,8 @@ title: Projects
 
 ![Block image](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png#block)
 
+![Avatar](https://user-images.githubusercontent.com/34644464/221943040-3d4d157e-c065-4830-bbca-3adecb30f9a2.png#avatar)
+
 
 * # <span style="color:blue">[Immersed Boundary Method](Sub_projects/p_immersed_boundary.md) </span>
 
