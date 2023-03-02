@@ -17,4 +17,3 @@ title: Projects
 ![Multiobjective Design Optimization](https://user-images.githubusercontent.com/34644464/221941371-42842284-3a87-4abc-b823-212dcbafb916.png)
 
 
-
