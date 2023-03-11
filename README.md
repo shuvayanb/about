@@ -4,7 +4,7 @@ Hi! I am Shuvayan Brahmachary. I am a postdoctoral research fellow in the Depart
 
 Feel free to browse through the projects, publications and Jupyter Notebooks and email for queries. Have a good one!
 
-### <a href="Resume.pdf" target="_blank">CV</a>
+### Here's my <a href="Resume.pdf" target="_blank">CV</a>
 
 ### Research Interest
 
