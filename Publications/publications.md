@@ -68,7 +68,7 @@ title: Publications
 
 # <span style="color:blue">Conferences</span>
 
-1. **Brahmachary, S.**, and Thuerey, N., Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries”,_ In proceedings of IACM Computational Fluids Conference **IACM CFC**, 25-28 April, Cannes, France, 2023
+1. **Brahmachary, S.**, and Thuerey, N., _Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries”,_ In proceedings of IACM Computational Fluids Conference **IACM CFC**, 25-28 April, Cannes, France, 2023
 2. **Brahmachary, S.**, and Ogawa, H., _Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight via Surrogate-Assisted Evolutionary Algorithms”,_ In proceedings of the **AIAA SciTech Forum**, 11-15 January, USA, 2021 [DOI link](https://doi.org/10.2514/6.2021-1960)
 3. **Brahmachary, S.**, Fujio, C., Aksay, M., and Ogawa, H., _“Design optimisation and off-design performance study of an axisymmetric scramjet intake for ascent flight”,_ Proceedings of the **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP)** December 9-11, 2020 IIT Guwahati, Assam, India
 4. **Brahmachary, S.**, Chutia, J., Natarajan, G., Kulkarni, V., and Sahoo, N, “_Parametric investigation towards the design of a scramjet intake using low-fidelity approach",_ Proceedings of the **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP)** December 9-11, 2020 IIT Guwahati, Assam, India
