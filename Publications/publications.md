@@ -8,7 +8,7 @@ title: Publications
 
 **Published**
 
-# <span style="color:blue">Journals</span>z
+# <span style="color:blue">Journals</span>
 1.<span style="color:red">Special issue: Frontiers of Fluid Mechanics</span>
 [![1](https://user-images.githubusercontent.com/34644464/157897806-9d020913-af82-48da-9aa7-4d5720751bed.png)](https://aip.scitation.org/doi/10.1063/5.0080272)
 2.<span style="color:red">Chosen as Featured Article</span>
