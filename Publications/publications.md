@@ -3,12 +3,12 @@ layout: page
 title: Publications
 ---
 
-**Under Preparation**
-1. **Brahmachary, S.**, Ananthakrishnan, B., and Ogawa, H.,_"Reduced Order Model and Machine Learning Assisted Evolutionary Algorithm"_
+**Under Review**
+1. **Brahmachary, S.**, and Thuerey, L.,_"Unsteady Cylinder Wakes from Arbitrary Bodies with Differentiable Physics-Assisted Neural Network"_ [ArXiv PrePrint](https://arxiv.org/abs/2308.04296)
 
 **Published**
 
-# <span style="color:blue">Journals</span>
+# <span style="color:blue">Journals</span>z
 1.<span style="color:red">Special issue: Frontiers of Fluid Mechanics</span>
 [![1](https://user-images.githubusercontent.com/34644464/157897806-9d020913-af82-48da-9aa7-4d5720751bed.png)](https://aip.scitation.org/doi/10.1063/5.0080272)
 2.<span style="color:red">Chosen as Featured Article</span>
