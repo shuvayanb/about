@@ -21,11 +21,11 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
   - Proper Orthogonal Decomposition
 
 ### Contact
-`s.brahmachary@tum.de`<br/>
+`shuvayan.brahmachary@shell.com`<br/>
 `b.shuvayan@gmail.com`<br/>
-`Thuerey group, Physics-based simulation`<br/>
-`Department of Informatics`<br/>
-`Technical University of Munich`<br/>
+`Products and Technology`<br/>
+`Shell Technology Center`<br/>
+`Bengaluru, Karnataka, India`<br/>
 
 
 ### Additional Links
