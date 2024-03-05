@@ -4,7 +4,8 @@ title: Publications
 ---
 
 **Under Review**
-1. **Brahmachary, S.**, and Thuerey, L.,_"Unsteady Cylinder Wakes from Arbitrary Bodies with Differentiable Physics-Assisted Neural Network"_ [ArXiv PrePrint](https://arxiv.org/abs/2308.04296)
+1. **Brahmachary, S.**, Joshi, S., Panda, A., Konerapalli, K., Sagotra, A., Patel, H., Sharma, A., Jagtap, A., Kalyanaraman, K._"Large Language Model-Based Evolutionary Optimizer: Reasoning with Elitism"_ [ArXiv PrePrint](https://arxiv.org/abs/2403.02054)
+2. **Brahmachary, S.**, and Thuerey, L.,_"Unsteady Cylinder Wakes from Arbitrary Bodies with Differentiable Physics-Assisted Neural Network"_ [ArXiv PrePrint](https://arxiv.org/abs/2308.04296)
 
 **Published**
 
