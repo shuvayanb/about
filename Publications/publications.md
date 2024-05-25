@@ -11,7 +11,7 @@ title: Publications
 
 # <span style="color:blue">Journals</span>
 1.
-[![1](https://github.com/shuvayanb/about/assets/34644464/040c8ea7-84d7-49ac-9144-01cd5ea1e9af)](https://arxiv.org/abs/2308.04296)
+[![1](https://github.com/shuvayanb/about/assets/34644464/59d70a86-77d9-4430-bf35-99e3a1242cdc)](https://arxiv.org/abs/2308.04296)
 2.
 [![2](https://user-images.githubusercontent.com/34644464/157897806-9d020913-af82-48da-9aa7-4d5720751bed.png)](https://aip.scitation.org/doi/10.1063/5.0080272)
 3.
