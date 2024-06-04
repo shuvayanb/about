@@ -3,9 +3,12 @@ layout: page
 title: Blogs
 ---
 
-Ocassionally I take time to pen down my thoughts on various topics. Here's a list of few of them (please ignore the raw quality of these writings!)
+* [**Physics informed Kolmagrov Arnold Network PiKAN**](https://medium.com/@scimlteam/when-kolmogorov-arnold-network-meet-pinns-good-bad-and-the-ugly-0cd023e148e2)
 
-* [**Differentiable Physics for Unsteady Fluid Dynamics**]([https://backpackandbliss.wordpress.com/2021/05/16/principal-component-analysis-in-aerodynamic-shape-optimisation/](https://www.linkedin.com/pulse/differentiable-physics-unsteady-fluid-dynamics-shuvayan-brahmachary-dcmnc/?trackingId=KH%2BVmNNcT06VNdRH9Qxf%2BQ%3D%3D))
+This article explores the utility of PiKAN for PDE problems such as Burger's equation, 1D reaction hyperboic equation, Fischer Tropsch systhesis. 
+
+
+* [**Differentiable Physics for Unsteady Fluid Dynamics**](https://www.linkedin.com/pulse/differentiable-physics-unsteady-fluid-dynamics-shuvayan-brahmachary-dcmnc/?trackingId=KH%2BVmNNcT06VNdRH9Qxf%2BQ%3D%3D)
 
 This article presents the use cases of a differentiable flow solver for training a neural network for complex flow past arbitrarily shaped bodies.  
 
