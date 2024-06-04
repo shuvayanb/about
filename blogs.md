@@ -5,10 +5,15 @@ title: Blogs
 
 Ocassionally I take time to pen down my thoughts on various topics. Here's a list of few of them (please ignore the raw quality of these writings!)
 
-* [**Just another PhD**](https://backpackandbliss.wordpress.com/2019/06/23/just-another-ph-d/)
+* [**Differentiable Physics for Unsteady Fluid Dynamics**]([https://backpackandbliss.wordpress.com/2021/05/16/principal-component-analysis-in-aerodynamic-shape-optimisation/](https://www.linkedin.com/pulse/differentiable-physics-unsteady-fluid-dynamics-shuvayan-brahmachary-dcmnc/?trackingId=KH%2BVmNNcT06VNdRH9Qxf%2BQ%3D%3D))
 
-Does a successful PhD warrant accomplishments of all research objectives? This blog shares my experience with the use of non-conformal solvers in hypersonic flows and the need to emphasise on negative results in a thesis.
+This article presents the use cases of a differentiable flow solver for training a neural network for complex flow past arbitrarily shaped bodies.  
+
 
 * [**Principal component analysis in aerodynamic shape optimisation**](https://backpackandbliss.wordpress.com/2021/05/16/principal-component-analysis-in-aerodynamic-shape-optimisation/)
 
 This article highlights the utility of dimensionality reduction technique, i.e. Principal Component Analysis (PCA) for data compression and image (or flowfield) classification. 
+
+* [**Just another PhD**](https://backpackandbliss.wordpress.com/2019/06/23/just-another-ph-d/)
+
+Does a successful PhD warrant accomplishments of all research objectives? This blog shares my experience with the use of non-conformal solvers in hypersonic flows and the need to emphasise on negative results in a thesis.
