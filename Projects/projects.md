@@ -10,7 +10,7 @@ title: Projects
 
 * # <span style="color:blue">[LLM based AI Agents](Sub_projects/p_immersed_boundary.md) </span>
 
-![LLM Agents](https://github.com/user-attachments/files/16958560/OverallPlan2.pdf "A moving body simulation is performed using a fixed Cartesian non-conformal grid. This is unlike the traditional body-fitted methods wherein the computational mesh conforms to the shape of the body via remeshing. The approach utilises a sharp-interface immersed boundary method")
+![LLM Agents](https://github.com/user-attachments/assets/88a11cd4-c813-481f-8f7f-e573ae7724ec "Depiction of an agentic framework that leverages LLM like ChatGPT 3.5 and Llama-3.1-70B model to perform zero shot optimisation for complex single and multi-objective optimisation problems of practical interest. ")
 
 * # <span style="color:blue">[Multiobjective Design Optimization](Sub_projects/p_Multiobjective_design_opt.md)</span>
 
