@@ -8,12 +8,14 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 ### Research Interest
 
+- Machine Learning & AI:
+  - Differentiable physics for forward and inverse problems [`Phiflow`](https://github.com/tum-pbs/PhiFlow) 
+  - Spatio-temporal and time-series forecasting
+  - Reduced-order model
+  - LLM-based agentic framework for fluid control and optimisation
 - Computational Modelling: 
   - In-house non-conformal immersed boundary solver for high-speed flows
   - [`FoamExtend`](https://openfoamwiki.net/index.php/Installation/Linux/foam-extend-4.1) for low-speed incompressible flows
-- Machine Learning: 
-  - Fluid flowfield reconstruction and fluid control [`Phiflow`](https://github.com/tum-pbs/PhiFlow)
-  - Reduced-order model assisted supervised learning as surrogates for aerodynamic shape optimisation
 - Aerodynamic Shape Optimisation and Design: 
   - Surrogate Assisted Evolutionary Algo [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
   - [`Low-Fidelity Framework`](https://github.com/shuvayanb/LFF-for-design-and-optimisation) for design and optimisation
