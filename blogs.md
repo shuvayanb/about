@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blogs
+title: Media
 ---
 
 * [**Physics informed Kolmagrov Arnold Network PiKAN**](https://medium.com/@scimlteam/when-kolmogorov-arnold-network-meet-pinns-good-bad-and-the-ugly-0cd023e148e2)
