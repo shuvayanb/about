@@ -3,7 +3,7 @@ layout: page
 title: Media
 ---
 
-* [**Invited Talk at Worcester Polytechnic Institute**]([https://www.youtube.com/watch?v=IfOCHx_tRG8&ab_channel=Param-IntelligenceLab)])
+* [**Invited Talk at Worcester Polytechnic Institute**]([https://www.youtube.com/watch?v=IfOCHx_tRG8&ab_channel=Param-IntelligenceLab))
 
 This was an invited talk at the Param intelligence seminar series organised by Prof. Jagtap @ the Worcester Polytechnic Institute. This talk discusses the use of a Large langaue model assisted Evolutionary Optimiser (LEO) for industrial applications. 
 
