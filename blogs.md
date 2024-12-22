@@ -3,6 +3,10 @@ layout: page
 title: Media
 ---
 
+* [**Invited Talk at Worcester Polytechnic Institute**]([https://www.youtube.com/watch?v=IfOCHx_tRG8&ab_channel=Param-IntelligenceLab)])
+
+This was an invited talk at the Param intelligence seminar series organised by Prof. Jagtap @ the Worcester Polytechnic Institute. This talk discusses the use of a Large langaue model assisted Evolutionary Optimiser (LEO) for industrial applications. 
+
 * [**Physics informed Kolmagrov Arnold Network PiKAN**](https://medium.com/@scimlteam/when-kolmogorov-arnold-network-meet-pinns-good-bad-and-the-ugly-0cd023e148e2)
 
 This article explores the utility of PiKAN for PDE problems such as Burger's equation, 1D reaction hyperboic equation, Fischer Tropsch systhesis. 
