@@ -4,8 +4,7 @@ title: Publications
 ---
 
 **Under Review**
-1. **Brahmachary, S.**, Joshi, S., Panda, A., Konerapalli, K., Sagotra, A., Patel, H., Sharma, A., Jagtap, A., Kalyanaraman, K._"Large Language Model-Based Evolutionary Optimizer: Reasoning with Elitism"_ [ArXiv PrePrint](https://arxiv.org/abs/2403.02054)
-2. Chutia, J., **Brahmachary, S.**, Pathak, A., Kulkarni, V., and Sahoo, N.,_"A ghost-cell immersed boundary approach for accurate heat flux predictions in high-speed compressible flows"_ 
+1. Chutia, J., **Brahmachary, S.**, Pathak, A., Kulkarni, V., and Sahoo, N.,_"A ghost-cell immersed boundary approach for accurate heat flux predictions in high-speed compressible flows"_ 
 
 **Published**
 
