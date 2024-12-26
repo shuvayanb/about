@@ -8,10 +8,10 @@ title: Publications
 2. Chutia, J., **Brahmachary, S.**, Pathak, A., Kulkarni, V., and Sahoo, N.,_"A ghost-cell immersed boundary approach for accurate heat flux predictions in high-speed compressible flows"_ 
 
 **Published**
-<img width="910" alt="LEO" src="https://github.com/user-attachments/assets/d0f629d7-30f0-40cd-ad20-a4898be24a28" />
+
 # <span style="color:blue">Journals</span>
 1.
-[![1](https://https://github.com/user-attachments/assets/d0f629d7-30f0-40cd-ad20-a4898be24a28)]([https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.055304](https://arxiv.org/abs/2403.02054))
+[![1](https://github.com/user-attachments/assets/e48a9066-c4dd-4bb5-a162-73ad751a2908)]([https://arxiv.org/abs/2403.02054])
 2.
 [![2](https://github.com/shuvayanb/about/assets/34644464/59d70a86-77d9-4430-bf35-99e3a1242cdc)](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.055304)
 3.
