@@ -3,6 +3,10 @@ layout: page
 title: Media
 ---
 
+* [**Invited Talk: Large langaue model as Optimiser: Reasoning via elitism**](https://eng.auburn.edu/ai-au/forum#spring-2025-forum)
+This was an invited talk at Auburn University, as part of the AI@AU inituative, headed by Prof. Gerry Dozier. This talk focuses on the reasoning element of LLMs to generate better candidate solutions for practical optimisation problems of interest.  
+
+
 * [**Invited Talk: Large langaue model assisted Evolutionary Optimiser (LEO)**](https://www.youtube.com/watch?v=IfOCHx_tRG8&ab_channel=Param-IntelligenceLab)
 
 This was an invited talk at the Param intelligence seminar series organised by Prof. Jagtap @ the Worcester Polytechnic Institute. This talk discusses the use of a Large langaue model assisted Evolutionary Optimiser (LEO) for industrial applications. 
