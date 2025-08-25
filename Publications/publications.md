@@ -39,4 +39,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 ### Journals
-{% bibliography %}
+{% bibliography --template bibitem %}
