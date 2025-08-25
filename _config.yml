@@ -1,24 +1,17 @@
-# ===== Site basics =====
 title: Home Page
 author: Shuvayan Brahmachary
 email: b.shuvayan@gmail.com
 
-# Theme & Markdown
 theme: minima
 markdown: kramdown
 
-# (Optional) GA — note: UA IDs are sunset; consider GA4 later
-google_analytics: UA-227511059-1
-
-# ===== Plugins =====
 plugins:
   - jekyll-scholar
 
 scholar:
-  source: _bibliography
-  bibliography: references.bib
+  # Point directly to the file. No 'source' key, no nested paths.
+  bibliography: _bibliography/references.bib
   style: ieee
   locale: en
   sort_by: year
   order: descending
-
