@@ -8,7 +8,3 @@ markdown: kramdown
 theme: minima
 
 google_analytics: UA-227511059-1 
-
-plugins: [jekyll-scholar]
-scholar.source: Publications/_bibliography
-scholar.bibliography: references.bib
