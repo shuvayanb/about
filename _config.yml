@@ -8,3 +8,9 @@ markdown: kramdown
 theme: minima
 
 google_analytics: UA-227511059-1 
+
+header_pages:
+  - publications.md            # or Publications/publications.md if that's your path
+  - Projects/projects.md
+  - GitHub_repo.md
+  - media.md  
