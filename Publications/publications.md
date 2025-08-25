@@ -3,8 +3,6 @@ layout: page
 title: Publications
 ---
 
-**Published**
-
 # <span style="color:blue">Journals</span>
 
 1. **Brahmachary, Shuvayan**, Joshi, Subodh M, Panda, Aniruddha, Koneripalli, Kaushik, Sagotra, Arun Kumar, Patel, Harshil, Sharma, Ankush, Jagtap, Ameya D, Kalyanaraman, Kaushic, _Large language model-based evolutionary optimizer: Reasoning with elitism_, **Neurocomputing**, 2025 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0925231224020435)
