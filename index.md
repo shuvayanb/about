@@ -3,7 +3,7 @@ layout: page
 title: Home
 ---
 
-<img src="{{ '/assets/dp/dpnew.png' | relative_url }}" alt="Shuvayan Brahmachary" width="250" height="300">
+<img src="{{ '/assets/dp/dpnew.png' | relative_url }}" alt="Shuvayan Brahmachary" width="220" height="300">
 
 
 <div class="sticky-note">
