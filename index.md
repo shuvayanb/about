@@ -11,6 +11,30 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 ### Here's my <a href="Resume.pdf" target="_blank">Resume</a>
 
+
+<div class="stickers-row">
+  <span class="sticker-pill">AI for Science</span>
+  <span class="sticker-pill">CFD</span>
+  <span class="sticker-pill">Hypersonics</span>
+  <span class="sticker-pill">Differentiable Physics</span>
+  <span class="sticker-pill">ML for PDEs</span>
+</div>
+
+<style>
+.stickers-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+.sticker-pill {
+  --bg: rgba(0, 122, 255, 0.08);
+  --bd: rgba(0, 122, 255, 0.25);
+  padding:6px 10px; border-radius:999px; border:1px solid var(--bd);
+  background:var(--bg); font-size:14px; line-height:1; backdrop-filter:saturate(1.2);
+}
+@media (prefers-color-scheme: dark) {
+  .sticker-pill { --bg: rgba(100, 180, 255, 0.12); --bd: rgba(100, 180, 255, 0.35); }
+}
+</style>
+
+
+
 ### Research Interest
 
 - Machine Learning & AI:
