@@ -1,0 +1,17 @@
+---
+# Only the main Sass file needs front matter
+---
+@import "minima";
+
+/* Hide default list numbering for Jekyll-Scholar bibliographies */
+ol.bibliography {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+ol.bibliography > li {
+  margin-left: 0;
+}
+ol.bibliography > li::marker {
+  content: "";
+}
