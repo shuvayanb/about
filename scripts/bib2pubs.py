@@ -55,6 +55,7 @@ def build_link(entry: dict) -> str:
 def get_field(entry: dict, key: str) -> str:
     return latex_to_text(entry.get(key, "")).strip()
 
+
 def main():
     if not BIB_PATH.exists():
         print(f"ERROR: {BIB_PATH} not found.", file=sys.stderr)
