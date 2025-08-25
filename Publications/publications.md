@@ -15,9 +15,3 @@ ol.bibliography > li::marker { content: ""; }
 
 ### Journals
 {% bibliography --query '@article' %}
-
-### Book Chapters
-{% bibliography --query '@incollection' %}
-
-### Conferences
-{% bibliography --query '@inproceedings' %}
