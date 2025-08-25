@@ -3,4 +3,4 @@ layout: page
 title: Publications
 ---
 
-{% include_relative publications/publications.md %}
+{% include_relative Publications/publications.md %}
