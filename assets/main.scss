@@ -4,14 +4,11 @@
 @import "minima";
 
 /* Hide default list numbering for Jekyll-Scholar bibliographies */
-ol.bibliography {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-ol.bibliography > li {
-  margin-left: 0;
-}
-ol.bibliography > li::marker {
-  content: "";
-}
+ol.bibliography { list-style: none; margin-left: 0; padding-left: 0; }
+ol.bibliography > li { margin-left: 0; }
+ol.bibliography > li::marker { content: ""; }
+
+/* Optional: if your CSL emits these spans, this applies site-wide */
+.csl-left-margin { font-weight: 700; }     /* bold [n] */
+.csl-left-margin::after { content: " "; }  /* space after [n] */
+.csl-entry { display: inline; }
