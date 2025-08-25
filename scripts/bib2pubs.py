@@ -6,7 +6,7 @@ import re
 import sys
 
 # ----- CONFIG -----
-BIB_PATH = Path("reference.bib")                  # <- read ONLY this file
+BIB_PATH = Path("reference.bib")                  # read ONLY this file
 OUT_PATH = Path("Publications/publications.md")   # full page output
 PAGE_TITLE = "Publications"
 YOUR_NAME_PATTERNS = [
@@ -67,25 +67,70 @@ def is_book_chapter(e: dict) -> bool:
     et = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
     return et == "incollection" or bool(e.get("booktitle"))
 
-def load_bib(path: Path) -> list[dict]:
-    print(f"[bib2pubs] Using BIB_PATH: {path.resolve()}")
-    if not path.exists():
-        print(f"[bib2pubs] ERROR: {path} not found", file=sys.stderr)
-        return []
+# ---------- primary parser (bibtexparser v1) ----------
+def load_bib_with_bibtexparser(path: Path) -> list[dict]:
     try:
         import bibtexparser  # type: ignore
         from bibtexparser.bparser import BibTexParser  # type: ignore
         from bibtexparser.customization import convert_to_unicode  # type: ignore
+        ver = getattr(bibtexparser, "__version__", "unknown")
+        print(f"[bib2pubs] bibtexparser version: {ver}")
         parser = BibTexParser(common_strings=True)
         parser.customization = convert_to_unicode
         with open(path, "r", encoding="utf-8") as f:
             db = bibtexparser.load(f, parser=parser)
         entries = db.entries or []
-        print(f"[bib2pubs] parsed {len(entries)} total entries")
+        print(f"[bib2pubs] parsed {len(entries)} entries with bibtexparser")
         return entries
     except Exception as ex:
-        print(f"[bib2pubs] ERROR parsing bib: {ex}", file=sys.stderr)
+        print(f"[bib2pubs] WARN: bibtexparser failed: {ex}", file=sys.stderr)
         return []
+
+# ---------- fallback parser (regex) ----------
+FIELD_RE = re.compile(
+    r'(?mi)^\s*([A-Za-z][A-Za-z0-9_-]*)\s*=\s*(\{(?:[^{}]|\{[^{}]*\})*\}|"[^"]*")\s*,?\s*$'
+)
+ENTRY_RE = re.compile(
+    r'@(?P<type>\w+)\s*{\s*(?P<id>[^,]+)\s*,(?P<body>.*?)\n}\s*',
+    re.DOTALL | re.IGNORECASE,
+)
+
+def strip_braces_quotes(v: str) -> str:
+    v = v.strip().strip(",")
+    if (v.startswith("{") and v.endswith("}")) or (v.startswith('"') and v.endswith('"')):
+        v = v[1:-1]
+    return v.strip()
+
+def parse_bib_fallback(text: str) -> list[dict]:
+    entries = []
+    for m in ENTRY_RE.finditer(text):
+        etype = m.group("type").strip()
+        eid = m.group("id").strip()
+        body = m.group("body")
+        d = {"ENTRYTYPE": etype, "ID": eid}
+        for fm in FIELD_RE.finditer(body):
+            key = fm.group(1).lower()
+            val = strip_braces_quotes(fm.group(2))
+            d[key] = val
+        entries.append(d)
+    print(f"[bib2pubs] fallback parsed {len(entries)} entries")
+    return entries
+
+def load_bib(path: Path) -> list[dict]:
+    print(f"[bib2pubs] Using BIB_PATH: {path.resolve()}")
+    if not path.exists():
+        print(f"[bib2pubs] ERROR: {path} not found", file=sys.stderr)
+        return []
+    # try primary
+    entries = load_bib_with_bibtexparser(path)
+    if entries:
+        return entries
+    # fallback
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        text = path.read_text(errors="replace")
+    return parse_bib_fallback(text)
 
 def render_section(title_html: str, items: list[dict], journal_mode: bool) -> list[str]:
     lines = []
@@ -114,10 +159,14 @@ def render_section(title_html: str, items: list[dict], journal_mode: bool) -> li
 
 def main():
     entries = load_bib(BIB_PATH)
+    # DEBUG counts in logs
+    print(f"[bib2pubs] total entries: {len(entries)}")
+    # classify
     journals = [e for e in entries if is_journal_like(e)]
     chapters = [e for e in entries if is_book_chapter(e)]
     print(f"[bib2pubs] journals: {len(journals)}, chapters: {len(chapters)}")
 
+    # write page
     lines = []
     lines.append("---")
     lines.append("layout: page")
