@@ -11,7 +11,7 @@ plugins:
 scholar:
   source: _bibliography         
   bibliography: references.bib  
-  style: _bibliography/ieee.csl
+  style: _bibliography/ieee-with-url.csl
   locale: en
   sort_by: year
   order: descending
