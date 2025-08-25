@@ -32,11 +32,19 @@ jobs:
           sed -n '1,50p' _includes/publications_list.md || true
           echo "Git status:"
           git status --porcelain
-      - name: Commit changes (if any)
+      - name: Commit changes (if any) and push
         run: |
+          set -e
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
+      
+          # 1) Stage & commit generated files FIRST
           git add -A
           git diff --cached --quiet || git commit -m "chore: update publications from BibTeX"
+      
+          # 2) Rebase on top of remote (safe, clean tree now)
+          git pull --rebase --autostash
+      
+          # 3) Push
           git push
+
