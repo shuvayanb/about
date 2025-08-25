@@ -23,6 +23,15 @@ jobs:
       - name: Generate publications
         run: |
           python scripts/bib2pubs.py
+      - name: Diagnostics
+        run: |
+          echo "Root:"; pwd
+          echo "Tree:"; ls -la
+          echo "_includes:"; ls -la _includes || true
+          echo "Preview file head:"
+          sed -n '1,50p' _includes/publications_list.md || true
+          echo "Git status:"
+          git status --porcelain
       - name: Commit changes (if any)
         run: |
           git config user.name  "github-actions[bot]"
