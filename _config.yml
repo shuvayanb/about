@@ -9,8 +9,8 @@ plugins:
   - jekyll-scholar
 
 scholar:
-  # Point directly to the file. No 'source' key, no nested paths.
-  bibliography: _bibliography/references.bib
+  source: _bibliography         
+  bibliography: references.bib  
   style: ieee
   locale: en
   sort_by: year
