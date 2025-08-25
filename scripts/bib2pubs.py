@@ -56,6 +56,16 @@ def build_link(entry: dict) -> str:
 def get_field(entry: dict, key: str) -> str:
     return latex_to_text(entry.get(key, "")).strip()
 
+def build_link(entry: dict) -> str:
+    # Prefer URL if present; otherwise fall back to DOI as a URL
+    url = entry.get("url", "").strip().strip("{}")
+    if url:
+        return url
+    doi = entry.get("doi", "").strip().strip("{}")
+    if doi:
+        return doi if doi.lower().startswith("http") else f"https://doi.org/{doi}"
+    return ""
+
 
 def main():
     if not BIB_PATH.exists():
@@ -100,9 +110,9 @@ def main():
         item = f"{idx}. {authors}, _{title}_, **{journal}**"
         if year:
             item += f", {year}"
+        link = build_link(e)
         if link:
-            item += f" [DOI-Link]({link})"
-        lines.append(item + "\n")
+            item += f" [Link]({link})"
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
