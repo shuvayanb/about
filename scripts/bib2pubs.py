@@ -26,7 +26,7 @@ except Exception:
         return s
 
 # ---------- config ----------
-BIB_PATH = Path("Publications/reference.bib")         
+BIB_PATH = Path("Publications/references.bib")         
 OUT_PATH = Path("_includes/publications_list.md")
 YOUR_NAME_PATTERNS = [
     r"\bBrahmachary,\s*Shuvayan\b",
