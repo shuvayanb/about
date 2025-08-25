@@ -1,0 +1,104 @@
+---
+---
+
+<!-- One entry template used by: {% bibliography --template bibitem %} -->
+<li class="bib-item" id="{{ entry.key }}" itemscope itemtype="http://schema.org/ScholarlyArticle">
+
+  <!-- Title row (links to best-available target) -->
+  <div class="bib-row">
+    <span class="bib-title" itemprop="headline">
+      {% assign primary_link = nil %}
+      {% if entry.pdf %}
+        {% assign primary_link = entry.pdf %}
+      {% elsif entry.url %}
+        {% assign primary_link = entry.url %}
+      {% elsif entry.doi %}
+        {% assign primary_link = 'https://doi.org/' | append: entry.doi %}
+      {% elsif entry.archivePrefix and entry.archivePrefix contains 'arXiv' and entry.eprint %}
+        {% assign primary_link = 'https://arxiv.org/abs/' | append: entry.eprint %}
+      {% endif %}
+
+      {% if primary_link %}
+        <a href="{{ primary_link | escape }}" target="_blank" rel="noopener">{{ entry.title }}</a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </span>
+
+    <!-- Per-entry anchor -->
+    <a class="bib-anchor" href="#{{ entry.key }}" aria-label="Permalink to this publication">#</a>
+  </div>
+
+  <!-- Authors + Year -->
+  <div class="bib-authors">
+    {% assign authors = entry.author_array %}
+    {% if authors %}
+      {% for a in authors %}
+        <span class="bib-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            {% if a.first and a.last %}
+              {{ a.first }} {{ a.last }}
+            {% else %}
+              {{ a }}
+            {% endif %}
+          </span>
+        </span>{% if forloop.last == false %}{% if forloop.rindex0 == 1 %} and {% else %}, {% endif %}{% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if entry.year %} · <span class="bib-year" itemprop="datePublished">{{ entry.year }}</span>{% endif %}
+  </div>
+
+  <!-- Venue / container info -->
+  <div class="bib-venue">
+    {% if entry.journal %}
+      <em itemprop="publication">{{ entry.journal }}</em>
+    {% elsif entry.booktitle %}
+      <em itemprop="isPartOf">{{ entry.booktitle }}</em>
+    {% elsif entry.school %}
+      <em itemprop="publisher">{{ entry.school }}</em>
+    {% elsif entry.howpublished %}
+      <em>{{ entry.howpublished }}</em>
+    {% endif %}
+    {% if entry.volume %}, <span class="bib-vol">vol. {{ entry.volume }}</span>{% endif %}
+    {% if entry.number %} <span class="bib-num">({{ entry.number }})</span>{% endif %}
+    {% if entry.pages %}{% if entry.volume or entry.number %},{% endif %} <span class="bib-pages">pp. {{ entry.pages }}</span>{% endif %}
+  </div>
+
+  <!-- Action badges (shown only if field exists) -->
+  <div class="bib-badges">
+    {% if entry.pdf %}
+      <a class="badge" href="{{ entry.pdf }}" target="_blank" rel="noopener">PDF</a>
+    {% endif %}
+
+    {% if entry.doi %}
+      <a class="badge" href="https://doi.org/{{ entry.doi }}" target="_blank" rel="noopener">DOI</a>
+    {% endif %}
+
+    {% if entry.archivePrefix and entry.archivePrefix contains 'arXiv' and entry.eprint %}
+      <a class="badge" href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank" rel="noopener">arXiv</a>
+    {% elsif entry.url and entry.url contains 'arxiv.org' %}
+      <a class="badge" href="{{ entry.url }}" target="_blank" rel="noopener">arXiv</a>
+    {% endif %}
+
+    {% if entry.url and (entry.url contains 'arxiv.org') == false %}
+      <a class="badge" href="{{ entry.url }}" target="_blank" rel="noopener">Link</a>
+    {% endif %}
+
+    {% if entry.code %}
+      <a class="badge" href="{{ entry.code }}" target="_blank" rel="noopener">Code</a>
+    {% endif %}
+    {% if entry.slides %}
+      <a class="badge" href="{{ entry.slides }}" target="_blank" rel="noopener">Slides</a>
+    {% endif %}
+    {% if entry.video %}
+      <a class="badge" href="{{ entry.video }}" target="_blank" rel="noopener">Video</a>
+    {% endif %}
+    {% if entry.supplement %}
+      <a class="badge" href="{{ entry.supplement }}" target="_blank" rel="noopener">Supp.</a>
+    {% endif %}
+    {% if entry.dataset %}
+      <a class="badge" href="{{ entry.dataset }}" target="_blank" rel="noopener">Data</a>
+    {% endif %}
+  </div>
+
+</li>
