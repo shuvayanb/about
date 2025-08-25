@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="bib-details" id="{{ entry.key }}">
+  <header>
+    {% assign _link = nil %}
+    {% if entry.pdf %}
+      {% assign _link = entry.pdf %}
+    {% elsif entry.url %}
+      {% assign _link = entry.url %}
+    {% elsif entry.doi %}
+      {% assign _link = 'https://doi.org/' | append: entry.doi %}
+    {% elsif entry.archivePrefix and entry.archivePrefix contains 'arXiv' and entry.eprint %}
+      {% assign _link = 'https://arxiv.org/abs/' | append: entry.eprint %}
+    {% endif %}
+
+    <h1 class="bib-title">
+      {% if _link %}
+        <a href="{{ _link | escape }}" target="_blank" rel="noopener">{{ entry.title }}</a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </h1>
+    {% if entry.year %}
+      <p class="bib-year">{{ entry.year }}</p>
+    {% endif %}
+  </header>
+
+  <section class="bib-citation">
+    <!-- CSL-formatted full reference -->
+    {{ reference }}
+  </section>
+
+  <section class="bib-badges" aria-label="Links">
+    {% if entry.pdf %}<a class="badge" href="{{ entry.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+    {% if entry.doi %}<a class="badge" href="https://doi.org/{{ entry.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+    {% if entry.archivePrefix and entry.archivePrefix contains 'arXiv' and entry.eprint %}
+      <a class="badge" href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank" rel="noopener">arXiv</a>
+    {% elsif entry.url and entry.url contains 'arxiv.org' %}
+      <a class="badge" href="{{ entry.url }}" target="_blank" rel="noopener">arXiv</a>
+    {% endif %}
+    {% if entry.url and (entry.url contains 'arxiv.org') == false %}
+      <a class="badge" href="{{ entry.url }}" target="_blank" rel="noopener">Link</a>
+    {% endif %}
+    {% if entry.code %}<a class="badge" href="{{ entry.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+    {% if entry.slides %}<a class="badge" href="{{ entry.slides }}" target="_blank" rel="noopener">Slides</a>{% endif %}
+    {% if entry.video %}<a class="badge" href="{{ entry.video }}" target="_blank" rel="noopener">Video</a>{% endif %}
+    {% if entry.supplement %}<a class="badge" href="{{ entry.supplement }}" target="_blank" rel="noopener">Supp.</a>{% endif %}
+    {% if entry.dataset %}<a class="badge" href="{{ entry.dataset }}" target="_blank" rel="noopener">Data</a>{% endif %}
+  </section>
+
+  <section class="bibtex">
+    <h2>Cite</h2>
+    <pre>{{ entry.bibtex }}</pre>
+  </section>
+</article>
