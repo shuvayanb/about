@@ -3,10 +3,12 @@ name: Build Publications from BibTeX
 on:
   workflow_dispatch:
   push:
+    branches: [ master, main ]   # your default will be one of these
     paths:
       - '**/*.bib'
-      - scripts/bib2pubs.py
-
+      - 'scripts/bib2pubs.py'
+      - 'Publications/**'
+      
 permissions:
   contents: write  # allow committing back to the repo
 
