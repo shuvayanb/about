@@ -2,7 +2,7 @@ name: Build & Deploy Jekyll (with Scholar) to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   workflow_dispatch:
 
 permissions:
