@@ -3,5 +3,8 @@ layout: page
 title: Publications
 ---
 
+**Published**
 
-{% include publications_list.md %}
+# <span style="color:blue">Journals</span>
+
+_No journal entries found in reference.bib._
