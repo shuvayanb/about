@@ -199,7 +199,7 @@ def main():
     lines.append(f"title: {PAGE_TITLE}")
     lines.append("---\n")
 
-    lines.append("**Published**\n")
+    #lines.append("**Published**\n")
     # Journals
     lines.extend(render_section("Journals", journals, mode="journal"))
     lines.append("\n")
