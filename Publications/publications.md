@@ -1,2 +1,6 @@
-### Journals
-{% bibliography --query '@article' %}
+---
+layout: page
+title: Publications
+---
+
+{% bibliography %}
