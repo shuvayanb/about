@@ -34,14 +34,22 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
 
-      # ---- Preflight: parse BibTeX (fails early if .bib has syntax errors)
-      - name: "Preflight: parse BibTeX"
+      - name: "Sanity: show bibliography + config"
         run: |
-          bundle exec ruby -e "require 'bibtex'; \
-            b = BibTeX.open('_bibliography/references.bib'); \
-            b.each{|e|}; \
-            puts(\"BibTeX parsed OK: #{b.size} entries\")"
-      # ----
+          echo "PWD:"
+          pwd
+          echo "Root listing:"
+          ls -la
+          echo "Find references.bib:"
+          find . -maxdepth 3 -name 'references.bib' -print
+          echo "List _bibliography:"
+          ls -la _bibliography || true
+          echo "----- first 20 lines of references.bib -----"
+          head -n 20 _bibliography/references.bib
+          echo "----- _config.yml -----"
+          sed -n '1,200p' _config.yml
+          echo "Bundled gems (grep scholar):"
+          bundle list | grep jekyll-scholar || true
 
       - name: Build site (loads jekyll-scholar)
         env:
