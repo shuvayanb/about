@@ -21,7 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Configures the Pages env and gives us base_path for --baseurl
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -35,20 +34,14 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
 
-      # ---------- SANITY STEP ----------
-      - name: "Sanity: show bibliography file"
+      # ---- Preflight: parse BibTeX (fails early if .bib has syntax errors)
+      - name: "Preflight: parse BibTeX"
         run: |
-          echo "PWD:"
-          pwd
-          echo "Root listing:"
-          ls -la
-          echo "Bibliography dir listing:"
-          ls -la _bibliography
-          echo "----- first 20 lines of references.bib -----"
-          head -n 20 _bibliography/references.bib
-          echo "Bundled gems containing jekyll-scholar:"
-          bundle list | grep jekyll-scholar || true
-      # ---------------------------------
+          bundle exec ruby -e "require 'bibtex'; \
+            b = BibTeX.open('_bibliography/references.bib'); \
+            b.each{|e|}; \
+            puts(\"BibTeX parsed OK: #{b.size} entries\")"
+      # ----
 
       - name: Build site (loads jekyll-scholar)
         env:
