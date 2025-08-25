@@ -14,11 +14,11 @@ google_analytics: UA-227511059-1
 plugins:
   - jekyll-scholar
 
-# ===== jekyll-scholar =====
 scholar:
-  source: Publications/_bibliography   # folder containing your .bib
-  bibliography: references.bib         # your single master BibTeX
-  style: ieee                          # or "apa" or a path to a .csl
+  source: _bibliography
+  bibliography: references.bib
+  style: ieee
   locale: en
   sort_by: year
   order: descending
+
