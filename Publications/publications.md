@@ -9,15 +9,34 @@ ol.bibliography { list-style: none; margin-left: 0; padding-left: 0; }
 ol.bibliography > li { margin-left: 0; }
 ol.bibliography > li::marker { content: ""; }
 
-/* Make the IEEE index [n] bold and add space after it */
-.csl-left-margin { 
-  font-weight: 700;         /* bold [n] */
-  margin-right: 0.5ch;      /* space between [n] and the text */
-}
+/* If CSL emits a separate span for the index, make it bold and add a space */
+.csl-left-margin { font-weight: 700; }
+.csl-left-margin::after { content: " "; }
 
-/* (Some CSLs wrap each item in .csl-entry; this keeps the line tidy) */
+/* Keep entries inline */
 .csl-entry { display: inline; }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('ol.bibliography > li').forEach(li => {
+    const left = li.querySelector('.csl-left-margin');
+    if (left) {
+      // Ensure bold + exactly one space after the bracketed number
+      left.style.fontWeight = '700';
+      // Add a space node after if not already there
+      const next = left.nextSibling;
+      if (!(next && next.nodeType === Node.TEXT_NODE && /^\s/.test(next.textContent))) {
+        left.insertAdjacentText('afterend', ' ');
+      }
+    } else {
+      // No separate span → wrap a leading “[n]” and normalize spacing
+      li.innerHTML = li.innerHTML.replace(/^\s*\[([0-9]+)\]\s*/, (_m, n) => `<strong>[${n}]</strong> `);
+    }
+  });
+});
+</script>
+
 
 ### Journals
 {% bibliography %}
