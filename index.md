@@ -37,9 +37,32 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 ### Additional Links
 
-[![google_scholar](https://user-images.githubusercontent.com/34644464/108090987-945aae00-70be-11eb-961c-bcb87e9be50d.png)](https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en)
-[![github](https://user-images.githubusercontent.com/34644464/177961687-afd93f93-cd63-45b8-a7cc-aa2bff368e87.png)](https://github.com/shuvayanb)
-[![twitter](https://user-images.githubusercontent.com/34644464/108089295-c8cd6a80-70bc-11eb-8805-7996c9b44c93.png)](https://twitter.com/b_shuvayan)
-[![linkedin](https://user-images.githubusercontent.com/34644464/108090165-ab4cd080-70bd-11eb-881d-c0db7215445e.png)](https://www.linkedin.com/in/shuvayan-brahmachary/)
-[![logo_resized](https://user-images.githubusercontent.com/34644464/112086346-6130a080-8bcf-11eb-90ad-7c1ad5a3c6ed.png)](https://orcid.org/0000-0003-4383-0875)
-[![rg_resized](https://user-images.githubusercontent.com/34644464/112087898-2da34580-8bd2-11eb-9e31-ee5ccfabc35c.png)](https://www.researchgate.net/profile/Shuvayan-Brahmachary)
+<!-- Social icons -->
+<div class="social-icons">
+  <a href="https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/googlescholar.svg' | relative_url }}" alt="Google Scholar">
+  </a>
+  <a href="https://github.com/shuvayanb" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/github.svg' | relative_url }}" alt="GitHub">
+  </a>
+  <a href="https://twitter.com/b_shuvayan" aria-label="X (Twitter)" title="X (Twitter)" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/x.svg' | relative_url }}" alt="X (Twitter)">
+  </a>
+  <a href="https://www.linkedin.com/in/shuvayan-brahmachary/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/linkedin.svg' | relative_url }}" alt="LinkedIn">
+  </a>
+  <a href="https://orcid.org/0000-0003-4383-0875" aria-label="ORCID" title="ORCID" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/orcid.svg' | relative_url }}" alt="ORCID">
+  </a>
+  <a href="https://www.researchgate.net/profile/Shuvayan-Brahmachary" aria-label="ResearchGate" title="ResearchGate" target="_blank" rel="noopener">
+    <img src="{{ '/assets/icons/researchgate.svg' | relative_url }}" alt="ResearchGate">
+  </a>
+</div>
+
+<style>
+/* Consistent sizing & spacing */
+.social-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.social-icons a { display: inline-flex; line-height: 0; }
+.social-icons img { width: 28px; height: 28px; display: block; transition: transform 120ms ease; }
+.social-icons a:hover img { transform: scale(1.08); }
+</style>
