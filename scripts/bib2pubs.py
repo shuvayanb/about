@@ -5,7 +5,6 @@ from pathlib import Path
 import re
 import sys
 
-
 # Optional deps are installed in the GH Action
 try:
     import bibtexparser  # type: ignore
