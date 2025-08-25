@@ -5,6 +5,30 @@ title: Home
 
 <img src="https://github.com/user-attachments/assets/ef4c6cd5-0afa-4126-9def-4aba96cc64fd" width="400" height="400">
 
+<div class="sticky-note">
+  <div class="tape"></div>
+  Currently: Postdoc @ TUM<br>Working on Scientific LLMs & Neural Operators
+</div>
+
+<style>
+.sticky-note{
+  display:inline-block; padding:14px 16px; background:#fffbe6; color:#4a3b00;
+  border:1px solid #f4e2a1; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transform:rotate(-1.5deg); margin:14px 0; position:relative; font-size:14px;
+}
+.sticky-note .tape{
+  position:absolute; top:-10px; left:20px; width:60px; height:18px;
+  background:rgba(173,216,230,.65); transform:rotate(-8deg);
+}
+@media (prefers-color-scheme: dark){
+  .sticky-note{ background:#2b2a1f; color:#f2e6b3; border-color:#5c5430; }
+  .sticky-note .tape{ background:rgba(100,149,237,.45); }
+}
+</style>
+
+
+
+
 Hi! I am Shuvayan Brahmachary. I am an AI researcher working for Shell Technology Center Bengaluru. Previously, I worked as postdoctoral researcher at the [Technical University of Munich](https://www.tum.de/en/), Germany, under the supervision of [Dr. Nils Thuerey](https://ge.in.tum.de/) (Jan. 2022- Sept. 2023). Previously, I have worked as a postdoc fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, under the mentorship of [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html) (Sept. 2019 untill Sept. 2021) after having obtained my Ph.D from [Indian Institute of Technology Guwahati](http://www.iitg.ac.in/) in the Department of Mechanical Engineering under the guidance of [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417). My Ph.D <a href="Thesis_short_version.pdf" target="_blank">thesis.</a> title is "Finite Volume/Immersed Boundary Solvers for Compressible Flows: Development and Applications".
 
 Feel free to browse through the projects, publications and Jupyter Notebooks and email for queries. Have a good one!
@@ -51,12 +75,26 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 - Reduced Order Modelling:
   - Proper Orthogonal Decomposition
 
+
 ### Contact
 `shuvayan.brahmachary@shell.com`<br/>
 `b.shuvayan@gmail.com`<br/>
 `Products and Technology`<br/>
 `Shell Technology Center`<br/>
 `Bengaluru, Karnataka, India`<br/>
+
+
+<a class="corner-ribbon" href="mailto:b.shuvayan@gmail.com" title="Open to collaborate">Open to collaborate</a>
+
+<style>
+.corner-ribbon{
+  position:fixed; top:18px; right:-40px; z-index:9999;
+  transform:rotate(45deg);
+  background:#2563eb; color:#fff; text-decoration:none;
+  padding:8px 60px; font-weight:600; box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: dark){ .corner-ribbon{ background:#3b82f6; } }
+</style>
 
 
 ### Additional Links
