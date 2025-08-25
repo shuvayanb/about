@@ -3,7 +3,7 @@ layout: page
 title: Home
 ---
 
-<img src="{{ '/assets/dp/dpnew.png' | relative_url }}" alt="Shuvayan Brahmachary" width="220" height="300">
+<img src="{{ '/assets/dp/dpnew.png' | relative_url }}" alt="Shuvayan Brahmachary" width="225" height="300">
 
 
 <div class="sticky-note">
@@ -40,7 +40,7 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 <div class="stickers-row">
   <span class="sticker-pill">AI for Science</span>
   <span class="sticker-pill">CFD</span>
-  <span class="sticker-pill">Hypersonics</span>
+  <span class="sticker-pill">AI Agents</span>
   <span class="sticker-pill">Differentiable Physics</span>
   <span class="sticker-pill">ML for PDEs</span>
 </div>
