@@ -41,16 +41,22 @@ title: Publications
 
 # <span style="color:blue">Book Chapters</span>
 
+1. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _A sharp-interface immersed boundary method for high-speed compressible flows_, **Immersed Boundary Method: Development and Applications**, 2020 [Link](https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9)
+
+2. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, Nanda, Soumya Ranjan, _Application of greedy and heuristic algorithm-based optimisation methods towards aerodynamic shape optimisation_, **Soft Computing for Problem Solving: SocProS 2017, Volume 1**, 2018 [Link](https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75)
+
+3. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Sahoo, Niranjan, _A hybrid aerodynamic shape optimization approach for axisymmetric body in hypersonic flow_, **Fluid Mechanics and Fluid Power–Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014**, 2016 [Link](https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29)
+
+
+
+# <span style="color:blue">Conferences</span>
+
 1. **Brahmachary, S**, Panda, A, Sethi, H, Dutta, D, Chandran, A, Devarakota, P, St-Cyr, A, _Auto-regressive Neural Operators for Efficient Wavefield Simulation_, **Empowering the Energy Shift: The Role of HPC in Sustainable Innovation**, 2025 [Link](https://www.earthdoc.org/content/papers/10.3997/2214-4609.2025643025)
 
 2. **Brahmachary, S**, Thuerey, Nils, _Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries_, **MS1-09B - Learning models for CFD: opportunities and limitations**, 2023 [Link](https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c)
 
 3. **Brahmachary, Shuvayan**, Ogawa, Hideaki, _Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight via Surrogate-Assisted Evolutionary Algorithms_, **AIAA Scitech 2021 Forum**, 2021 [Link](https://arc.aiaa.org/doi/10.2514/6.2021-1960)
 
-4. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _A sharp-interface immersed boundary method for high-speed compressible flows_, **Immersed Boundary Method: Development and Applications**, 2020 [Link](https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9)
+4. **Brahmachary, Shuvayan**, Chutia, Jubajyoti, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _Parametric investigation towards the design of a scramjet intake using low-fidelity approach_, **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP 2020)**, 2020 [Link](https://www.researchgate.net/publication/349236917_Parametric_investigation_towards_the_design_of_a_scramjet_intake_using_low-fidelity_approach)
 
-5. **Brahmachary, Shuvayan**, Chutia, Jubajyoti, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _Parametric investigation towards the design of a scramjet intake using low-fidelity approach_, **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP 2020)**, 2020 [Link](https://www.researchgate.net/publication/349236917_Parametric_investigation_towards_the_design_of_a_scramjet_intake_using_low-fidelity_approach)
-
-6. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, Nanda, Soumya Ranjan, _Application of greedy and heuristic algorithm-based optimisation methods towards aerodynamic shape optimisation_, **Soft Computing for Problem Solving: SocProS 2017, Volume 1**, 2018 [Link](https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75)
-
-7. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Sahoo, Niranjan, _A hybrid aerodynamic shape optimization approach for axisymmetric body in hypersonic flow_, **Fluid Mechanics and Fluid Power–Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014**, 2016 [Link](https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29)
+5. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity approach_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
