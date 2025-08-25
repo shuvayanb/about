@@ -3,7 +3,8 @@ layout: page
 title: Home
 ---
 
-<img src="https://github.com/user-attachments/assets/ef4c6cd5-0afa-4126-9def-4aba96cc64fd" width="400" height="400">
+<img src="{{ '/assets/dp/dpnew.png' | relative_url }}" alt="Shuvayan Brahmachary" width="400" height="400">
+
 
 <div class="sticky-note">
   <div class="tape"></div>
