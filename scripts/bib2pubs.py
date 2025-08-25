@@ -6,7 +6,7 @@ import re
 import sys
 
 # ----- CONFIG -----
-BIB_PATH = Path("Publications/reference.bib")                  # read ONLY this file
+BIB_PATH = Path("Publications/references.bib")                  # read ONLY this file
 OUT_PATH = Path("Publications/publications.md")   # full page output
 PAGE_TITLE = "Publications"
 YOUR_NAME_PATTERNS = [
