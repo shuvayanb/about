@@ -9,6 +9,9 @@ plugins:
   - jekyll-scholar
 
 scholar:
+  details_dir: pub
+  details_layout: bib_details
+  details_link: "Details / Cite"
   bibliography_template: bibitem
   source: _bibliography         
   bibliography: references.bib  
