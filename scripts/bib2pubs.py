@@ -6,7 +6,8 @@ import re
 import sys
 
 # ----- CONFIG -----
-BIB_PATH = Path("Publications/references.bib")                  # read ONLY this file
+# Read BOTH bib files (if present)
+BIB_PATHS = [Path("Publications/references.bib")]
 OUT_PATH = Path("Publications/publications.md")   # full page output
 PAGE_TITLE = "Publications"
 YOUR_NAME_PATTERNS = [
@@ -59,13 +60,17 @@ def get_journal(e: dict) -> str:
 def get_booktitle(e: dict) -> str:
     return f(e, "booktitle").strip()
 
+def etype(e: dict) -> str:
+    return (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
+
 def is_journal_like(e: dict) -> bool:
-    et = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
-    return et == "article" or bool(e.get("journal") or e.get("journaltitle"))
+    return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
 
 def is_book_chapter(e: dict) -> bool:
-    et = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
-    return et == "incollection" or bool(e.get("booktitle"))
+    return etype(e) == "incollection" or (bool(e.get("booktitle")) and etype(e) not in ("inproceedings",))
+
+def is_conference(e: dict) -> bool:
+    return etype(e) == "inproceedings"
 
 # ---------- primary parser (bibtexparser v1) ----------
 def load_bib_with_bibtexparser(path: Path) -> list[dict]:
@@ -80,10 +85,10 @@ def load_bib_with_bibtexparser(path: Path) -> list[dict]:
         with open(path, "r", encoding="utf-8") as f:
             db = bibtexparser.load(f, parser=parser)
         entries = db.entries or []
-        print(f"[bib2pubs] parsed {len(entries)} entries with bibtexparser")
+        print(f"[bib2pubs] parsed {len(entries)} entries with bibtexparser from {path}")
         return entries
     except Exception as ex:
-        print(f"[bib2pubs] WARN: bibtexparser failed: {ex}", file=sys.stderr)
+        print(f"[bib2pubs] WARN: bibtexparser failed on {path}: {ex}", file=sys.stderr)
         return []
 
 # ---------- fallback parser (regex) ----------
@@ -101,27 +106,26 @@ def strip_braces_quotes(v: str) -> str:
         v = v[1:-1]
     return v.strip()
 
-def parse_bib_fallback(text: str) -> list[dict]:
+def parse_bib_fallback(text: str, src: Path) -> list[dict]:
     entries = []
     for m in ENTRY_RE.finditer(text):
-        etype = m.group("type").strip()
+        et = m.group("type").strip()
         eid = m.group("id").strip()
         body = m.group("body")
-        d = {"ENTRYTYPE": etype, "ID": eid}
+        d = {"ENTRYTYPE": et, "ID": eid}
         for fm in FIELD_RE.finditer(body):
             key = fm.group(1).lower()
             val = strip_braces_quotes(fm.group(2))
             d[key] = val
         entries.append(d)
-    print(f"[bib2pubs] fallback parsed {len(entries)} entries")
+    print(f"[bib2pubs] fallback parsed {len(entries)} entries from {src}")
     return entries
 
-def load_bib(path: Path) -> list[dict]:
-    print(f"[bib2pubs] Using BIB_PATH: {path.resolve()}")
+def load_one(path: Path) -> list[dict]:
     if not path.exists():
-        print(f"[bib2pubs] ERROR: {path} not found", file=sys.stderr)
+        print(f"[bib2pubs] NOTE: {path} not found, skipping")
         return []
-    # try primary
+    print(f"[bib2pubs] Using BIB: {path.resolve()}")
     entries = load_bib_with_bibtexparser(path)
     if entries:
         return entries
@@ -130,9 +134,33 @@ def load_bib(path: Path) -> list[dict]:
         text = path.read_text(encoding="utf-8", errors="replace")
     except Exception:
         text = path.read_text(errors="replace")
-    return parse_bib_fallback(text)
+    return parse_bib_fallback(text, path)
 
-def render_section(title_html: str, items: list[dict], journal_mode: bool) -> list[str]:
+def dedupe(entries: list[dict]) -> list[dict]:
+    seen = set()
+    out = []
+    for e in entries:
+        key = (etype(e), (e.get("ID") or e.get("id") or "").lower())
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(e)
+    return out
+
+def load_all(paths: list[Path]) -> list[dict]:
+    all_entries: list[dict] = []
+    for p in paths:
+        all_entries.extend(load_one(p))
+    all_entries = dedupe(all_entries)
+    print(f"[bib2pubs] total entries combined: {len(all_entries)}")
+    return all_entries
+
+def render_section(title_html: str, items: list[dict], mode: str) -> list[str]:
+    """
+    mode: 'journal' | 'chapter' | 'conf'
+    journal -> use journal/journaltitle
+    chapter/conf -> use booktitle
+    """
     lines = []
     lines.append(f'# <span style="color:blue">{title_html}</span>\n')
     if not items:
@@ -143,7 +171,7 @@ def render_section(title_html: str, items: list[dict], journal_mode: bool) -> li
     for idx, e in enumerate(items, start=1):
         authors = bold_author_name(f(e, "author").replace(" and ", ", "))
         title = f(e, "title").strip(' "{}')
-        venue = get_journal(e) if journal_mode else get_booktitle(e)
+        venue = get_journal(e) if mode == "journal" else get_booktitle(e)
         year = f(e, "year")
         link_md = build_link(e)
 
@@ -158,15 +186,13 @@ def render_section(title_html: str, items: list[dict], journal_mode: bool) -> li
     return lines
 
 def main():
-    entries = load_bib(BIB_PATH)
-    # DEBUG counts in logs
-    print(f"[bib2pubs] total entries: {len(entries)}")
-    # classify
-    journals = [e for e in entries if is_journal_like(e)]
-    chapters = [e for e in entries if is_book_chapter(e)]
-    print(f"[bib2pubs] journals: {len(journals)}, chapters: {len(chapters)}")
+    entries = load_all(BIB_PATHS)
 
-    # write page
+    journals   = [e for e in entries if is_journal_like(e)]
+    chapters   = [e for e in entries if is_book_chapter(e)]
+    conferences= [e for e in entries if is_conference(e)]
+    print(f"[bib2pubs] journals: {len(journals)}, chapters: {len(chapters)}, conferences: {len(conferences)}")
+
     lines = []
     lines.append("---")
     lines.append("layout: page")
@@ -174,9 +200,14 @@ def main():
     lines.append("---\n")
 
     lines.append("**Published**\n")
-    lines.extend(render_section("Journals", journals, journal_mode=True))
+    # Journals
+    lines.extend(render_section("Journals", journals, mode="journal"))
     lines.append("\n")
-    lines.extend(render_section("Book Chapters", chapters, journal_mode=False))
+    # Book Chapters
+    lines.extend(render_section("Book Chapters", chapters, mode="chapter"))
+    lines.append("\n")
+    # Conferences
+    lines.extend(render_section("Conferences", conferences, mode="conf"))
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
