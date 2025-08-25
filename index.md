@@ -8,7 +8,7 @@ title: Home
 
 <div class="sticky-note">
   <div class="tape"></div>
-  Currently: Postdoc @ Shell<br>Working on Agentic AI & SciML
+  Currently: AI Researcher @ Shell<br>Working on Agentic AI & SciML
 </div>
 
 <style>
