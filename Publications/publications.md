@@ -4,7 +4,9 @@ title: Publications
 ---
 
 **Under Review**
-1. Chutia, J., **Brahmachary, S.**, Pathak, A., Kulkarni, V., and Sahoo, N.,_"A ghost-cell immersed boundary approach for accurate heat flux predictions in high-speed compressible flows"_ 
+1. Menon, S., Mondal, T.,  **Brahmachary, S.**, Panda, A., Joshi, S., Kalyanaraman, K., and Jagtap, A., D.,_"On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Surveys"_
+
+
 
 **Published**
 
