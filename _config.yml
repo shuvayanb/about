@@ -9,6 +9,7 @@ plugins:
   - jekyll-scholar
 
 scholar:
+  bibliography_template: bibitem
   source: _bibliography         
   bibliography: references.bib  
   style: _bibliography/ieee-with-url.csl
