@@ -1,21 +1,14 @@
+# basic options
 title: Home Page
 author: Shuvayan Brahmachary
 email: b.shuvayan@gmail.com
 
-theme: minima
+# Build settings
 markdown: kramdown
+theme: minima
 
-plugins:
-  - jekyll-scholar
+google_analytics: UA-227511059-1 
 
-scholar:
-  details_dir: pub
-  details_layout: bib_details
-  details_link: "Details / Cite"
-  bibliography_template: bibitem
-  source: _bibliography         
-  bibliography: references.bib  
-  style: _bibliography/ieee-with-url.csl
-  locale: en
-  sort_by: year
-  order: descending
+plugins: [jekyll-scholar]
+scholar.source: Publications/_bibliography
+scholar.bibliography: references.bib
