@@ -5,18 +5,17 @@ from pathlib import Path
 import re
 import sys
 
-# ---------- Config ----------
-OUT_PATH = Path("Publications/publications.md")   # writes the full page
-
+# ----- CONFIG -----
+BIB_PATH = Path("reference.bib")                  # <- read ONLY this file
+OUT_PATH = Path("Publications/publications.md")   # full page output
+PAGE_TITLE = "Publications"
 YOUR_NAME_PATTERNS = [
     r"\bBrahmachary,\s*Shuvayan\b",
     r"\bShuvayan\s+Brahmachary\b",
     r"\bBrahmachary,\s*S\.?\b",
     r"\bS\.?\s*Brahmachary\b",
 ]
-
-PAGE_TITLE = "Publications"
-# ----------------------------
+# ------------------
 
 def latex_to_text(s: str) -> str:
     try:
@@ -29,59 +28,36 @@ def latex_to_text(s: str) -> str:
         s = s.replace("``", '"').replace("''", '"')
         return s
 
+def f(e: dict, key: str) -> str:
+    return latex_to_text((e.get(key) or "").strip())
+
 def bold_author_name(author_str: str) -> str:
     out = author_str
     for pat in YOUR_NAME_PATTERNS:
         out = re.sub(pat, lambda m: f"**{m.group(0)}**", out, flags=re.IGNORECASE)
     return out
 
-def build_link(entry: dict) -> str:
-    """Prefer URL; fall back to DOI as a URL. Render as [Link](...)."""
-    url = (entry.get("url") or "").strip().strip("{}")
+def build_link(e: dict) -> str:
+    url = (e.get("url") or "").strip().strip("{}")
     if url:
         return f"[Link]({url})"
-    doi = (entry.get("doi") or "").strip().strip("{}")
+    doi = (e.get("doi") or "").strip().strip("{}")
     if doi:
         if not doi.lower().startswith("http"):
             doi = f"https://doi.org/{doi}"
         return f"[Link]({doi})"
     return ""
 
-def get_year(entry: dict) -> int:
-    y = (entry.get("year") or "").strip()
+def get_year(e: dict) -> int:
+    y = f(e, "year")
     m = re.search(r"\d{4}", y)
     return int(m.group(0)) if m else 0
 
-def f(entry: dict, key: str) -> str:
-    return latex_to_text((entry.get(key) or "").strip())
+def get_journal(e: dict) -> str:
+    return (f(e, "journal") or f(e, "journaltitle")).strip()
 
-def get_journal(entry: dict) -> str:
-    return latex_to_text((entry.get("journal") or entry.get("journaltitle") or "").strip())
-
-def get_booktitle(entry: dict) -> str:
-    return latex_to_text((entry.get("booktitle") or "").strip())
-
-# -------- Bib loading (pinned to bibtexparser v1 API in CI) --------
-def load_bib_entries(path: Path):
-    try:
-        import bibtexparser  # type: ignore
-        from bibtexparser.bparser import BibTexParser  # type: ignore
-        from bibtexparser.customization import convert_to_unicode  # type: ignore
-    except Exception as ex:
-        print(f"[bib2pubs] ERROR importing bibtexparser: {ex}", file=sys.stderr)
-        return []
-
-    try:
-        parser = BibTexParser(common_strings=True)
-        parser.customization = convert_to_unicode
-        with open(path, "r", encoding="utf-8") as f:
-            db = bibtexparser.load(f, parser=parser)
-        entries = db.entries or []
-        print(f"[bib2pubs] parsed {len(entries)} entries from {path}")
-        return entries
-    except Exception as ex:
-        print(f"[bib2pubs] ERROR parsing {path}: {ex}", file=sys.stderr)
-        return []
+def get_booktitle(e: dict) -> str:
+    return f(e, "booktitle").strip()
 
 def is_journal_like(e: dict) -> bool:
     et = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
@@ -91,51 +67,38 @@ def is_book_chapter(e: dict) -> bool:
     et = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
     return et == "incollection" or bool(e.get("booktitle"))
 
-def find_best_bib() -> tuple[list[dict], Path | None]:
-    preferred = [
-        Path("reference.bib"),
-        Path("Publications/reference.bib"),
-        Path("_data/reference.bib"),
-        Path("references.bib"),
-    ]
-    for p in preferred:
-        if p.exists():
-            entries = load_bib_entries(p)
-            if entries:
-                (Path(".") / ".bib2pubs_last_bib.txt").write_text(str(p), encoding="utf-8")
-                return entries, p
+def load_bib(path: Path) -> list[dict]:
+    print(f"[bib2pubs] Using BIB_PATH: {path.resolve()}")
+    if not path.exists():
+        print(f"[bib2pubs] ERROR: {path} not found", file=sys.stderr)
+        return []
+    try:
+        import bibtexparser  # type: ignore
+        from bibtexparser.bparser import BibTexParser  # type: ignore
+        from bibtexparser.customization import convert_to_unicode  # type: ignore
+        parser = BibTexParser(common_strings=True)
+        parser.customization = convert_to_unicode
+        with open(path, "r", encoding="utf-8") as f:
+            db = bibtexparser.load(f, parser=parser)
+        entries = db.entries or []
+        print(f"[bib2pubs] parsed {len(entries)} total entries")
+        return entries
+    except Exception as ex:
+        print(f"[bib2pubs] ERROR parsing bib: {ex}", file=sys.stderr)
+        return []
 
-    best_entries: list[dict] = []
-    best_path: Path | None = None
-    for p in Path(".").rglob("*.bib"):
-        if any(seg in p.parts for seg in (".git", "_site", "node_modules")):
-            continue
-        entries = load_bib_entries(p)
-        if len(entries) > len(best_entries):
-            best_entries, best_path = entries, p
-
-    if best_path:
-        (Path(".") / ".bib2pubs_last_bib.txt").write_text(str(best_path), encoding="utf-8")
-    else:
-        (Path(".") / ".bib2pubs_last_bib.txt").write_text("NO_BIB_FOUND", encoding="utf-8")
-
-    return best_entries, best_path
-
-def render_section(title_html: str, items: list[dict], is_journal: bool) -> list[str]:
-    """Render a numbered list section. For journals use journal name; for chapters use booktitle."""
+def render_section(title_html: str, items: list[dict], journal_mode: bool) -> list[str]:
     lines = []
     lines.append(f'# <span style="color:blue">{title_html}</span>\n')
     if not items:
         lines.append("_No entries._\n")
         return lines
 
-    # Sort newest first
     items.sort(key=get_year, reverse=True)
-
     for idx, e in enumerate(items, start=1):
         authors = bold_author_name(f(e, "author").replace(" and ", ", "))
         title = f(e, "title").strip(' "{}')
-        venue = get_journal(e) if is_journal else get_booktitle(e)
+        venue = get_journal(e) if journal_mode else get_booktitle(e)
         year = f(e, "year")
         link_md = build_link(e)
 
@@ -150,11 +113,25 @@ def render_section(title_html: str, items: list[dict], is_journal: bool) -> list
     return lines
 
 def main():
-    entries, bib_path = find_best_bib()
-
+    entries = load_bib(BIB_PATH)
     journals = [e for e in entries if is_journal_like(e)]
     chapters = [e for e in entries if is_book_chapter(e)]
+    print(f"[bib2pubs] journals: {len(journals)}, chapters: {len(chapters)}")
 
     lines = []
     lines.append("---")
-    lin
+    lines.append("layout: page")
+    lines.append(f"title: {PAGE_TITLE}")
+    lines.append("---\n")
+
+    lines.append("**Published**\n")
+    lines.extend(render_section("Journals", journals, journal_mode=True))
+    lines.append("\n")
+    lines.extend(render_section("Book Chapters", chapters, journal_mode=False))
+
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUT_PATH.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    print(f"[bib2pubs] wrote {OUT_PATH}")
+
+if __name__ == "__main__":
+    main()
