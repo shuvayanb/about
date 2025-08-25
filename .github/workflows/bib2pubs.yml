@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - reference.bib
+      - '**/*.bib'
       - scripts/bib2pubs.py
-      - _data/under_review.md
 
 permissions:
   contents: write  # allow committing back to the repo
@@ -37,11 +36,12 @@ jobs:
         run: |
           echo "PWD: $(pwd)"
           echo "Root:"; ls -la
-          echo "Publications:"; ls -la Publications || true
-          echo "reference.bib (first 40 lines):"
-          sed -n '1,40p' reference.bib || true
-          echo "Generated Publications/publications.md (first 60 lines):"
-          sed -n '1,60p' Publications/publications.md || true
+          echo "Publications dir:"; ls -la Publications || true
+          echo "Bib files found:"; ls -la **/*.bib || true
+          echo "First 40 lines of chosen bib (if any):"
+          if [ -f .bib2pubs_last_bib.txt ]; then cat .bib2pubs_last_bib.txt; fi
+          echo "Generated Publications/publications.md (first 80 lines):"
+          sed -n '1,80p' Publications/publications.md || true
           echo "Git status:"
           git status --porcelain
 
