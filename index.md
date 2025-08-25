@@ -7,7 +7,7 @@ title: Home
 
 <div class="sticky-note">
   <div class="tape"></div>
-  Currently: Postdoc @ TUM<br>Working on Scientific LLMs & Neural Operators
+  Currently: Postdoc @ Shell<br>Working on Agentic AI & SciML
 </div>
 
 <style>
@@ -82,19 +82,6 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 `Products and Technology`<br/>
 `Shell Technology Center`<br/>
 `Bengaluru, Karnataka, India`<br/>
-
-
-<a class="corner-ribbon" href="mailto:b.shuvayan@gmail.com" title="Open to collaborate">Open to collaborate</a>
-
-<style>
-.corner-ribbon{
-  position:fixed; top:18px; right:-40px; z-index:9999;
-  transform:rotate(45deg);
-  background:#2563eb; color:#fff; text-decoration:none;
-  padding:8px 60px; font-weight:600; box-shadow:0 6px 18px rgba(0,0,0,.25);
-}
-@media (prefers-color-scheme: dark){ .corner-ribbon{ background:#3b82f6; } }
-</style>
 
 
 ### Additional Links
