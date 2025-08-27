@@ -39,10 +39,11 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 <div class="stickers-row">
   <span class="sticker-pill">AI for Science</span>
-  <span class="sticker-pill">CFD</span>
   <span class="sticker-pill">AI Agents</span>
   <span class="sticker-pill">Differentiable Physics</span>
-  <span class="sticker-pill">ML for PDEs</span>
+  <span class="sticker-pill">SciML for PDEs</span>
+  <span class="sticker-pill">Optimization</span>  
+  <span class="sticker-pill">CFD</span>
 </div>
 
 <style>
@@ -62,7 +63,12 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 ### Research Interest
 
-- Machine Learning & AI:
+- AI
+  - AI Agents for complex scientific workflows [`Langchain`](https://www.langchain.com/) 
+  - Foundation models for scientific domains (SciFMs)
+  - Character language models
+  - Stable diffusion models
+- Machine Learning:
   - Differentiable physics for forward and inverse problems [`Phiflow`](https://github.com/tum-pbs/PhiFlow) 
   - Spatio-temporal and time-series forecasting
   - Reduced-order model
