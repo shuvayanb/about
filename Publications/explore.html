@@ -13,18 +13,19 @@ title: Explore Topics
 
 <style>
 #explore { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
-#graph { border: 1px solid #eee; border-radius: 8px; background: rgba(0,0,0,0.02); }
+#graph   { border: 1px solid #eee; border-radius: 8px; background: rgba(0,0,0,0.02); overflow: hidden; }
 #details { padding: 8px 12px; border: 1px solid #eee; border-radius: 8px; }
 #details ul { margin: 0; padding-left: 18px; }
+.link { stroke: #999; stroke-opacity: .36; }
 .node { cursor: pointer; }
 .node circle { transition: r 120ms ease, opacity 120ms ease; }
-.link { stroke: #999; stroke-opacity: .4; }
 .legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
 .badge { display:inline-block; padding:3px 6px; border-radius:6px; font-size:12px; border:1px solid rgba(0,0,0,.1); }
+
 @media (prefers-color-scheme: dark){
-  #graph { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
-  #details { border-color: rgba(255,255,255,.12); }
-  .link { stroke: rgba(255,255,255,.6); }
+  #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
+  #details{ border-color: rgba(255,255,255,.12); }
+  .link   { stroke: rgba(255,255,255,.6); }
 }
 @media (max-width: 900px){
   #explore { grid-template-columns: 1fr; }
@@ -39,25 +40,22 @@ title: Explore Topics
   const GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
   const PUBS_URL  = "{{ '/assets/data/pubs.json' | relative_url }}";
 
-  const graphEl = document.getElementById('graph');
+  const graphEl   = document.getElementById('graph');
   const detailsEl = document.getElementById('details');
+  const qs        = new URLSearchParams(location.search);
+  const startTag  = qs.get('tag');
 
-  // Helpers
-  const qs = new URLSearchParams(location.search);
-  const startTag = qs.get('tag');
-
+  // === UI: right panel ===
   function renderDetails(topic, pubs){
     if(!topic){
-      detailsEl.innerHTML = '<h3>Click a topic to see papers</h3>';
+      detailsEl.innerHTML = '<h3>Click a topic to see papers</h3><p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>';
       return;
     }
-    const filtered = pubs.filter(p => (p.tags||[]).includes(topic));
-    // Group by year (desc)
+    const filtered = pubs.filter(p => (p.tags||[]).map(t=>t.toLowerCase()).includes(topic.toLowerCase()));
     const byYear = {};
     filtered.forEach(p => {
       const y = p.year || '—';
-      byYear[y] = byYear[y] || [];
-      byYear[y].push(p);
+      (byYear[y] ||= []).push(p);
     });
     const years = Object.keys(byYear).sort((a,b)=> (b==='—')? -1 : (+b - +a));
     let html = `<h3>${topic}</h3><div class="legend"><span class="badge">Papers: ${filtered.length}</span></div>`;
@@ -75,6 +73,7 @@ title: Explore Topics
     detailsEl.innerHTML = html;
   }
 
+  // === draw graph ===
   function drawGraph(data, pubs){
     if(!data || !data.nodes || data.nodes.length === 0){
       graphEl.innerHTML = '<div style="padding:12px;">No topics found. Add tags to your papers in <code>_data/pub_tags.yml</code> or BibTeX <code>keywords</code>.</div>';
@@ -84,24 +83,39 @@ title: Explore Topics
     const width  = graphEl.clientWidth;
     const height = graphEl.clientHeight;
 
-    const svg = d3.select('#graph').append('svg')
-      .attr('viewBox', [0,0,width,height])
+    const svg = d3.select(graphEl).append('svg')
       .attr('width', '100%')
-      .attr('height', '100%');
+      .attr('height', '100%')
+      .attr('viewBox', [0,0,width,height])
+      .attr('preserveAspectRatio', 'xMidYMid meet');
 
-    const color = d3.scaleOrdinal(d3.schemeTableau10);
+    // A single group we can transform (for zoom + fit)
+    const g = svg.append('g').attr('class', 'viz');
+
+    // --- Better colors: hash topic -> [0,1] -> smooth interpolator ---
+    const colorInterp = d3.interpolateTurbo;  // try d3.interpolateViridis / Sinebow / Plasma / CubehelixDefault
+    function hash01(str){
+      let h = 0;
+      for(let i=0;i<str.length;i++){ h = Math.imul(31, h) + str.charCodeAt(i) | 0; }
+      // unsigned & normalize to [0,1)
+      return (h >>> 0) / 4294967295;
+    }
+    const color = (topicId) => colorInterp(hash01(topicId));
+
     const linkWidth = d3.scaleLinear()
       .domain(d3.extent(data.links, d => d.weight || 1))
-      .range([1, 5]);
+      .range([1.2, 5]);
 
-    // Simulation
+    // --- Forces: add forceX/forceY to keep cloud centered ---
     const sim = d3.forceSimulation(data.nodes)
-      .force('link', d3.forceLink(data.links).id(d => d.id).distance(d => 70).strength(0.2))
-      .force('charge', d3.forceManyBody().strength(-160))
+      .force('link', d3.forceLink(data.links).id(d => d.id).distance(d => 70).strength(0.25))
+      .force('charge', d3.forceManyBody().strength(-180))
       .force('center', d3.forceCenter(width/2, height/2))
+      .force('x', d3.forceX(width/2).strength(0.05))
+      .force('y', d3.forceY(height/2).strength(0.05))
       .force('collision', d3.forceCollide().radius(22));
 
-    const link = svg.append('g')
+    const link = g.append('g')
       .attr('stroke-linecap','round')
       .selectAll('line')
       .data(data.links)
@@ -109,12 +123,11 @@ title: Explore Topics
       .attr('class','link')
       .attr('stroke-width', d => linkWidth(d.weight||1));
 
-    const node = svg.append('g')
+    const node = g.append('g')
       .selectAll('g')
       .data(data.nodes)
       .join('g')
-      .attr('class','node')
-      .call(drag(sim));
+      .attr('class','node');
 
     node.append('circle')
       .attr('r', 10)
@@ -123,7 +136,6 @@ title: Explore Topics
       .on('mouseleave', clearHighlight)
       .on('click', (_, d) => selectTopic(d.id));
 
-    // show labels for medium/large screens
     node.append('text')
       .text(d => d.id)
       .attr('x', 12)
@@ -142,11 +154,28 @@ title: Explore Topics
       node.attr('transform', d => `translate(${d.x},${d.y})`);
     });
 
-    // Highlight neighbors on hover
-    const neighbors = new Map(); // topic -> Set(neighborTopics)
+    // --- Zoom & pan + auto-fit ---
+    const zoom = d3.zoom().scaleExtent([0.6, 4]).on('zoom', (event)=> g.attr('transform', event.transform));
+    svg.call(zoom);
+
+    function fit(pad = 24){
+      // Compute bounding box of all elements inside g
+      const bbox = g.node().getBBox();
+      const dx = bbox.width,  dy = bbox.height;
+      if(!dx || !dy) return; // nothing drawn yet
+      const cx = bbox.x + dx/2, cy = bbox.y + dy/2;
+      const scale = 0.9 / Math.max(dx / width, dy / height);
+      const translate = [width/2 - scale*cx, height/2 - scale*cy];
+      svg.transition().duration(600)
+        .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+    }
+
+    // Highlight neighbors while hovering
+    const neighbors = new Map();
     data.links.forEach(l => {
-      neighbors.set(l.source.id || l.source, (neighbors.get(l.source.id||l.source)||new Set()).add(l.target.id||l.target));
-      neighbors.set(l.target.id || l.target, (neighbors.get(l.target.id||l.target)||new Set()).add(l.source.id||l.source));
+      const s = l.source.id || l.source, t = l.target.id || l.target;
+      (neighbors.get(s) || neighbors.set(s, new Set()).get(s)).add(t);
+      (neighbors.get(t) || neighbors.set(t, new Set()).get(t)).add(s);
     });
 
     function highlight(d){
@@ -159,45 +188,37 @@ title: Explore Topics
     }
     function clearHighlight(){
       node.selectAll('circle').attr('opacity', 1);
-      link.attr('opacity', 0.4);
+      link.attr('opacity', 0.36);
       node.selectAll('text').attr('opacity', 1);
     }
 
-    // Selection → update right panel
     function selectTopic(topic){
       renderDetails(topic, pubs);
-      // bump the node a bit to indicate selection
       node.selectAll('circle').attr('stroke', nd => nd.id===topic ? 'currentColor' : null).attr('stroke-width', nd => nd.id===topic ? 2 : null);
-      // update URL (so deep links work)
       const url = new URL(location);
       url.searchParams.set('tag', topic);
       history.replaceState(null, '', url);
     }
 
-    // Deep-link: pre-select from ?tag=
-    if(startTag){
-      const nodeDatum = data.nodes.find(n => n.id.toLowerCase() === startTag.toLowerCase());
-      if(nodeDatum){ selectTopic(nodeDatum.id); }
-    }
+    // Auto-fit once the layout stabilizes
+    sim.on('end', () => fit());
 
-    function drag(sim){
-      function dragstarted(event, d){
-        if(!event.active) sim.alphaTarget(0.3).restart();
-        d.fx = d.x; d.fy = d.y;
-      }
-      function dragged(event, d){
-        d.fx = event.x; d.fy = event.y;
-      }
-      function dragended(event, d){
-        if(!event.active) sim.alphaTarget(0);
-        // keep pinned on drop; comment next two lines to unpin
-        // d.fx = null; d.fy = null;
-      }
-      return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
+    // Also refit when container size changes (e.g., window resize)
+    const ro = new ResizeObserver(() => {
+      const w = graphEl.clientWidth, h = graphEl.clientHeight;
+      svg.attr('viewBox', [0,0,w,h]);
+      fit();
+    });
+    ro.observe(graphEl);
+
+    // Deep-link selection
+    if(startTag){
+      const datum = data.nodes.find(n => n.id.toLowerCase() === startTag.toLowerCase());
+      if(datum){ selectTopic(datum.id); }
     }
   }
 
-  // Fetch data and render
+  // Load data and go
   Promise.all([fetch(GRAPH_URL), fetch(PUBS_URL)])
     .then(async ([gRes, pRes]) => {
       if(!gRes.ok || !pRes.ok) throw new Error('JSON fetch failed');
