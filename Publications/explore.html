@@ -119,6 +119,30 @@ title: Explore Topics
     detailsEl.innerHTML = html;
   }
 
+  // --- Paper counts per topic (case-insensitive) ---
+  var topicCount = new Map();
+  pubs.forEach(function(p){
+    (p.tags || []).forEach(function(t){
+      var key = String(t).toLowerCase();
+      topicCount.set(key, (topicCount.get(key) || 0) + 1);
+    });
+  });
+  
+  // Accessor: how many papers for this node/topic?
+  function countFor(id){
+    return topicCount.get(String(id).toLowerCase()) || 1; // default to 1 so nodes never disappear
+  }
+  
+  // Radius scale (sqrt = area ~ count). Use a nice range.
+  var counts   = Array.from(topicCount.values());
+  var cExtent  = d3.extent(counts);
+  var rScale   = (cExtent[0] === cExtent[1])
+    ? function(){ return 10; }                       // all same -> constant size
+    : d3.scaleSqrt().domain(cExtent).range([8, 22]); // tweak [min,max] if you want larger/smaller
+  
+  function nodeR(d){ return rScale(countFor(d.id)); }
+    
+  
   // ---------- graph ----------
   function drawGraph(data, pubs){
     if(!data || !data.nodes || data.nodes.length === 0){
@@ -169,7 +193,7 @@ title: Explore Topics
       .force('center', d3.forceCenter(width/2, height/2))
       .force('x', d3.forceX(width/2).strength(0.05))
       .force('y', d3.forceY(height/2).strength(0.05))
-      .force('collision', d3.forceCollide().radius(22));
+      .force('collision', d3.forceCollide().radius(function(d){ return nodeR(d) + 4; }));
 
     var link = g.append('g')
       .attr('stroke-linecap','round')
@@ -191,7 +215,7 @@ title: Explore Topics
       );
 
     node.append('circle')
-      .attr('r', 10)
+      .attr('r', function(d){ return nodeR(d); })
       .attr('fill', function(d){ return color(d.id); })
       .attr('stroke', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)')
       .attr('stroke-width', 0.6)
@@ -202,7 +226,7 @@ title: Explore Topics
 
     node.append('text')
       .text(function(d){ return d.id; })
-      .attr('x', 12)
+      .attr('x', function(d){ return nodeR(d) + 4; })
       .attr('y', 4)
       .attr('font-size', 12)
       .attr('fill', 'currentColor')
