@@ -16,6 +16,9 @@
       "id": "Differentiable Physics"
     },
     {
+      "id": "Evolutionary Algorithm"
+    },
+    {
       "id": "Fourier Neural Operators (FNO)"
     },
     {
@@ -46,13 +49,7 @@
       "id": "Multi-Fidelity Framework"
     },
     {
-      "id": "Multi-Objective Optimisation"
-    },
-    {
       "id": "NSGA-II"
-    },
-    {
-      "id": "Optimization"
     },
     {
       "id": "Phiflow"
@@ -72,33 +69,18 @@
   ],
   "links": [
     {
-      "source": "LLMs",
-      "target": "Multi-Objective Optimisation",
+      "source": "Evolutionary Algorithm",
+      "target": "LLMs",
       "weight": 1
     },
     {
-      "source": "LLMs",
+      "source": "Evolutionary Algorithm",
       "target": "NSGA-II",
       "weight": 1
     },
     {
       "source": "LLMs",
-      "target": "Optimization",
-      "weight": 1
-    },
-    {
-      "source": "Multi-Objective Optimisation",
       "target": "NSGA-II",
-      "weight": 1
-    },
-    {
-      "source": "Multi-Objective Optimisation",
-      "target": "Optimization",
-      "weight": 1
-    },
-    {
-      "source": "NSGA-II",
-      "target": "Optimization",
       "weight": 1
     },
     {
