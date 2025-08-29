@@ -4,13 +4,10 @@
       "id": "Active Debri Removal"
     },
     {
-      "id": "Aerodynamic Shape Optimisation"
-    },
-    {
       "id": "Aerodynamic Shape Optimization"
     },
     {
-      "id": "Aerodynamid Shape Optimisation"
+      "id": "Aerodynamid Shape Optimization"
     },
     {
       "id": "CFD"
@@ -180,12 +177,12 @@
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimisation",
+      "source": "Aerodynamic Shape Optimization",
       "target": "Optimization",
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimisation",
+      "source": "Aerodynamic Shape Optimization",
       "target": "Multi-Fidelity Framework",
       "weight": 1
     },
