@@ -71,8 +71,4 @@ title: Publications
 
 2. **Brahmachary, S**, Thuerey, Nils, _Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries_, **MS1-09B - Learning models for CFD: opportunities and limitations**, 2023 [Link](https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c)
 
-3. **Brahmachary, Shuvayan**, Ogawa, Hideaki, _Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight via Surrogate-Assisted Evolutionary Algorithms_, **AIAA Scitech 2021 Forum**, 2021 [Link](https://arc.aiaa.org/doi/10.2514/6.2021-1960)
-
-4. **Brahmachary, Shuvayan**, Chutia, Jubajyoti, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _Parametric investigation towards the design of a scramjet intake using low-fidelity approach_, **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP 2020)**, 2020 [Link](https://www.researchgate.net/publication/349236917_Parametric_investigation_towards_the_design_of_a_scramjet_intake_using_low-fidelity_approach)
-
-5. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+3. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)

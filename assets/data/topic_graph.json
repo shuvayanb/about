@@ -113,7 +113,7 @@
     {
       "source": "Aerodynamic Shape Optimization",
       "target": "CFD",
-      "weight": 9
+      "weight": 7
     },
     {
       "source": "Reduced Order Modelling",
