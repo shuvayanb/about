@@ -4,7 +4,9 @@ title: Explore Topics
 ---
 
 <div id="explore">
-  <div id="graph"></div>
+  <div id="graph">
+    <button id="fitBtn" class="fit-btn" title="Fit to view">Fit</button>
+  </div>
   <div id="details">
     <h3>Click a topic to see papers</h3>
     <p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>
@@ -12,21 +14,28 @@ title: Explore Topics
 </div>
 
 <style>
-/* Top (graph) / bottom (details) layout */
+/* Top (graph) / bottom (details) */
 #explore {
   display: grid;
   grid-template-rows: auto auto;
   gap: 16px;
 }
 
-/* Give the graph a guaranteed height so the SVG always has room */
+/* Graph: explicit height + overlay control */
 #graph {
-  height: 520px;               /* explicit = no zero-height bugs */
+  position: relative;           /* for overlay button */
+  height: 520px;                /* guaranteed space for SVG */
   border: 1px solid #eee;
   border-radius: 8px;
   background: rgba(0,0,0,0.02);
   overflow: hidden;
 }
+.fit-btn{
+  position: absolute; right: 8px; top: 8px; z-index: 2;
+  font-size: 12px; padding: 4px 8px; border-radius: 6px;
+  border: 1px solid rgba(0,0,0,.15); background: #fff; cursor: pointer;
+}
+.fit-btn:hover{ filter: brightness(0.97); }
 
 /* Details pane */
 #details {
@@ -49,9 +58,10 @@ title: Explore Topics
   #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
   #details{ border-color: rgba(255,255,255,.12); }
   .link   { stroke: rgba(255,255,255,.6); }
+  .fit-btn{ background: #1d1d1d; color:#eee; border-color: rgba(255,255,255,.2); }
 }
 
-/* Optional: make graph taller on narrow screens */
+/* Taller on narrow screens */
 @media (max-width: 900px){
   #graph { height: 58vh; }
 }
@@ -62,15 +72,16 @@ title: Explore Topics
 
 <script>
 (function(){
-  const GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
-  const PUBS_URL  = "{{ '/assets/data/pubs.json' | relative_url }}";
+  var GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
+  var PUBS_URL  = "{{ '/assets/data/pubs.json' | relative_url }}";
 
-  const graphEl   = document.getElementById('graph');
-  const detailsEl = document.getElementById('details');
-  const qs        = new URLSearchParams(location.search);
-  const startTag  = qs.get('tag');
+  var graphEl   = document.getElementById('graph');
+  var detailsEl = document.getElementById('details');
+  var fitBtn    = document.getElementById('fitBtn');
+  var qs        = new URLSearchParams(location.search);
+  var startTag  = qs.get('tag');
 
-  // ------------ bottom (details) ------------
+  // ---------- bottom panel ----------
   function renderDetails(topic, pubs){
     if(!topic){
       detailsEl.innerHTML = '<h3>Click a topic to see papers</h3><p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>';
@@ -107,7 +118,7 @@ title: Explore Topics
     detailsEl.innerHTML = html;
   }
 
-  // ------------ graph ------------
+  // ---------- graph ----------
   function drawGraph(data, pubs){
     if(!data || !data.nodes || data.nodes.length === 0){
       graphEl.innerHTML = '<div style="padding:12px;">No topics found. Add tags to your papers in <code>_data/pub_tags.yml</code> or BibTeX <code>keywords</code>.</div>';
@@ -141,7 +152,7 @@ title: Explore Topics
       ? function(){ return 0.6; }                                  // same degree → mid-tone
       : d3.scaleLinear().domain(extent).range([0.15, 0.9]);        // avoid extremes
 
-    // Robust teal gradient with only core D3 (HCL interpolation)
+    // Smooth teal gradient with core D3 (HCL interpolation)
     var tealStart = d3.hcl("#E0F7F9");  // light aqua
     var tealEnd   = d3.hcl("#006D6F");  // deep teal
     var teal      = d3.interpolateHcl(tealStart, tealEnd);
@@ -155,6 +166,8 @@ title: Explore Topics
       .force('link', d3.forceLink(data.links).id(function(d){ return d.id; }).distance(80).strength(0.25))
       .force('charge', d3.forceManyBody().strength(-200))
       .force('center', d3.forceCenter(width/2, height/2))
+      .force('x', d3.forceX(width/2).strength(0.05))
+      .force('y', d3.forceY(height/2).strength(0.05))
       .force('collision', d3.forceCollide().radius(22));
 
     var link = g.append('g')
@@ -169,7 +182,12 @@ title: Explore Topics
       .selectAll('g')
       .data(data.nodes)
       .enter().append('g')
-      .attr('class','node');
+      .attr('class','node')
+      .call(d3.drag()
+        .on('start', dragstarted)
+        .on('drag', dragged)
+        .on('end', dragended)
+      );
 
     node.append('circle')
       .attr('r', 10)
@@ -178,7 +196,8 @@ title: Explore Topics
       .attr('stroke-width', 0.6)
       .on('mouseenter', function(event, d){ highlight(d); })
       .on('mouseleave', function(){ clearHighlight(); })
-      .on('click', function(event, d){ selectTopic(d.id); });
+      .on('dblclick', function(event, d){ d.fx = null; d.fy = null; }); // unpin on double-click
+    node.on('click', function(event, d){ selectTopic(d.id); });
 
     node.append('text')
       .text(function(d){ return d.id; })
@@ -198,7 +217,25 @@ title: Explore Topics
       node.attr('transform', function(d){ return 'translate('+d.x+','+d.y+')'; });
     });
 
-    // Simple neighbor map for hover highlight
+    // Zoom/pan
+    var zoom = d3.zoom().scaleExtent([0.5, 6]).on('zoom', function(event){ g.attr('transform', event.transform); });
+    svg.call(zoom);
+
+    // Fit-to-view (keeps everything inside frame)
+    function fit(){
+      var n = g.node();
+      if(!n || !n.getBBox) return;
+      var bbox = n.getBBox();
+      var dx = bbox.width, dy = bbox.height;
+      if(!dx || !dy) return;
+      var cx = bbox.x + dx/2, cy = bbox.y + dy/2;
+      var scale = 0.92 / Math.max(dx / width, dy / height);
+      var translate = [width/2 - scale*cx, height/2 - scale*cy];
+      svg.transition().duration(500)
+        .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+    }
+
+    // Neighbor map for hover highlight
     var neighbors = new Map();
     data.links.forEach(function(l){
       var s = (typeof l.source === 'string') ? l.source : (l.source.id || l.source);
@@ -235,6 +272,35 @@ title: Explore Topics
       history.replaceState(null, '', url);
     }
 
+    // Drag handlers
+    function dragstarted(event, d){
+      if(!event.active) sim.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y; // lock during drag
+    }
+    function dragged(event, d){
+      d.fx = event.x; d.fy = event.y; // follow pointer
+    }
+    function dragended(event, d){
+      if(!event.active) sim.alphaTarget(0);
+      // keep pinned after drag; double-click to unpin
+    }
+
+    // Fit after layout stabilizes + again shortly after
+    sim.on('end', function(){ fit(); setTimeout(fit, 300); });
+
+    // Refit on container resize
+    if ('ResizeObserver' in window) {
+      var ro = new ResizeObserver(function(){
+        var r = graphEl.getBoundingClientRect();
+        svg.attr('width', r.width || width).attr('height', r.height || height);
+        fit();
+      });
+      ro.observe(graphEl);
+    }
+
+    // Fit button
+    fitBtn.addEventListener('click', function(){ fit(); });
+
     // Deep-link selection
     if(startTag){
       var datum = data.nodes.find(function(n){ return n.id.toLowerCase() === String(startTag).toLowerCase(); });
@@ -242,7 +308,7 @@ title: Explore Topics
     }
   }
 
-  // Load data & render (with visible error if JSON missing)
+  // Load data & render
   Promise.all([fetch(GRAPH_URL), fetch(PUBS_URL)])
     .then(function(results){
       var gRes = results[0], pRes = results[1];
@@ -250,9 +316,7 @@ title: Explore Topics
       return Promise.all([gRes.json(), pRes.json()]);
     })
     .then(function(payloads){
-      var graph = payloads[0];
-      var pubs  = payloads[1];
-      drawGraph(graph, pubs);
+      drawGraph(payloads[0], payloads[1]);
     })
     .catch(function(err){
       console.error(err);
