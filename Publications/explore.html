@@ -3,10 +3,211 @@ layout: page
 title: Explore Topics
 ---
 
-<div id="graph" style="height: 420px; border: 1px solid #eee; margin-bottom: 1rem;"></div>
-<div id="details"></div>
+<div id="explore">
+  <div id="graph" style="height:460px;"></div>
+  <div id="details">
+    <h3>Click a topic to see papers</h3>
+    <p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>
+  </div>
+</div>
 
-<!-- Later we'll add a small script here that fetches:
-     {{ '/assets/data/topic_graph.json' | relative_url }}
-     {{ '/assets/data/pubs.json' | relative_url }}
-     and renders the network + filtered list based on ?tag=... -->
+<style>
+#explore { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+#graph { border: 1px solid #eee; border-radius: 8px; background: rgba(0,0,0,0.02); }
+#details { padding: 8px 12px; border: 1px solid #eee; border-radius: 8px; }
+#details ul { margin: 0; padding-left: 18px; }
+.node { cursor: pointer; }
+.node circle { transition: r 120ms ease, opacity 120ms ease; }
+.link { stroke: #999; stroke-opacity: .4; }
+.legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.badge { display:inline-block; padding:3px 6px; border-radius:6px; font-size:12px; border:1px solid rgba(0,0,0,.1); }
+@media (prefers-color-scheme: dark){
+  #graph { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
+  #details { border-color: rgba(255,255,255,.12); }
+  .link { stroke: rgba(255,255,255,.6); }
+}
+@media (max-width: 900px){
+  #explore { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- D3 (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+<script>
+(function(){
+  const GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
+  const PUBS_URL  = "{{ '/assets/data/pubs.json' | relative_url }}";
+
+  const graphEl = document.getElementById('graph');
+  const detailsEl = document.getElementById('details');
+
+  // Helpers
+  const qs = new URLSearchParams(location.search);
+  const startTag = qs.get('tag');
+
+  function renderDetails(topic, pubs){
+    if(!topic){
+      detailsEl.innerHTML = '<h3>Click a topic to see papers</h3>';
+      return;
+    }
+    const filtered = pubs.filter(p => (p.tags||[]).includes(topic));
+    // Group by year (desc)
+    const byYear = {};
+    filtered.forEach(p => {
+      const y = p.year || '—';
+      byYear[y] = byYear[y] || [];
+      byYear[y].push(p);
+    });
+    const years = Object.keys(byYear).sort((a,b)=> (b==='—')? -1 : (+b - +a));
+    let html = `<h3>${topic}</h3><div class="legend"><span class="badge">Papers: ${filtered.length}</span></div>`;
+    html += '<ul>';
+    years.forEach(y=>{
+      byYear[y].sort((a,b)=> a.title.localeCompare(b.title));
+      byYear[y].forEach(p=>{
+        const venue = p.venue ? `, <em>${p.venue}</em>` : '';
+        const yearTxt = p.year ? `, ${p.year}` : '';
+        const link = p.url ? ` <a href="${p.url}" target="_blank" rel="noopener">[Link]</a>` : '';
+        html += `<li>${p.title}${venue}${yearTxt}${link}</li>`;
+      });
+    });
+    html += '</ul>';
+    detailsEl.innerHTML = html;
+  }
+
+  function drawGraph(data, pubs){
+    if(!data || !data.nodes || data.nodes.length === 0){
+      graphEl.innerHTML = '<div style="padding:12px;">No topics found. Add tags to your papers in <code>_data/pub_tags.yml</code> or BibTeX <code>keywords</code>.</div>';
+      return;
+    }
+
+    const width  = graphEl.clientWidth;
+    const height = graphEl.clientHeight;
+
+    const svg = d3.select('#graph').append('svg')
+      .attr('viewBox', [0,0,width,height])
+      .attr('width', '100%')
+      .attr('height', '100%');
+
+    const color = d3.scaleOrdinal(d3.schemeTableau10);
+    const linkWidth = d3.scaleLinear()
+      .domain(d3.extent(data.links, d => d.weight || 1))
+      .range([1, 5]);
+
+    // Simulation
+    const sim = d3.forceSimulation(data.nodes)
+      .force('link', d3.forceLink(data.links).id(d => d.id).distance(d => 70).strength(0.2))
+      .force('charge', d3.forceManyBody().strength(-160))
+      .force('center', d3.forceCenter(width/2, height/2))
+      .force('collision', d3.forceCollide().radius(22));
+
+    const link = svg.append('g')
+      .attr('stroke-linecap','round')
+      .selectAll('line')
+      .data(data.links)
+      .join('line')
+      .attr('class','link')
+      .attr('stroke-width', d => linkWidth(d.weight||1));
+
+    const node = svg.append('g')
+      .selectAll('g')
+      .data(data.nodes)
+      .join('g')
+      .attr('class','node')
+      .call(drag(sim));
+
+    node.append('circle')
+      .attr('r', 10)
+      .attr('fill', d => color(d.id))
+      .on('mouseenter', (_, d) => highlight(d))
+      .on('mouseleave', clearHighlight)
+      .on('click', (_, d) => selectTopic(d.id));
+
+    // show labels for medium/large screens
+    node.append('text')
+      .text(d => d.id)
+      .attr('x', 12)
+      .attr('y', 4)
+      .attr('font-size', 12)
+      .attr('fill', 'currentColor')
+      .attr('pointer-events', 'none')
+      .style('user-select', 'none');
+
+    sim.on('tick', () => {
+      link
+        .attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
+      node.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+
+    // Highlight neighbors on hover
+    const neighbors = new Map(); // topic -> Set(neighborTopics)
+    data.links.forEach(l => {
+      neighbors.set(l.source.id || l.source, (neighbors.get(l.source.id||l.source)||new Set()).add(l.target.id||l.target));
+      neighbors.set(l.target.id || l.target, (neighbors.get(l.target.id||l.target)||new Set()).add(l.source.id||l.source));
+    });
+
+    function highlight(d){
+      const ns = neighbors.get(d.id) || new Set();
+      node.selectAll('circle')
+        .attr('opacity', nd => (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.2);
+      link.attr('opacity', l => (l.source.id===d.id || l.target.id===d.id || ns.has(l.source.id) || ns.has(l.target.id)) ? 0.9 : 0.1);
+      node.selectAll('text')
+        .attr('opacity', nd => (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.2);
+    }
+    function clearHighlight(){
+      node.selectAll('circle').attr('opacity', 1);
+      link.attr('opacity', 0.4);
+      node.selectAll('text').attr('opacity', 1);
+    }
+
+    // Selection → update right panel
+    function selectTopic(topic){
+      renderDetails(topic, pubs);
+      // bump the node a bit to indicate selection
+      node.selectAll('circle').attr('stroke', nd => nd.id===topic ? 'currentColor' : null).attr('stroke-width', nd => nd.id===topic ? 2 : null);
+      // update URL (so deep links work)
+      const url = new URL(location);
+      url.searchParams.set('tag', topic);
+      history.replaceState(null, '', url);
+    }
+
+    // Deep-link: pre-select from ?tag=
+    if(startTag){
+      const nodeDatum = data.nodes.find(n => n.id.toLowerCase() === startTag.toLowerCase());
+      if(nodeDatum){ selectTopic(nodeDatum.id); }
+    }
+
+    function drag(sim){
+      function dragstarted(event, d){
+        if(!event.active) sim.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      }
+      function dragged(event, d){
+        d.fx = event.x; d.fy = event.y;
+      }
+      function dragended(event, d){
+        if(!event.active) sim.alphaTarget(0);
+        // keep pinned on drop; comment next two lines to unpin
+        // d.fx = null; d.fy = null;
+      }
+      return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
+    }
+  }
+
+  // Fetch data and render
+  Promise.all([fetch(GRAPH_URL), fetch(PUBS_URL)])
+    .then(async ([gRes, pRes]) => {
+      if(!gRes.ok || !pRes.ok) throw new Error('JSON fetch failed');
+      const graph = await gRes.json();
+      const pubs  = await pRes.json();
+      drawGraph(graph, pubs);
+    })
+    .catch(err => {
+      console.error(err);
+      graphEl.innerHTML = '<div style="padding:12px;color:#b00020">Could not load data. Make sure Actions generated <code>assets/data/topic_graph.json</code> and <code>assets/data/pubs.json</code>.</div>';
+    });
+})();
+</script>
