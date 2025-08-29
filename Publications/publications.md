@@ -45,7 +45,7 @@ title: Publications
 
 11. Deka, Mandeep, **Brahmachary, Shuvayan**, Thirumalaisamy, Ramakrishnan, Dalal, Amaresh, Natarajan, Ganesh, _A new Green–Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction_, **Journal of Computational Physics**, 2020 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909)
 
-12. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity approach_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+12. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
 
 13. Desai, Siddesh, **Brahmachary, Shuvayan**, Gadgil, Hrishikesh, Kulkarni, Vinayak, _Probing real gas and leading-edge bluntness effects on shock wave boundary-layer interaction at hypersonic speeds_, **Journal of Aerospace Engineering**, 2019 [Link](https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001085)
 
@@ -75,4 +75,4 @@ title: Publications
 
 4. **Brahmachary, Shuvayan**, Chutia, Jubajyoti, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _Parametric investigation towards the design of a scramjet intake using low-fidelity approach_, **8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP 2020)**, 2020 [Link](https://www.researchgate.net/publication/349236917_Parametric_investigation_towards_the_design_of_a_scramjet_intake_using_low-fidelity_approach)
 
-5. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity approach_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+5. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
