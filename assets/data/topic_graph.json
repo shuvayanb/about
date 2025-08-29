@@ -1,4 +1,344 @@
 {
-  "nodes": [],
-  "links": []
+  "nodes": [
+    {
+      "id": "ASO"
+    },
+    {
+      "id": "Active Debri Removal"
+    },
+    {
+      "id": "Aerodynamic Shape Optimisation"
+    },
+    {
+      "id": "Aerodynamic Shape Optimization"
+    },
+    {
+      "id": "Aerodynamid Shape Optimisation"
+    },
+    {
+      "id": "CFD"
+    },
+    {
+      "id": "Design Optimization"
+    },
+    {
+      "id": "Differentiable Physics"
+    },
+    {
+      "id": "Finite Volume"
+    },
+    {
+      "id": "Fourier Neural Operators"
+    },
+    {
+      "id": "Gradient reconstruction"
+    },
+    {
+      "id": "Hypersonic flows"
+    },
+    {
+      "id": "Immersed Boudnary Method"
+    },
+    {
+      "id": "Immersed Boundary Method"
+    },
+    {
+      "id": "Immersed Boundary Methods"
+    },
+    {
+      "id": "Incompressible flows"
+    },
+    {
+      "id": "LLMs"
+    },
+    {
+      "id": "Low-Fidelity Approach"
+    },
+    {
+      "id": "ML"
+    },
+    {
+      "id": "Modified Green Gauss"
+    },
+    {
+      "id": "Multi-Fidelity Approach"
+    },
+    {
+      "id": "Multi-Fidelity Framework"
+    },
+    {
+      "id": "Multi-objective Optimisation"
+    },
+    {
+      "id": "Multipoint-Multiobjective Optimisation"
+    },
+    {
+      "id": "NSGA-II"
+    },
+    {
+      "id": "Nose Cone Design"
+    },
+    {
+      "id": "Nozzle Design"
+    },
+    {
+      "id": "Optimization"
+    },
+    {
+      "id": "Phiflow"
+    },
+    {
+      "id": "Reduced Order Modelling"
+    },
+    {
+      "id": "SWBLI"
+    },
+    {
+      "id": "SciML"
+    },
+    {
+      "id": "Scramjet"
+    },
+    {
+      "id": "Scramjet Design"
+    },
+    {
+      "id": "Standard Green Gauss"
+    },
+    {
+      "id": "Wake Flows"
+    }
+  ],
+  "links": [
+    {
+      "source": "LLMs",
+      "target": "Multi-objective Optimisation",
+      "weight": 1
+    },
+    {
+      "source": "LLMs",
+      "target": "NSGA-II",
+      "weight": 1
+    },
+    {
+      "source": "LLMs",
+      "target": "Optimization",
+      "weight": 1
+    },
+    {
+      "source": "Multi-objective Optimisation",
+      "target": "NSGA-II",
+      "weight": 1
+    },
+    {
+      "source": "Multi-objective Optimisation",
+      "target": "Optimization",
+      "weight": 1
+    },
+    {
+      "source": "NSGA-II",
+      "target": "Optimization",
+      "weight": 1
+    },
+    {
+      "source": "Differentiable Physics",
+      "target": "Phiflow",
+      "weight": 1
+    },
+    {
+      "source": "Differentiable Physics",
+      "target": "SciML",
+      "weight": 2
+    },
+    {
+      "source": "Differentiable Physics",
+      "target": "Wake Flows",
+      "weight": 1
+    },
+    {
+      "source": "Phiflow",
+      "target": "SciML",
+      "weight": 1
+    },
+    {
+      "source": "Phiflow",
+      "target": "Wake Flows",
+      "weight": 1
+    },
+    {
+      "source": "SciML",
+      "target": "Wake Flows",
+      "weight": 1
+    },
+    {
+      "source": "Aerodynamic Shape Optimization",
+      "target": "CFD",
+      "weight": 1
+    },
+    {
+      "source": "Aerodynamic Shape Optimization",
+      "target": "Scramjet",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Scramjet",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "ML",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Optimization",
+      "weight": 3
+    },
+    {
+      "source": "CFD",
+      "target": "Reduced Order Modelling",
+      "weight": 1
+    },
+    {
+      "source": "ML",
+      "target": "Optimization",
+      "weight": 1
+    },
+    {
+      "source": "ML",
+      "target": "Reduced Order Modelling",
+      "weight": 1
+    },
+    {
+      "source": "Optimization",
+      "target": "Reduced Order Modelling",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Scramjet Design",
+      "weight": 3
+    },
+    {
+      "source": "Optimization",
+      "target": "Scramjet Design",
+      "weight": 2
+    },
+    {
+      "source": "CFD",
+      "target": "Finite Volume",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Immersed Boundary Methods",
+      "weight": 1
+    },
+    {
+      "source": "Finite Volume",
+      "target": "Immersed Boundary Methods",
+      "weight": 1
+    },
+    {
+      "source": "Aerodynamic Shape Optimisation",
+      "target": "CFD",
+      "weight": 1
+    },
+    {
+      "source": "Aerodynamic Shape Optimisation",
+      "target": "Multipoint-Multiobjective Optimisation",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Multipoint-Multiobjective Optimisation",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Low-Fidelity Approach",
+      "weight": 1
+    },
+    {
+      "source": "Low-Fidelity Approach",
+      "target": "Scramjet Design",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Nozzle Design",
+      "weight": 1
+    },
+    {
+      "source": "Hypersonic flows",
+      "target": "SWBLI",
+      "weight": 1
+    },
+    {
+      "source": "Gradient reconstruction",
+      "target": "Modified Green Gauss",
+      "weight": 1
+    },
+    {
+      "source": "Gradient reconstruction",
+      "target": "Standard Green Gauss",
+      "weight": 1
+    },
+    {
+      "source": "Modified Green Gauss",
+      "target": "Standard Green Gauss",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Immersed Boundary Method",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Incompressible flows",
+      "weight": 1
+    },
+    {
+      "source": "Immersed Boundary Method",
+      "target": "Incompressible flows",
+      "weight": 1
+    },
+    {
+      "source": "Aerodynamid Shape Optimisation",
+      "target": "Nose Cone Design",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Immersed Boudnary Method",
+      "weight": 1
+    },
+    {
+      "source": "Aerodynamic Shape Optimisation",
+      "target": "Optimization",
+      "weight": 1
+    },
+    {
+      "source": "ASO",
+      "target": "Multi-Fidelity Framework",
+      "weight": 1
+    },
+    {
+      "source": "Fourier Neural Operators",
+      "target": "SciML",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
+      "target": "Design Optimization",
+      "weight": 2
+    },
+    {
+      "source": "Active Debri Removal",
+      "target": "Multi-Fidelity Approach",
+      "weight": 1
+    }
+  ]
 }
