@@ -35,11 +35,6 @@ title: Explore Topics
 <!-- D3 (CDN) -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
-<!-- D3 (CDN) -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<!-- Make sure color interpolators like interpolateBuGn are present -->
-<script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
-
 <script>
 (function(){
   const GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
@@ -98,9 +93,7 @@ title: Explore Topics
     const g = svg.append('g').attr('class', 'viz');
 
     // --- Better colors: hash topic -> [0,1] -> smooth interpolator ---
-    #const colorInterp = d3.interpolateTurbo;  // try d3.interpolateViridis / Sinebow / Plasma / CubehelixDefault
-    const colorInterp = d3.interpolateBuGn;
-    
+    const colorInterp = d3.interpolateTurbo;  // try d3.interpolateViridis / Sinebow / Plasma / CubehelixDefault
     function hash01(str){
       let h = 0;
       for(let i=0;i<str.length;i++){ h = Math.imul(31, h) + str.charCodeAt(i) | 0; }
