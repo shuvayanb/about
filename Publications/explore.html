@@ -46,7 +46,7 @@ title: Explore Topics
 #details ul { margin: 0; padding-left: 18px; }
 
 /* Links & nodes */
-.link { stroke: #000; stroke-opacity: .28; }  
+.link { stroke: #000; stroke-opacity: .28; }          /* BLACK edges */
 .node { cursor: pointer; }
 .node circle { transition: r 120ms ease, opacity 120ms ease; }
 
@@ -57,8 +57,7 @@ title: Explore Topics
 @media (prefers-color-scheme: dark){
   #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
   #details{ border-color: rgba(255,255,255,.12); }
-  .link   { stroke: rgba(255,255,255,.6); }
-  .fit-btn{ background: #1d1d1d; color:#eee; border-color: rgba(255,255,255,.2); }
+  /* leave .link as black for both modes */
 }
 
 /* Taller on narrow screens */
@@ -118,30 +117,6 @@ title: Explore Topics
     detailsEl.innerHTML = html;
   }
 
-  // --- Paper counts per topic (case-insensitive) ---
-  var topicCount = new Map();
-  pubs.forEach(function(p){
-    (p.tags || []).forEach(function(t){
-      var key = String(t).toLowerCase();
-      topicCount.set(key, (topicCount.get(key) || 0) + 1);
-    });
-  });
-  
-  // Accessor: how many papers for this node/topic?
-  function countFor(id){
-    return topicCount.get(String(id).toLowerCase()) || 1; // default to 1 so nodes never disappear
-  }
-  
-  // Radius scale (sqrt = area ~ count). Use a nice range.
-  var counts   = Array.from(topicCount.values());
-  var cExtent  = d3.extent(counts);
-  var rScale   = (cExtent[0] === cExtent[1])
-    ? function(){ return 10; }                       // all same -> constant size
-    : d3.scaleSqrt().domain(cExtent).range([8, 22]); // tweak [min,max] if you want larger/smaller
-  
-  function nodeR(d){ return rScale(countFor(d.id)); }
-    
-  
   // ---------- graph ----------
   function drawGraph(data, pubs){
     if(!data || !data.nodes || data.nodes.length === 0){
@@ -159,7 +134,7 @@ title: Explore Topics
 
     var g = svg.append('g').attr('class', 'viz');
 
-    // Degree (weighted) for color mapping
+    // Degree (weighted) for color mapping (same teal gradient as before)
     var degree = new Map();
     data.nodes.forEach(function(n){ degree.set(n.id, 0); });
     data.links.forEach(function(l){
@@ -169,18 +144,36 @@ title: Explore Topics
       degree.set(s, (degree.get(s) || 0) + w);
       degree.set(t, (degree.get(t) || 0) + w);
     });
-
     var degVals = Array.from(degree.values());
     var extent  = d3.extent(degVals);
     var tScale  = (extent[0] === extent[1])
       ? function(){ return 0.6; }                                  // same degree → mid-tone
       : d3.scaleLinear().domain(extent).range([0.15, 0.9]);        // avoid extremes
 
-    // Smooth teal gradient with core D3 (HCL interpolation)
     var tealStart = d3.hcl("#E0F7F9");  // light aqua
     var tealEnd   = d3.hcl("#006D6F");  // deep teal
     var teal      = d3.interpolateHcl(tealStart, tealEnd);
     function color(id){ return teal(tScale(degree.get(id) || 0)); }
+
+    // --- NEW: paper counts per topic -> node size ---
+    var topicCount = new Map();
+    pubs.forEach(function(p){
+      var tags = p.tags || [];
+      for (var i=0;i<tags.length;i++){
+        var key = String(tags[i]).toLowerCase();
+        topicCount.set(key, (topicCount.get(key) || 0) + 1);
+      }
+    });
+    function countFor(id){
+      return topicCount.get(String(id).toLowerCase()) || 1; // default so nodes never vanish
+    }
+    var counts = Array.from(topicCount.values());
+    // If no tags in pubs.json, fall back to uniform size
+    var cExtent = (counts.length ? d3.extent(counts) : [1,1]);
+    var rScale  = (cExtent[0] === cExtent[1])
+      ? function(){ return 10; }
+      : d3.scaleSqrt().domain(cExtent).range([8, 22]);
+    function nodeR(d){ return rScale(countFor(d.id)); }
 
     var linkWidth = d3.scaleLinear()
       .domain(d3.extent(data.links, function(d){ return d.weight || 1; }))
@@ -225,7 +218,7 @@ title: Explore Topics
 
     node.append('text')
       .text(function(d){ return d.id; })
-      .attr('x', function(d){ return nodeR(d) + 4; })
+      .attr('x', function(d){ return nodeR(d) + 4; })   /* label offset by radius */
       .attr('y', 4)
       .attr('font-size', 12)
       .attr('fill', 'currentColor')
@@ -245,7 +238,7 @@ title: Explore Topics
     var zoom = d3.zoom().scaleExtent([0.5, 6]).on('zoom', function(event){ g.attr('transform', event.transform); });
     svg.call(zoom);
 
-    // Fit-to-view (keeps everything inside frame)
+    // Fit-to-view
     function fit(){
       var n = g.node();
       if(!n || !n.getBBox) return;
@@ -284,7 +277,7 @@ title: Explore Topics
     }
     function clearHighlight(){
       node.selectAll('circle').attr('opacity', 1);
-      link.attr('opacity', 0.36);
+      link.attr('opacity', 0.28);
       node.selectAll('text').attr('opacity', 1);
     }
 
@@ -309,7 +302,7 @@ title: Explore Topics
       // keep pinned after drag; double-click to unpin
     }
 
-    // Fit after layout stabilizes + again shortly after
+    // Fit after layout stabilizes + once more shortly after
     sim.on('end', function(){ fit(); setTimeout(fit, 300); });
 
     // Refit on container resize
