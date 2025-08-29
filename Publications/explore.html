@@ -12,7 +12,7 @@ title: Explore Topics
 </div>
 
 <style>
-/* Top (graph) / bottom (details) */
+/* Top (graph) / bottom (details) layout */
 #explore {
   display: grid;
   grid-template-rows: auto auto;
@@ -21,7 +21,242 @@ title: Explore Topics
 
 /* Give the graph a guaranteed height so the SVG always has room */
 #graph {
-  height: 520px;               /* << explicit height = no zero-height bugs */
+  height: 520px;               /* explicit = no zero-height bugs */
   border: 1px solid #eee;
   border-radius: 8px;
-  background: rgb
+  background: rgba(0,0,0,0.02);
+  overflow: hidden;
+}
+
+/* Details pane */
+#details {
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+#details ul { margin: 0; padding-left: 18px; }
+
+/* Links & nodes */
+.link { stroke: #999; stroke-opacity: .36; }
+.node { cursor: pointer; }
+.node circle { transition: r 120ms ease, opacity 120ms ease; }
+
+/* Badges */
+.legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.badge { display:inline-block; padding:3px 6px; border-radius:6px; font-size:12px; border:1px solid rgba(0,0,0,.1); }
+
+@media (prefers-color-scheme: dark){
+  #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
+  #details{ border-color: rgba(255,255,255,.12); }
+  .link   { stroke: rgba(255,255,255,.6); }
+}
+
+/* Optional: make graph taller on narrow screens */
+@media (max-width: 900px){
+  #graph { height: 58vh; }
+}
+</style>
+
+<!-- D3 (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+<script>
+(function(){
+  const GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
+  const PUBS_URL  = "{{ '/assets/data/pubs.json' | relative_url }}";
+
+  const graphEl   = document.getElementById('graph');
+  const detailsEl = document.getElementById('details');
+  const qs        = new URLSearchParams(location.search);
+  const startTag  = qs.get('tag');
+
+  // ------------ bottom (details) ------------
+  function renderDetails(topic, pubs){
+    if(!topic){
+      detailsEl.innerHTML = '<h3>Click a topic to see papers</h3><p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>';
+      return;
+    }
+    var filtered = pubs.filter(function(p){
+      var tags = (p.tags || []).map(function(t){ return String(t).toLowerCase(); });
+      return tags.indexOf(String(topic).toLowerCase()) >= 0;
+    });
+
+    // Group by year (desc)
+    var byYear = {};
+    filtered.forEach(function(p){
+      var y = p.year || '—';
+      if(!byYear[y]) byYear[y] = [];
+      byYear[y].push(p);
+    });
+    var years = Object.keys(byYear).sort(function(a,b){
+      if(b === '—') return -1;
+      return (+b) - (+a);
+    });
+
+    var html = '<h3>'+topic+'</h3><div class="legend"><span class="badge">Papers: '+filtered.length+'</span></div><ul>';
+    years.forEach(function(y){
+      byYear[y].sort(function(a,b){ return a.title.localeCompare(b.title); });
+      byYear[y].forEach(function(p){
+        var venue = p.venue ? ', <em>'+p.venue+'</em>' : '';
+        var yearTxt = p.year ? ', '+p.year : '';
+        var link = p.url ? ' <a href="'+p.url+'" target="_blank" rel="noopener">[Link]</a>' : '';
+        html += '<li>'+p.title+venue+yearTxt+link+'</li>';
+      });
+    });
+    html += '</ul>';
+    detailsEl.innerHTML = html;
+  }
+
+  // ------------ graph ------------
+  function drawGraph(data, pubs){
+    if(!data || !data.nodes || data.nodes.length === 0){
+      graphEl.innerHTML = '<div style="padding:12px;">No topics found. Add tags to your papers in <code>_data/pub_tags.yml</code> or BibTeX <code>keywords</code>.</div>';
+      return;
+    }
+
+    var rect   = graphEl.getBoundingClientRect();
+    var width  = rect.width || 800;
+    var height = rect.height || 520;
+
+    var svg = d3.select(graphEl).append('svg')
+      .attr('width', width)
+      .attr('height', height);
+
+    var g = svg.append('g').attr('class', 'viz');
+
+    // Degree (weighted) for color mapping
+    var degree = new Map();
+    data.nodes.forEach(function(n){ degree.set(n.id, 0); });
+    data.links.forEach(function(l){
+      var w = l.weight || 1;
+      var s = (typeof l.source === 'string') ? l.source : (l.source.id || l.source);
+      var t = (typeof l.target === 'string') ? l.target : (l.target.id || l.target);
+      degree.set(s, (degree.get(s) || 0) + w);
+      degree.set(t, (degree.get(t) || 0) + w);
+    });
+
+    var degVals = Array.from(degree.values());
+    var extent  = d3.extent(degVals);
+    var tScale  = (extent[0] === extent[1])
+      ? function(){ return 0.6; }                                  // same degree → mid-tone
+      : d3.scaleLinear().domain(extent).range([0.15, 0.9]);        // avoid extremes
+
+    // Robust teal gradient with only core D3 (HCL interpolation)
+    var tealStart = d3.hcl("#E0F7F9");  // light aqua
+    var tealEnd   = d3.hcl("#006D6F");  // deep teal
+    var teal      = d3.interpolateHcl(tealStart, tealEnd);
+    function color(id){ return teal(tScale(degree.get(id) || 0)); }
+
+    var linkWidth = d3.scaleLinear()
+      .domain(d3.extent(data.links, function(d){ return d.weight || 1; }))
+      .range([1.2, 5]);
+
+    var sim = d3.forceSimulation(data.nodes)
+      .force('link', d3.forceLink(data.links).id(function(d){ return d.id; }).distance(80).strength(0.25))
+      .force('charge', d3.forceManyBody().strength(-200))
+      .force('center', d3.forceCenter(width/2, height/2))
+      .force('collision', d3.forceCollide().radius(22));
+
+    var link = g.append('g')
+      .attr('stroke-linecap','round')
+      .selectAll('line')
+      .data(data.links)
+      .enter().append('line')
+      .attr('class','link')
+      .attr('stroke-width', function(d){ return linkWidth(d.weight || 1); });
+
+    var node = g.append('g')
+      .selectAll('g')
+      .data(data.nodes)
+      .enter().append('g')
+      .attr('class','node');
+
+    node.append('circle')
+      .attr('r', 10)
+      .attr('fill', function(d){ return color(d.id); })
+      .attr('stroke', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)')
+      .attr('stroke-width', 0.6)
+      .on('mouseenter', function(event, d){ highlight(d); })
+      .on('mouseleave', function(){ clearHighlight(); })
+      .on('click', function(event, d){ selectTopic(d.id); });
+
+    node.append('text')
+      .text(function(d){ return d.id; })
+      .attr('x', 12)
+      .attr('y', 4)
+      .attr('font-size', 12)
+      .attr('fill', 'currentColor')
+      .attr('pointer-events', 'none')
+      .style('user-select', 'none');
+
+    sim.on('tick', function(){
+      link
+        .attr('x1', function(d){ return d.source.x; })
+        .attr('y1', function(d){ return d.source.y; })
+        .attr('x2', function(d){ return d.target.x; })
+        .attr('y2', function(d){ return d.target.y; });
+      node.attr('transform', function(d){ return 'translate('+d.x+','+d.y+')'; });
+    });
+
+    // Simple neighbor map for hover highlight
+    var neighbors = new Map();
+    data.links.forEach(function(l){
+      var s = (typeof l.source === 'string') ? l.source : (l.source.id || l.source);
+      var t = (typeof l.target === 'string') ? l.target : (l.target.id || l.target);
+      if(!neighbors.get(s)) neighbors.set(s, new Set());
+      if(!neighbors.get(t)) neighbors.set(t, new Set());
+      neighbors.get(s).add(t);
+      neighbors.get(t).add(s);
+    });
+
+    function highlight(d){
+      var ns = neighbors.get(d.id) || new Set();
+      node.selectAll('circle')
+        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.2; });
+      link.attr('opacity', function(l){
+        var s = (typeof l.source === 'object') ? l.source.id : l.source;
+        var t = (typeof l.target === 'object') ? l.target.id : l.target;
+        return (s === d.id || t === d.id || ns.has(s) || ns.has(t)) ? 0.9 : 0.12;
+      });
+      node.selectAll('text')
+        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.2; });
+    }
+    function clearHighlight(){
+      node.selectAll('circle').attr('opacity', 1);
+      link.attr('opacity', 0.36);
+      node.selectAll('text').attr('opacity', 1);
+    }
+
+    function selectTopic(topic){
+      renderDetails(topic, pubs);
+      node.selectAll('circle').attr('stroke-width', function(nd){ return (nd.id === topic) ? 2 : 0.6; });
+      var url = new URL(location);
+      url.searchParams.set('tag', topic);
+      history.replaceState(null, '', url);
+    }
+
+    // Deep-link selection
+    if(startTag){
+      var datum = data.nodes.find(function(n){ return n.id.toLowerCase() === String(startTag).toLowerCase(); });
+      if(datum){ selectTopic(datum.id); }
+    }
+  }
+
+  // Load data & render (with visible error if JSON missing)
+  Promise.all([fetch(GRAPH_URL), fetch(PUBS_URL)])
+    .then(function(results){
+      var gRes = results[0], pRes = results[1];
+      if(!gRes.ok || !pRes.ok) throw new Error('JSON fetch failed');
+      return Promise.all([gRes.json(), pRes.json()]);
+    })
+    .then(function(payloads){
+      var graph = payloads[0];
+      var pubs  = payloads[1];
+      drawGraph(graph, pubs);
+    })
+    .catch(function(err){
+      console.error(err);
+      graphEl.innerHTML = '<div style="padding:12px;color:#b00020">Could not load data. Make sure Actions generated <code>assets/data/topic_graph.json</code> and <code>assets/data/pubs.json</code>.</div>';
+    });
+})();
+</script>
