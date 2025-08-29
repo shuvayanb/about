@@ -38,7 +38,7 @@
     "tags": [
       "SciML",
       "Differentiable Physics",
-      "Wake Flows",
+      "Incompressible Wake Flows",
       "Phiflow"
     ]
   },
@@ -72,8 +72,8 @@
     "venue": "Physics of Fluids",
     "url": "https://pubs.aip.org/aip/pof/article-abstract/33/10/106110/1065234/Fast-estimation-of-internal-flowfields-in-scramjet?redirectedFrom=fulltext",
     "tags": [
-      "Reduced Order Modelling",
-      "SciML"
+      "SciML",
+      "Reduced Order Modelling"
     ]
   },
   {
@@ -326,7 +326,9 @@
     "url": "https://www.earthdoc.org/content/papers/10.3997/2214-4609.2025643025",
     "tags": [
       "SciML",
-      "Fourier Neural Operators"
+      "Fourier Neural Operators (FNO)",
+      "Full Wave Inversion",
+      "Subsurface"
     ]
   },
   {
@@ -395,7 +397,7 @@
     "url": "https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi",
     "tags": [
       "Active Debri Removal",
-      "Multi-Fidelity Approach"
+      "Multi-Fidelity Framework"
     ]
   }
 ]
