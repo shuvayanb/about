@@ -1,0 +1,338 @@
+[
+  {
+    "id": "brahmachary2025large",
+    "type": "article",
+    "title": "Large language model-based evolutionary optimizer: Reasoning with elitism",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Joshi, Subodh M",
+      "Panda, Aniruddha",
+      "Koneripalli, Kaushik",
+      "Sagotra, Arun Kumar",
+      "Patel, Harshil",
+      "Sharma, Ankush",
+      "Jagtap, Ameya D",
+      "Kalyanaraman, Kaushic"
+    ],
+    "year": 2025,
+    "venue": "Neurocomputing",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231224020435",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2024unsteady",
+    "type": "article",
+    "title": "Unsteady cylinder wakes from arbitrary bodies with differentiable physics-assisted neural network",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Thuerey, Nils"
+    ],
+    "year": 2024,
+    "venue": "Physical Review E",
+    "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.055304",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2022design",
+    "type": "article",
+    "title": "Design optimization and off-design performance analysis of axisymmetric scramjet intakes for ascent flight",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Fujio, Chihiro",
+      "Aksay, Mehmet",
+      "Ogawa, Hideaki"
+    ],
+    "year": 2022,
+    "venue": "Physics of Fluids",
+    "url": "https://pubs.aip.org/aip/pof/article-abstract/34/3/036109/2845736/Design-optimization-and-off-design-performance?redirectedFrom=fulltext",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2021fast",
+    "type": "article",
+    "title": "Fast estimation of internal flowfields in scramjet intakes via reduced-order modeling and machine learning",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Bhagyarajan, Ananthakrishnan",
+      "Ogawa, Hideaki"
+    ],
+    "year": 2021,
+    "venue": "Physics of Fluids",
+    "url": "https://pubs.aip.org/aip/pof/article-abstract/33/10/106110/1065234/Fast-estimation-of-internal-flowfields-in-scramjet?redirectedFrom=fulltext",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2021multipoint",
+    "type": "article",
+    "title": "Multipoint design optimization of Busemann-based intakes for scramjet-powered ascent flight",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Ogawa, Hideaki"
+    ],
+    "year": 2021,
+    "venue": "Journal of Propulsion and Power",
+    "url": "https://arc.aiaa.org/doi/10.2514/1.B38383",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2021role",
+    "type": "article",
+    "title": "Role of solution reconstruction in hypersonic viscous computations using a sharp interface immersed boundary method",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan",
+      "Ashok, V",
+      "Kumar, Vinod"
+    ],
+    "year": 2021,
+    "venue": "Physical Review E",
+    "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.103.043302",
+    "tags": []
+  },
+  {
+    "id": "fujio2021numerical",
+    "type": "article",
+    "title": "Numerical investigation of axisymmetric intake flowfield and performance for scramjet-powered ascent flight",
+    "authors": [
+      "Fujio, Chihiro",
+      "Brahmachary, Shuvayan",
+      "Ogawa, Hideaki"
+    ],
+    "year": 2021,
+    "venue": "Aerospace Science and Technology",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963821000432",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2020multi",
+    "type": "article",
+    "title": "Multi-point design optimization of a high-performance intake for scramjet-powered ascent flight",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Fujio, Chihiro",
+      "Ogawa, Hideaki"
+    ],
+    "year": 2020,
+    "venue": "Aerospace Science and Technology",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963820310440",
+    "tags": []
+  },
+  {
+    "id": "10.1063/5.0006408",
+    "type": "article",
+    "title": "Comment on “A new approach for the design of hypersonic scramjet inlets” [Phys. Fluids 24, 086103 (2012)]",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2020,
+    "venue": "Physics of Fluids",
+    "url": "https://pubs.aip.org/aip/pof/article/32/7/079101/1065525/Comment-on-A-new-approach-for-the-design-of",
+    "tags": []
+  },
+  {
+    "id": "dudas2020high",
+    "type": "article",
+    "title": "High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy",
+    "authors": [
+      "Dudás, Eszter",
+      "Suas-David, Nicolas",
+      "Brahmachary, Shuvayan",
+      "Kulkarni, Vinayak",
+      "Benidar, Abdessamad",
+      "Kassi, Samir",
+      "Charles, Christine",
+      "Georges, Robert"
+    ],
+    "year": 2020,
+    "venue": "The Journal of Chemical Physics",
+    "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext",
+    "tags": []
+  },
+  {
+    "id": "desai2019probing",
+    "type": "article",
+    "title": "Probing real gas and leading-edge bluntness effects on shock wave boundary-layer interaction at hypersonic speeds",
+    "authors": [
+      "Desai, Siddesh",
+      "Brahmachary, Shuvayan",
+      "Gadgil, Hrishikesh",
+      "Kulkarni, Vinayak"
+    ],
+    "year": 2019,
+    "venue": "Journal of Aerospace Engineering",
+    "url": "https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001085",
+    "tags": []
+  },
+  {
+    "id": "deka2020new",
+    "type": "article",
+    "title": "A new Green–Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction",
+    "authors": [
+      "Deka, Mandeep",
+      "Brahmachary, Shuvayan",
+      "Thirumalaisamy, Ramakrishnan",
+      "Dalal, Amaresh",
+      "Natarajan, Ganesh"
+    ],
+    "year": 2020,
+    "venue": "Journal of Computational Physics",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2018sharp",
+    "type": "article",
+    "title": "A sharp-interface immersed boundary framework for simulations of high-speed inviscid compressible flows",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2018,
+    "venue": "International Journal for Numerical Methods in Fluids",
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.4479",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2018maximum",
+    "type": "article",
+    "title": "On maximum ballistic coefficient axisymmetric geometries in hypersonic flows",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2018,
+    "venue": "Journal of Spacecraft and Rockets",
+    "url": "https://arc.aiaa.org/doi/10.2514/1.A33887",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2020sharp",
+    "type": "incollection",
+    "title": "A sharp-interface immersed boundary method for high-speed compressible flows",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2020,
+    "venue": "Immersed Boundary Method: Development and Applications",
+    "url": "https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2018application",
+    "type": "incollection",
+    "title": "Application of greedy and heuristic algorithm-based optimisation methods towards aerodynamic shape optimisation",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan",
+      "Nanda, Soumya Ranjan"
+    ],
+    "year": 2018,
+    "venue": "Soft Computing for Problem Solving: SocProS 2017, Volume 1",
+    "url": "https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2016hybrid",
+    "type": "incollection",
+    "title": "A hybrid aerodynamic shape optimization approach for axisymmetric body in hypersonic flow",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2016,
+    "venue": "Fluid Mechanics and Fluid Power–Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014",
+    "url": "https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2025auto",
+    "type": "inproceedings",
+    "title": "Auto-regressive Neural Operators for Efficient Wavefield Simulation",
+    "authors": [
+      "Brahmachary, S",
+      "Panda, A",
+      "Sethi, H",
+      "Dutta, D",
+      "Chandran, A",
+      "Devarakota, P",
+      "St-Cyr, A"
+    ],
+    "year": 2025,
+    "venue": "Empowering the Energy Shift: The Role of HPC in Sustainable Innovation",
+    "url": "https://www.earthdoc.org/content/papers/10.3997/2214-4609.2025643025",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2023cfc",
+    "type": "inproceedings",
+    "title": "Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries",
+    "authors": [
+      "Brahmachary, S",
+      "Thuerey, Nils"
+    ],
+    "year": 2023,
+    "venue": "MS1-09B - Learning models for CFD: opportunities and limitations",
+    "url": "https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2021multi",
+    "type": "inproceedings",
+    "title": "Multi-Point Design Optimization of Busemann Based Intakes for Scramjet-Powered Ascent Flight via Surrogate-Assisted Evolutionary Algorithms",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Ogawa, Hideaki"
+    ],
+    "year": 2021,
+    "venue": "AIAA Scitech 2021 Forum",
+    "url": "https://arc.aiaa.org/doi/10.2514/6.2021-1960",
+    "tags": []
+  },
+  {
+    "id": "brahmacharyparametric",
+    "type": "inproceedings",
+    "title": "Parametric investigation towards the design of a scramjet intake using low-fidelity approach",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Chutia, Jubajyoti",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2020,
+    "venue": "8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP 2020)",
+    "url": "https://www.researchgate.net/publication/349236917_Parametric_investigation_towards_the_design_of_a_scramjet_intake_using_low-fidelity_approach",
+    "tags": []
+  },
+  {
+    "id": "brahmachary2020multi",
+    "type": "inproceedings",
+    "title": "Multi-target rendezvous optimization for active debris removal via multi-fidelity approach",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "TOKUDA, Atsuki",
+      "Ogawa, Hideaki",
+      "Bang, Jun",
+      "Ahn, Jaemyung",
+      "Ueda, Satoshi"
+    ],
+    "year": 2020,
+    "venue": "計測自動制御学会制御部門マルチシンポジウム (CD-ROM)",
+    "url": "https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi",
+    "tags": []
+  }
+]
