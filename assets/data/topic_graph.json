@@ -1,9 +1,6 @@
 {
   "nodes": [
     {
-      "id": "ASO"
-    },
-    {
       "id": "Active Debri Removal"
     },
     {
@@ -19,22 +16,13 @@
       "id": "CFD"
     },
     {
-      "id": "Design Optimization"
-    },
-    {
       "id": "Differentiable Physics"
-    },
-    {
-      "id": "Finite Volume"
     },
     {
       "id": "Fourier Neural Operators"
     },
     {
-      "id": "Gradient reconstruction"
-    },
-    {
-      "id": "Hypersonic flows"
+      "id": "Gradient Reconstruction"
     },
     {
       "id": "Immersed Boudnary Method"
@@ -46,16 +34,10 @@
       "id": "Immersed Boundary Methods"
     },
     {
-      "id": "Incompressible flows"
-    },
-    {
       "id": "LLMs"
     },
     {
       "id": "Low-Fidelity Approach"
-    },
-    {
-      "id": "ML"
     },
     {
       "id": "Modified Green Gauss"
@@ -67,7 +49,7 @@
       "id": "Multi-Fidelity Framework"
     },
     {
-      "id": "Multi-objective Optimisation"
+      "id": "Multi-Objective Optimisation"
     },
     {
       "id": "Multipoint-Multiobjective Optimisation"
@@ -97,12 +79,6 @@
       "id": "SciML"
     },
     {
-      "id": "Scramjet"
-    },
-    {
-      "id": "Scramjet Design"
-    },
-    {
       "id": "Standard Green Gauss"
     },
     {
@@ -112,7 +88,7 @@
   "links": [
     {
       "source": "LLMs",
-      "target": "Multi-objective Optimisation",
+      "target": "Multi-Objective Optimisation",
       "weight": 1
     },
     {
@@ -126,12 +102,12 @@
       "weight": 1
     },
     {
-      "source": "Multi-objective Optimisation",
+      "source": "Multi-Objective Optimisation",
       "target": "NSGA-II",
       "weight": 1
     },
     {
-      "source": "Multi-objective Optimisation",
+      "source": "Multi-Objective Optimisation",
       "target": "Optimization",
       "weight": 1
     },
@@ -176,73 +152,28 @@
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimization",
-      "target": "Scramjet",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Scramjet",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "ML",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Optimization",
-      "weight": 3
-    },
-    {
       "source": "CFD",
       "target": "Reduced Order Modelling",
       "weight": 1
     },
     {
-      "source": "ML",
-      "target": "Optimization",
-      "weight": 1
-    },
-    {
-      "source": "ML",
-      "target": "Reduced Order Modelling",
-      "weight": 1
-    },
-    {
-      "source": "Optimization",
-      "target": "Reduced Order Modelling",
-      "weight": 1
-    },
-    {
       "source": "CFD",
-      "target": "Scramjet Design",
-      "weight": 3
-    },
-    {
-      "source": "Optimization",
-      "target": "Scramjet Design",
-      "weight": 2
-    },
-    {
-      "source": "CFD",
-      "target": "Finite Volume",
+      "target": "SciML",
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Immersed Boundary Methods",
-      "weight": 1
-    },
-    {
-      "source": "Finite Volume",
-      "target": "Immersed Boundary Methods",
+      "source": "Reduced Order Modelling",
+      "target": "SciML",
       "weight": 1
     },
     {
       "source": "Aerodynamic Shape Optimisation",
       "target": "CFD",
+      "weight": 5
+    },
+    {
+      "source": "CFD",
+      "target": "Immersed Boundary Methods",
       "weight": 1
     },
     {
@@ -261,27 +192,37 @@
       "weight": 1
     },
     {
-      "source": "Low-Fidelity Approach",
-      "target": "Scramjet Design",
-      "weight": 1
-    },
-    {
       "source": "CFD",
       "target": "Nozzle Design",
       "weight": 1
     },
     {
-      "source": "Hypersonic flows",
+      "source": "CFD",
       "target": "SWBLI",
       "weight": 1
     },
     {
-      "source": "Gradient reconstruction",
+      "source": "CFD",
+      "target": "Gradient Reconstruction",
+      "weight": 1
+    },
+    {
+      "source": "CFD",
       "target": "Modified Green Gauss",
       "weight": 1
     },
     {
-      "source": "Gradient reconstruction",
+      "source": "CFD",
+      "target": "Standard Green Gauss",
+      "weight": 1
+    },
+    {
+      "source": "Gradient Reconstruction",
+      "target": "Modified Green Gauss",
+      "weight": 1
+    },
+    {
+      "source": "Gradient Reconstruction",
       "target": "Standard Green Gauss",
       "weight": 1
     },
@@ -293,16 +234,6 @@
     {
       "source": "CFD",
       "target": "Immersed Boundary Method",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Incompressible flows",
-      "weight": 1
-    },
-    {
-      "source": "Immersed Boundary Method",
-      "target": "Incompressible flows",
       "weight": 1
     },
     {
@@ -321,7 +252,7 @@
       "weight": 1
     },
     {
-      "source": "ASO",
+      "source": "Aerodynamic Shape Optimisation",
       "target": "Multi-Fidelity Framework",
       "weight": 1
     },
@@ -329,11 +260,6 @@
       "source": "Fourier Neural Operators",
       "target": "SciML",
       "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Design Optimization",
-      "weight": 2
     },
     {
       "source": "Active Debri Removal",
