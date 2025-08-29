@@ -31,9 +31,6 @@
       "id": "Immersed Boundary Method"
     },
     {
-      "id": "Immersed Boundary Methods"
-    },
-    {
       "id": "Incompressible Wake Flows"
     },
     {
@@ -141,8 +138,8 @@
     },
     {
       "source": "CFD",
-      "target": "Immersed Boundary Methods",
-      "weight": 1
+      "target": "Immersed Boundary Method",
+      "weight": 2
     },
     {
       "source": "CFD",
@@ -167,11 +164,6 @@
     {
       "source": "Gradient Reconstruction",
       "target": "Modified Green Gauss",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Immersed Boundary Method",
       "weight": 1
     },
     {
