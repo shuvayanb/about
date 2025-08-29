@@ -19,6 +19,7 @@ google_analytics: "UA-227511059-1"
 # nav links (these are your header tabs)
 header_pages:
   - Publications/publications.md
+  - Publications/explore.html  
   - Projects/projects.md
   - repositories.md
   - blogs.md
