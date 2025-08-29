@@ -56,7 +56,6 @@
     "venue": "Physics of Fluids",
     "url": "https://pubs.aip.org/aip/pof/article-abstract/34/3/036109/2845736/Design-optimization-and-off-design-performance?redirectedFrom=fulltext",
     "tags": [
-      "CFD",
       "Aerodynamic Shape Optimization"
     ]
   },
@@ -74,7 +73,6 @@
     "url": "https://pubs.aip.org/aip/pof/article-abstract/33/10/106110/1065234/Fast-estimation-of-internal-flowfields-in-scramjet?redirectedFrom=fulltext",
     "tags": [
       "Reduced Order Modelling",
-      "CFD",
       "SciML"
     ]
   },
@@ -90,7 +88,6 @@
     "venue": "Journal of Propulsion and Power",
     "url": "https://arc.aiaa.org/doi/10.2514/1.B38383",
     "tags": [
-      "CFD",
       "Aerodynamic Shape Optimisation"
     ]
   },
@@ -127,7 +124,6 @@
     "venue": "Aerospace Science and Technology",
     "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963821000432",
     "tags": [
-      "CFD",
       "Aerodynamic Shape Optimisation"
     ]
   },
@@ -144,8 +140,6 @@
     "venue": "Aerospace Science and Technology",
     "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963820310440",
     "tags": [
-      "CFD",
-      "Multipoint-Multiobjective Optimisation",
       "Aerodynamic Shape Optimisation"
     ]
   },
@@ -185,8 +179,7 @@
     "venue": "The Journal of Chemical Physics",
     "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext",
     "tags": [
-      "CFD",
-      "Nozzle Design"
+      "Aerodynamic Shape Optimisation"
     ]
   },
   {
@@ -224,7 +217,6 @@
     "tags": [
       "CFD",
       "Gradient Reconstruction",
-      "Standard Green Gauss",
       "Modified Green Gauss"
     ]
   },
@@ -259,7 +251,6 @@
     "venue": "Journal of Spacecraft and Rockets",
     "url": "https://arc.aiaa.org/doi/10.2514/1.A33887",
     "tags": [
-      "Nose Cone Design",
       "Aerodynamid Shape Optimisation"
     ]
   },
@@ -366,7 +357,6 @@
     "venue": "AIAA Scitech 2021 Forum",
     "url": "https://arc.aiaa.org/doi/10.2514/6.2021-1960",
     "tags": [
-      "CFD",
       "Aerodynamic Shape Optimisation"
     ]
   },
@@ -385,7 +375,6 @@
     "venue": "8th International and 47th National Conference on Fluid Mechanics and Fluid Power (FMFP 2020)",
     "url": "https://www.researchgate.net/publication/349236917_Parametric_investigation_towards_the_design_of_a_scramjet_intake_using_low-fidelity_approach",
     "tags": [
-      "CFD",
       "Aerodynamic Shape Optimisation"
     ]
   },

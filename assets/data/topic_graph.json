@@ -52,16 +52,7 @@
       "id": "Multi-Objective Optimisation"
     },
     {
-      "id": "Multipoint-Multiobjective Optimisation"
-    },
-    {
       "id": "NSGA-II"
-    },
-    {
-      "id": "Nose Cone Design"
-    },
-    {
-      "id": "Nozzle Design"
     },
     {
       "id": "Optimization"
@@ -77,9 +68,6 @@
     },
     {
       "id": "SciML"
-    },
-    {
-      "id": "Standard Green Gauss"
     },
     {
       "id": "Wake Flows"
@@ -147,29 +135,9 @@
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimization",
-      "target": "CFD",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Reduced Order Modelling",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "SciML",
-      "weight": 1
-    },
-    {
       "source": "Reduced Order Modelling",
       "target": "SciML",
       "weight": 1
-    },
-    {
-      "source": "Aerodynamic Shape Optimisation",
-      "target": "CFD",
-      "weight": 5
     },
     {
       "source": "CFD",
@@ -177,23 +145,8 @@
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimisation",
-      "target": "Multipoint-Multiobjective Optimisation",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Multipoint-Multiobjective Optimisation",
-      "weight": 1
-    },
-    {
       "source": "CFD",
       "target": "Low-Fidelity Approach",
-      "weight": 1
-    },
-    {
-      "source": "CFD",
-      "target": "Nozzle Design",
       "weight": 1
     },
     {
@@ -212,33 +165,13 @@
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Standard Green Gauss",
-      "weight": 1
-    },
-    {
       "source": "Gradient Reconstruction",
       "target": "Modified Green Gauss",
       "weight": 1
     },
     {
-      "source": "Gradient Reconstruction",
-      "target": "Standard Green Gauss",
-      "weight": 1
-    },
-    {
-      "source": "Modified Green Gauss",
-      "target": "Standard Green Gauss",
-      "weight": 1
-    },
-    {
       "source": "CFD",
       "target": "Immersed Boundary Method",
-      "weight": 1
-    },
-    {
-      "source": "Aerodynamid Shape Optimisation",
-      "target": "Nose Cone Design",
       "weight": 1
     },
     {
