@@ -132,6 +132,11 @@
       "weight": 1
     },
     {
+      "source": "Aerodynamic Shape Optimization",
+      "target": "CFD",
+      "weight": 8
+    },
+    {
       "source": "Reduced Order Modelling",
       "target": "SciML",
       "weight": 1
@@ -167,13 +172,13 @@
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Immersed Boudnary Method",
+      "source": "Aerodynamid Shape Optimization",
+      "target": "CFD",
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimization",
-      "target": "Optimization",
+      "source": "CFD",
+      "target": "Immersed Boudnary Method",
       "weight": 1
     },
     {
