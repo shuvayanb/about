@@ -93,7 +93,9 @@ title: Explore Topics
     const g = svg.append('g').attr('class', 'viz');
 
     // --- Better colors: hash topic -> [0,1] -> smooth interpolator ---
-    const colorInterp = d3.interpolateTurbo;  // try d3.interpolateViridis / Sinebow / Plasma / CubehelixDefault
+    #const colorInterp = d3.interpolateTurbo;  // try d3.interpolateViridis / Sinebow / Plasma / CubehelixDefault
+    const colorInterp = d3.interpolateBuGn;
+    
     function hash01(str){
       let h = 0;
       for(let i=0;i<str.length;i++){ h = Math.imul(31, h) + str.charCodeAt(i) | 0; }
@@ -128,6 +130,16 @@ title: Explore Topics
       .data(data.nodes)
       .join('g')
       .attr('class','node');
+
+    node.append('circle')
+      .attr('r', 10)
+      .attr('fill', d => color(d.id))
+      .attr('stroke', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)')
+      .attr('stroke-width', 0.6)
+      .on('mouseenter', ... )
+      .on('mouseleave', ... )
+      .on('click', ... );
+    
 
     node.append('circle')
       .attr('r', 10)
