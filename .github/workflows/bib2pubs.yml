@@ -17,17 +17,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
-        with: { python-version: "3.11" }
+        with:
+          python-version: "3.11"
 
       - name: Install deps
         run: pip install "bibtexparser==1.4.0"
 
       - name: Sanity: show bib head
         run: |
+          ls -la
+          echo "---- Publications dir ----"
           ls -la Publications || true
           echo "---- head of Publications/references.bib ----"
           head -n 40 Publications/references.bib || true
