@@ -19,6 +19,12 @@ title: Publications
 </style>
 
 
+# <span style="color:blue">Preprint</span>
+
+_No entries._
+
+
+
 **Published**
 
 # <span style="color:blue">Journals</span>
@@ -71,4 +77,4 @@ title: Publications
 
 2. **Brahmachary, S**, Thuerey, Nils, _Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries_, **MS1-09B - Learning models for CFD: opportunities and limitations**, 2023 [Link](https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c)
 
-3. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+3. **Brahmachary, Shuvayan**, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
