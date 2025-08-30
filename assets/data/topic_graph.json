@@ -9,116 +9,164 @@
     {
       "id": "aerodynamic shape optimization",
       "count": 8,
-      "degree_w": 8,
+      "degree_w": 12,
+      "community": 0
+    },
+    {
+      "id": "analysis",
+      "count": 1,
+      "degree_w": 5,
+      "community": 6
+    },
+    {
+      "id": "ansys fluent (euler)",
+      "count": 1,
+      "degree_w": 1,
       "community": 0
     },
     {
       "id": "applications",
       "count": 1,
       "degree_w": 4,
-      "community": 7
+      "community": 2
     },
     {
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 3
     },
     {
       "id": "benchmarking",
       "count": 1,
       "degree_w": 5,
-      "community": 4
+      "community": 3
+    },
+    {
+      "id": "busemann-based",
+      "count": 2,
+      "degree_w": 2,
+      "community": 1
     },
     {
       "id": "cd",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 4
     },
     {
       "id": "cfd",
-      "count": 13,
-      "degree_w": 14,
+      "count": 14,
+      "degree_w": 22,
       "community": 0
     },
     {
       "id": "cl",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 4
+    },
+    {
+      "id": "cross-referencing across intake classes",
+      "count": 1,
+      "degree_w": 1,
+      "community": 6
     },
     {
       "id": "deflected gap",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "differentiable physics",
       "count": 2,
       "degree_w": 4,
-      "community": 1
+      "community": 2
     },
     {
       "id": "dpnn vs source vs sl",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 4
     },
     {
       "id": "elitism guardrails",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "engineering applications",
       "count": 1,
       "degree_w": 4,
-      "community": 2
+      "community": 3
     },
     {
       "id": "evaluation",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "evaluation & comparisons",
       "count": 1,
       "degree_w": 5,
-      "community": 3
+      "community": 4
     },
     {
       "id": "explore-exploit balance",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "flip-flopping (chaotic)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
+    },
+    {
+      "id": "fluent solver",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "fourier neural operators (fno)",
       "count": 1,
       "degree_w": 3,
-      "community": 1
+      "community": 2
     },
     {
       "id": "full wave inversion",
       "count": 1,
       "degree_w": 3,
+      "community": 2
+    },
+    {
+      "id": "generic (bézier)",
+      "count": 1,
+      "degree_w": 1,
       "community": 1
+    },
+    {
+      "id": "geometry",
+      "count": 2,
+      "degree_w": 8,
+      "community": 1
+    },
+    {
+      "id": "gmsh meshing",
+      "count": 2,
+      "degree_w": 2,
+      "community": 0
     },
     {
       "id": "goldstein-price function",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 3
     },
     {
       "id": "gradient reconstruction",
@@ -127,10 +175,16 @@
       "community": 0
     },
     {
+      "id": "h) grid search",
+      "count": 1,
+      "degree_w": 1,
+      "community": 8
+    },
+    {
       "id": "himmelblau function",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 3
     },
     {
       "id": "immersed boudnary method",
@@ -148,13 +202,19 @@
       "id": "ke & enstrophy trends",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 4
     },
     {
       "id": "llm",
       "count": 1,
       "degree_w": 4,
-      "community": 2
+      "community": 3
+    },
+    {
+      "id": "local rob (k-means)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
     },
     {
       "id": "low-fidelity approach",
@@ -163,10 +223,46 @@
       "community": 0
     },
     {
+      "id": "maximize compression efficiency",
+      "count": 1,
+      "degree_w": 1,
+      "community": 9
+    },
+    {
+      "id": "metrics",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
+    },
+    {
       "id": "mid-horizon chaotic switching capture",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 2
+    },
+    {
+      "id": "minimize drag",
+      "count": 1,
+      "degree_w": 1,
+      "community": 9
+    },
+    {
+      "id": "ml",
+      "count": 1,
+      "degree_w": 3,
+      "community": 1
+    },
+    {
+      "id": "mlp neural network",
+      "count": 1,
+      "degree_w": 2,
+      "community": 1
+    },
+    {
+      "id": "mls regression",
+      "count": 1,
+      "degree_w": 4,
+      "community": 8
     },
     {
       "id": "modified green gauss",
@@ -184,10 +280,22 @@
       "id": "multi-objective optimization",
       "count": 1,
       "degree_w": 5,
-      "community": 6
+      "community": 5
     },
     {
       "id": "nsga-ii modularization",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
+      "id": "objectives & constraints",
+      "count": 1,
+      "degree_w": 3,
+      "community": 9
+    },
+    {
+      "id": "off-design assessment",
       "count": 1,
       "degree_w": 1,
       "community": 6
@@ -196,16 +304,40 @@
       "id": "optimization",
       "count": 1,
       "degree_w": 4,
-      "community": 2
+      "community": 3
     },
     {
-      "id": "pareto optimal front",
+      "id": "pareto front",
       "count": 1,
       "degree_w": 1,
       "community": 6
     },
     {
+      "id": "pareto optimal front",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
+      "id": "pca-based clustering",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
+    },
+    {
       "id": "phiflow-in-the-loop",
+      "count": 1,
+      "degree_w": 1,
+      "community": 2
+    },
+    {
+      "id": "pod-coefficient prediction",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "pod/svd",
       "count": 1,
       "degree_w": 1,
       "community": 1
@@ -214,73 +346,109 @@
       "id": "population-based methods",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "preserving boundary layer & global wake dynamics",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 2
     },
     {
       "id": "quasi-in-/anti-phase",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
-      "id": "reduced order modelling",
+      "id": "quasi-optimal (dmi",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 8
+    },
+    {
+      "id": "rans (sst k-ω)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "reference solver (foamextend)  coarse-grained surrogate",
       "count": 1,
       "degree_w": 1,
+      "community": 2
+    },
+    {
+      "id": "rom",
+      "count": 1,
+      "degree_w": 4,
       "community": 1
     },
     {
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 3
+    },
+    {
+      "id": "rsciml",
+      "count": 1,
+      "degree_w": 4,
+      "community": 1
+    },
+    {
+      "id": "saea (nsga-ii)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "sciml",
-      "count": 4,
-      "degree_w": 9,
+      "count": 3,
+      "degree_w": 8,
+      "community": 2
+    },
+    {
+      "id": "scramjet intake",
+      "count": 2,
+      "degree_w": 2,
       "community": 1
+    },
+    {
+      "id": "sensitivity",
+      "count": 1,
+      "degree_w": 1,
+      "community": 6
     },
     {
       "id": "single bluff-body",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "st",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 4
     },
     {
       "id": "steady-state heat transfer",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "subsurface",
       "count": 1,
       "degree_w": 3,
-      "community": 1
+      "community": 2
     },
     {
       "id": "supersonic nozzle shape optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "swbli",
@@ -289,34 +457,52 @@
       "community": 0
     },
     {
-      "id": "unsteady wakes around arbitrary bodies",
+      "id": "three-ramp",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 1
     },
     {
-      "id": "wake regimes",
+      "id": "truncated modes",
       "count": 1,
-      "degree_w": 5,
-      "community": 5
+      "degree_w": 1,
+      "community": 1
     },
     {
-      "id": "windfarm layout optimization",
+      "id": "unsteady wakes around arbitrary bodies",
       "count": 1,
       "degree_w": 1,
       "community": 2
     },
     {
+      "id": "wake regimes",
+      "count": 1,
+      "degree_w": 5,
+      "community": 7
+    },
+    {
+      "id": "weighting functions",
+      "count": 1,
+      "degree_w": 1,
+      "community": 8
+    },
+    {
+      "id": "windfarm layout optimization",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
+    },
+    {
       "id": "zdt1",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 5
     },
     {
       "id": "zdt3",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 5
     }
   ],
   "links": [
@@ -502,12 +688,172 @@
     },
     {
       "source": "aerodynamic shape optimization",
+      "target": "geometry",
+      "weight": 1
+    },
+    {
+      "source": "aerodynamic shape optimization",
+      "target": "objectives & constraints",
+      "weight": 1
+    },
+    {
+      "source": "aerodynamic shape optimization",
       "target": "cfd",
       "weight": 7
     },
     {
-      "source": "reduced order modelling",
-      "target": "sciml",
+      "source": "aerodynamic shape optimization",
+      "target": "metrics",
+      "weight": 1
+    },
+    {
+      "source": "aerodynamic shape optimization",
+      "target": "analysis",
+      "weight": 1
+    },
+    {
+      "source": "geometry",
+      "target": "scramjet intake",
+      "weight": 2
+    },
+    {
+      "source": "busemann-based",
+      "target": "geometry",
+      "weight": 2
+    },
+    {
+      "source": "generic (bézier)",
+      "target": "geometry",
+      "weight": 1
+    },
+    {
+      "source": "minimize drag",
+      "target": "objectives & constraints",
+      "weight": 1
+    },
+    {
+      "source": "maximize compression efficiency",
+      "target": "objectives & constraints",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "saea (nsga-ii)",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "rans (sst k-ω)",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "gmsh meshing",
+      "weight": 2
+    },
+    {
+      "source": "cfd",
+      "target": "fluent solver",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "pca-based clustering",
+      "weight": 1
+    },
+    {
+      "source": "analysis",
+      "target": "pareto front",
+      "weight": 1
+    },
+    {
+      "source": "analysis",
+      "target": "cross-referencing across intake classes",
+      "weight": 1
+    },
+    {
+      "source": "analysis",
+      "target": "off-design assessment",
+      "weight": 1
+    },
+    {
+      "source": "analysis",
+      "target": "sensitivity",
+      "weight": 1
+    },
+    {
+      "source": "geometry",
+      "target": "rsciml",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "rsciml",
+      "weight": 1
+    },
+    {
+      "source": "rom",
+      "target": "rsciml",
+      "weight": 1
+    },
+    {
+      "source": "ml",
+      "target": "rsciml",
+      "weight": 1
+    },
+    {
+      "source": "geometry",
+      "target": "three-ramp",
+      "weight": 1
+    },
+    {
+      "source": "ansys fluent (euler)",
+      "target": "cfd",
+      "weight": 1
+    },
+    {
+      "source": "pod/svd",
+      "target": "rom",
+      "weight": 1
+    },
+    {
+      "source": "rom",
+      "target": "truncated modes",
+      "weight": 1
+    },
+    {
+      "source": "local rob (k-means)",
+      "target": "rom",
+      "weight": 1
+    },
+    {
+      "source": "ml",
+      "target": "mls regression",
+      "weight": 1
+    },
+    {
+      "source": "ml",
+      "target": "mlp neural network",
+      "weight": 1
+    },
+    {
+      "source": "mls regression",
+      "target": "weighting functions",
+      "weight": 1
+    },
+    {
+      "source": "mls regression",
+      "target": "quasi-optimal (dmi",
+      "weight": 1
+    },
+    {
+      "source": "h) grid search",
+      "target": "mls regression",
+      "weight": 1
+    },
+    {
+      "source": "mlp neural network",
+      "target": "pod-coefficient prediction",
       "weight": 1
     },
     {

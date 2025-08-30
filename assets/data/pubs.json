@@ -87,8 +87,26 @@
     "venue": "Physics of Fluids",
     "url": "https://pubs.aip.org/aip/pof/article-abstract/34/3/036109/2845736/Design-optimization-and-off-design-performance?redirectedFrom=fulltext",
     "tags": [
+      "Aerodynamic Shape Optimization",
+      "Geometry",
+      "objectives & constraints",
       "CFD",
-      "Aerodynamic Shape Optimization"
+      "metrics",
+      "analysis",
+      "Scramjet Intake",
+      "Busemann-based",
+      "generic (Bézier)",
+      "minimize drag",
+      "maximize compression efficiency",
+      "SAEA (NSGA-II)",
+      "RANS (SST k-ω)",
+      "Gmsh meshing",
+      "Fluent solver",
+      "PCA-based clustering",
+      "Pareto front",
+      "cross-referencing across intake classes",
+      "off-design assessment",
+      "sensitivity"
     ]
   },
   {
@@ -104,8 +122,25 @@
     "venue": "Physics of Fluids",
     "url": "https://pubs.aip.org/aip/pof/article-abstract/33/10/106110/1065234/Fast-estimation-of-internal-flowfields-in-scramjet?redirectedFrom=fulltext",
     "tags": [
-      "SciML",
-      "Reduced Order Modelling"
+      "RSciML",
+      "Geometry",
+      "CFD",
+      "ROM",
+      "ML",
+      "Scramjet Intake",
+      "Busemann-based",
+      "three-ramp",
+      "ANSYS Fluent (Euler)",
+      "Gmsh meshing",
+      "POD/SVD",
+      "truncated modes",
+      "local ROB (k-means)",
+      "MLS regression",
+      "MLP neural network",
+      "weighting functions",
+      "quasi-optimal (dmi",
+      "h) grid search",
+      "POD-coefficient prediction"
     ]
   },
   {
@@ -120,8 +155,8 @@
     "venue": "Journal of Propulsion and Power",
     "url": "https://arc.aiaa.org/doi/10.2514/1.B38383",
     "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
+      "Aerodynamic Shape Optimization",
+      "CFD"
     ]
   },
   {
@@ -174,8 +209,8 @@
     "venue": "Aerospace Science and Technology",
     "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963820310440",
     "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
+      "Aerodynamic Shape Optimization",
+      "CFD"
     ]
   },
   {
@@ -214,8 +249,8 @@
     "venue": "The Journal of Chemical Physics",
     "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext",
     "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
+      "Aerodynamic Shape Optimization",
+      "CFD"
     ]
   },
   {
@@ -287,8 +322,8 @@
     "venue": "Journal of Spacecraft and Rockets",
     "url": "https://arc.aiaa.org/doi/10.2514/1.A33887",
     "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
+      "Aerodynamic Shape Optimization",
+      "CFD"
     ]
   },
   {
@@ -324,8 +359,8 @@
     "venue": "Soft Computing for Problem Solving: SocProS 2017, Volume 1",
     "url": "https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75",
     "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
+      "Aerodynamic Shape Optimization",
+      "CFD"
     ]
   },
   {
