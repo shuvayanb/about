@@ -7,22 +7,47 @@ BIB_FILE = Path("Publications/references.bib")     # <-- your single source of t
 OUT_MD   = Path("Publications/publications.md")
 OUT_JSON = Path("assets/data/pubs.json")           # optional; handy later
 
-def read_bib():
+def read_bib() -> list[dict]:
+    """
+    Load Publications/references.bib. Try bibtexparser first; if it drops
+    non-standard types (e.g. @preprint) or fails, fall back to a simple regex
+    parser that keeps ALL entry types.
+    """
+    import bibtexparser
+    from bibtexparser.bparser import BibTexParser
+
+    bib_path = Path("Publications/references.bib")
+    txt = bib_path.read_text(encoding="utf-8")
+
+    # --- 1) Try bibtexparser normally
     try:
-        import bibtexparser
-        from bibtexparser.bparser import BibTexParser
-        from bibtexparser.customization import convert_to_unicode
+        parser = BibTexParser(common_strings=True)
+        db = bibtexparser.loads(txt, parser=parser)
+        entries = db.entries or []
+        if entries:
+            return entries
     except Exception:
-        raise SystemExit("Missing bibtexparser. CI will install it; locally run: pip install bibtexparser")
+        pass  # fall through to regex
 
-    if not BIB_FILE.exists():
-        raise SystemExit(f"Bib file not found: {BIB_FILE}")
+    # --- 2) Fallback: minimal regex parser (keeps unknown types like @preprint)
+    entries: list[dict] = []
+    entry_re = re.compile(r'@(\w+)\s*{\s*([^,]+)\s*,(.*?)\n}\s*', re.S | re.I)
+    field_re = re.compile(r'([A-Za-z][A-Za-z0-9_-]*)\s*=\s*(\{(?:[^{}]|\{[^{}]*\})*\}|"[^"]*")\s*,?', re.S)
 
-    parser = BibTexParser(common_strings=True)
-    parser.customization = convert_to_unicode
-    with open(BIB_FILE, "r", encoding="utf-8") as f:
-        db = bibtexparser.load(f, parser=parser)
-    return db.entries or []
+    for m in entry_re.finditer(txt):
+        etype = m.group(1).strip().lower()
+        key   = m.group(2).strip()
+        body  = m.group(3)
+        d = {"ENTRYTYPE": etype, "ID": key}
+        for fm in field_re.finditer(body):
+            k = fm.group(1).lower()
+            v = fm.group(2).strip()
+            if (v.startswith("{") and v.endswith("}")) or (v.startswith('"') and v.endswith('"')):
+                v = v[1:-1]
+            d[k] = v.strip()
+        entries.append(d)
+    return entries
+
 
 def etype(e): return (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
 
