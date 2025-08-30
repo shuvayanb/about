@@ -19,9 +19,55 @@ OUT_JSON = Path("assets/data/pubs.json")
 OUT_GRAPH= Path("assets/data/topic_graph.json")
 
 def tags_from_keywords(e: dict) -> list[str]:
-    kw = (e.get("keywords") or e.get("keyword") or "")
-    parts = re.split(r"[;,]", kw)
-    return [p.strip() for p in parts if p.strip()]
+    """
+    Parse keywords into a flat list of tags for pubs.json.
+    Supports hierarchy with '>' and grouped children in {...} with '|' or ','.
+    Examples:
+      "CFD > {immersed boundary | RANS}; surrogate"
+      -> ["CFD", "immersed boundary", "RANS", "surrogate"]
+    """
+    s = (e.get("keywords") or e.get("keyword") or "")
+    tokens = []
+    depth = 0
+    buf = []
+    items = []
+    # split top-level items on ';' or ',' but NOT inside {...}
+    for ch in s:
+        if ch == '{': depth += 1
+        if ch == '}': depth = max(0, depth-1)
+        if (ch in ';,' and depth == 0):
+            it = "".join(buf).strip()
+            if it: items.append(it)
+            buf = []
+        else:
+            buf.append(ch)
+    tail = "".join(buf).strip()
+    if tail: items.append(tail)
+
+    seen = set()
+    for raw in items:
+        part = raw.strip()
+        if not part: continue
+        # if hierarchical item, flatten all levels and groups
+        if '>' in part:
+            levels = [p.strip() for p in part.split('>') if p.strip()]
+            for lvl in levels:
+                if lvl.startswith('{') and lvl.endswith('}'):
+                    body = lvl[1:-1]
+                    kids = [t.strip() for t in re.split(r'[|,]', body) if t.strip()]
+                    for k in kids:
+                        if k.lower() not in seen:
+                            tokens.append(k); seen.add(k.lower())
+                else:
+                    if lvl.lower() not in seen:
+                        tokens.append(lvl); seen.add(lvl.lower())
+        else:
+            # plain item may still contain comma-separated tags
+            for t in [p.strip() for p in part.split(',') if p.strip()]:
+                if t.lower() not in seen:
+                    tokens.append(t); seen.add(t.lower())
+    return tokens
+
 
 def build_topic_graph(pubs: list[dict]) -> dict:
     # Co-occurrence from lower-cased unique tags per paper
