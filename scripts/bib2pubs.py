@@ -6,6 +6,31 @@ import json
 BIB_FILE = Path("Publications/references.bib")     # <-- your single source of truth
 OUT_MD   = Path("Publications/publications.md")
 OUT_JSON = Path("assets/data/pubs.json")           # optional; handy later
+OUT_GRAPH = Path("assets/data/topic_graph.json")
+
+def tags_from_keywords(e: dict) -> list[str]:
+    kw = (e.get("keywords") or e.get("keyword") or "")
+    parts = re.split(r"[;,]", kw)
+    return [p.strip() for p in parts if p.strip()]
+
+def build_topic_graph(pubs: list[dict]) -> dict:
+    # Build a co-occurrence graph from pubs[*].tags (lowercased)
+    tag_set = set()
+    edge_w  = {}
+    for p in pubs:
+        t = [str(s).strip().lower() for s in (p.get("tags") or []) if str(s).strip()]
+        t = sorted(set(t))
+        for a in t:
+            tag_set.add(a)
+        for i in range(len(t)):
+            for j in range(i+1, len(t)):
+                key = (t[i], t[j])
+                edge_w[key] = edge_w.get(key, 0) + 1
+
+    nodes = [{"id": t} for t in sorted(tag_set)]
+    links = [{"source": a, "target": b, "weight": w} for (a,b), w in edge_w.items()]
+    return {"nodes": nodes, "links": links}
+
 
 def read_bib() -> list[dict]:
     """
@@ -193,18 +218,29 @@ def main():
         if is_chapter(e):  return venue_str(e, "chapter")
         if is_conf(e):     return venue_str(e, "conf")
         return ""
-    json.dump([
-        {
-            "id": (e.get("ID") or e.get("id") or "").strip(),
-            "type": etype(e),
-            "title": title_str(e),
-            "authors": [p.strip() for p in str(e.get("author") or "").split(" and ") if p.strip()],
-            "year": year(e),
-            "venue": venue_for(e),
-            "url": (e.get("url") or ""),
-        } for e in entries
-    ], open(OUT_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
+
+    pubs_out = []
+    for e in entries:
+        pubs_out.append({
+            "id":      (e.get("ID") or e.get("id") or "").strip(),
+            "type":    etype(e),
+            "title":   title_str(e),
+            "authors": [p.strip() for p in str(e.get("author") or "").split(" and ") if p.strip()],
+            "year":    year(e),
+            "venue":   venue_for(e),
+            "url":     (e.get("url") or ""),
+            "tags":    tags_from_keywords(e),   # <--- THIS is what Explore uses
+        })
+    
+    with open(OUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(pubs_out, f, ensure_ascii=False, indent=2)
+    
+    # topic graph for Explore
+    OUT_GRAPH.parent.mkdir(parents=True, exist_ok=True)
+    graph = build_topic_graph(pubs_out)
+    with open(OUT_GRAPH, "w", encoding="utf-8") as f:
+        json.dump(graph, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()
