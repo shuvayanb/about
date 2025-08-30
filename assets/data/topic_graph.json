@@ -1,198 +1,219 @@
 {
   "nodes": [
     {
-      "id": "Active Debri Removal"
+      "id": "active debri removal"
     },
     {
-      "id": "Aerodynamic Shape Optimization"
+      "id": "aerodynamic shape optimization"
     },
     {
-      "id": "CFD"
+      "id": "cfd"
     },
     {
-      "id": "Differentiable Physics"
+      "id": "differentiable physics"
     },
     {
-      "id": "Evolutionary Algorithm"
+      "id": "evolutionary algorithm"
     },
     {
-      "id": "Fourier Neural Operators (FNO)"
+      "id": "foundational models"
     },
     {
-      "id": "Full Wave Inversion"
+      "id": "fourier neural operators (fno)"
     },
     {
-      "id": "Gradient Reconstruction"
+      "id": "full wave inversion"
     },
     {
-      "id": "Immersed Boudnary Method"
+      "id": "gradient reconstruction"
     },
     {
-      "id": "Immersed Boundary Method"
+      "id": "immersed boudnary method"
     },
     {
-      "id": "Incompressible Wake Flows"
+      "id": "immersed boundary method"
     },
     {
-      "id": "LLMs"
+      "id": "incompressible wake flows"
     },
     {
-      "id": "Low-Fidelity Approach"
+      "id": "llms"
     },
     {
-      "id": "Modified Green Gauss"
+      "id": "low-fidelity approach"
     },
     {
-      "id": "Multi-Fidelity Framework"
+      "id": "modified green gauss"
     },
     {
-      "id": "NSGA-II"
+      "id": "multi-fidelity framework"
     },
     {
-      "id": "Phiflow"
+      "id": "nsga-ii"
     },
     {
-      "id": "Reduced Order Modelling"
+      "id": "phiflow"
     },
     {
-      "id": "SWBLI"
+      "id": "reduced order modelling"
     },
     {
-      "id": "SciML"
+      "id": "scifm"
     },
     {
-      "id": "Subsurface"
+      "id": "sciml"
+    },
+    {
+      "id": "subsurface"
+    },
+    {
+      "id": "swbli"
     }
   ],
   "links": [
     {
-      "source": "Evolutionary Algorithm",
-      "target": "LLMs",
+      "source": "evolutionary algorithm",
+      "target": "llms",
       "weight": 1
     },
     {
-      "source": "Evolutionary Algorithm",
-      "target": "NSGA-II",
+      "source": "evolutionary algorithm",
+      "target": "nsga-ii",
       "weight": 1
     },
     {
-      "source": "LLMs",
-      "target": "NSGA-II",
+      "source": "llms",
+      "target": "nsga-ii",
       "weight": 1
     },
     {
-      "source": "Differentiable Physics",
-      "target": "Incompressible Wake Flows",
+      "source": "differentiable physics",
+      "target": "incompressible wake flows",
       "weight": 1
     },
     {
-      "source": "Differentiable Physics",
-      "target": "Phiflow",
+      "source": "differentiable physics",
+      "target": "phiflow",
       "weight": 1
     },
     {
-      "source": "Differentiable Physics",
-      "target": "SciML",
+      "source": "differentiable physics",
+      "target": "sciml",
       "weight": 2
     },
     {
-      "source": "Incompressible Wake Flows",
-      "target": "Phiflow",
+      "source": "incompressible wake flows",
+      "target": "phiflow",
       "weight": 1
     },
     {
-      "source": "Incompressible Wake Flows",
-      "target": "SciML",
+      "source": "incompressible wake flows",
+      "target": "sciml",
       "weight": 1
     },
     {
-      "source": "Phiflow",
-      "target": "SciML",
+      "source": "phiflow",
+      "target": "sciml",
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimization",
-      "target": "CFD",
+      "source": "aerodynamic shape optimization",
+      "target": "cfd",
       "weight": 7
     },
     {
-      "source": "Reduced Order Modelling",
-      "target": "SciML",
+      "source": "reduced order modelling",
+      "target": "sciml",
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Immersed Boundary Method",
+      "source": "cfd",
+      "target": "immersed boundary method",
       "weight": 2
     },
     {
-      "source": "CFD",
-      "target": "Low-Fidelity Approach",
+      "source": "cfd",
+      "target": "low-fidelity approach",
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "SWBLI",
+      "source": "cfd",
+      "target": "swbli",
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Gradient Reconstruction",
+      "source": "cfd",
+      "target": "gradient reconstruction",
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Modified Green Gauss",
+      "source": "cfd",
+      "target": "modified green gauss",
       "weight": 1
     },
     {
-      "source": "Gradient Reconstruction",
-      "target": "Modified Green Gauss",
+      "source": "gradient reconstruction",
+      "target": "modified green gauss",
       "weight": 1
     },
     {
-      "source": "CFD",
-      "target": "Immersed Boudnary Method",
+      "source": "cfd",
+      "target": "immersed boudnary method",
       "weight": 1
     },
     {
-      "source": "Aerodynamic Shape Optimization",
-      "target": "Multi-Fidelity Framework",
+      "source": "aerodynamic shape optimization",
+      "target": "multi-fidelity framework",
       "weight": 1
     },
     {
-      "source": "Fourier Neural Operators (FNO)",
-      "target": "Full Wave Inversion",
+      "source": "fourier neural operators (fno)",
+      "target": "full wave inversion",
       "weight": 1
     },
     {
-      "source": "Fourier Neural Operators (FNO)",
-      "target": "SciML",
+      "source": "fourier neural operators (fno)",
+      "target": "sciml",
       "weight": 1
     },
     {
-      "source": "Fourier Neural Operators (FNO)",
-      "target": "Subsurface",
+      "source": "fourier neural operators (fno)",
+      "target": "subsurface",
       "weight": 1
     },
     {
-      "source": "Full Wave Inversion",
-      "target": "SciML",
+      "source": "full wave inversion",
+      "target": "sciml",
       "weight": 1
     },
     {
-      "source": "Full Wave Inversion",
-      "target": "Subsurface",
+      "source": "full wave inversion",
+      "target": "subsurface",
       "weight": 1
     },
     {
-      "source": "SciML",
-      "target": "Subsurface",
+      "source": "sciml",
+      "target": "subsurface",
       "weight": 1
     },
     {
-      "source": "Active Debri Removal",
-      "target": "Multi-Fidelity Framework",
+      "source": "active debri removal",
+      "target": "multi-fidelity framework",
+      "weight": 1
+    },
+    {
+      "source": "foundational models",
+      "target": "llms",
+      "weight": 1
+    },
+    {
+      "source": "foundational models",
+      "target": "scifm",
+      "weight": 1
+    },
+    {
+      "source": "llms",
+      "target": "scifm",
       "weight": 1
     }
   ]
