@@ -33,7 +33,7 @@ def year(e):
 def is_journal(e: dict) -> bool:
     return (not is_preprint(e)) and (etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle")))
 
-def is_preirint(e):
+def is_preprint(e):
     return etype(e) == "preprint"
     
 def is_chapter(e):
