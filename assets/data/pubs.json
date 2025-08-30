@@ -52,9 +52,25 @@
     "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.055304",
     "tags": [
       "SciML",
-      "Differentiable Physics",
-      "Incompressible Wake Flows",
-      "Phiflow"
+      "differentiable physics",
+      "wake regimes",
+      "evaluation",
+      "applications",
+      "PhiFlow-in-the-loop",
+      "Reference solver (FoamExtend)  coarse-grained surrogate",
+      "single bluff-body",
+      "deflected gap",
+      "flip-flopping (chaotic)",
+      "quasi-in-/anti-phase",
+      "evaluation & comparisons",
+      "Cd",
+      "Cl",
+      "St",
+      "KE & enstrophy trends",
+      "DPNN vs Source vs SL",
+      "unsteady wakes around arbitrary bodies",
+      "preserving boundary layer & global wake dynamics",
+      "mid-horizon chaotic switching capture"
     ]
   },
   {

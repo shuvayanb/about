@@ -13,6 +13,12 @@
       "community": 0
     },
     {
+      "id": "applications",
+      "count": 1,
+      "degree_w": 4,
+      "community": 7
+    },
+    {
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
@@ -25,16 +31,40 @@
       "community": 4
     },
     {
+      "id": "cd",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
+    },
+    {
       "id": "cfd",
       "count": 13,
       "degree_w": 14,
       "community": 0
     },
     {
+      "id": "cl",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
+    },
+    {
+      "id": "deflected gap",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
       "id": "differentiable physics",
       "count": 2,
       "degree_w": 4,
       "community": 1
+    },
+    {
+      "id": "dpnn vs source vs sl",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "elitism guardrails",
@@ -49,10 +79,28 @@
       "community": 2
     },
     {
+      "id": "evaluation",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "evaluation & comparisons",
+      "count": 1,
+      "degree_w": 5,
+      "community": 3
+    },
+    {
       "id": "explore-exploit balance",
       "count": 1,
       "degree_w": 1,
       "community": 2
+    },
+    {
+      "id": "flip-flopping (chaotic)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "fourier neural operators (fno)",
@@ -97,10 +145,10 @@
       "community": 0
     },
     {
-      "id": "incompressible wake flows",
+      "id": "ke & enstrophy trends",
       "count": 1,
-      "degree_w": 3,
-      "community": 1
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "llm",
@@ -113,6 +161,12 @@
       "count": 1,
       "degree_w": 1,
       "community": 0
+    },
+    {
+      "id": "mid-horizon chaotic switching capture",
+      "count": 1,
+      "degree_w": 1,
+      "community": 7
     },
     {
       "id": "modified green gauss",
@@ -130,13 +184,13 @@
       "id": "multi-objective optimization",
       "count": 1,
       "degree_w": 5,
-      "community": 3
+      "community": 6
     },
     {
       "id": "nsga-ii modularization",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 6
     },
     {
       "id": "optimization",
@@ -148,12 +202,12 @@
       "id": "pareto optimal front",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 6
     },
     {
-      "id": "phiflow",
+      "id": "phiflow-in-the-loop",
       "count": 1,
-      "degree_w": 3,
+      "degree_w": 1,
       "community": 1
     },
     {
@@ -163,7 +217,25 @@
       "community": 2
     },
     {
+      "id": "preserving boundary layer & global wake dynamics",
+      "count": 1,
+      "degree_w": 1,
+      "community": 7
+    },
+    {
+      "id": "quasi-in-/anti-phase",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
       "id": "reduced order modelling",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "reference solver (foamextend)  coarse-grained surrogate",
       "count": 1,
       "degree_w": 1,
       "community": 1
@@ -177,8 +249,20 @@
     {
       "id": "sciml",
       "count": 4,
-      "degree_w": 8,
+      "degree_w": 9,
       "community": 1
+    },
+    {
+      "id": "single bluff-body",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
+      "id": "st",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "steady-state heat transfer",
@@ -205,6 +289,18 @@
       "community": 0
     },
     {
+      "id": "unsteady wakes around arbitrary bodies",
+      "count": 1,
+      "degree_w": 1,
+      "community": 7
+    },
+    {
+      "id": "wake regimes",
+      "count": 1,
+      "degree_w": 5,
+      "community": 5
+    },
+    {
       "id": "windfarm layout optimization",
       "count": 1,
       "degree_w": 1,
@@ -214,13 +310,13 @@
       "id": "zdt1",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 6
     },
     {
       "id": "zdt3",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 6
     }
   ],
   "links": [
@@ -320,28 +416,88 @@
       "weight": 2
     },
     {
-      "source": "incompressible wake flows",
+      "source": "sciml",
+      "target": "wake regimes",
+      "weight": 1
+    },
+    {
+      "source": "evaluation",
       "target": "sciml",
       "weight": 1
     },
     {
-      "source": "phiflow",
+      "source": "applications",
       "target": "sciml",
       "weight": 1
     },
     {
       "source": "differentiable physics",
-      "target": "incompressible wake flows",
+      "target": "phiflow-in-the-loop",
       "weight": 1
     },
     {
       "source": "differentiable physics",
-      "target": "phiflow",
+      "target": "reference solver (foamextend)  coarse-grained surrogate",
       "weight": 1
     },
     {
-      "source": "incompressible wake flows",
-      "target": "phiflow",
+      "source": "single bluff-body",
+      "target": "wake regimes",
+      "weight": 1
+    },
+    {
+      "source": "deflected gap",
+      "target": "wake regimes",
+      "weight": 1
+    },
+    {
+      "source": "flip-flopping (chaotic)",
+      "target": "wake regimes",
+      "weight": 1
+    },
+    {
+      "source": "quasi-in-/anti-phase",
+      "target": "wake regimes",
+      "weight": 1
+    },
+    {
+      "source": "cd",
+      "target": "evaluation & comparisons",
+      "weight": 1
+    },
+    {
+      "source": "cl",
+      "target": "evaluation & comparisons",
+      "weight": 1
+    },
+    {
+      "source": "evaluation & comparisons",
+      "target": "st",
+      "weight": 1
+    },
+    {
+      "source": "evaluation & comparisons",
+      "target": "ke & enstrophy trends",
+      "weight": 1
+    },
+    {
+      "source": "dpnn vs source vs sl",
+      "target": "evaluation & comparisons",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "unsteady wakes around arbitrary bodies",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "preserving boundary layer & global wake dynamics",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "mid-horizon chaotic switching capture",
       "weight": 1
     },
     {
