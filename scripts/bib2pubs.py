@@ -56,9 +56,19 @@ def is_journal_like(e: dict) -> bool:
         return False
     return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
 
+def is_preprint(e: dict) -> bool:
+    t = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
+    if t in ("preprint", "unpublished"):
+        return True
+    note = ((e.get("note") or "") + " " + (e.get("howpublished") or "")).lower()
+    if "preprint" in note:
+        return True
+    url = (e.get("url") or "").lower()
+    if any(h in url for h in ("arxiv.org","ssrn.com","biorxiv.org","medrxiv.org","chemrxiv.org","osf.io")):
+        return True
+    ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
+    return ap == "arxiv"
 
-def is_journal(e: dict) -> bool:
-    return (not is_preprint(e)) and (etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle")))
 
 def is_chapter(e):
     return etype(e) == "incollection"
@@ -76,9 +86,12 @@ def title_str(e):
     t = t.replace("``", '"').replace("''", '"')
     return t
 
+
 def venue_str(e: dict, kind: str) -> str:
     if kind == "journal":
-        return get_journal(e)
+        # read journal/journaltitle directly
+        return (e.get("journal") or e.get("journaltitle") or "").strip()
+
     if kind == "preprint":
         u   = (e.get("url") or "").lower()
         ap  = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
@@ -89,11 +102,14 @@ def venue_str(e: dict, kind: str) -> str:
         if "biorxiv.org" in u:  return "bioRxiv"
         if "medrxiv.org" in u:  return "medRxiv"
         if "chemrxiv.org" in u: return "ChemRxiv"
-        # fallback if host not recognized
-        return (e.get("note") or e.get("howpublished") or "Preprint").strip()
-    # chapters/conf default: your existing logic
-    return get_booktitle(e)
+        # fallback if host isn’t recognizable
+        return ((e.get("note") or e.get("howpublished") or "Preprint")).strip()
 
+    # chapters + conferences both use booktitle in BibTeX
+    if kind in ("chapter", "conf"):
+        return (e.get("booktitle") or "").strip()
+
+    return ""
 
 
 def link_str(e):
