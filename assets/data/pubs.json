@@ -16,12 +16,7 @@
     ],
     "year": 2025,
     "venue": "Neurocomputing",
-    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231224020435",
-    "tags": [
-      "LLMs",
-      "Evolutionary Algorithm",
-      "NSGA-II"
-    ]
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231224020435"
   },
   {
     "id": "brahmachary2024unsteady",
@@ -33,13 +28,7 @@
     ],
     "year": 2024,
     "venue": "Physical Review E",
-    "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.055304",
-    "tags": [
-      "SciML",
-      "Differentiable Physics",
-      "Incompressible Wake Flows",
-      "Phiflow"
-    ]
+    "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.055304"
   },
   {
     "id": "brahmachary2022design",
@@ -53,11 +42,7 @@
     ],
     "year": 2022,
     "venue": "Physics of Fluids",
-    "url": "https://pubs.aip.org/aip/pof/article-abstract/34/3/036109/2845736/Design-optimization-and-off-design-performance?redirectedFrom=fulltext",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://pubs.aip.org/aip/pof/article-abstract/34/3/036109/2845736/Design-optimization-and-off-design-performance?redirectedFrom=fulltext"
   },
   {
     "id": "brahmachary2021fast",
@@ -70,11 +55,7 @@
     ],
     "year": 2021,
     "venue": "Physics of Fluids",
-    "url": "https://pubs.aip.org/aip/pof/article-abstract/33/10/106110/1065234/Fast-estimation-of-internal-flowfields-in-scramjet?redirectedFrom=fulltext",
-    "tags": [
-      "SciML",
-      "Reduced Order Modelling"
-    ]
+    "url": "https://pubs.aip.org/aip/pof/article-abstract/33/10/106110/1065234/Fast-estimation-of-internal-flowfields-in-scramjet?redirectedFrom=fulltext"
   },
   {
     "id": "brahmachary2021multipoint",
@@ -86,11 +67,7 @@
     ],
     "year": 2021,
     "venue": "Journal of Propulsion and Power",
-    "url": "https://arc.aiaa.org/doi/10.2514/1.B38383",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://arc.aiaa.org/doi/10.2514/1.B38383"
   },
   {
     "id": "brahmachary2021role",
@@ -106,11 +83,7 @@
     ],
     "year": 2021,
     "venue": "Physical Review E",
-    "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.103.043302",
-    "tags": [
-      "CFD",
-      "Immersed Boundary Method"
-    ]
+    "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.103.043302"
   },
   {
     "id": "fujio2021numerical",
@@ -123,11 +96,7 @@
     ],
     "year": 2021,
     "venue": "Aerospace Science and Technology",
-    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963821000432",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963821000432"
   },
   {
     "id": "brahmachary2020multi",
@@ -140,11 +109,7 @@
     ],
     "year": 2020,
     "venue": "Aerospace Science and Technology",
-    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963820310440",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1270963820310440"
   },
   {
     "id": "10.1063/5.0006408",
@@ -158,11 +123,7 @@
     ],
     "year": 2020,
     "venue": "Physics of Fluids",
-    "url": "https://pubs.aip.org/aip/pof/article/32/7/079101/1065525/Comment-on-A-new-approach-for-the-design-of",
-    "tags": [
-      "CFD",
-      "Low-Fidelity Approach"
-    ]
+    "url": "https://pubs.aip.org/aip/pof/article/32/7/079101/1065525/Comment-on-A-new-approach-for-the-design-of"
   },
   {
     "id": "dudas2020high",
@@ -180,11 +141,7 @@
     ],
     "year": 2020,
     "venue": "The Journal of Chemical Physics",
-    "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext"
   },
   {
     "id": "desai2019probing",
@@ -198,16 +155,12 @@
     ],
     "year": 2019,
     "venue": "Journal of Aerospace Engineering",
-    "url": "https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001085",
-    "tags": [
-      "CFD",
-      "SWBLI"
-    ]
+    "url": "https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001085"
   },
   {
     "id": "deka2020new",
     "type": "article",
-    "title": "A new Green–Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction",
+    "title": "A new Green--Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction",
     "authors": [
       "Deka, Mandeep",
       "Brahmachary, Shuvayan",
@@ -217,12 +170,7 @@
     ],
     "year": 2020,
     "venue": "Journal of Computational Physics",
-    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909",
-    "tags": [
-      "CFD",
-      "Gradient Reconstruction",
-      "Modified Green Gauss"
-    ]
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909"
   },
   {
     "id": "brahmachary2018sharp",
@@ -236,11 +184,7 @@
     ],
     "year": 2018,
     "venue": "International Journal for Numerical Methods in Fluids",
-    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.4479",
-    "tags": [
-      "CFD",
-      "Immersed Boundary Method"
-    ]
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.4479"
   },
   {
     "id": "brahmachary2018maximum",
@@ -253,11 +197,7 @@
     ],
     "year": 2018,
     "venue": "Journal of Spacecraft and Rockets",
-    "url": "https://arc.aiaa.org/doi/10.2514/1.A33887",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://arc.aiaa.org/doi/10.2514/1.A33887"
   },
   {
     "id": "brahmachary2020sharp",
@@ -271,11 +211,7 @@
     ],
     "year": 2020,
     "venue": "Immersed Boundary Method: Development and Applications",
-    "url": "https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9",
-    "tags": [
-      "CFD",
-      "Immersed Boudnary Method"
-    ]
+    "url": "https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9"
   },
   {
     "id": "brahmachary2018application",
@@ -290,11 +226,7 @@
     ],
     "year": 2018,
     "venue": "Soft Computing for Problem Solving: SocProS 2017, Volume 1",
-    "url": "https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75",
-    "tags": [
-      "CFD",
-      "Aerodynamic Shape Optimization"
-    ]
+    "url": "https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75"
   },
   {
     "id": "brahmachary2016hybrid",
@@ -306,12 +238,8 @@
       "Sahoo, Niranjan"
     ],
     "year": 2016,
-    "venue": "Fluid Mechanics and Fluid Power–Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014",
-    "url": "https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29",
-    "tags": [
-      "Multi-Fidelity Framework",
-      "Aerodynamic Shape Optimization"
-    ]
+    "venue": "Fluid Mechanics and Fluid Power--Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014",
+    "url": "https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29"
   },
   {
     "id": "brahmachary2025auto",
@@ -328,13 +256,7 @@
     ],
     "year": 2025,
     "venue": "Empowering the Energy Shift: The Role of HPC in Sustainable Innovation",
-    "url": "https://www.earthdoc.org/content/papers/10.3997/2214-4609.2025643025",
-    "tags": [
-      "SciML",
-      "Fourier Neural Operators (FNO)",
-      "Full Wave Inversion",
-      "Subsurface"
-    ]
+    "url": "https://www.earthdoc.org/content/papers/10.3997/2214-4609.2025643025"
   },
   {
     "id": "brahmachary2023cfc",
@@ -346,11 +268,7 @@
     ],
     "year": 2023,
     "venue": "MS1-09B - Learning models for CFD: opportunities and limitations",
-    "url": "https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c",
-    "tags": [
-      "SciML",
-      "Differentiable Physics"
-    ]
+    "url": "https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c"
   },
   {
     "id": "brahmachary2020multi",
@@ -365,11 +283,7 @@
       "Ueda, Satoshi"
     ],
     "year": 2020,
-    "venue": "計測自動制御学会制御部門マルチシンポジウム (CD-ROM)",
-    "url": "https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi",
-    "tags": [
-      "Active Debri Removal",
-      "Multi-Fidelity Framework"
-    ]
+    "venue": "",
+    "url": "https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi"
   }
 ]
