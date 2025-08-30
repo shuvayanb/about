@@ -16,7 +16,7 @@
       "id": "analysis",
       "count": 1,
       "degree_w": 5,
-      "community": 6
+      "community": 8
     },
     {
       "id": "ansys fluent (euler)",
@@ -28,19 +28,25 @@
       "id": "applications",
       "count": 1,
       "degree_w": 4,
-      "community": 2
+      "community": 3
+    },
+    {
+      "id": "ausm convective flux",
+      "count": 1,
+      "degree_w": 1,
+      "community": 9
     },
     {
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "benchmarking",
       "count": 1,
       "degree_w": 5,
-      "community": 3
+      "community": 2
     },
     {
       "id": "busemann-based",
@@ -52,25 +58,37 @@
       "id": "cd",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
+    },
+    {
+      "id": "cell classification (f/i/s)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
+    },
+    {
+      "id": "cell reynolds number",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
     },
     {
       "id": "cfd",
       "count": 14,
-      "degree_w": 22,
+      "degree_w": 26,
       "community": 0
     },
     {
       "id": "cl",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "cross-referencing across intake classes",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 8
     },
     {
       "id": "deflected gap",
@@ -79,46 +97,70 @@
       "community": 7
     },
     {
+      "id": "density via eos",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
       "id": "differentiable physics",
       "count": 2,
       "degree_w": 4,
-      "community": 2
+      "community": 3
     },
     {
       "id": "dpnn vs source vs sl",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "elitism guardrails",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "engineering applications",
       "count": 1,
       "degree_w": 4,
-      "community": 3
+      "community": 2
     },
     {
       "id": "evaluation",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "evaluation & comparisons",
       "count": 1,
       "degree_w": 5,
-      "community": 4
+      "community": 6
+    },
+    {
+      "id": "explicit runge–kutta",
+      "count": 1,
+      "degree_w": 1,
+      "community": 9
     },
     {
       "id": "explore-exploit balance",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
+    },
+    {
+      "id": "finite-volume solver",
+      "count": 1,
+      "degree_w": 5,
+      "community": 9
+    },
+    {
+      "id": "flat plate (ma≈6",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "flip-flopping (chaotic)",
@@ -136,13 +178,13 @@
       "id": "fourier neural operators (fno)",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 3
     },
     {
       "id": "full wave inversion",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 3
     },
     {
       "id": "generic (bézier)",
@@ -166,7 +208,7 @@
       "id": "goldstein-price function",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "gradient reconstruction",
@@ -175,16 +217,34 @@
       "community": 0
     },
     {
+      "id": "green–gauss gradients",
+      "count": 1,
+      "degree_w": 1,
+      "community": 9
+    },
+    {
       "id": "h) grid search",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 1
+    },
+    {
+      "id": "high re)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "himmelblau function",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
+    },
+    {
+      "id": "hybrid cartesian ib (hcib)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "immersed boudnary method",
@@ -195,20 +255,26 @@
     {
       "id": "immersed boundary method",
       "count": 2,
-      "degree_w": 2,
+      "degree_w": 5,
       "community": 0
     },
     {
       "id": "ke & enstrophy trends",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "llm",
       "count": 1,
       "degree_w": 4,
-      "community": 3
+      "community": 2
+    },
+    {
+      "id": "local refinement",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
     },
     {
       "id": "local rob (k-means)",
@@ -226,7 +292,19 @@
       "id": "maximize compression efficiency",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 11
+    },
+    {
+      "id": "ma≈6)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
+      "id": "mesh & adaptation",
+      "count": 1,
+      "degree_w": 5,
+      "community": 10
     },
     {
       "id": "metrics",
@@ -238,13 +316,13 @@
       "id": "mid-horizon chaotic switching capture",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "minimize drag",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 11
     },
     {
       "id": "ml",
@@ -262,7 +340,7 @@
       "id": "mls regression",
       "count": 1,
       "degree_w": 4,
-      "community": 8
+      "community": 1
     },
     {
       "id": "modified green gauss",
@@ -280,43 +358,67 @@
       "id": "multi-objective optimization",
       "count": 1,
       "degree_w": 5,
-      "community": 5
+      "community": 2
+    },
+    {
+      "id": "near-wall resolution",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
+    },
+    {
+      "id": "nonconformal cartesian",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
+    },
+    {
+      "id": "nonpolynomial option (temperature)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
+      "id": "normal-line interpolation",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "nsga-ii modularization",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 2
     },
     {
       "id": "objectives & constraints",
       "count": 1,
       "degree_w": 3,
-      "community": 9
+      "community": 11
     },
     {
       "id": "off-design assessment",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 8
     },
     {
       "id": "optimization",
       "count": 1,
       "degree_w": 4,
-      "community": 3
+      "community": 2
     },
     {
       "id": "pareto front",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 8
     },
     {
       "id": "pareto optimal front",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 2
     },
     {
       "id": "pca-based clustering",
@@ -328,7 +430,7 @@
       "id": "phiflow-in-the-loop",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "pod-coefficient prediction",
@@ -346,13 +448,19 @@
       "id": "population-based methods",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "preserving boundary layer & global wake dynamics",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
+    },
+    {
+      "id": "pressure (∂p/∂n=0; quadratic option)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "quasi-in-/anti-phase",
@@ -364,7 +472,7 @@
       "id": "quasi-optimal (dmi",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 1
     },
     {
       "id": "rans (sst k-ω)",
@@ -373,10 +481,16 @@
       "community": 0
     },
     {
+      "id": "reconstruction & bcs",
+      "count": 1,
+      "degree_w": 7,
+      "community": 4
+    },
+    {
       "id": "reference solver (foamextend)  coarse-grained surrogate",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
     },
     {
       "id": "rom",
@@ -388,7 +502,7 @@
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "rsciml",
@@ -406,7 +520,7 @@
       "id": "sciml",
       "count": 3,
       "degree_w": 8,
-      "community": 2
+      "community": 3
     },
     {
       "id": "scramjet intake",
@@ -415,10 +529,22 @@
       "community": 1
     },
     {
+      "id": "semicylinder (ma≈8)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
       "id": "sensitivity",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 8
+    },
+    {
+      "id": "sharp-interface",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "single bluff-body",
@@ -427,34 +553,52 @@
       "community": 7
     },
     {
+      "id": "sphere–cone (axisymmetric",
+      "count": 1,
+      "degree_w": 1,
+      "community": 5
+    },
+    {
       "id": "st",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "steady-state heat transfer",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "subsurface",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 3
     },
     {
       "id": "supersonic nozzle shape optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "swbli",
       "count": 1,
       "degree_w": 1,
       "community": 0
+    },
+    {
+      "id": "temperature (isothermal wall)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
+      "id": "test cases",
+      "count": 1,
+      "degree_w": 6,
+      "community": 5
     },
     {
       "id": "three-ramp",
@@ -472,7 +616,19 @@
       "id": "unsteady wakes around arbitrary bodies",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 3
+    },
+    {
+      "id": "velocity (no-slip & impermeability)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
+      "id": "venkatakrishnan limiter",
+      "count": 1,
+      "degree_w": 1,
+      "community": 9
     },
     {
       "id": "wake regimes",
@@ -484,25 +640,25 @@
       "id": "weighting functions",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 1
     },
     {
       "id": "windfarm layout optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 2
     },
     {
       "id": "zdt1",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 2
     },
     {
       "id": "zdt3",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 2
     }
   ],
   "links": [
@@ -860,6 +1016,136 @@
       "source": "cfd",
       "target": "immersed boundary method",
       "weight": 2
+    },
+    {
+      "source": "cfd",
+      "target": "finite-volume solver",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "mesh & adaptation",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "reconstruction & bcs",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "test cases",
+      "weight": 1
+    },
+    {
+      "source": "immersed boundary method",
+      "target": "sharp-interface",
+      "weight": 1
+    },
+    {
+      "source": "hybrid cartesian ib (hcib)",
+      "target": "immersed boundary method",
+      "weight": 1
+    },
+    {
+      "source": "cell classification (f/i/s)",
+      "target": "immersed boundary method",
+      "weight": 1
+    },
+    {
+      "source": "ausm convective flux",
+      "target": "finite-volume solver",
+      "weight": 1
+    },
+    {
+      "source": "finite-volume solver",
+      "target": "venkatakrishnan limiter",
+      "weight": 1
+    },
+    {
+      "source": "finite-volume solver",
+      "target": "green–gauss gradients",
+      "weight": 1
+    },
+    {
+      "source": "explicit runge–kutta",
+      "target": "finite-volume solver",
+      "weight": 1
+    },
+    {
+      "source": "mesh & adaptation",
+      "target": "nonconformal cartesian",
+      "weight": 1
+    },
+    {
+      "source": "local refinement",
+      "target": "mesh & adaptation",
+      "weight": 1
+    },
+    {
+      "source": "mesh & adaptation",
+      "target": "near-wall resolution",
+      "weight": 1
+    },
+    {
+      "source": "cell reynolds number",
+      "target": "mesh & adaptation",
+      "weight": 1
+    },
+    {
+      "source": "normal-line interpolation",
+      "target": "reconstruction & bcs",
+      "weight": 1
+    },
+    {
+      "source": "reconstruction & bcs",
+      "target": "velocity (no-slip & impermeability)",
+      "weight": 1
+    },
+    {
+      "source": "pressure (∂p/∂n=0; quadratic option)",
+      "target": "reconstruction & bcs",
+      "weight": 1
+    },
+    {
+      "source": "reconstruction & bcs",
+      "target": "temperature (isothermal wall)",
+      "weight": 1
+    },
+    {
+      "source": "density via eos",
+      "target": "reconstruction & bcs",
+      "weight": 1
+    },
+    {
+      "source": "nonpolynomial option (temperature)",
+      "target": "reconstruction & bcs",
+      "weight": 1
+    },
+    {
+      "source": "flat plate (ma≈6",
+      "target": "test cases",
+      "weight": 1
+    },
+    {
+      "source": "high re)",
+      "target": "test cases",
+      "weight": 1
+    },
+    {
+      "source": "semicylinder (ma≈8)",
+      "target": "test cases",
+      "weight": 1
+    },
+    {
+      "source": "sphere–cone (axisymmetric",
+      "target": "test cases",
+      "weight": 1
+    },
+    {
+      "source": "ma≈6)",
+      "target": "test cases",
+      "weight": 1
     },
     {
       "source": "cfd",
