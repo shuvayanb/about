@@ -30,15 +30,24 @@ def year(e):
     m = re.search(r"\d{4}", y)
     return int(m.group(0)) if m else 0
 
-def is_preprint(e):
-    if etype(e) in ("preprint","unpublished"): return True
-    if "preprint" in str(e.get("note") or "").lower(): return True
-    url = str(e.get("url") or "").lower()
-    if any(x in url for x in ("arxiv.org","ssrn.com","biorxiv.org","medrxiv.org","chemrxiv.org","osf.io")):
+def is_preprint(e: dict) -> bool:
+    t = etype(e)
+    if t in ("preprint", "unpublished"):
         return True
-    if (e.get("archiveprefix") or e.get("archivePrefix") or "").lower() == "arxiv":
+    note = (f(e, "note") + " " + f(e, "howpublished")).lower()
+    if "preprint" in note:
         return True
-    return False
+    url = (e.get("url") or "").lower()
+    if any(s in url for s in ("arxiv.org", "ssrn.com", "biorxiv.org", "medrxiv.org", "chemrxiv.org", "osf.io")):
+        return True
+    ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
+    return ap == "arxiv"
+
+def is_journal_like(e: dict) -> bool:
+    if is_preprint(e):
+        return False
+    return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
+
 
 def is_journal(e):
     return etype(e) == "article" and not is_preprint(e)
@@ -59,23 +68,24 @@ def title_str(e):
     t = t.replace("``", '"').replace("''", '"')
     return t
 
-def venue_str(e, kind):
-    if kind == "preprint":
-        url = str(e.get("url") or "").lower()
-        ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
-        eprint = str(e.get("eprint") or "").strip()
-        if ap == "arxiv" or "arxiv.org" in url:
-            return "arXiv" + (f":{eprint}" if eprint else "")
-        if "ssrn.com" in url: return "SSRN"
-        if "biorxiv.org" in url: return "bioRxiv"
-        if "medrxiv.org" in url: return "medRxiv"
-        if "chemrxiv.org" in url: return "ChemRxiv"
-        return str(e.get("note") or "").strip() or str(e.get("howpublished") or "").strip()
+def venue_str(e: dict, kind: str) -> str:
     if kind == "journal":
-        return str(e.get("journaltitle") or e.get("journal") or "").strip()
-    if kind == "chapter" or kind == "conf":
-        return str(e.get("booktitle") or "").strip()
-    return ""
+        return get_journal(e)
+    if kind == "preprint":
+        u   = (e.get("url") or "").lower()
+        ap  = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
+        eid = (e.get("eprint") or "").strip()
+        if ap == "arxiv" or "arxiv.org" in u:
+            return "arXiv" + (f":{eid}" if eid else "")
+        if "ssrn.com" in u:     return "SSRN"
+        if "biorxiv.org" in u:  return "bioRxiv"
+        if "medrxiv.org" in u:  return "medRxiv"
+        if "chemrxiv.org" in u: return "ChemRxiv"
+        # fallback if host isn’t recognizable
+        return (f(e, "note") or f(e, "howpublished") or "").strip() or "Preprint"
+    # chapters/conf default
+    return get_booktitle(e)
+
 
 def link_str(e):
     url = str(e.get("url") or "").strip()
@@ -109,17 +119,20 @@ def render_list(title, items, kind):
 
 def main():
     entries = read_bib()
-    pre  = [e for e in entries if is_preprint(e)]
-    jnl  = [e for e in entries if is_journal(e)]
-    chp  = [e for e in entries if is_chapter(e)]
-    cnf  = [e for e in entries if is_conf(e)]
 
+    # buckets
+    pre = [e for e in entries if is_preprint(e)]
+    jnl = [e for e in entries if is_journal(e)]
+    chp = [e for e in entries if is_chapter(e)]
+    cnf = [e for e in entries if is_conf(e)]
+
+    # page
     out = []
     out.append("---"); out.append("layout: page"); out.append("title: Publications"); out.append("---\n")
-    out.extend(render_list("Preprint",   pre,  "preprint"));  out.append("\n")
-    out.extend(render_list("Journals",   jnl,  "journal"));   out.append("\n")
-    out.extend(render_list("Book Chapters", chp, "chapter")); out.append("\n")
-    out.extend(render_list("Conferences", cnf, "conf"))
+    out.extend(render_list("Preprint",       pre, "preprint"));  out.append("\n")
+    out.extend(render_list("Journals",       jnl, "journal"));   out.append("\n")
+    out.extend(render_list("Book Chapters",  chp, "chapter"));   out.append("\n")
+    out.extend(render_list("Conferences",    cnf, "conf"))
 
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
     OUT_MD.write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
@@ -127,10 +140,10 @@ def main():
     # optional JSON export
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     def venue_for(e):
-        if is_preprint(e): return venue_str(e,"preprint")
-        if is_journal(e):  return venue_str(e,"journal")
-        if is_chapter(e):  return venue_str(e,"chapter")
-        if is_conf(e):     return venue_str(e,"conf")
+        if is_preprint(e): return venue_str(e, "preprint")
+        if is_journal(e):  return venue_str(e, "journal")
+        if is_chapter(e):  return venue_str(e, "chapter")
+        if is_conf(e):     return venue_str(e, "conf")
         return ""
     json.dump([
         {
@@ -143,6 +156,8 @@ def main():
             "url": (e.get("url") or ""),
         } for e in entries
     ], open(OUT_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+
+    # ✅ keep variable names consistent so the script doesn’t crash
     print(f"Wrote {OUT_MD} — preprints:{len(pre)} journals:{len(jnl)} chapters:{len(chp)} conf:{len(cnf)}")
 
 if __name__ == "__main__":
