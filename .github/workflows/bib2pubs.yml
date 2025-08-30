@@ -3,13 +3,14 @@ name: Build Publications from BibTeX
 on:
   workflow_dispatch:
   push:
-    branches: [ main, master ]
+    branches: [ master, main ]   # your default will be one of these
     paths:
-      - 'Publications/references.bib'
+      - '**/*.bib'
       - 'scripts/bib2pubs.py'
-
+      - 'Publications/**'
+      
 permissions:
-  contents: write
+  contents: write  # allow committing back to the repo
 
 jobs:
   build:
@@ -20,81 +21,38 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show repo + exact paths (case sensitive)
-        run: |
-          set -euo pipefail
-          echo "PWD: $(pwd)"
-          echo "Git-tracked files related to Publications (case-sensitive):"
-          git ls-files | grep -n '^Publications/' || true
-          echo "Dir listing:"
-          ls -la
-          echo "Publications dir listing:"
-          ls -la Publications || true
-
-      - name: Show head of your .bib
-        run: |
-          set -euo pipefail
-          test -f Publications/references.bib || { echo "ERROR: Publications/references.bib not found"; exit 1; }
-          echo "---- head Publications/references.bib ----"
-          head -n 30 Publications/references.bib
-
-      - name: Sanity write (prove we can overwrite the page)
-        run: |
-          set -euo pipefail
-          mkdir -p Publications
-          TS="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          cat > Publications/publications.md <<'MD'
----
-layout: page
-title: Publications
----
-
-<!-- This placeholder was written by CI to prove we can write this file. -->
-<!-- It will be replaced by the Python generator in the next step. -->
-MD
-          echo "WROTE placeholder at: $TS"
-          echo "---- head of Publications/publications.md (placeholder) ----"
-          sed -n '1,40p' Publications/publications.md
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install deps for generator
+          
+      - name: Install deps (pinned)
         run: |
-          set -euo pipefail
-          pip install "bibtexparser==1.4.0"
+          pip install "bibtexparser==1.4.0" pylatexenc PyYAML
 
-      - name: Run generator
+      - name: Generate Publications page
         run: |
-          set -euo pipefail
-          test -f scripts/bib2pubs.py || { echo "ERROR: scripts/bib2pubs.py not found"; exit 1; }
-          echo "Executing scripts/bib2pubs.py ..."
-          python -u scripts/bib2pubs.py
-          echo "---- head of Publications/publications.md (generated) ----"
-          sed -n '1,200p' Publications/publications.md || true
-          echo "---- look for your preprint key ----"
-          grep -n "menonscientific" Publications/publications.md || echo "(preprint key not found in generated page)"
+          python scripts/bib2pubs.py
 
-      - name: Show diff then commit & push
+      - name: Diagnostics
         run: |
-          set -euo pipefail
-          echo "---- git status BEFORE add ----"
+          echo "PWD: $(pwd)"
+          echo "Root:"; ls -la
+          echo "Publications dir:"; ls -la Publications || true
+          echo "Bib files found:"; ls -la **/*.bib || true
+          echo "First 40 lines of chosen bib (if any):"
+          if [ -f .bib2pubs_last_bib.txt ]; then cat .bib2pubs_last_bib.txt; fi
+          echo "Generated Publications/publications.md (first 80 lines):"
+          sed -n '1,80p' Publications/publications.md || true
+          echo "Git status:"
           git status --porcelain
-          git add Publications/publications.md
-          echo "---- git diff --staged (first 200 lines) ----"
-          git diff --staged | sed -n '1,200p' || true
+
+      - name: Commit changes (if any) and push
+        run: |
+          set -e
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: regenerate Publications page" || echo "Nothing to commit"
-          # If branch is protected, push may fail. We'll show the error.
-          set +e
-          git push
-          EC=$?
-          set -e
-          if [ $EC -ne 0 ]; then
-            echo "----- PUSH FAILED (likely branch protection). See error above."
-            echo "Create a PR instead or relax branch protection for GITHUB_TOKEN."
-            exit 1
-          fi
+          git add -A
+          git commit -m "chore: regenerate Publications/publications.md" || echo "Nothing to commit"
+          git pull --rebase --autostash || true
+          git push || true
