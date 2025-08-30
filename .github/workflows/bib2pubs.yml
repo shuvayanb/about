@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - '**/*.bib'
+      - 'Publications/references.bib'
       - 'scripts/bib2pubs.py'
 
 permissions:
@@ -24,30 +24,27 @@ jobs:
         with: { python-version: "3.11" }
 
       - name: Install deps
-        run: pip install "bibtexparser==1.4.0" pylatexenc PyYAML
+        run: pip install "bibtexparser==1.4.0"
 
       - name: Sanity: show bib head
         run: |
-          echo "Working dir: $(pwd)"
-          ls -la
-          ls -la _bibliography || true
           ls -la Publications || true
-          echo "---- head of references.bib ----"
-          head -n 30 _bibliography/references.bib || head -n 30 Publications/references.bib || true
+          echo "---- head of Publications/references.bib ----"
+          head -n 40 Publications/references.bib || true
 
-      - name: Generate Publications page
+      - name: Generate publications.md
         run: |
           python scripts/bib2pubs.py
-          echo "---- head of generated Publications/publications.md ----"
+          echo "---- head of Publications/publications.md ----"
           sed -n '1,160p' Publications/publications.md || true
-          echo "---- grep menonscientific ----"
+          echo "---- check preprint key ----"
           grep -n "menonscientific" Publications/publications.md || true
 
-      - name: Commit changes (if any) and push
+      - name: Commit and push
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Publications/publications.md assets/data/*.json || true
-          git commit -m "chore(bib2pubs): regenerate Publications" || echo "Nothing to commit"
+          git add Publications/publications.md assets/data/pubs.json || true
+          git commit -m "chore: regenerate Publications page" || echo "Nothing to commit"
           git pull --rebase --autostash || true
           git push || true
