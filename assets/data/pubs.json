@@ -285,5 +285,22 @@
     "year": 2020,
     "venue": "計測自動制御学会制御部門マルチシンポジウム (CD-ROM)",
     "url": "https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi"
+  },
+  {
+    "id": "menonscientific",
+    "type": "preprint",
+    "title": "On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey",
+    "authors": [
+      "Menon, Sidharth S",
+      "Mondal, Trishit",
+      "Brahmachary, Shuvayan",
+      "Panda, Aniruddha",
+      "Joshi, Subodh M",
+      "Kalyanaraman, Kaushic",
+      "Jagtap, Ameya D"
+    ],
+    "year": 2025,
+    "venue": "SSRN",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5409063"
   }
 ]
