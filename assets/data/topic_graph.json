@@ -7,12 +7,6 @@
       "community": 0
     },
     {
-      "id": "ael (algorithm evolution using llms)",
-      "count": 1,
-      "degree_w": 1,
-      "community": 4
-    },
-    {
       "id": "aerodynamic shape optimization",
       "count": 8,
       "degree_w": 8,
@@ -22,43 +16,19 @@
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 4
     },
     {
-      "id": "benchmark problems",
+      "id": "benchmarking",
       "count": 1,
       "degree_w": 5,
-      "community": 5
-    },
-    {
-      "id": "candidate solution generation",
-      "count": 1,
-      "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "cfd",
       "count": 13,
       "degree_w": 14,
       "community": 0
-    },
-    {
-      "id": "chain-of-thought prompting",
-      "count": 1,
-      "degree_w": 1,
-      "community": 3
-    },
-    {
-      "id": "comparison to existing approaches",
-      "count": 1,
-      "degree_w": 5,
-      "community": 4
-    },
-    {
-      "id": "convergence consistency",
-      "count": 1,
-      "degree_w": 1,
-      "community": 7
     },
     {
       "id": "differentiable physics",
@@ -69,31 +39,13 @@
     {
       "id": "elitism guardrails",
       "count": 1,
-      "degree_w": 2,
+      "degree_w": 1,
       "community": 2
     },
     {
       "id": "engineering applications",
       "count": 1,
-      "degree_w": 3,
-      "community": 8
-    },
-    {
-      "id": "evolutionary optimization",
-      "count": 1,
       "degree_w": 4,
-      "community": 2
-    },
-    {
-      "id": "exploit pool",
-      "count": 1,
-      "degree_w": 1,
-      "community": 2
-    },
-    {
-      "id": "explore pool",
-      "count": 1,
-      "degree_w": 1,
       "community": 2
     },
     {
@@ -106,7 +58,7 @@
       "id": "foundational models",
       "count": 1,
       "degree_w": 2,
-      "community": 9
+      "community": 5
     },
     {
       "id": "fourier neural operators (fno)",
@@ -124,7 +76,7 @@
       "id": "goldstein-price function",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 4
     },
     {
       "id": "gradient reconstruction",
@@ -133,22 +85,10 @@
       "community": 0
     },
     {
-      "id": "hallucination challenges",
-      "count": 1,
-      "degree_w": 1,
-      "community": 3
-    },
-    {
-      "id": "high-dimensional optimization",
-      "count": 1,
-      "degree_w": 3,
-      "community": 7
-    },
-    {
       "id": "himmelblau function",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 4
     },
     {
       "id": "immersed boudnary method",
@@ -163,40 +103,22 @@
       "community": 0
     },
     {
-      "id": "in-context learning",
-      "count": 1,
-      "degree_w": 1,
-      "community": 3
-    },
-    {
       "id": "incompressible wake flows",
       "count": 1,
       "degree_w": 3,
       "community": 1
     },
     {
-      "id": "large language models (llms)",
+      "id": "llm",
       "count": 1,
-      "degree_w": 6,
-      "community": 3
-    },
-    {
-      "id": "leo (large language-model based evolutionary optimizer)",
-      "count": 1,
-      "degree_w": 6,
+      "degree_w": 4,
       "community": 2
     },
     {
       "id": "llms",
       "count": 1,
       "degree_w": 2,
-      "community": 9
-    },
-    {
-      "id": "lmea (llm-driven evolutionary algorithm)",
-      "count": 1,
-      "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "low-fidelity approach",
@@ -211,12 +133,6 @@
       "community": 0
     },
     {
-      "id": "moea (multi-objective evolutionary algorithm)",
-      "count": 1,
-      "degree_w": 1,
-      "community": 4
-    },
-    {
       "id": "multi-fidelity framework",
       "count": 2,
       "degree_w": 2,
@@ -225,32 +141,26 @@
     {
       "id": "multi-objective optimization",
       "count": 1,
-      "degree_w": 4,
-      "community": 6
+      "degree_w": 5,
+      "community": 3
     },
     {
       "id": "nsga-ii modularization",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 3
     },
     {
-      "id": "opro (optimization by prompting)",
+      "id": "optimization",
       "count": 1,
-      "degree_w": 1,
-      "community": 4
-    },
-    {
-      "id": "parameter-free optimization",
-      "count": 1,
-      "degree_w": 1,
+      "degree_w": 4,
       "community": 2
     },
     {
       "id": "pareto optimal front",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 3
     },
     {
       "id": "phiflow",
@@ -265,18 +175,6 @@
       "community": 2
     },
     {
-      "id": "port-and-filter mechanism",
-      "count": 1,
-      "degree_w": 1,
-      "community": 2
-    },
-    {
-      "id": "reasoning with context",
-      "count": 1,
-      "degree_w": 1,
-      "community": 2
-    },
-    {
       "id": "reduced order modelling",
       "count": 1,
       "degree_w": 1,
@@ -286,19 +184,13 @@
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
-      "community": 5
-    },
-    {
-      "id": "scalability challenges",
-      "count": 1,
-      "degree_w": 1,
-      "community": 7
+      "community": 4
     },
     {
       "id": "scifm",
       "count": 1,
       "degree_w": 2,
-      "community": 9
+      "community": 5
     },
     {
       "id": "sciml",
@@ -307,22 +199,10 @@
       "community": 1
     },
     {
-      "id": "shifted rosenbrock",
-      "count": 1,
-      "degree_w": 1,
-      "community": 7
-    },
-    {
-      "id": "sphere function",
-      "count": 1,
-      "degree_w": 1,
-      "community": 5
-    },
-    {
       "id": "steady-state heat transfer",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 2
     },
     {
       "id": "subsurface",
@@ -334,13 +214,7 @@
       "id": "supersonic nozzle shape optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 8
-    },
-    {
-      "id": "swarm intelligence with llm",
-      "count": 1,
-      "degree_w": 1,
-      "community": 4
+      "community": 2
     },
     {
       "id": "swbli",
@@ -349,37 +223,19 @@
       "community": 0
     },
     {
-      "id": "transformer architecture",
-      "count": 1,
-      "degree_w": 1,
-      "community": 3
-    },
-    {
-      "id": "tree-of-thought prompting",
-      "count": 1,
-      "degree_w": 1,
-      "community": 3
-    },
-    {
       "id": "windfarm layout optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 2
     },
     {
       "id": "zdt1",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 3
     },
     {
       "id": "zdt3",
-      "count": 1,
-      "degree_w": 1,
-      "community": 6
-    },
-    {
-      "id": "zero-shot optimization",
       "count": 1,
       "degree_w": 1,
       "community": 3
@@ -387,108 +243,58 @@
   ],
   "links": [
     {
-      "source": "large language models (llms)",
-      "target": "transformer architecture",
+      "source": "llm",
+      "target": "optimization",
       "weight": 1
     },
     {
-      "source": "in-context learning",
-      "target": "large language models (llms)",
+      "source": "benchmarking",
+      "target": "llm",
       "weight": 1
     },
     {
-      "source": "chain-of-thought prompting",
-      "target": "large language models (llms)",
+      "source": "llm",
+      "target": "multi-objective optimization",
       "weight": 1
     },
     {
-      "source": "large language models (llms)",
-      "target": "tree-of-thought prompting",
+      "source": "engineering applications",
+      "target": "llm",
       "weight": 1
     },
     {
-      "source": "hallucination challenges",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
+      "source": "optimization",
       "target": "population-based methods",
       "weight": 1
     },
     {
-      "source": "elitism guardrails",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "port-and-filter mechanism",
+      "source": "explore-exploit balance",
+      "target": "optimization",
       "weight": 1
     },
     {
       "source": "elitism guardrails",
-      "target": "leo (large language-model based evolutionary optimizer)",
+      "target": "optimization",
       "weight": 1
     },
     {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
+      "source": "benchmarking",
       "target": "rosenbrock function",
       "weight": 1
     },
     {
-      "source": "benchmark problems",
+      "source": "benchmarking",
       "target": "himmelblau function",
       "weight": 1
     },
     {
-      "source": "benchmark problems",
+      "source": "benchmarking",
       "target": "goldstein-price function",
       "weight": 1
     },
     {
-      "source": "benchmark problems",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
       "source": "beale function",
-      "target": "benchmark problems",
+      "target": "benchmarking",
       "weight": 1
     },
     {
@@ -512,21 +318,6 @@
       "weight": 1
     },
     {
-      "source": "high-dimensional optimization",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
       "source": "engineering applications",
       "target": "supersonic nozzle shape optimization",
       "weight": 1
@@ -539,31 +330,6 @@
     {
       "source": "engineering applications",
       "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "comparison to existing approaches",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "swarm intelligence with llm",
       "weight": 1
     },
     {
