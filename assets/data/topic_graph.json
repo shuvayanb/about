@@ -1,73 +1,142 @@
 {
   "nodes": [
     {
-      "id": "active debri removal"
+      "id": "active debri removal",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
-      "id": "aerodynamic shape optimization"
+      "id": "aerodynamic shape optimization",
+      "count": 8,
+      "degree_w": 8,
+      "community": 0
     },
     {
-      "id": "cfd"
+      "id": "cfd",
+      "count": 13,
+      "degree_w": 14,
+      "community": 0
     },
     {
-      "id": "differentiable physics"
+      "id": "differentiable physics",
+      "count": 2,
+      "degree_w": 4,
+      "community": 1
     },
     {
-      "id": "evolutionary algorithm"
+      "id": "evolutionary algorithm",
+      "count": 1,
+      "degree_w": 2,
+      "community": 2
     },
     {
-      "id": "foundational models"
+      "id": "foundational models",
+      "count": 1,
+      "degree_w": 2,
+      "community": 2
     },
     {
-      "id": "fourier neural operators (fno)"
+      "id": "fourier neural operators (fno)",
+      "count": 1,
+      "degree_w": 3,
+      "community": 1
     },
     {
-      "id": "full wave inversion"
+      "id": "full wave inversion",
+      "count": 1,
+      "degree_w": 3,
+      "community": 1
     },
     {
-      "id": "gradient reconstruction"
+      "id": "gradient reconstruction",
+      "count": 1,
+      "degree_w": 2,
+      "community": 0
     },
     {
-      "id": "immersed boudnary method"
+      "id": "immersed boudnary method",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
-      "id": "immersed boundary method"
+      "id": "immersed boundary method",
+      "count": 2,
+      "degree_w": 2,
+      "community": 0
     },
     {
-      "id": "incompressible wake flows"
+      "id": "incompressible wake flows",
+      "count": 1,
+      "degree_w": 3,
+      "community": 1
     },
     {
-      "id": "llms"
+      "id": "llms",
+      "count": 2,
+      "degree_w": 4,
+      "community": 2
     },
     {
-      "id": "low-fidelity approach"
+      "id": "low-fidelity approach",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
-      "id": "modified green gauss"
+      "id": "modified green gauss",
+      "count": 1,
+      "degree_w": 2,
+      "community": 0
     },
     {
-      "id": "multi-fidelity framework"
+      "id": "multi-fidelity framework",
+      "count": 2,
+      "degree_w": 2,
+      "community": 3
     },
     {
-      "id": "nsga-ii"
+      "id": "nsga-ii",
+      "count": 1,
+      "degree_w": 2,
+      "community": 2
     },
     {
-      "id": "phiflow"
+      "id": "phiflow",
+      "count": 1,
+      "degree_w": 3,
+      "community": 1
     },
     {
-      "id": "reduced order modelling"
+      "id": "reduced order modelling",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
     },
     {
-      "id": "scifm"
+      "id": "scifm",
+      "count": 1,
+      "degree_w": 2,
+      "community": 2
     },
     {
-      "id": "sciml"
+      "id": "sciml",
+      "count": 4,
+      "degree_w": 8,
+      "community": 1
     },
     {
-      "id": "subsurface"
+      "id": "subsurface",
+      "count": 1,
+      "degree_w": 3,
+      "community": 1
     },
     {
-      "id": "swbli"
+      "id": "swbli",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     }
   ],
   "links": [
@@ -216,5 +285,8 @@
       "target": "scifm",
       "weight": 1
     }
-  ]
+  ],
+  "_meta": {
+    "enriched": true
+  }
 }
