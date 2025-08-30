@@ -4,596 +4,486 @@
       "id": "active debri removal",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 0
     },
     {
       "id": "ael (algorithm evolution using llms)",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "aerodynamic shape optimization",
       "count": 8,
       "degree_w": 8,
-      "community": 1
+      "community": 0
     },
     {
       "id": "beale function",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "benchmark problems",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 5,
+      "community": 5
     },
     {
       "id": "candidate solution generation",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "cfd",
       "count": 13,
       "degree_w": 14,
-      "community": 1
+      "community": 0
     },
     {
       "id": "chain-of-thought prompting",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "comparison to existing approaches",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 5,
+      "community": 4
     },
     {
       "id": "convergence consistency",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 7
     },
     {
       "id": "differentiable physics",
       "count": 2,
       "degree_w": 4,
-      "community": 2
+      "community": 1
     },
     {
       "id": "elitism guardrails",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 2,
+      "community": 2
     },
     {
       "id": "engineering applications",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 3,
+      "community": 8
     },
     {
       "id": "evolutionary optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 4,
+      "community": 2
     },
     {
       "id": "exploit pool",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "explore pool",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "explore-exploit balance",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "foundational models",
       "count": 1,
       "degree_w": 2,
-      "community": 3
+      "community": 9
     },
     {
       "id": "fourier neural operators (fno)",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 1
     },
     {
       "id": "full wave inversion",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 1
     },
     {
       "id": "goldstein-price function",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "gradient reconstruction",
       "count": 1,
       "degree_w": 2,
-      "community": 1
+      "community": 0
     },
     {
       "id": "hallucination challenges",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "high-dimensional optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 3,
+      "community": 7
     },
     {
       "id": "himmelblau function",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "immersed boudnary method",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 0
     },
     {
       "id": "immersed boundary method",
       "count": 2,
       "degree_w": 2,
-      "community": 1
+      "community": 0
     },
     {
       "id": "in-context learning",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "incompressible wake flows",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 1
     },
     {
       "id": "large language models (llms)",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 6,
+      "community": 3
     },
     {
       "id": "leo (large language-model based evolutionary optimizer)",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 6,
+      "community": 2
     },
     {
       "id": "llms",
       "count": 1,
       "degree_w": 2,
-      "community": 3
+      "community": 9
     },
     {
       "id": "lmea (llm-driven evolutionary algorithm)",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "low-fidelity approach",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 0
     },
     {
       "id": "modified green gauss",
       "count": 1,
       "degree_w": 2,
-      "community": 1
+      "community": 0
     },
     {
       "id": "moea (multi-objective evolutionary algorithm)",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "multi-fidelity framework",
       "count": 2,
       "degree_w": 2,
-      "community": 1
+      "community": 0
     },
     {
       "id": "multi-objective optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 4,
+      "community": 6
     },
     {
       "id": "nsga-ii modularization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 6
     },
     {
       "id": "opro (optimization by prompting)",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "parameter-free optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "pareto optimal front",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 6
     },
     {
       "id": "phiflow",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 1
     },
     {
       "id": "population-based methods",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "port-and-filter mechanism",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "reasoning with context",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 2
     },
     {
       "id": "reduced order modelling",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     },
     {
       "id": "rosenbrock function",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "scalability challenges",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 7
     },
     {
       "id": "scifm",
       "count": 1,
       "degree_w": 2,
-      "community": 3
+      "community": 9
     },
     {
       "id": "sciml",
       "count": 4,
       "degree_w": 8,
-      "community": 2
+      "community": 1
     },
     {
       "id": "shifted rosenbrock",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 7
     },
     {
       "id": "sphere function",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 5
     },
     {
       "id": "steady-state heat transfer",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 8
     },
     {
       "id": "subsurface",
       "count": 1,
       "degree_w": 3,
-      "community": 2
+      "community": 1
     },
     {
       "id": "supersonic nozzle shape optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 8
     },
     {
       "id": "swarm intelligence with llm",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 4
     },
     {
       "id": "swbli",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 0
     },
     {
       "id": "transformer architecture",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "tree-of-thought prompting",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "windfarm layout optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 8
     },
     {
       "id": "zdt1",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 6
     },
     {
       "id": "zdt3",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 6
     },
     {
       "id": "zero-shot optimization",
       "count": 1,
-      "degree_w": 42,
-      "community": 0
+      "degree_w": 1,
+      "community": 3
     }
   ],
   "links": [
     {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "beale function",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "benchmark problems",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "candidate solution generation",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "chain-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "comparison to existing approaches",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "convergence consistency",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
+      "source": "large language models (llms)",
       "target": "transformer architecture",
       "weight": 1
     },
     {
-      "source": "ael (algorithm evolution using llms)",
+      "source": "in-context learning",
+      "target": "large language models (llms)",
+      "weight": 1
+    },
+    {
+      "source": "chain-of-thought prompting",
+      "target": "large language models (llms)",
+      "weight": 1
+    },
+    {
+      "source": "large language models (llms)",
       "target": "tree-of-thought prompting",
       "weight": 1
     },
     {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "windfarm layout optimization",
+      "source": "hallucination challenges",
+      "target": "large language models (llms)",
       "weight": 1
     },
     {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "ael (algorithm evolution using llms)",
+      "source": "large language models (llms)",
       "target": "zero-shot optimization",
+      "weight": 1
+    },
+    {
+      "source": "evolutionary optimization",
+      "target": "population-based methods",
+      "weight": 1
+    },
+    {
+      "source": "elitism guardrails",
+      "target": "evolutionary optimization",
+      "weight": 1
+    },
+    {
+      "source": "evolutionary optimization",
+      "target": "explore-exploit balance",
+      "weight": 1
+    },
+    {
+      "source": "candidate solution generation",
+      "target": "evolutionary optimization",
+      "weight": 1
+    },
+    {
+      "source": "explore pool",
+      "target": "leo (large language-model based evolutionary optimizer)",
+      "weight": 1
+    },
+    {
+      "source": "exploit pool",
+      "target": "leo (large language-model based evolutionary optimizer)",
+      "weight": 1
+    },
+    {
+      "source": "leo (large language-model based evolutionary optimizer)",
+      "target": "port-and-filter mechanism",
+      "weight": 1
+    },
+    {
+      "source": "elitism guardrails",
+      "target": "leo (large language-model based evolutionary optimizer)",
+      "weight": 1
+    },
+    {
+      "source": "leo (large language-model based evolutionary optimizer)",
+      "target": "parameter-free optimization",
+      "weight": 1
+    },
+    {
+      "source": "leo (large language-model based evolutionary optimizer)",
+      "target": "reasoning with context",
+      "weight": 1
+    },
+    {
+      "source": "benchmark problems",
+      "target": "rosenbrock function",
+      "weight": 1
+    },
+    {
+      "source": "benchmark problems",
+      "target": "himmelblau function",
+      "weight": 1
+    },
+    {
+      "source": "benchmark problems",
+      "target": "goldstein-price function",
+      "weight": 1
+    },
+    {
+      "source": "benchmark problems",
+      "target": "sphere function",
       "weight": 1
     },
     {
@@ -602,4303 +492,93 @@
       "weight": 1
     },
     {
-      "source": "beale function",
-      "target": "candidate solution generation",
+      "source": "multi-objective optimization",
+      "target": "pareto optimal front",
       "weight": 1
     },
     {
-      "source": "beale function",
-      "target": "chain-of-thought prompting",
+      "source": "multi-objective optimization",
+      "target": "nsga-ii modularization",
       "weight": 1
     },
     {
-      "source": "beale function",
+      "source": "multi-objective optimization",
+      "target": "zdt1",
+      "weight": 1
+    },
+    {
+      "source": "multi-objective optimization",
+      "target": "zdt3",
+      "weight": 1
+    },
+    {
+      "source": "high-dimensional optimization",
+      "target": "shifted rosenbrock",
+      "weight": 1
+    },
+    {
+      "source": "high-dimensional optimization",
+      "target": "scalability challenges",
+      "weight": 1
+    },
+    {
+      "source": "convergence consistency",
+      "target": "high-dimensional optimization",
+      "weight": 1
+    },
+    {
+      "source": "engineering applications",
+      "target": "supersonic nozzle shape optimization",
+      "weight": 1
+    },
+    {
+      "source": "engineering applications",
+      "target": "steady-state heat transfer",
+      "weight": 1
+    },
+    {
+      "source": "engineering applications",
+      "target": "windfarm layout optimization",
+      "weight": 1
+    },
+    {
+      "source": "comparison to existing approaches",
+      "target": "lmea (llm-driven evolutionary algorithm)",
+      "weight": 1
+    },
+    {
+      "source": "comparison to existing approaches",
+      "target": "opro (optimization by prompting)",
+      "weight": 1
+    },
+    {
+      "source": "comparison to existing approaches",
+      "target": "moea (multi-objective evolutionary algorithm)",
+      "weight": 1
+    },
+    {
+      "source": "ael (algorithm evolution using llms)",
       "target": "comparison to existing approaches",
       "weight": 1
     },
     {
-      "source": "beale function",
-      "target": "convergence consistency",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "beale function",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "candidate solution generation",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "chain-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "comparison to existing approaches",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "convergence consistency",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "benchmark problems",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "chain-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "comparison to existing approaches",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "convergence consistency",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "candidate solution generation",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "comparison to existing approaches",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "convergence consistency",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "chain-of-thought prompting",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "convergence consistency",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
       "source": "comparison to existing approaches",
       "target": "swarm intelligence with llm",
       "weight": 1
     },
     {
-      "source": "comparison to existing approaches",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "comparison to existing approaches",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "elitism guardrails",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "convergence consistency",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "engineering applications",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "elitism guardrails",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "evolutionary optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "engineering applications",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "exploit pool",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "evolutionary optimization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "explore pool",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "exploit pool",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "explore-exploit balance",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "explore pool",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "goldstein-price function",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "explore-exploit balance",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "hallucination challenges",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "goldstein-price function",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "high-dimensional optimization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "hallucination challenges",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "himmelblau function",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "high-dimensional optimization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "in-context learning",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "himmelblau function",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "large language models (llms)",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "in-context learning",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "leo (large language-model based evolutionary optimizer)",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "large language models (llms)",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "lmea (llm-driven evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "leo (large language-model based evolutionary optimizer)",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "moea (multi-objective evolutionary algorithm)",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "lmea (llm-driven evolutionary algorithm)",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "multi-objective optimization",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "moea (multi-objective evolutionary algorithm)",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "nsga-ii modularization",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "multi-objective optimization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "opro (optimization by prompting)",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "nsga-ii modularization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "parameter-free optimization",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "opro (optimization by prompting)",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "pareto optimal front",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "parameter-free optimization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "population-based methods",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "pareto optimal front",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "port-and-filter mechanism",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "population-based methods",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "reasoning with context",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "port-and-filter mechanism",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "rosenbrock function",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "reasoning with context",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "scalability challenges",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "rosenbrock function",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "shifted rosenbrock",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "scalability challenges",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "sphere function",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "shifted rosenbrock",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "steady-state heat transfer",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "sphere function",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "supersonic nozzle shape optimization",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "steady-state heat transfer",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "swarm intelligence with llm",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "supersonic nozzle shape optimization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "swarm intelligence with llm",
-      "target": "transformer architecture",
-      "weight": 1
-    },
-    {
-      "source": "swarm intelligence with llm",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "swarm intelligence with llm",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "swarm intelligence with llm",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "swarm intelligence with llm",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "swarm intelligence with llm",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "transformer architecture",
-      "target": "tree-of-thought prompting",
-      "weight": 1
-    },
-    {
-      "source": "transformer architecture",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "transformer architecture",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "transformer architecture",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "transformer architecture",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "tree-of-thought prompting",
-      "target": "windfarm layout optimization",
-      "weight": 1
-    },
-    {
-      "source": "tree-of-thought prompting",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "tree-of-thought prompting",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "tree-of-thought prompting",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "windfarm layout optimization",
-      "target": "zdt1",
-      "weight": 1
-    },
-    {
-      "source": "windfarm layout optimization",
-      "target": "zdt3",
-      "weight": 1
-    },
-    {
-      "source": "windfarm layout optimization",
-      "target": "zero-shot optimization",
-      "weight": 1
-    },
-    {
-      "source": "zdt1",
-      "target": "zdt3",
-      "weight": 1
+      "source": "differentiable physics",
+      "target": "sciml",
+      "weight": 2
     },
     {
-      "source": "zdt1",
-      "target": "zero-shot optimization",
+      "source": "incompressible wake flows",
+      "target": "sciml",
       "weight": 1
     },
     {
-      "source": "zdt3",
-      "target": "zero-shot optimization",
+      "source": "phiflow",
+      "target": "sciml",
       "weight": 1
     },
     {
@@ -4912,23 +592,8 @@
       "weight": 1
     },
     {
-      "source": "differentiable physics",
-      "target": "sciml",
-      "weight": 2
-    },
-    {
       "source": "incompressible wake flows",
       "target": "phiflow",
-      "weight": 1
-    },
-    {
-      "source": "incompressible wake flows",
-      "target": "sciml",
-      "weight": 1
-    },
-    {
-      "source": "phiflow",
-      "target": "sciml",
       "weight": 1
     },
     {
@@ -4983,31 +648,31 @@
     },
     {
       "source": "fourier neural operators (fno)",
+      "target": "sciml",
+      "weight": 1
+    },
+    {
+      "source": "full wave inversion",
+      "target": "sciml",
+      "weight": 1
+    },
+    {
+      "source": "sciml",
+      "target": "subsurface",
+      "weight": 1
+    },
+    {
+      "source": "fourier neural operators (fno)",
       "target": "full wave inversion",
       "weight": 1
     },
     {
       "source": "fourier neural operators (fno)",
-      "target": "sciml",
-      "weight": 1
-    },
-    {
-      "source": "fourier neural operators (fno)",
       "target": "subsurface",
       "weight": 1
     },
     {
       "source": "full wave inversion",
-      "target": "sciml",
-      "weight": 1
-    },
-    {
-      "source": "full wave inversion",
-      "target": "subsurface",
-      "weight": 1
-    },
-    {
-      "source": "sciml",
       "target": "subsurface",
       "weight": 1
     },
@@ -5022,17 +687,21 @@
       "weight": 1
     },
     {
-      "source": "foundational models",
+      "source": "llms",
       "target": "scifm",
       "weight": 1
     },
     {
-      "source": "llms",
+      "source": "foundational models",
       "target": "scifm",
       "weight": 1
     }
   ],
   "_meta": {
-    "enriched": true
+    "enriched": true,
+    "hierarchy": {
+      "detected": true,
+      "policy": "adjacent"
+    }
   }
 }
