@@ -74,6 +74,52 @@ title: Explore Topics
   var qs        = new URLSearchParams(location.search);
   var startTag  = qs.get('tag');
 
+  // --- Preferred casing for labels based on BibTeX keywords in pubs.json ---
+  function buildCaseMap(pubs){
+    // Map: lowercased tag -> Map(variantString -> count)
+    var raw = new Map();
+    pubs.forEach(function(p){
+      (p.tags || []).forEach(function(t){
+        var v = String(t).trim();
+        if(!v) return;
+        var k = v.toLowerCase();
+        var m = raw.get(k) || new Map();
+        m.set(v, (m.get(v) || 0) + 1);
+        raw.set(k, m);
+      });
+    });
+    // Choose best variant per key: highest count; tie-break by uppercase richness, then shorter
+    var out = new Map();
+    function scoreUpper(s){
+      var letters = s.replace(/[^A-Za-z]/g,'');
+      if(!letters.length) return 0;
+      var upper = (s.match(/[A-Z]/g)||[]).length;
+      // small bonus if it's fully upper (acronyms like CFD, LLM)
+      return upper/letters.length + (/^[A-Z0-9\-]+$/.test(s) ? 0.5 : 0);
+    }
+    raw.forEach(function(variants, key){
+      var best = null, bestCount = -1, bestScore = -1;
+      variants.forEach(function(cnt, variant){
+        var sc = scoreUpper(variant);
+        if (cnt > bestCount || (cnt === bestCount && (sc > bestScore || (sc === bestScore && variant.length < best.length)))){
+          best = variant; bestCount = cnt; bestScore = sc;
+        }
+      });
+      out.set(key, best);
+    });
+    return out;
+  }
+
+  // Fallback: basic title-case that preserves acronyms & separators
+  function smartTitleCase(s){
+    return String(s).split(/(\s+|[-_/]+)/).map(function(tok){
+      if (/^\s+$|^[-_/]+$/.test(tok)) return tok;            // keep separators
+      if (/^[A-Z0-9]{2,}$/.test(tok)) return tok;            // keep acronyms (CFD, LLM)
+      return tok.charAt(0).toUpperCase() + tok.slice(1);
+    }).join('');
+  }
+
+
   function renderDetails(topic, pubs){
     if(!topic){
       detailsEl.innerHTML = '<h3>Click a topic to see papers</h3><p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>';
@@ -114,6 +160,14 @@ title: Explore Topics
       return;
     }
 
+    // Preferred casing for labels (from pubs.json); fallback to title case
+    var caseMap = buildCaseMap(pubs);
+    function displayLabel(id){
+      var k = String(id).toLowerCase();
+      return caseMap.get(k) || smartTitleCase(id);
+    }
+
+    
     var rect   = graphEl.getBoundingClientRect();
     var width  = rect.width || 800;
     var height = rect.height || 520;
@@ -259,7 +313,7 @@ title: Explore Topics
     }
     node.append('text')
       .attr('class','label')
-      .text(function(d){ return d.id; })
+      .text(function(d){ return displayLabel(d.id); })
       .attr('dominant-baseline','middle')
       .attr('text-anchor', function(d){ return (nodeR(d) >= 16) ? 'middle' : 'start'; })
       .attr('x', function(d){ return (nodeR(d) >= 16) ? 0 : (nodeR(d) + 6); })
@@ -402,7 +456,7 @@ title: Explore Topics
     }
 
     function selectTopic(topic){
-      renderDetails(topic, pubs);
+      renderDetails(displayLabel(topic), pubs);
       node.selectAll('circle').attr('stroke-width', function(nd){
         return (nd.id === topic) ? Math.max(6, ringWidth(nd) + 2) : ringWidth(nd);
       });
