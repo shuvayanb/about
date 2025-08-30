@@ -30,26 +30,6 @@ def year(e):
     m = re.search(r"\d{4}", y)
     return int(m.group(0)) if m else 0
 
-def is_preprint(e: dict) -> bool:
-    # entry type check
-    t = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
-    if t in ("preprint", "unpublished"):
-        return True
-
-    # textual hints
-    note = ((e.get("note") or "") + " " + (e.get("howpublished") or "")).lower()
-    if "preprint" in note:
-        return True
-
-    # host-based hints
-    url = (e.get("url") or "").lower()
-    if any(h in url for h in ("arxiv.org", "ssrn.com", "biorxiv.org", "medrxiv.org", "chemrxiv.org", "osf.io")):
-        return True
-
-    # arXiv metadata
-    ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
-    return ap == "arxiv"
-
 def is_journal(e: dict) -> bool:
     return (not is_preprint(e)) and (etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle")))
 
