@@ -29,7 +29,7 @@ _No entries._
 
 9. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _Comment on “A new approach for the design of hypersonic scramjet inlets” [Phys. Fluids 24, 086103 (2012)]_, **Physics of Fluids**, 2020 [Link](https://pubs.aip.org/aip/pof/article/32/7/079101/1065525/Comment-on-A-new-approach-for-the-design-of)
 
-10. Dudás, Eszter, Suas-David, Nicolas, Brahmachary, Shuvayan, Kulkarni, Vinayak, Benidar, Abdessamad, Kassi, Samir, Charles, Christine, Georges, Robert, _High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy_, **The Journal of Chemical Physics**, 2020 [Link](https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext)
+10. Dud{\'a}s, Eszter, Suas-David, Nicolas, Brahmachary, Shuvayan, Kulkarni, Vinayak, Benidar, Abdessamad, Kassi, Samir, Charles, Christine, Georges, Robert, _High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy_, **The Journal of Chemical Physics**, 2020 [Link](https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext)
 
 11. Deka, Mandeep, Brahmachary, Shuvayan, Thirumalaisamy, Ramakrishnan, Dalal, Amaresh, Natarajan, Ganesh, _A new Green--Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction_, **Journal of Computational Physics**, 2020 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909)
 
