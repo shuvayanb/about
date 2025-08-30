@@ -3,18 +3,13 @@ name: Build Publications from BibTeX
 on:
   workflow_dispatch:
   push:
-    branches: [ master, main ]
+    branches: [ main, master ]
     paths:
-      - '**/*.bib'             # any bib change
-      - 'scripts/bib2pubs.py'  # generator changes
-    # NOTE: intentionally NOT watching Publications/** to avoid self-trigger
+      - '**/*.bib'
+      - 'scripts/bib2pubs.py'
 
 permissions:
   contents: write
-
-concurrency:
-  group: bib2pubs
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -22,48 +17,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        with: { fetch-depth: 0 }
 
       - name: Setup Python
         uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+        with: { python-version: "3.11" }
 
       - name: Install deps
-        run: |
-          pip install "bibtexparser==1.4.0" pylatexenc PyYAML
+        run: pip install "bibtexparser==1.4.0" pylatexenc PyYAML
 
-      - name: Sanity: confirm bib + preprint exists
+      - name: Sanity: show bib head
         run: |
-          echo "Changed files vs previous commit:"
-          git --no-pager diff --name-only HEAD^ HEAD || true
-          echo "Repo structure:"
+          echo "Working dir: $(pwd)"
           ls -la
-          echo "Find references.bib candidates:"
-          find . -maxdepth 3 -name "references.bib" -print
-          echo "Look for @preprint + menonscientific in common paths:"
-          grep -nH "@preprint" _bibliography/references.bib || true
-          grep -nH "menonscientific" _bibliography/references.bib || true
-          grep -nH "@preprint" Publications/references.bib || true
-          grep -nH "menonscientific" Publications/references.bib || true
+          ls -la _bibliography || true
+          ls -la Publications || true
+          echo "---- head of references.bib ----"
+          head -n 30 _bibliography/references.bib || head -n 30 Publications/references.bib || true
 
       - name: Generate Publications page
         run: |
           python scripts/bib2pubs.py
-          echo "Preview of generated Publications/publications.md:"
+          echo "---- head of generated Publications/publications.md ----"
           sed -n '1,160p' Publications/publications.md || true
-          echo "Check for menonscientific in output:"
+          echo "---- grep menonscientific ----"
           grep -n "menonscientific" Publications/publications.md || true
-
 
       - name: Commit changes (if any) and push
         run: |
-          set -e
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "chore(bib2pubs): regenerate publications" || echo "Nothing to commit"
-          # Pull then push to avoid non-fast-forward errors
+          git add Publications/publications.md assets/data/*.json || true
+          git commit -m "chore(bib2pubs): regenerate Publications" || echo "Nothing to commit"
           git pull --rebase --autostash || true
           git push || true
