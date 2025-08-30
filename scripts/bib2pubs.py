@@ -50,13 +50,11 @@ def is_preprint(e: dict) -> bool:
     ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
     return ap == "arxiv"
 
-
-def is_journal_like(e: dict) -> bool:
-    if is_preprint(e):
-        return False
-    return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
-
 def is_journal(e: dict) -> bool:
+    return (not is_preprint(e)) and (etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle")))
+
+
+def is_preprint(e: dict) -> bool:
     t = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
     if t in ("preprint", "unpublished"):
         return True
@@ -151,6 +149,7 @@ def main():
     chp = [e for e in entries if is_chapter(e)]
     cnf = [e for e in entries if is_conf(e)]
 
+
     # page
     out = []
     out.append("---"); out.append("layout: page"); out.append("title: Publications"); out.append("---\n")
@@ -158,6 +157,7 @@ def main():
     out.extend(render_list("Journals",       jnl, "journal"));   out.append("\n")
     out.extend(render_list("Book Chapters",  chp, "chapter"));   out.append("\n")
     out.extend(render_list("Conferences",    cnf, "conf"))
+
 
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
     OUT_MD.write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
