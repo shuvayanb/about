@@ -8,7 +8,12 @@ import json
 from itertools import combinations
 
 # ----- CONFIG -----
-BIB_PATHS = [Path("reference.bib"), Path("Publications/references.bib")]
+# Added root-level _bibliography path first so it wins
+BIB_PATHS = [
+    Path("_bibliography/references.bib"),   # <--- NEW (your Jekyll-Scholar location)
+    Path("reference.bib"),
+    Path("Publications/references.bib"),
+]
 OUT_PAGE  = Path("Publications/publications.md")
 OUT_DIR   = Path("assets/data")
 PUBS_JSON = OUT_DIR / "pubs.json"
@@ -64,9 +69,16 @@ def bold_author_name(author_str: str) -> str:
     return out
 
 def build_link(e: dict) -> str:
+    # Prefer explicit URL
     url = (e.get("url") or "").strip().strip("{}")
     if url:
         return f"[Link]({url})"
+    # arXiv via eprint+archiveprefix
+    ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
+    eprint = (e.get("eprint") or "").strip()
+    if ap == "arxiv" and eprint:
+        return f"[Link](https://arxiv.org/abs/{eprint})"
+    # DOI
     doi = (e.get("doi") or "").strip().strip("{}")
     if doi:
         if not doi.lower().startswith("http"):
@@ -85,11 +97,29 @@ def get_journal(e: dict) -> str:
 def get_booktitle(e: dict) -> str:
     return f(e, "booktitle").strip()
 
+def get_preprint_venue(e: dict) -> str:
+    """Try to present a meaningful venue label for preprints."""
+    # arXiv
+    ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
+    eprint = (e.get("eprint") or "").strip()
+    if ap == "arxiv" or ("arxiv.org" in (e.get("url") or "").lower()):
+        return "arXiv" + (f":{eprint}" if eprint else "")
+    # SSRN
+    if "ssrn.com" in (e.get("url") or "").lower():
+        return "SSRN"
+    # fallback to note/journal if present
+    return f(e, "note") or get_journal(e)
+
 def etype(e: dict) -> str:
     return (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
 
+def is_preprint(e: dict) -> bool:
+    """Classify explicit preprints; can extend with misc+arXiv later if needed."""
+    return etype(e) == "preprint"
+
 def is_journal_like(e: dict) -> bool:
-    return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
+    # Do NOT treat preprints as journals even if a 'journal' field exists
+    return etype(e) == "article" or (etype(e) not in ("preprint",) and bool(e.get("journal") or e.get("journaltitle")))
 
 def is_book_chapter(e: dict) -> bool:
     return etype(e) == "incollection" or (bool(e.get("booktitle")) and etype(e) not in ("inproceedings",))
@@ -222,7 +252,6 @@ def load_domains_map() -> dict[str, list[str]]:
             if "tags" in v and isinstance(v["tags"], list):
                 topics += [str(x) for x in v["tags"]]
         elif isinstance(v, list):
-            # plain list is probably stickers; ignore here
             pass
         out[k] = topics
     print(f"[bib2pubs] loaded domains/tags for {sum(bool(v) for v in out.values())} entries from pub_tags.yml")
@@ -245,9 +274,7 @@ def normalize_topics(items: list[str], alias_map: dict[str, str]) -> list[str]:
 def topics_for_entry(e: dict, domains_map: dict[str, list[str]], alias_map: dict[str, str]) -> list[str]:
     bid = (e.get("ID") or e.get("id") or "").strip()
     topics: list[str] = []
-    # 1) from YAML (domains/tags)
     topics += domains_map.get(bid, [])
-    # 2) from BibTeX keywords
     kw = (e.get("keywords") or e.get("keyword") or "")
     if kw:
         parts = re.split(r"[;,]", kw)
@@ -267,14 +294,16 @@ def load_sticker_map() -> dict[str, list[str]]:
         if isinstance(v, list):
             out[k] = [str(x).lower() for x in v]
         elif isinstance(v, dict):
-            # stickers may still be top-level list or under some key; support both
             stickers = v.get("stickers") if isinstance(v.get("stickers"), list) else []
             out[k] = [str(x).lower() for x in stickers]
         else:
             out[k] = []
     return out
 
-def render_badges(stickers: list[str]) -> str:
+def render_badges(stickers: list[str], force_preprint: bool=False) -> str:
+    # Always show a Preprint sticker if this is a preprint entry
+    if force_preprint and "preprint" not in stickers:
+        stickers = list(stickers) + ["preprint"]
     if not stickers:
         return ""
     label_map = {"new": "NEW", "preprint": "Preprint", "award": "Best Paper"}
@@ -300,11 +329,21 @@ def render_section(title_html: str, items: list[dict], mode: str, sticker_map: d
     for idx, e in enumerate(items, start=1):
         authors = bold_author_name(f(e, "author").replace(" and ", ", "))
         title = f(e, "title").strip(' "{}')
-        venue = get_journal(e) if mode == "journal" else get_booktitle(e)
+        if mode == "journal":
+            venue = get_journal(e)
+        elif mode == "chapter":
+            venue = get_booktitle(e)
+        elif mode == "preprint":
+            venue = get_preprint_venue(e)
+        else:
+            venue = get_booktitle(e) or get_journal(e)
+
         year = f(e, "year")
         link_md = build_link(e)
         bid = (e.get("ID") or e.get("id") or "").strip()
-        badges = render_badges(sticker_map.get(bid, []))
+
+        force_pre = (mode == "preprint")
+        badges = render_badges(sticker_map.get(bid, []), force_preprint=force_pre)
 
         item = f"{idx}. {authors}, _{title}_"
         if venue:
@@ -327,7 +366,14 @@ def build_pubs_json(entries: list[dict], domains_map: dict[str, list[str]], alia
         authors = [a.strip() for a in f(e, "author").replace("\n"," ").split(" and ") if a.strip()]
         year = get_year(e)
         typ = etype(e)
-        venue = get_journal(e) if is_journal_like(e) else get_booktitle(e)
+        if is_journal_like(e):
+            venue = get_journal(e)
+        elif is_book_chapter(e):
+            venue = get_booktitle(e)
+        elif is_preprint(e):
+            venue = get_preprint_venue(e)
+        else:
+            venue = get_booktitle(e) or get_journal(e)
         url = (e.get("url") or "").strip() or (("https://doi.org/" + e.get("doi").strip()) if e.get("doi") else "")
         topics = topics_for_entry(e, domains_map, alias_map)
         out.append({
@@ -337,7 +383,6 @@ def build_pubs_json(entries: list[dict], domains_map: dict[str, list[str]], alia
     return out
 
 def build_topic_graph(pubs: list[dict]) -> dict:
-    # topic co-occurrence network
     topic_set = set()
     link_weights: dict[tuple[str,str], int] = {}
     for p in pubs:
@@ -361,24 +406,31 @@ def main():
 
     entries = load_all(BIB_PATHS)
 
-    # --- write page (as before) ---
-    journals    = [e for e in entries if is_journal_like(e)]
+    # --- classify ---
+    preprints   = [e for e in entries if is_preprint(e)]
+    journals    = [e for e in entries if is_journal_like(e) and not is_preprint(e)]
     chapters    = [e for e in entries if is_book_chapter(e)]
     conferences = [e for e in entries if is_conference(e)]
-    print(f"[bib2pubs] journals: {len(journals)}, chapters: {len(chapters)}, conferences: {len(conferences)}")
+    print(f"[bib2pubs] preprints: {len(preprints)}, journals: {len(journals)}, chapters: {len(chapters)}, conferences: {len(conferences)}")
 
+    # --- write page ---
     lines = []
     lines.append("---")
     lines.append("layout: page")
     lines.append(f"title: {PAGE_TITLE}")
     lines.append("---\n")
     lines.append(STICKER_CSS.strip() + "\n\n")
+
+    # NEW: Preprint section first
+    lines.extend(render_section("Preprint", preprints, mode="preprint", sticker_map=sticker_map))
+    lines.append("\n")
+
     lines.append("**Published**\n")
-    lines.extend(render_section("Journals", journals, mode="journal",  sticker_map=sticker_map))
+    lines.extend(render_section("Journals",      journals,    mode="journal",  sticker_map=sticker_map))
     lines.append("\n")
-    lines.extend(render_section("Book Chapters", chapters, mode="chapter", sticker_map=sticker_map))
+    lines.extend(render_section("Book Chapters", chapters,    mode="chapter",  sticker_map=sticker_map))
     lines.append("\n")
-    lines.extend(render_section("Conferences", conferences, mode="conf",    sticker_map=sticker_map))
+    lines.extend(render_section("Conferences",   conferences, mode="conf",     sticker_map=sticker_map))
 
     OUT_PAGE.parent.mkdir(parents=True, exist_ok=True)
     OUT_PAGE.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
