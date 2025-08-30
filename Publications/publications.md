@@ -53,6 +53,8 @@ title: Publications
 
 15. **Brahmachary, Shuvayan**, Natarajan, Ganesh, Sahoo, Niranjan, _On maximum ballistic coefficient axisymmetric geometries in hypersonic flows_, **Journal of Spacecraft and Rockets**, 2018 [Link](https://arc.aiaa.org/doi/10.2514/1.A33887)
 
+16. Menon, Sidharth S, Mondal, Trishit, **Brahmachary, Shuvayan**, Panda, Aniruddha, Joshi, Subodh M, Kalyanaraman, Kaushic, Jagtap, Ameya D, _On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey_, **Key Applications, and a Survey**
+
 
 
 # <span style="color:blue">Book Chapters</span>

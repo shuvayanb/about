@@ -1,5 +1,23 @@
 [
   {
+    "id": "menonscientific",
+    "type": "article",
+    "title": "On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey",
+    "authors": [
+      "Menon, Sidharth S",
+      "Mondal, Trishit",
+      "Brahmachary, Shuvayan",
+      "Panda, Aniruddha",
+      "Joshi, Subodh M",
+      "Kalyanaraman, Kaushic",
+      "Jagtap, Ameya D"
+    ],
+    "year": 0,
+    "venue": "Key Applications, and a Survey",
+    "url": "",
+    "tags": []
+  },
+  {
     "id": "brahmachary2025large",
     "type": "article",
     "title": "Large language model-based evolutionary optimizer: Reasoning with elitism",
