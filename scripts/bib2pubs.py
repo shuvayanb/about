@@ -9,28 +9,16 @@ OUT_JSON = Path("assets/data/pubs.json")           # optional; handy later
 
 def read_bib() -> list[dict]:
     """
-    Load Publications/references.bib. Try bibtexparser first; if it drops
-    non-standard types (e.g. @preprint) or fails, fall back to a simple regex
-    parser that keeps ALL entry types.
+    Load Publications/references.bib.
+    - Parse with bibtexparser (good unicode handling) but it may drop @preprint.
+    - Also parse with a regex fallback that keeps ALL entry types.
+    - Merge the two (dedupe on type+ID).
     """
-    import bibtexparser
-    from bibtexparser.bparser import BibTexParser
-
     bib_path = Path("Publications/references.bib")
     txt = bib_path.read_text(encoding="utf-8")
 
-    # --- 1) Try bibtexparser normally
-    try:
-        parser = BibTexParser(common_strings=True)
-        db = bibtexparser.loads(txt, parser=parser)
-        entries = db.entries or []
-        if entries:
-            return entries
-    except Exception:
-        pass  # fall through to regex
-
-    # --- 2) Fallback: minimal regex parser (keeps unknown types like @preprint)
-    entries: list[dict] = []
+    # --- regex fallback that keeps unknown types (e.g., @preprint) ---
+    entries_rx: list[dict] = []
     entry_re = re.compile(r'@(\w+)\s*{\s*([^,]+)\s*,(.*?)\n}\s*', re.S | re.I)
     field_re = re.compile(r'([A-Za-z][A-Za-z0-9_-]*)\s*=\s*(\{(?:[^{}]|\{[^{}]*\})*\}|"[^"]*")\s*,?', re.S)
 
@@ -45,8 +33,38 @@ def read_bib() -> list[dict]:
             if (v.startswith("{") and v.endswith("}")) or (v.startswith('"') and v.endswith('"')):
                 v = v[1:-1]
             d[k] = v.strip()
-        entries.append(d)
-    return entries
+        entries_rx.append(d)
+
+    # --- bibtexparser parse (may print "preprint not standard" and drop it) ---
+    entries_bp: list[dict] = []
+    try:
+        import bibtexparser
+        from bibtexparser.bparser import BibTexParser
+        parser = BibTexParser(common_strings=True)
+        db = bibtexparser.loads(txt, parser=parser)
+        entries_bp = db.entries or []
+    except Exception:
+        entries_bp = []
+
+    # --- merge results (prefer bibtexparser entry when duplicate) ---
+    def keyfn(e: dict):
+        return ((e.get("ENTRYTYPE") or e.get("entrytype") or "").lower(),
+                (e.get("ID") or e.get("id") or "").lower())
+
+    out: list[dict] = []
+    seen = set()
+
+    for e in entries_bp + entries_rx:
+        k = keyfn(e)
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(e)
+
+    print(f"[read_bib] merged entries: total {len(out)} "
+          f"(bibtexparser {len(entries_bp)}, regex {len(entries_rx)})")
+    return out
+
 
 
 def etype(e): return (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
