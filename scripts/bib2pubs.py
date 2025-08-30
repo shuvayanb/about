@@ -56,7 +56,7 @@ def is_journal_like(e: dict) -> bool:
         return False
     return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
 
-def is_preprint(e: dict) -> bool:
+def is_journal(e: dict) -> bool:
     t = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
     if t in ("preprint", "unpublished"):
         return True
