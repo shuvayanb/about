@@ -98,28 +98,44 @@ def get_booktitle(e: dict) -> str:
     return f(e, "booktitle").strip()
 
 def get_preprint_venue(e: dict) -> str:
-    """Try to present a meaningful venue label for preprints."""
-    # arXiv
     ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
     eprint = (e.get("eprint") or "").strip()
-    if ap == "arxiv" or ("arxiv.org" in (e.get("url") or "").lower()):
+    url = (e.get("url") or "").lower()
+    if ap == "arxiv" or "arxiv.org" in url:
         return "arXiv" + (f":{eprint}" if eprint else "")
-    # SSRN
-    if "ssrn.com" in (e.get("url") or "").lower():
+    if "ssrn.com" in url:
         return "SSRN"
-    # fallback to note/journal if present
-    return f(e, "note") or get_journal(e)
+    if "biorxiv.org" in url:
+        return "bioRxiv"
+    if "medrxiv.org" in url:
+        return "medRxiv"
+    if "chemrxiv.org" in url:
+        return "ChemRxiv"
+    return (e.get("note") or "").strip() or (e.get("howpublished") or "").strip() or (e.get("journal") or "").strip()
 
 def etype(e: dict) -> str:
     return (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
 
 def is_preprint(e: dict) -> bool:
-    """Classify explicit preprints; can extend with misc+arXiv later if needed."""
-    return etype(e) == "preprint"
+    t = etype(e)
+    if t in ("preprint", "unpublished"):
+        return True
+    note = (e.get("note") or "").lower()
+    if "preprint" in note:
+        return True
+    url = (e.get("url") or "").lower()
+    if any(dom in url for dom in ("arxiv.org","ssrn.com","biorxiv.org","medrxiv.org","chemrxiv.org","osf.io")):
+        return True
+    ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
+    if ap == "arxiv":
+        return True
+    return False
 
 def is_journal_like(e: dict) -> bool:
-    # Do NOT treat preprints as journals even if a 'journal' field exists
-    return etype(e) == "article" or (etype(e) not in ("preprint",) and bool(e.get("journal") or e.get("journaltitle")))
+    # never classify a preprint as a journal, even if it has a 'journal' field
+    if is_preprint(e):
+        return False
+    return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
 
 def is_book_chapter(e: dict) -> bool:
     return etype(e) == "incollection" or (bool(e.get("booktitle")) and etype(e) not in ("inproceedings",))
