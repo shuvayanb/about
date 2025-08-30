@@ -29,11 +29,11 @@ title: Publications
 
 9. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _Comment on “A new approach for the design of hypersonic scramjet inlets” [Phys. Fluids 24, 086103 (2012)]_, **Physics of Fluids**, 2020 [Link](https://pubs.aip.org/aip/pof/article/32/7/079101/1065525/Comment-on-A-new-approach-for-the-design-of)
 
-10. Dud{\'a}s, Eszter, Suas-David, Nicolas, Brahmachary, Shuvayan, Kulkarni, Vinayak, Benidar, Abdessamad, Kassi, Samir, Charles, Christine, Georges, Robert, _High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy_, **The Journal of Chemical Physics**, 2020 [Link](https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext)
+10. Deka, Mandeep, Brahmachary, Shuvayan, Thirumalaisamy, Ramakrishnan, Dalal, Amaresh, Natarajan, Ganesh, _A new Green--Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction_, **Journal of Computational Physics**, 2020 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909)
 
-11. Deka, Mandeep, Brahmachary, Shuvayan, Thirumalaisamy, Ramakrishnan, Dalal, Amaresh, Natarajan, Ganesh, _A new Green--Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction_, **Journal of Computational Physics**, 2020 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909)
+11. Brahmachary, Shuvayan, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
 
-12. Brahmachary, Shuvayan, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+12. Dud{\'a}s, Eszter, Suas-David, Nicolas, Brahmachary, Shuvayan, Kulkarni, Vinayak, Benidar, Abdessamad, Kassi, Samir, Charles, Christine, Georges, Robert, _High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy_, **The Journal of Chemical Physics**, 2020 [Link](https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext)
 
 13. Desai, Siddesh, Brahmachary, Shuvayan, Gadgil, Hrishikesh, Kulkarni, Vinayak, _Probing real gas and leading-edge bluntness effects on shock wave boundary-layer interaction at hypersonic speeds_, **Journal of Aerospace Engineering**, 2019 [Link](https://ascelibrary.org/doi/10.1061/%28ASCE%29AS.1943-5525.0001085)
 

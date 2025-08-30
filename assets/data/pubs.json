@@ -258,28 +258,6 @@
     ]
   },
   {
-    "id": "dudas2020high",
-    "type": "article",
-    "title": "High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy",
-    "authors": [
-      "Dud{\\'a}s, Eszter",
-      "Suas-David, Nicolas",
-      "Brahmachary, Shuvayan",
-      "Kulkarni, Vinayak",
-      "Benidar, Abdessamad",
-      "Kassi, Samir",
-      "Charles, Christine",
-      "Georges, Robert"
-    ],
-    "year": 2020,
-    "venue": "The Journal of Chemical Physics",
-    "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext",
-    "tags": [
-      "Aerodynamic Shape Optimization",
-      "CFD"
-    ]
-  },
-  {
     "id": "desai2019probing",
     "type": "article",
     "title": "Probing real gas and leading-edge bluntness effects on shock wave boundary-layer interaction at hypersonic speeds",
@@ -482,5 +460,28 @@
     "venue": "SSRN",
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5409063",
     "tags": []
+  },
+  {
+    "id": "dudas2020high",
+    "type": "article",
+    "title": "High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy",
+    "authors": [
+      "Dud{\\'a}s, Eszter",
+      "Suas-David, Nicolas",
+      "Brahmachary, Shuvayan",
+      "Kulkarni, Vinayak",
+      "Benidar, Abdessamad",
+      "Kassi, Samir",
+      "Charles, Christine",
+      "Georges, Robert"
+    ],
+    "year": 2020,
+    "venue": "The Journal of Chemical Physics",
+    "url": "https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext",
+    "tags": [
+      "Aerodynamic Shape Optimization",
+      "Geometry",
+      "flow modeling"
+    ]
   }
 ]

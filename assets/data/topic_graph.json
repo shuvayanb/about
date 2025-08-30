@@ -9,7 +9,7 @@
     {
       "id": "aerodynamic shape optimization",
       "count": 8,
-      "degree_w": 12,
+      "degree_w": 13,
       "community": 0
     },
     {
@@ -28,7 +28,7 @@
       "id": "applications",
       "count": 1,
       "degree_w": 4,
-      "community": 3
+      "community": 1
     },
     {
       "id": "ausm convective flux",
@@ -52,13 +52,13 @@
       "id": "busemann-based",
       "count": 2,
       "degree_w": 2,
-      "community": 1
+      "community": 4
     },
     {
       "id": "cd",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "cell classification (f/i/s)",
@@ -74,15 +74,15 @@
     },
     {
       "id": "cfd",
-      "count": 14,
-      "degree_w": 26,
+      "count": 13,
+      "degree_w": 25,
       "community": 0
     },
     {
       "id": "cl",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "cross-referencing across intake classes",
@@ -94,25 +94,25 @@
       "id": "deflected gap",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 1
     },
     {
       "id": "density via eos",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "differentiable physics",
       "count": 2,
       "degree_w": 4,
-      "community": 3
+      "community": 1
     },
     {
       "id": "dpnn vs source vs sl",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "elitism guardrails",
@@ -130,13 +130,13 @@
       "id": "evaluation",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "evaluation & comparisons",
       "count": 1,
       "degree_w": 5,
-      "community": 6
+      "community": 7
     },
     {
       "id": "explicit runge–kutta",
@@ -160,13 +160,19 @@
       "id": "flat plate (ma≈6",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "flip-flopping (chaotic)",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 1
+    },
+    {
+      "id": "flow modeling",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "fluent solver",
@@ -178,25 +184,25 @@
       "id": "fourier neural operators (fno)",
       "count": 1,
       "degree_w": 3,
-      "community": 3
+      "community": 1
     },
     {
       "id": "full wave inversion",
       "count": 1,
       "degree_w": 3,
-      "community": 3
+      "community": 1
     },
     {
       "id": "generic (bézier)",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 4
     },
     {
       "id": "geometry",
-      "count": 2,
-      "degree_w": 8,
-      "community": 1
+      "count": 3,
+      "degree_w": 9,
+      "community": 4
     },
     {
       "id": "gmsh meshing",
@@ -226,13 +232,13 @@
       "id": "h) grid search",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "high re)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "himmelblau function",
@@ -262,7 +268,7 @@
       "id": "ke & enstrophy trends",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "llm",
@@ -280,7 +286,7 @@
       "id": "local rob (k-means)",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "low-fidelity approach",
@@ -298,7 +304,7 @@
       "id": "ma≈6)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "mesh & adaptation",
@@ -316,7 +322,7 @@
       "id": "mid-horizon chaotic switching capture",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "minimize drag",
@@ -328,19 +334,19 @@
       "id": "ml",
       "count": 1,
       "degree_w": 3,
-      "community": 1
+      "community": 3
     },
     {
       "id": "mlp neural network",
       "count": 1,
       "degree_w": 2,
-      "community": 1
+      "community": 3
     },
     {
       "id": "mls regression",
       "count": 1,
       "degree_w": 4,
-      "community": 1
+      "community": 3
     },
     {
       "id": "modified green gauss",
@@ -376,13 +382,13 @@
       "id": "nonpolynomial option (temperature)",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "normal-line interpolation",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "nsga-ii modularization",
@@ -430,19 +436,19 @@
       "id": "phiflow-in-the-loop",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "pod-coefficient prediction",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "pod/svd",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "population-based methods",
@@ -454,25 +460,25 @@
       "id": "preserving boundary layer & global wake dynamics",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "pressure (∂p/∂n=0; quadratic option)",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "quasi-in-/anti-phase",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 1
     },
     {
       "id": "quasi-optimal (dmi",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "rans (sst k-ω)",
@@ -484,19 +490,19 @@
       "id": "reconstruction & bcs",
       "count": 1,
       "degree_w": 7,
-      "community": 4
+      "community": 5
     },
     {
       "id": "reference solver (foamextend)  coarse-grained surrogate",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "rom",
       "count": 1,
       "degree_w": 4,
-      "community": 1
+      "community": 3
     },
     {
       "id": "rosenbrock function",
@@ -508,7 +514,7 @@
       "id": "rsciml",
       "count": 1,
       "degree_w": 4,
-      "community": 1
+      "community": 3
     },
     {
       "id": "saea (nsga-ii)",
@@ -520,19 +526,19 @@
       "id": "sciml",
       "count": 3,
       "degree_w": 8,
-      "community": 3
+      "community": 1
     },
     {
       "id": "scramjet intake",
       "count": 2,
       "degree_w": 2,
-      "community": 1
+      "community": 4
     },
     {
       "id": "semicylinder (ma≈8)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "sensitivity",
@@ -550,19 +556,19 @@
       "id": "single bluff-body",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 1
     },
     {
       "id": "sphere–cone (axisymmetric",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "st",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "steady-state heat transfer",
@@ -574,7 +580,7 @@
       "id": "subsurface",
       "count": 1,
       "degree_w": 3,
-      "community": 3
+      "community": 1
     },
     {
       "id": "supersonic nozzle shape optimization",
@@ -592,37 +598,37 @@
       "id": "temperature (isothermal wall)",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "test cases",
       "count": 1,
       "degree_w": 6,
-      "community": 5
+      "community": 6
     },
     {
       "id": "three-ramp",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 4
     },
     {
       "id": "truncated modes",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "unsteady wakes around arbitrary bodies",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "velocity (no-slip & impermeability)",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "venkatakrishnan limiter",
@@ -634,13 +640,13 @@
       "id": "wake regimes",
       "count": 1,
       "degree_w": 5,
-      "community": 7
+      "community": 1
     },
     {
       "id": "weighting functions",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 3
     },
     {
       "id": "windfarm layout optimization",
@@ -845,7 +851,7 @@
     {
       "source": "aerodynamic shape optimization",
       "target": "geometry",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "aerodynamic shape optimization",
@@ -855,7 +861,7 @@
     {
       "source": "aerodynamic shape optimization",
       "target": "cfd",
-      "weight": 7
+      "weight": 6
     },
     {
       "source": "aerodynamic shape optimization",
@@ -1215,6 +1221,11 @@
     {
       "source": "active debri removal",
       "target": "multi-fidelity framework",
+      "weight": 1
+    },
+    {
+      "source": "aerodynamic shape optimization",
+      "target": "flow modeling",
       "weight": 1
     }
   ],
