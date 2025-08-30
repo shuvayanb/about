@@ -3,7 +3,6 @@ layout: page
 title: Explore Topics
 ---
 
-
 <div id="explore">
   <div id="graph">
     <button id="fitBtn" class="fit-btn" title="Fit to view">Fit</button>
@@ -24,8 +23,8 @@ title: Explore Topics
 
 /* Graph: explicit height + overlay control */
 #graph {
-  position: relative;           /* for overlay button */
-  height: 520px;                /* guaranteed space for SVG */
+  position: relative;
+  height: 520px;
   border: 1px solid #eee;
   border-radius: 8px;
   background: rgba(0,0,0,0.02);
@@ -47,18 +46,28 @@ title: Explore Topics
 #details ul { margin: 0; padding-left: 18px; }
 
 /* Links & nodes */
-.link { stroke: #000; stroke-opacity: .28; }          /* BLACK edges */
+.link { stroke: #000; stroke-opacity: .14; }  /* lower base opacity for cleaner look */
 .node { cursor: pointer; }
 .node circle { transition: r 120ms ease, opacity 120ms ease; }
 
-/* Badges */
+/* Labels: white halo for readability over edges */
+.node text.label{
+  paint-order: stroke fill;
+  stroke: rgba(255,255,255,0.95);
+  stroke-width: 3px;
+  letter-spacing: 0.2px;
+  user-select: none;
+  pointer-events: none;
+  fill: currentColor;
+}
+
 .legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
 .badge { display:inline-block; padding:3px 6px; border-radius:6px; font-size:12px; border:1px solid rgba(0,0,0,.1); }
 
 @media (prefers-color-scheme: dark){
   #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
   #details{ border-color: rgba(255,255,255,.12); }
-  /* leave .link as black for both modes */
+  /* keep .link stroke black; halo still white for contrast */
 }
 
 /* Taller on narrow screens */
@@ -92,12 +101,10 @@ title: Explore Topics
       return tags.indexOf(String(topic).toLowerCase()) >= 0;
     });
 
-    // Group by year (desc)
     var byYear = {};
     filtered.forEach(function(p){
       var y = p.year || '—';
-      if(!byYear[y]) byYear[y] = [];
-      byYear[y].push(p);
+      (byYear[y] = byYear[y] || []).push(p);
     });
     var years = Object.keys(byYear).sort(function(a,b){
       if(b === '—') return -1;
@@ -121,7 +128,7 @@ title: Explore Topics
   // ---------- graph ----------
   function drawGraph(data, pubs){
     if(!data || !data.nodes || data.nodes.length === 0){
-      graphEl.innerHTML = '<div style="padding:12px;">No topics found. Add tags to your papers in <code>_data/pub_tags.yml</code> or BibTeX <code>keywords</code>.</div>';
+      graphEl.innerHTML = '<div style="padding:12px;">No topics found. Ensure BibTeX <code>keywords</code> are present so tags can be generated.</div>';
       return;
     }
 
@@ -135,7 +142,7 @@ title: Explore Topics
 
     var g = svg.append('g').attr('class', 'viz');
 
-    // Degree (weighted) for color mapping (same teal gradient as before)
+    // Degree (weighted) for color mapping (keep meaning, make it vivid via HCL interpolation)
     var degree = new Map();
     data.nodes.forEach(function(n){ degree.set(n.id, 0); });
     data.links.forEach(function(l){
@@ -148,15 +155,15 @@ title: Explore Topics
     var degVals = Array.from(degree.values());
     var extent  = d3.extent(degVals);
     var tScale  = (extent[0] === extent[1])
-      ? function(){ return 0.6; }                                  // same degree → mid-tone
-      : d3.scaleLinear().domain(extent).range([0.15, 0.9]);        // avoid extremes
+      ? function(){ return 0.6; }
+      : d3.scaleLinear().domain(extent).range([0.1, 1.0]);  // wider, more vivid
 
-    var tealStart = d3.hcl("#E0F7F9");  // light aqua
+    var tealStart = d3.hcl("#CFF3F6");  // brighter aqua
     var tealEnd   = d3.hcl("#006D6F");  // deep teal
     var teal      = d3.interpolateHcl(tealStart, tealEnd);
     function color(id){ return teal(tScale(degree.get(id) || 0)); }
 
-    // --- NEW: paper counts per topic -> node size ---
+    // --- node size from topic counts (as before) ---
     var topicCount = new Map();
     pubs.forEach(function(p){
       var tags = p.tags || [];
@@ -166,19 +173,27 @@ title: Explore Topics
       }
     });
     function countFor(id){
-      return topicCount.get(String(id).toLowerCase()) || 1; // default so nodes never vanish
+      return topicCount.get(String(id).toLowerCase()) || 1;
     }
     var counts = Array.from(topicCount.values());
-    // If no tags in pubs.json, fall back to uniform size
     var cExtent = (counts.length ? d3.extent(counts) : [1,1]);
+
     var rScale  = (cExtent[0] === cExtent[1])
       ? function(){ return 10; }
       : d3.scaleSqrt().domain(cExtent).range([8, 22]);
+
     function nodeR(d){ return rScale(countFor(d.id)); }
+
+    // Helper: stroke width scales with node radius (thicker ring for hubs)
+    function ringWidth(d){
+      var r = nodeR(d);
+      var w = d3.scaleLinear().domain([8,22]).range([1.2, 6])(r);
+      return w;
+    }
 
     var linkWidth = d3.scaleLinear()
       .domain(d3.extent(data.links, function(d){ return d.weight || 1; }))
-      .range([1.2, 5]);
+      .range([1.0, 4.0]);
 
     var sim = d3.forceSimulation(data.nodes)
       .force('link', d3.forceLink(data.links).id(function(d){ return d.id; }).distance(80).strength(0.25))
@@ -207,24 +222,31 @@ title: Explore Topics
         .on('end', dragended)
       );
 
+    // Circle: white fill + colored ring
     node.append('circle')
       .attr('r', function(d){ return nodeR(d); })
-      .attr('fill', function(d){ return color(d.id); })
-      .attr('stroke', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)')
-      .attr('stroke-width', 0.6)
+      .attr('fill', '#fff')
+      .attr('stroke', function(d){ return color(d.id); })
+      .attr('stroke-width', function(d){ return ringWidth(d); })
       .on('mouseenter', function(event, d){ highlight(d); })
       .on('mouseleave', function(){ clearHighlight(); })
-      .on('dblclick', function(event, d){ d.fx = null; d.fy = null; }); // unpin on double-click
+      .on('dblclick', function(event, d){ d.fx = null; d.fy = null; });
     node.on('click', function(event, d){ selectTopic(d.id); });
 
+    // Label: inside for hubs; outside for small nodes; font scales with radius
+    function fontSizeFor(d){
+      var fs = nodeR(d) * 0.95;            // proportional
+      fs = Math.max(11, Math.min(26, fs)); // clamp
+      return fs;
+    }
     node.append('text')
+      .attr('class','label')
       .text(function(d){ return d.id; })
-      .attr('x', function(d){ return nodeR(d) + 4; })   /* label offset by radius */
-      .attr('y', 4)
-      .attr('font-size', 12)
-      .attr('fill', 'currentColor')
-      .attr('pointer-events', 'none')
-      .style('user-select', 'none');
+      .attr('dominant-baseline','middle')
+      .attr('text-anchor', function(d){ return (nodeR(d) >= 16) ? 'middle' : 'start'; })
+      .attr('x', function(d){ return (nodeR(d) >= 16) ? 0 : (nodeR(d) + 6); })
+      .attr('y', 0)
+      .attr('font-size', function(d){ return fontSizeFor(d); });
 
     sim.on('tick', function(){
       link
@@ -239,7 +261,7 @@ title: Explore Topics
     var zoom = d3.zoom().scaleExtent([0.5, 6]).on('zoom', function(event){ g.attr('transform', event.transform); });
     svg.call(zoom);
 
-    // Fit-to-view
+    // Fit-to-view with a bit more padding for labels
     function fit(){
       var n = g.node();
       if(!n || !n.getBBox) return;
@@ -247,7 +269,7 @@ title: Explore Topics
       var dx = bbox.width, dy = bbox.height;
       if(!dx || !dy) return;
       var cx = bbox.x + dx/2, cy = bbox.y + dy/2;
-      var scale = 0.92 / Math.max(dx / width, dy / height);
+      var scale = 0.88 / Math.max(dx / width, dy / height);  // slightly more padding
       var translate = [width/2 - scale*cx, height/2 - scale*cy];
       svg.transition().duration(500)
         .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
@@ -267,24 +289,26 @@ title: Explore Topics
     function highlight(d){
       var ns = neighbors.get(d.id) || new Set();
       node.selectAll('circle')
-        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.2; });
+        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.25; });
       link.attr('opacity', function(l){
         var s = (typeof l.source === 'object') ? l.source.id : l.source;
         var t = (typeof l.target === 'object') ? l.target.id : l.target;
         return (s === d.id || t === d.id || ns.has(s) || ns.has(t)) ? 0.9 : 0.12;
       });
-      node.selectAll('text')
-        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.2; });
+      node.selectAll('text.label')
+        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.25; });
     }
     function clearHighlight(){
       node.selectAll('circle').attr('opacity', 1);
-      link.attr('opacity', 0.28);
-      node.selectAll('text').attr('opacity', 1);
+      link.attr('opacity', 0.14);
+      node.selectAll('text.label').attr('opacity', 1);
     }
 
     function selectTopic(topic){
       renderDetails(topic, pubs);
-      node.selectAll('circle').attr('stroke-width', function(nd){ return (nd.id === topic) ? 2 : 0.6; });
+      node.selectAll('circle').attr('stroke-width', function(nd){
+        return (nd.id === topic) ? Math.max(6, ringWidth(nd) + 2) : ringWidth(nd);
+      });
       var url = new URL(location);
       url.searchParams.set('tag', topic);
       history.replaceState(null, '', url);
@@ -293,14 +317,14 @@ title: Explore Topics
     // Drag handlers
     function dragstarted(event, d){
       if(!event.active) sim.alphaTarget(0.3).restart();
-      d.fx = d.x; d.fy = d.y; // lock during drag
+      d.fx = d.x; d.fy = d.y;
     }
     function dragged(event, d){
-      d.fx = event.x; d.fy = event.y; // follow pointer
+      d.fx = event.x; d.fy = event.y;
     }
     function dragended(event, d){
       if(!event.active) sim.alphaTarget(0);
-      // keep pinned after drag; double-click to unpin
+      // keep pinned; double-click to unpin
     }
 
     // Fit after layout stabilizes + once more shortly after
@@ -316,7 +340,6 @@ title: Explore Topics
       ro.observe(graphEl);
     }
 
-    // Fit button
     fitBtn.addEventListener('click', function(){ fit(); });
 
     // Deep-link selection
