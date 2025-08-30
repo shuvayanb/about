@@ -31,17 +31,25 @@ def year(e):
     return int(m.group(0)) if m else 0
 
 def is_preprint(e: dict) -> bool:
-    t = etype(e)
+    # entry type check
+    t = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
     if t in ("preprint", "unpublished"):
         return True
-    note = (f(e, "note") + " " + f(e, "howpublished")).lower()
+
+    # textual hints
+    note = ((e.get("note") or "") + " " + (e.get("howpublished") or "")).lower()
     if "preprint" in note:
         return True
+
+    # host-based hints
     url = (e.get("url") or "").lower()
-    if any(s in url for s in ("arxiv.org", "ssrn.com", "biorxiv.org", "medrxiv.org", "chemrxiv.org", "osf.io")):
+    if any(h in url for h in ("arxiv.org", "ssrn.com", "biorxiv.org", "medrxiv.org", "chemrxiv.org", "osf.io")):
         return True
+
+    # arXiv metadata
     ap = (e.get("archiveprefix") or e.get("archivePrefix") or "").lower()
     return ap == "arxiv"
+
 
 def is_journal_like(e: dict) -> bool:
     if is_preprint(e):
@@ -49,8 +57,8 @@ def is_journal_like(e: dict) -> bool:
     return etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle"))
 
 
-def is_journal(e):
-    return etype(e) == "article" and not is_preprint(e)
+def is_journal(e: dict) -> bool:
+    return (not is_preprint(e)) and (etype(e) == "article" or bool(e.get("journal") or e.get("journaltitle")))
 
 def is_chapter(e):
     return etype(e) == "incollection"
@@ -81,10 +89,11 @@ def venue_str(e: dict, kind: str) -> str:
         if "biorxiv.org" in u:  return "bioRxiv"
         if "medrxiv.org" in u:  return "medRxiv"
         if "chemrxiv.org" in u: return "ChemRxiv"
-        # fallback if host isn’t recognizable
-        return (f(e, "note") or f(e, "howpublished") or "").strip() or "Preprint"
-    # chapters/conf default
+        # fallback if host not recognized
+        return (e.get("note") or e.get("howpublished") or "Preprint").strip()
+    # chapters/conf default: your existing logic
     return get_booktitle(e)
+
 
 
 def link_str(e):
@@ -157,8 +166,6 @@ def main():
         } for e in entries
     ], open(OUT_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
-    # ✅ keep variable names consistent so the script doesn’t crash
-    print(f"Wrote {OUT_MD} — preprints:{len(pre)} journals:{len(jnl)} chapters:{len(chp)} conf:{len(cnf)}")
 
 if __name__ == "__main__":
     main()
