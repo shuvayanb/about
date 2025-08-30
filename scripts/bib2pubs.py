@@ -116,13 +116,12 @@ def get_preprint_venue(e: dict) -> str:
 def etype(e): return (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
 
 def is_preprint(e: dict) -> bool:
-    if etype(e) in ("preprint", "unpublished"):
-        return True
+    t = (e.get("ENTRYTYPE") or e.get("entrytype") or "").lower()
+    if t in ("preprint", "unpublished"): return True
     note = (e.get("note") or "").lower()
-    if "preprint" in note:
-        return True
+    if "preprint" in note: return True
     url = (e.get("url") or "").lower()
-    return any(x in url for x in ("arxiv.org","ssrn.com","biorxiv.org","medrxiv.org","chemrxiv.org","osf.io"))
+    return any(s in url for s in ("arxiv.org","ssrn.com","biorxiv.org","medrxiv.org","chemrxiv.org","osf.io"))
 
 def is_journal_like(e: dict) -> bool:
     # never classify a preprint as a journal, even if it has a 'journal' field
