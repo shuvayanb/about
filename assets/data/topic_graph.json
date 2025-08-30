@@ -7,6 +7,12 @@
       "community": 0
     },
     {
+      "id": "adaptive step λ",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
       "id": "aerodynamic shape optimization",
       "count": 8,
       "degree_w": 13,
@@ -16,7 +22,7 @@
       "id": "analysis",
       "count": 1,
       "degree_w": 5,
-      "community": 8
+      "community": 10
     },
     {
       "id": "ansys fluent (euler)",
@@ -28,13 +34,19 @@
       "id": "applications",
       "count": 1,
       "degree_w": 4,
-      "community": 1
+      "community": 12
     },
     {
       "id": "ausm convective flux",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 8
+    },
+    {
+      "id": "ausm flux",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "beale function",
@@ -52,13 +64,13 @@
       "id": "busemann-based",
       "count": 2,
       "degree_w": 2,
-      "community": 4
+      "community": 3
     },
     {
       "id": "cd",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 9
     },
     {
       "id": "cell classification (f/i/s)",
@@ -70,25 +82,31 @@
       "id": "cell reynolds number",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 11
     },
     {
       "id": "cfd",
       "count": 13,
-      "degree_w": 25,
+      "degree_w": 31,
       "community": 0
     },
     {
       "id": "cl",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 9
+    },
+    {
+      "id": "critical radii",
+      "count": 1,
+      "degree_w": 1,
+      "community": 14
     },
     {
       "id": "cross-referencing across intake classes",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 10
     },
     {
       "id": "deflected gap",
@@ -100,7 +118,7 @@
       "id": "density via eos",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "differentiable physics",
@@ -112,13 +130,13 @@
       "id": "dpnn vs source vs sl",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 9
     },
     {
       "id": "elitism guardrails",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "engineering applications",
@@ -136,31 +154,37 @@
       "id": "evaluation & comparisons",
       "count": 1,
       "degree_w": 5,
-      "community": 7
+      "community": 9
     },
     {
       "id": "explicit runge–kutta",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 8
     },
     {
       "id": "explore-exploit balance",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
+    },
+    {
+      "id": "finite-volume",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
     },
     {
       "id": "finite-volume solver",
       "count": 1,
       "degree_w": 5,
-      "community": 9
+      "community": 8
     },
     {
       "id": "flat plate (ma≈6",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "flip-flopping (chaotic)",
@@ -196,13 +220,13 @@
       "id": "generic (bézier)",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 3
     },
     {
       "id": "geometry",
       "count": 3,
       "degree_w": 9,
-      "community": 4
+      "community": 3
     },
     {
       "id": "gmsh meshing",
@@ -217,6 +241,12 @@
       "community": 2
     },
     {
+      "id": "gradient method",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
       "id": "gradient reconstruction",
       "count": 1,
       "degree_w": 2,
@@ -226,19 +256,19 @@
       "id": "green–gauss gradients",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 8
     },
     {
       "id": "h) grid search",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 5
     },
     {
       "id": "high re)",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "himmelblau function",
@@ -268,7 +298,13 @@
       "id": "ke & enstrophy trends",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 9
+    },
+    {
+      "id": "leading-edge bluntness",
+      "count": 1,
+      "degree_w": 1,
+      "community": 14
     },
     {
       "id": "llm",
@@ -280,13 +316,13 @@
       "id": "local refinement",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 11
     },
     {
       "id": "local rob (k-means)",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "low-fidelity approach",
@@ -298,19 +334,19 @@
       "id": "maximize compression efficiency",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 13
     },
     {
       "id": "ma≈6)",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "mesh & adaptation",
       "count": 1,
       "degree_w": 5,
-      "community": 10
+      "community": 11
     },
     {
       "id": "metrics",
@@ -322,31 +358,31 @@
       "id": "mid-horizon chaotic switching capture",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 12
     },
     {
       "id": "minimize drag",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 13
     },
     {
       "id": "ml",
       "count": 1,
       "degree_w": 3,
-      "community": 3
+      "community": 5
     },
     {
       "id": "mlp neural network",
       "count": 1,
       "degree_w": 2,
-      "community": 3
+      "community": 5
     },
     {
       "id": "mls regression",
       "count": 1,
       "degree_w": 4,
-      "community": 3
+      "community": 5
     },
     {
       "id": "modified green gauss",
@@ -370,25 +406,25 @@
       "id": "near-wall resolution",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 11
     },
     {
       "id": "nonconformal cartesian",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 11
     },
     {
       "id": "nonpolynomial option (temperature)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "normal-line interpolation",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "nsga-ii modularization",
@@ -397,28 +433,34 @@
       "community": 2
     },
     {
+      "id": "objective: separation length",
+      "count": 1,
+      "degree_w": 1,
+      "community": 4
+    },
+    {
       "id": "objectives & constraints",
       "count": 1,
       "degree_w": 3,
-      "community": 11
+      "community": 13
     },
     {
       "id": "off-design assessment",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 10
     },
     {
       "id": "optimization",
-      "count": 1,
-      "degree_w": 4,
-      "community": 2
+      "count": 2,
+      "degree_w": 8,
+      "community": 4
     },
     {
       "id": "pareto front",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 10
     },
     {
       "id": "pareto optimal front",
@@ -433,6 +475,12 @@
       "community": 0
     },
     {
+      "id": "perfect-gas ns",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
+    },
+    {
       "id": "phiflow-in-the-loop",
       "count": 1,
       "degree_w": 1,
@@ -442,31 +490,31 @@
       "id": "pod-coefficient prediction",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 5
     },
     {
       "id": "pod/svd",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "population-based methods",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "preserving boundary layer & global wake dynamics",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 12
     },
     {
       "id": "pressure (∂p/∂n=0; quadratic option)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "quasi-in-/anti-phase",
@@ -478,7 +526,7 @@
       "id": "quasi-optimal (dmi",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 5
     },
     {
       "id": "rans (sst k-ω)",
@@ -487,10 +535,16 @@
       "community": 0
     },
     {
+      "id": "real-gas ns + species (5-species/11-reaction)",
+      "count": 1,
+      "degree_w": 1,
+      "community": 0
+    },
+    {
       "id": "reconstruction & bcs",
       "count": 1,
       "degree_w": 7,
-      "community": 5
+      "community": 6
     },
     {
       "id": "reference solver (foamextend)  coarse-grained surrogate",
@@ -502,19 +556,13 @@
       "id": "rom",
       "count": 1,
       "degree_w": 4,
-      "community": 3
+      "community": 1
     },
     {
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
       "community": 2
-    },
-    {
-      "id": "rsciml",
-      "count": 1,
-      "degree_w": 4,
-      "community": 3
     },
     {
       "id": "saea (nsga-ii)",
@@ -524,27 +572,27 @@
     },
     {
       "id": "sciml",
-      "count": 3,
-      "degree_w": 8,
+      "count": 4,
+      "degree_w": 12,
       "community": 1
     },
     {
       "id": "scramjet intake",
       "count": 2,
       "degree_w": 2,
-      "community": 4
+      "community": 3
     },
     {
       "id": "semicylinder (ma≈8)",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "sensitivity",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 10
     },
     {
       "id": "sharp-interface",
@@ -562,13 +610,13 @@
       "id": "sphere–cone (axisymmetric",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "st",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 9
     },
     {
       "id": "steady-state heat transfer",
@@ -595,46 +643,52 @@
       "community": 0
     },
     {
+      "id": "swbli control",
+      "count": 1,
+      "degree_w": 2,
+      "community": 14
+    },
+    {
       "id": "temperature (isothermal wall)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "test cases",
       "count": 1,
       "degree_w": 6,
-      "community": 6
+      "community": 7
     },
     {
       "id": "three-ramp",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 3
     },
     {
       "id": "truncated modes",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 1
     },
     {
       "id": "unsteady wakes around arbitrary bodies",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 12
     },
     {
       "id": "velocity (no-slip & impermeability)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 6
     },
     {
       "id": "venkatakrishnan limiter",
-      "count": 1,
-      "degree_w": 1,
-      "community": 9
+      "count": 2,
+      "degree_w": 2,
+      "community": 8
     },
     {
       "id": "wake regimes",
@@ -646,7 +700,7 @@
       "id": "weighting functions",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 5
     },
     {
       "id": "windfarm layout optimization",
@@ -945,22 +999,22 @@
     },
     {
       "source": "geometry",
-      "target": "rsciml",
+      "target": "sciml",
       "weight": 1
     },
     {
       "source": "cfd",
-      "target": "rsciml",
+      "target": "sciml",
       "weight": 1
     },
     {
       "source": "rom",
-      "target": "rsciml",
+      "target": "sciml",
       "weight": 1
     },
     {
       "source": "ml",
-      "target": "rsciml",
+      "target": "sciml",
       "weight": 1
     },
     {
@@ -1161,6 +1215,61 @@
     {
       "source": "cfd",
       "target": "swbli",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "optimization",
+      "weight": 1
+    },
+    {
+      "source": "leading-edge bluntness",
+      "target": "swbli control",
+      "weight": 1
+    },
+    {
+      "source": "critical radii",
+      "target": "swbli control",
+      "weight": 1
+    },
+    {
+      "source": "gradient method",
+      "target": "optimization",
+      "weight": 1
+    },
+    {
+      "source": "adaptive step λ",
+      "target": "optimization",
+      "weight": 1
+    },
+    {
+      "source": "objective: separation length",
+      "target": "optimization",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "real-gas ns + species (5-species/11-reaction)",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "perfect-gas ns",
+      "weight": 1
+    },
+    {
+      "source": "ausm flux",
+      "target": "cfd",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "venkatakrishnan limiter",
+      "weight": 1
+    },
+    {
+      "source": "cfd",
+      "target": "finite-volume",
       "weight": 1
     },
     {
