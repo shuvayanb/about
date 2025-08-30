@@ -68,6 +68,108 @@ def tags_from_keywords(e: dict) -> list[str]:
                     tokens.append(t); seen.add(t.lower())
     return tokens
 
+def _split_top_level_items(s: str) -> list[str]:
+    # Split keywords string into top-level items by ';' or ',' respecting {...}
+    items, buf, depth = [], [], 0
+    for ch in s:
+        if ch == '{': depth += 1
+        elif ch == '}': depth = max(0, depth-1)
+        if (ch in ';,' and depth == 0):
+            it = "".join(buf).strip()
+            if it: items.append(it)
+            buf = []
+        else:
+            buf.append(ch)
+    tail = "".join(buf).strip()
+    if tail: items.append(tail)
+    return items
+
+def _parse_hier_item(item: str) -> list[list[str]]:
+    """
+    Parse one hierarchical item like:
+      'A > {B|C} > {D,E}'  ->  [['A'], ['B','C'], ['D','E']]
+      'A > B'              ->  [['A'], ['B']]
+    """
+    levels = []
+    for seg in [p.strip() for p in item.split('>') if p.strip()]:
+        if seg.startswith('{') and seg.endswith('}'):
+            body = seg[1:-1]
+            kids = [t.strip() for t in re.split(r'[|,]', body) if t.strip()]
+            levels.append(kids)
+        else:
+            levels.append([seg])
+    return levels
+
+def build_topic_graph_with_hierarchy(entries: list[dict], policy: str = "adjacent") -> dict:
+    """
+    Build a topic graph using explicit hierarchy:
+      - Items with '>' add parent↔child edges.
+      - Grouped children are supported with {...} and '|' or ','.
+      - Plain (non-hierarchical) tags connect pairwise among themselves.
+    policy:
+      * 'adjacent' (default): for levels [L0, L1, L2] add all pairs in L0×L1 and L1×L2
+      * 'tail'             : for levels [.., Lk-2, Lk-1] add only pairs in Lk-2×Lk-1
+    """
+    tag_set = set()
+    edge_w  = {}
+
+    for e in entries:
+        raw = (e.get("keywords") or e.get("keyword") or "")
+        items = _split_top_level_items(raw)
+
+        # collect all tokens (for nodes) + track which tags participate in hierarchy
+        hier_levels_list = []
+        hier_members = set()
+        plain_candidates = []
+
+        for it in items:
+            if '>' in it:
+                levels = _parse_hier_item(it)
+                hier_levels_list.append(levels)
+                for lvl in levels:
+                    for tag in lvl:
+                        tag_set.add(tag.strip().lower())
+                        hier_members.add(tag.strip().lower())
+            else:
+                # may contain comma-separated plain tags
+                for t in [p.strip() for p in it.split(',') if p.strip()]:
+                    tag_set.add(t.strip().lower())
+                    plain_candidates.append(t.strip().lower())
+
+        # add hierarchy edges
+        for levels in hier_levels_list:
+            if len(levels) < 2:
+                continue
+            if policy == "tail" and len(levels) >= 2:
+                left = [a.strip().lower() for a in levels[-2]]
+                right = [b.strip().lower() for b in levels[-1]]
+                for a in left:
+                    for b in right:
+                        if a != b:
+                            key = tuple(sorted((a,b)))
+                            edge_w[key] = edge_w.get(key, 0) + 1
+            else:  # 'adjacent'
+                for i in range(len(levels)-1):
+                    left = [a.strip().lower() for a in levels[i]]
+                    right= [b.strip().lower() for b in levels[i+1]]
+                    for a in left:
+                        for b in right:
+                            if a != b:
+                                key = tuple(sorted((a,b)))
+                                edge_w[key] = edge_w.get(key, 0) + 1
+
+        # add plain edges among plain tags ONLY (exclude any tag that was in a hierarchy item)
+        plain = [t for t in plain_candidates if t not in hier_members]
+        for i in range(len(plain)):
+            for j in range(i+1, len(plain)):
+                key = tuple(sorted((plain[i], plain[j])))
+                edge_w[key] = edge_w.get(key, 0) + 1
+
+    nodes = [{"id": t} for t in sorted(tag_set)]
+    links = [{"source": a, "target": b, "weight": w} for (a,b), w in edge_w.items()]
+    print(f"[hier] nodes={len(nodes)} links={len(links)} policy={policy}")
+    return {"nodes": nodes, "links": links}
+
 
 def build_topic_graph(pubs: list[dict]) -> dict:
     # Co-occurrence from lower-cased unique tags per paper
@@ -322,23 +424,35 @@ def main():
         json.dump(pubs_out, f, ensure_ascii=False, indent=2)
     log(f"Wrote {OUT_JSON} (papers={len(pubs_out)})")
 
-    # topic_graph.json (enriched; fallback to base on any error)
+    # topic_graph.json (hierarchy-aware + enriched; safe fallback on any error)
     OUT_GRAPH.parent.mkdir(parents=True, exist_ok=True)
     try:
-        base_graph = build_topic_graph(pubs_out)
+        # Detect hierarchy usage and choose policy
+        HIER_POLICY = (os.getenv("HIER_EDGE_POLICY") or "adjacent").strip().lower()  # 'adjacent' or 'tail'
+        has_hier = any(('>' in str(e.get("keywords") or e.get("keyword") or "")) for e in entries)
+
+        if has_hier:
+            log(f"Hierarchy detected in keywords; policy={HIER_POLICY}")
+            # requires build_topic_graph_with_hierarchy(...) to be defined above
+            base_graph = build_topic_graph_with_hierarchy(entries, policy=HIER_POLICY)
+        else:
+            base_graph = build_topic_graph(pubs_out)
+
         graph = enrich_topic_graph(base_graph, pubs_out)
-        graph["_meta"] = {"enriched": True}
+        graph["_meta"] = {"enriched": True, "hierarchy": {"detected": has_hier, "policy": HIER_POLICY}}
         with open(OUT_GRAPH, "w", encoding="utf-8") as f:
             json.dump(graph, f, ensure_ascii=False, indent=2)
-        log(f"Wrote {OUT_GRAPH} (ENRICHED)")
+        log(f"Wrote {OUT_GRAPH} (ENRICHED, hier={has_hier})")
+
     except Exception as e:
-        log("ENRICH FAILED — writing BASE graph. Reason below.")
+        log("ENRICH/HIER FAILED — writing BASE graph. Reason below.")
         traceback.print_exc()
         base_graph = build_topic_graph(pubs_out)
         base_graph["_meta"] = {"enriched": False, "error": str(e)}
         with open(OUT_GRAPH, "w", encoding="utf-8") as f:
             json.dump(base_graph, f, ensure_ascii=False, indent=2)
         log(f"Wrote {OUT_GRAPH} (BASE)")
+
 
 if __name__ == "__main__":
     main()
