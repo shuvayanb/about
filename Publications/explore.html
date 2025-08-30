@@ -52,7 +52,6 @@ title: Explore Topics
   #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
   #details{ border-color: rgba(255,255,255,.12); }
 }
-
 @media (max-width: 900px){ #graph { height: 58vh; } }
 </style>
 
@@ -60,6 +59,12 @@ title: Explore Topics
 
 <script>
 (function(){
+  // ----- TUNING KNOBS -----
+  var TOP_K_ALWAYS = 12;          // always show these many top labels
+  var ZOOM_LABEL_THRESHOLD = 1.6; // show more labels when zoomed in beyond this
+  var LABEL_PADDING = 2;          // px padding for overlap test
+  // -------------------------
+
   var GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
   var PUBS_URL  = "{{ '/assets/data/pubs.json' | relative_url }}";
 
@@ -69,7 +74,6 @@ title: Explore Topics
   var qs        = new URLSearchParams(location.search);
   var startTag  = qs.get('tag');
 
-  // ---------- bottom panel ----------
   function renderDetails(topic, pubs){
     if(!topic){
       detailsEl.innerHTML = '<h3>Click a topic to see papers</h3><p>You can also link here with <code>?tag=CFD</code> (or any topic).</p>';
@@ -104,7 +108,6 @@ title: Explore Topics
     detailsEl.innerHTML = html;
   }
 
-  // ---------- graph ----------
   function drawGraph(data, pubs){
     if(!data || !data.nodes || data.nodes.length === 0){
       graphEl.innerHTML = '<div style="padding:12px;">No topics found. Ensure BibTeX <code>keywords</code> are present so tags can be generated.</div>';
@@ -121,8 +124,8 @@ title: Explore Topics
 
     var g = svg.append('g').attr('class', 'viz');
 
-    // ---------- data helpers ----------
-    // count papers per tag (for node size)
+    // ---------- helpers ----------
+    // paper counts per tag (for node size)
     var topicCount = new Map();
     pubs.forEach(function(p){
       (p.tags || []).forEach(function(t){
@@ -140,7 +143,7 @@ title: Explore Topics
     function nodeR(d){ return rScale(countFor(d.id)); }
     function ringWidth(d){ return d3.scaleLinear().domain([8,22]).range([1.2, 6])(nodeR(d)); }
 
-    // weighted degree (for fallback color)
+    // weighted degree (also used for fallback color and label priority)
     var degree = new Map();
     data.nodes.forEach(function(n){ degree.set(n.id, 0); });
     data.links.forEach(function(l){
@@ -150,15 +153,8 @@ title: Explore Topics
       degree.set(s, (degree.get(s) || 0) + w);
       degree.set(t, (degree.get(t) || 0) + w);
     });
-    var degVals = Array.from(degree.values());
-    var degExtent  = d3.extent(degVals);
-    var tScale  = (degExtent[0] === degExtent[1]) ? function(){ return 0.6; }
-                 : d3.scaleLinear().domain(degExtent).range([0.1, 1.0]);
-    var tealStart = d3.hcl("#CFF3F6"), tealEnd = d3.hcl("#006D6F");
-    var teal      = d3.interpolateHcl(tealStart, tealEnd);
-    function degreeColor(id){ return teal(tScale(degree.get(id) || 0)); }  // fallback
 
-    // community palette (vivid, stable order by community size)
+    // community palette (vivid)
     var useCommunity = data.nodes.some(function(n){ return n.community !== undefined; });
     var commCounts = new Map();
     if(useCommunity){
@@ -169,8 +165,6 @@ title: Explore Topics
     var commIds = useCommunity ? Array.from(commCounts.keys()).sort(function(a,b){
       return (commCounts.get(b) - commCounts.get(a)) || (a - b);
     }) : [0];
-
-    // palette (12 colors)
     var palette = [
       "#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd",
       "#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf",
@@ -179,10 +173,14 @@ title: Explore Topics
     var commColor = new Map();
     commIds.forEach(function(cid, i){ commColor.set(cid, palette[i % palette.length]); });
 
-    function nodeColor(d){
-      if(useCommunity) return commColor.get(+d.community || 0) || "#888";
-      return degreeColor(d.id);
-    }
+    var degVals = Array.from(degree.values());
+    var degExtent  = d3.extent(degVals);
+    var tScale  = (degExtent[0] === degExtent[1]) ? function(){ return 0.6; }
+                 : d3.scaleLinear().domain(degExtent).range([0.1, 1.0]);
+    var tealStart = d3.hcl("#CFF3F6"), tealEnd = d3.hcl("#006D6F");
+    var teal      = d3.interpolateHcl(tealStart, tealEnd);
+    function degreeColor(id){ return teal(tScale(degree.get(id) || 0)); }  // fallback
+    function nodeColor(d){ return useCommunity ? (commColor.get(+d.community || 0) || "#888") : degreeColor(d.id); }
 
     // anchors for communities → cluster islands
     var anchors = new Map();
@@ -190,12 +188,11 @@ title: Explore Topics
       var K = commIds.length;
       var cx = width/2, cy = height/2;
       if(!useCommunity || K === 1){
-        anchors.set(commIds[0] || 0, [cx, cy]);
-        return;
+        anchors.set(commIds[0] || 0, [cx, cy]); return;
       }
-      var R = Math.min(width, height) * 0.32;  // ring radius
+      var R = Math.min(width, height) * 0.32;
       for(var i=0;i<K;i++){
-        var ang = (2*Math.PI*i)/K - Math.PI/2; // start at top
+        var ang = (2*Math.PI*i)/K - Math.PI/2;
         anchors.set(commIds[i], [cx + R*Math.cos(ang), cy + R*Math.sin(ang)]);
       }
     })();
@@ -206,23 +203,19 @@ title: Explore Topics
           .id(function(d){ return d.id; })
           .distance(function(d){
             var w = Math.max(1, d.weight || 1);
-            return 90 / Math.sqrt(w);           // stronger link → shorter
+            return 90 / Math.sqrt(w);
           })
           .strength(0.30)
       )
       .force('charge', d3.forceManyBody().strength(-200))
       .force('center', d3.forceCenter(width/2, height/2))
       .force('collision', d3.forceCollide().radius(function(d){ return nodeR(d) + 4; }));
-
-    // add gentle pull towards each community anchor
     if(useCommunity && commIds.length > 1){
       sim.force('commX', d3.forceX(function(d){ return anchors.get(+d.community || 0)[0]; }).strength(0.08));
       sim.force('commY', d3.forceY(function(d){ return anchors.get(+d.community || 0)[1]; }).strength(0.08));
-      // keep the generic x/y centering weak to avoid fighting
       sim.force('x', d3.forceX(width/2).strength(0.02));
       sim.force('y', d3.forceY(height/2).strength(0.02));
     } else {
-      // fallback (Milestone A behavior)
       sim.force('x', d3.forceX(width/2).strength(0.05));
       sim.force('y', d3.forceY(height/2).strength(0.05));
     }
@@ -250,7 +243,6 @@ title: Explore Topics
         .on('end', dragended)
       );
 
-    // Circle: white fill + colored ring by community (fallback to degree color)
     node.append('circle')
       .attr('r', function(d){ return nodeR(d); })
       .attr('fill', '#fff')
@@ -261,7 +253,6 @@ title: Explore Topics
       .on('dblclick', function(event, d){ d.fx = null; d.fy = null; });
     node.on('click', function(event, d){ selectTopic(d.id); });
 
-    // Labels: center big hubs; small nodes outside
     function fontSizeFor(d){
       var fs = nodeR(d) * 0.95;
       return Math.max(11, Math.min(26, fs));
@@ -284,8 +275,20 @@ title: Explore Topics
       node.attr('transform', function(d){ return 'translate('+d.x+','+d.y+')'; });
     });
 
-    // ---------- interactions ----------
-    var zoom = d3.zoom().scaleExtent([0.5, 6]).on('zoom', function(event){ g.attr('transform', event.transform); });
+    // ---------- interactions & label policy ----------
+    var currentTransform = d3.zoomIdentity;
+    var visibleSet = new Set(); // ids of labels currently allowed to show
+    var zoomTimer = null;
+
+    var zoom = d3.zoom().scaleExtent([0.5, 6]).on('zoom', function(event){
+      currentTransform = event.transform;
+      g.attr('transform', event.transform);
+      // debounce the expensive overlap pass
+      if(zoomTimer) clearTimeout(zoomTimer);
+      zoomTimer = setTimeout(updateLabelCull, 60);
+    }).on('end', function(){
+      updateLabelCull();
+    });
     svg.call(zoom);
 
     function fit(){
@@ -299,6 +302,113 @@ title: Explore Topics
       var translate = [width/2 - scale*cx, height/2 - scale*cy];
       svg.transition().duration(500)
         .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+      // ensure culling re-runs after the transition
+      setTimeout(updateLabelCull, 550);
+    }
+
+    // Priority score for labels (0..1): blend count & degree
+    var countsById = new Map();
+    data.nodes.forEach(function(n){
+      var low = String(n.id).toLowerCase();
+      var c = (n.count != null ? +n.count : countFor(n.id));
+      countsById.set(n.id, Math.max(0, c));
+    });
+    function minmax(vals){
+      if(!vals.length) return [0,1];
+      var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+      return (lo===hi) ? [lo, lo+1] : [lo, hi];
+    }
+    var cc = Array.from(countsById.values());
+    var dd = Array.from(degree.values());
+    var cmm = minmax(cc), dmm = minmax(dd);
+
+    function norm(v, lo, hi){
+      return (hi===lo) ? 0.5 : ( (v - lo) / (hi - lo) );
+    }
+    function scoreFor(n){
+      var c = countsById.get(n.id) || 0;
+      var d = degree.get(n.id) || 0;
+      return 0.6 * norm(c, cmm[0], cmm[1]) + 0.4 * norm(d, dmm[0], dmm[1]);
+    }
+
+    // Culling pass: show top-K always; show more past zoom threshold; avoid overlaps
+    function updateLabelCull(){
+      var labels = node.select('text.label').nodes(); // array of <text>
+      // Build list with priority score
+      var items = labels.map(function(el){
+        var sel = d3.select(el), d = sel.datum();
+        return { el: el, d: d, score: scoreFor(d) };
+      });
+      // Sort by priority desc
+      items.sort(function(a,b){ return b.score - a.score; });
+
+      var k = currentTransform.k || 1;
+      var always = items.slice(0, TOP_K_ALWAYS);
+      var rest   = (k >= ZOOM_LABEL_THRESHOLD) ? items.slice(TOP_K_ALWAYS) : []; // only when zoomed in
+
+      var accepted = [];
+      function overlaps(r1, r2){
+        return !(r2.left > r1.right - LABEL_PADDING ||
+                 r2.right < r1.left + LABEL_PADDING ||
+                 r2.top > r1.bottom - LABEL_PADDING ||
+                 r2.bottom < r1.top + LABEL_PADDING);
+      }
+      function tryAccept(item){
+        var rect = item.el.getBoundingClientRect();
+        for(var i=0;i<accepted.length;i++){
+          if(overlaps(accepted[i].rect, rect)) return false;
+        }
+        accepted.push({ id: item.d.id, rect: rect, el: item.el });
+        return true;
+      }
+
+      // First, always-on (accept regardless; but still occupy space so others avoid them)
+      visibleSet = new Set();
+      always.forEach(function(it){
+        tryAccept(it);
+        visibleSet.add(it.d.id);
+      });
+
+      // Then, the rest (respecting overlaps)
+      rest.forEach(function(it){
+        if(tryAccept(it)) visibleSet.add(it.d.id);
+      });
+
+      // Apply visibility
+      node.selectAll('text.label')
+        .style('opacity', function(nd){ return visibleSet.has(nd.id) ? 1 : 0; });
+    }
+
+    // Hover highlight respects culled set but may surface hidden labels temporarily
+    function highlight(d){
+      var ns = neighbors.get(d.id) || new Set();
+      node.selectAll('circle')
+        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.25; });
+      link.attr('opacity', function(l){
+        var s = (typeof l.source === 'object') ? l.source.id : l.source;
+        var t = (typeof l.target === 'object') ? l.target.id : l.target;
+        return (s === d.id || t === d.id || ns.has(s) || ns.has(t)) ? 0.9 : 0.12;
+      });
+      node.selectAll('text.label')
+        .style('opacity', function(nd){
+          return (nd.id === d.id || ns.has(nd.id) || visibleSet.has(nd.id)) ? 1 : 0.25;
+        });
+    }
+    function clearHighlight(){
+      node.selectAll('circle').attr('opacity', 1);
+      link.attr('opacity', 0.14);
+      node.selectAll('text.label')
+        .style('opacity', function(nd){ return visibleSet.has(nd.id) ? 1 : 0; });
+    }
+
+    function selectTopic(topic){
+      renderDetails(topic, pubs);
+      node.selectAll('circle').attr('stroke-width', function(nd){
+        return (nd.id === topic) ? Math.max(6, ringWidth(nd) + 2) : ringWidth(nd);
+      });
+      var url = new URL(location);
+      url.searchParams.set('tag', topic);
+      history.replaceState(null, '', url);
     }
 
     // neighbor map for hover highlight
@@ -312,34 +422,6 @@ title: Explore Topics
       neighbors.get(t).add(s);
     });
 
-    function highlight(d){
-      var ns = neighbors.get(d.id) || new Set();
-      node.selectAll('circle')
-        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.25; });
-      link.attr('opacity', function(l){
-        var s = (typeof l.source === 'object') ? l.source.id : l.source;
-        var t = (typeof l.target === 'object') ? l.target.id : l.target;
-        return (s === d.id || t === d.id || ns.has(s) || ns.has(t)) ? 0.9 : 0.12;
-      });
-      node.selectAll('text.label')
-        .attr('opacity', function(nd){ return (nd.id === d.id || ns.has(nd.id)) ? 1 : 0.25; });
-    }
-    function clearHighlight(){
-      node.selectAll('circle').attr('opacity', 1);
-      link.attr('opacity', 0.14);
-      node.selectAll('text.label').attr('opacity', 1);
-    }
-
-    function selectTopic(topic){
-      renderDetails(topic, pubs);
-      node.selectAll('circle').attr('stroke-width', function(nd){
-        return (nd.id === topic) ? Math.max(6, ringWidth(nd) + 2) : ringWidth(nd);
-      });
-      var url = new URL(location);
-      url.searchParams.set('tag', topic);
-      history.replaceState(null, '', url);
-    }
-
     function dragstarted(event, d){
       if(!event.active) sim.alphaTarget(0.3).restart();
       d.fx = d.x; d.fy = d.y;
@@ -347,16 +429,15 @@ title: Explore Topics
     function dragged(event, d){ d.fx = event.x; d.fy = event.y; }
     function dragended(event, d){
       if(!event.active) sim.alphaTarget(0);
-      // stay pinned; double-click to unpin
     }
 
-    sim.on('end', function(){ fit(); setTimeout(fit, 300); });
+    sim.on('end', function(){ fit(); setTimeout(updateLabelCull, 600); });
 
     if ('ResizeObserver' in window) {
       var ro = new ResizeObserver(function(){
         var r = graphEl.getBoundingClientRect();
         svg.attr('width', r.width || width).attr('height', r.height || height);
-        fit();
+        setTimeout(updateLabelCull, 50);
       });
       ro.observe(graphEl);
     }
