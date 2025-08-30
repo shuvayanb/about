@@ -30,6 +30,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install bibtexparser networkx python-louvain
+      
+      - name: Build publications & graph (with debug)
+        env:
+          DEBUG_BIB2PUBS: "1"
+        run: |
+          python scripts/bib2pubs.py
+          echo "----- pubs.json head -----"
+          head -n 40 assets/data/pubs.json || true
+          echo "----- topic_graph.json head -----"
+          head -n 60 assets/data/topic_graph.json || true
+
           
       - name: Install deps (pinned)
         run: |
