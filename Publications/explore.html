@@ -193,7 +193,7 @@ title: Explore Topics
     var cExtent = (counts.length ? d3.extent(counts) : [1,1]);
     var rScale  = (cExtent[0] === cExtent[1])
       ? function(){ return 10; }
-      : d3.scaleSqrt().domain(cExtent).range([8, 22]);
+      : d3.scaleSqrt().domain(cExtent).range([20, 50]);
     function nodeR(d){ return rScale(countFor(d.id)); }
     function ringWidth(d){ return d3.scaleLinear().domain([8,22]).range([1.2, 6])(nodeR(d)); }
 
