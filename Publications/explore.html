@@ -195,7 +195,7 @@ title: Explore Topics
       ? function(){ return 10; }
       : d3.scaleSqrt().domain(cExtent).range([20, 50]);
     function nodeR(d){ return rScale(countFor(d.id)); }
-    function ringWidth(d){ return d3.scaleLinear().domain([8,22]).range([1.2, 6])(nodeR(d)); }
+    function ringWidth(d){ return d3.scaleLinear().domain([8,22]).range([0.8, 3])(nodeR(d)); }
 
     // weighted degree (also used for fallback color and label priority)
     var degree = new Map();
