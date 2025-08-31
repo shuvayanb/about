@@ -10,7 +10,7 @@
       "id": "adaptive step λ",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "aerodynamic shape optimization",
@@ -22,7 +22,7 @@
       "id": "analysis",
       "count": 1,
       "degree_w": 5,
-      "community": 8
+      "community": 9
     },
     {
       "id": "ansys fluent (euler)",
@@ -34,13 +34,13 @@
       "id": "applications",
       "count": 1,
       "degree_w": 4,
-      "community": 1
+      "community": 11
     },
     {
       "id": "ausm convective flux",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "ausm flux",
@@ -52,13 +52,13 @@
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 2
     },
     {
       "id": "benchmarking",
       "count": 1,
       "degree_w": 5,
-      "community": 9
+      "community": 2
     },
     {
       "id": "busemann-based",
@@ -88,19 +88,19 @@
       "id": "critical radii",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 12
     },
     {
       "id": "cross-referencing across intake classes",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "deflected gap",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 1
     },
     {
       "id": "density via eos",
@@ -118,7 +118,7 @@
       "id": "elitism guardrails",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "engineering applications",
@@ -130,13 +130,13 @@
       "id": "explicit runge–kutta",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "explore-exploit balance",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "finite-volume",
@@ -148,19 +148,19 @@
       "id": "finite-volume solver",
       "count": 1,
       "degree_w": 5,
-      "community": 7
+      "community": 8
     },
     {
       "id": "flat plate (ma≈6",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "flip-flopping (chaotic)",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 1
     },
     {
       "id": "flow modeling",
@@ -208,13 +208,13 @@
       "id": "goldstein-price function",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 2
     },
     {
       "id": "gradient method",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "gradient reconstruction",
@@ -226,25 +226,25 @@
       "id": "green–gauss gradients",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "h) grid search",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "high re)",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "himmelblau function",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 2
     },
     {
       "id": "hybrid cartesian ib (hcib)",
@@ -268,7 +268,7 @@
       "id": "leading-edge bluntness",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 12
     },
     {
       "id": "llm",
@@ -298,13 +298,13 @@
       "id": "maximize compression efficiency",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 13
     },
     {
       "id": "ma≈6)",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "mesh & adaptation",
@@ -322,31 +322,31 @@
       "id": "mid-horizon chaotic switching capture",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "minimize drag",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 13
     },
     {
       "id": "ml",
       "count": 1,
       "degree_w": 3,
-      "community": 4
+      "community": 6
     },
     {
       "id": "mlp neural network",
       "count": 1,
       "degree_w": 2,
-      "community": 4
+      "community": 6
     },
     {
       "id": "mls regression",
       "count": 1,
       "degree_w": 4,
-      "community": 4
+      "community": 6
     },
     {
       "id": "modified green gauss",
@@ -400,31 +400,31 @@
       "id": "objective: separation length",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "objectives & constraints",
       "count": 1,
       "degree_w": 3,
-      "community": 12
+      "community": 13
     },
     {
       "id": "off-design assessment",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "optimization",
       "count": 2,
       "degree_w": 8,
-      "community": 2
+      "community": 4
     },
     {
       "id": "pareto front",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "pareto optimal front",
@@ -454,7 +454,7 @@
       "id": "pod-coefficient prediction",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "pod/svd",
@@ -466,13 +466,13 @@
       "id": "population-based methods",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 4
     },
     {
       "id": "preserving boundary layer & global wake dynamics",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "pressure (∂p/∂n=0; quadratic option)",
@@ -484,13 +484,13 @@
       "id": "quasi-in-/anti-phase",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 1
     },
     {
       "id": "quasi-optimal (dmi",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "rans (sst k-ω)",
@@ -526,7 +526,7 @@
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 2
     },
     {
       "id": "saea (nsga-ii)",
@@ -550,13 +550,13 @@
       "id": "semicylinder (ma≈8)",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "sensitivity",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "sharp-interface",
@@ -568,13 +568,13 @@
       "id": "single bluff-body",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 1
     },
     {
       "id": "sphere–cone (axisymmetric",
       "count": 1,
       "degree_w": 1,
-      "community": 6
+      "community": 7
     },
     {
       "id": "steady-state heat transfer",
@@ -597,14 +597,8 @@
     {
       "id": "swbli",
       "count": 1,
-      "degree_w": 1,
-      "community": 0
-    },
-    {
-      "id": "swbli control",
-      "count": 1,
-      "degree_w": 2,
-      "community": 13
+      "degree_w": 3,
+      "community": 12
     },
     {
       "id": "temperature (isothermal wall)",
@@ -616,7 +610,7 @@
       "id": "test cases",
       "count": 1,
       "degree_w": 6,
-      "community": 6
+      "community": 7
     },
     {
       "id": "three-ramp",
@@ -634,7 +628,7 @@
       "id": "unsteady wakes around arbitrary bodies",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "velocity (no-slip & impermeability)",
@@ -646,19 +640,19 @@
       "id": "venkatakrishnan limiter",
       "count": 2,
       "degree_w": 2,
-      "community": 7
+      "community": 8
     },
     {
       "id": "wake regimes",
       "count": 1,
       "degree_w": 5,
-      "community": 11
+      "community": 1
     },
     {
       "id": "weighting functions",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 6
     },
     {
       "id": "windfarm layout optimization",
@@ -1152,12 +1146,12 @@
     },
     {
       "source": "leading-edge bluntness",
-      "target": "swbli control",
+      "target": "swbli",
       "weight": 1
     },
     {
       "source": "critical radii",
-      "target": "swbli control",
+      "target": "swbli",
       "weight": 1
     },
     {
