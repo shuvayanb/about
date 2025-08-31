@@ -30,7 +30,7 @@ title: Explore Topics
 #details ul { margin: 0; padding-left: 18px; }
 
 /* Links & nodes */
-.link { stroke: #000; stroke-opacity: .3; }
+.link { stroke: #000; stroke-opacity: .6; }
 .node { cursor: pointer; }
 .node circle { transition: r 120ms ease, opacity 120ms ease; }
 
@@ -450,7 +450,7 @@ title: Explore Topics
     }
     function clearHighlight(){
       node.selectAll('circle').attr('opacity', 1);
-      link.attr('opacity', 0.14);
+      link.attr('opacity', null);
       node.selectAll('text.label')
         .style('opacity', function(nd){ return visibleSet.has(nd.id) ? 1 : 0; });
     }
