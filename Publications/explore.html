@@ -63,6 +63,8 @@ title: Explore Topics
   var TOP_K_ALWAYS = 12;          // always show these many top labels
   var ZOOM_LABEL_THRESHOLD = 1.6; // show more labels when zoomed in beyond this
   var LABEL_PADDING = 2;          // px padding for overlap test
+  var LINK_GAP = 10;   // extra pixels of visible space between circle edges
+
   // -------------------------
 
   var GRAPH_URL = "{{ '/assets/data/topic_graph.json' | relative_url }}";
@@ -254,12 +256,17 @@ title: Explore Topics
     // ---------- forces ----------
     var sim = d3.forceSimulation(data.nodes)
       .force('link', d3.forceLink(data.links)
-          .id(function(d){ return d.id; })
-          .distance(function(d){
-            var w = Math.max(1, d.weight || 1);
-            return 90 / Math.sqrt(w);
-          })
-          .strength(0.30)
+        .id(function(d){ return d.id; })
+        .distance(function(d){
+          var w   = Math.max(1, d.weight || 1);
+          var sid = (typeof d.source === 'object') ? d.source.id : d.source;
+          var tid = (typeof d.target === 'object') ? d.target.id : d.target;
+          var rs  = nodeR({ id: sid });   // radius of source
+          var rt  = nodeR({ id: tid });   // radius of target
+          var base = 90 / Math.sqrt(w);   // your existing weight-based length
+          return base + rs + rt + LINK_GAP;  // add both radii + a small gap
+        })
+        .strength(0.30)
       )
       .force('charge', d3.forceManyBody().strength(-200))
       .force('center', d3.forceCenter(width/2, height/2))
