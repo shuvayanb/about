@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Interactive CFD Viz
+title: Interactive CFD
 permalink: /interactive-flow/
 ---
 
