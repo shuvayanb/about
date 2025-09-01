@@ -3,201 +3,207 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CFD Viz (minimal) — Bézier body + Newtonian pressure</title>
+<title>CFD Viz (Three.js minimal) — Bézier body + Newtonian pressure</title>
 <style>
-  html, body { height:100%; margin:0; background:#0f1115; color:#e8eaed; font:14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; }
-  #vtk { position:fixed; inset:0; }
-  .note { position:fixed; left:12px; bottom:12px; background:#171923; border:1px solid #2b2f3a; padding:8px 10px; border-radius:8px; color:#cfd6e4; font-size:12px; }
+  html,body { height:100%; margin:0; background:#0f1115; color:#e8eaed; font:13px/1.4 system-ui,-apple-system,Segoe UI,Roboto; }
+  #app { position:fixed; inset:0; }
+  .legend {
+    position: fixed; right: 12px; bottom: 12px; width: 220px;
+    background:#171923; border:1px solid #2b2f3a; border-radius:10px; padding:10px 12px;
+  }
+  .bar { height: 12px; border-radius: 6px; margin-top:6px;
+    background: linear-gradient(90deg, #3b5bcc 0%, #dcdcdc 50%, #b40f27 100%); }
+  .row { display:flex; justify-content:space-between; font-size:12px; color:#cfd6e4; }
+  .note { position:fixed; left:12px; bottom:12px; font-size:12px; color:#b9c1d1; }
+  canvas { display:block; }
 </style>
 </head>
 <body>
-<div id="vtk"></div>
-<div class="note">Minimal viewer: one shape + PR coloring. If blank, open DevTools Console for errors.</div>
+<div id="app"></div>
+<div class="legend">
+  <div>PR (node)</div>
+  <div class="bar"></div>
+  <div class="row"><span id="min">min</span><span id="max">max</span></div>
+</div>
+<div class="note">Drag to orbit • Scroll to zoom</div>
 
-<!-- Pinned UMD build of vtk.js -->
-<script src="https://unpkg.com/@kitware/vtk.js@28.2.2/dist/vtk.js" onload="main()" defer></script>
+<!-- Three.js + OrbitControls (no modules) -->
+<script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
 <script>
-function main(){
-  const vtk = window.vtk;
-  if (!vtk) { console.error('vtk.js failed to load'); return; }
+(function(){
+  // ----------- Scene -----------
+  const app = document.getElementById('app');
+  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:false });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x121420, 1);
+  app.appendChild(renderer.domElement);
 
-  // --- Shorthands ---
-  const { vtkFullScreenRenderWindow } = vtk.Rendering.Misc;
-  const { vtkMapper, vtkActor, vtkScalarBarActor, vtkColorTransferFunction } = vtk.Rendering.Core;
-  const { vtkPolyData, vtkPoints, vtkCellArray, vtkDataArray } = vtk.Common.Core;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.01, 100);
+  camera.position.set(2.5, 1.8, 2.5);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
 
-  // --- Scene ---
-  const fs = vtkFullScreenRenderWindow.newInstance({
-    rootContainer: document.body,
-    container: document.getElementById('vtk'),
-    background: [0.07, 0.08, 0.12],
-  });
-  const renderer = fs.getRenderer();
-  const renderWindow = fs.getRenderWindow();
+  // Lights
+  scene.add(new THREE.AmbientLight(0xffffff, 0.45));
+  const dir = new THREE.DirectionalLight(0xffffff, 0.8); dir.position.set(2, 3, 4); scene.add(dir);
 
-  // Color map + scalar bar (blue-white-red)
-  const lut = vtkColorTransferFunction.newInstance();
-  lut.addRGBPoint(0,   0.231, 0.298, 0.753);
-  lut.addRGBPoint(0.5, 0.865, 0.865, 0.865);
-  lut.addRGBPoint(1,   0.706, 0.016, 0.150);
-  const scalarBar = vtkScalarBarActor.newInstance();
-  scalarBar.setScalarsToColors(lut);
-  scalarBar.setTitle('PR');
-  renderer.addActor2D(scalarBar);
-
-  // PolyData container
-  const poly = vtkPolyData.newInstance();
-  const mapper = vtkMapper.newInstance({ interpolateScalarsBeforeMapping: true, useLookupTableScalarRange: true });
-  mapper.setLookupTable(lut);
-  mapper.setInputData(poly);
-  mapper.setScalarModeToUsePointFieldData();
-  mapper.setColorByArrayName('PR');
-
-  const actor = vtkActor.newInstance();
-  actor.setMapper(mapper);
-  renderer.addActor(actor);
-
-  // --- Geometry & flow computation (one static body) ---
-  // Parameters (match your Python defaults)
+  // ----------- Parameters (match your Python defaults) -----------
   const L = 1.20, R = 0.50;
-  const r0f=0.01, r1f=0.68, r2f=0.96, r3f=1.00; // fractions of R
+  const r0f=0.01, r1f=0.68, r2f=0.96, r3f=1.00;  // fractions of R
   const KX=1.00, KY=1.00;
   const TARGET_EDGE=0.06, NT_MIN=64, NZ_MIN=64;
   const GAMMA=1.4, P_INF=101325.0, M_INF=5.0;
   const REF_AREA=Math.PI*R*R;
-  const VHAT=[0,0,-1]; // freestream direction (unit)
+  // Axis mapping: we revolve around Y in three.js, so freestream along -axis is (0,-1,0)
+  const VHAT = new THREE.Vector3(0,-1,0);
 
-  // sampling
+  // ----------- Sampling & profile -----------
   const nt = even(Math.ceil(Math.max((2*Math.PI*R)/Math.max(TARGET_EDGE,1e-6), NT_MIN)));
   const nz = even(Math.ceil(Math.max(L/Math.max(TARGET_EDGE,1e-6), NZ_MIN)));
   function even(x){ return x + (x % 2); }
 
-  // helper math
   const z = linspace(0, L, nz);
   const t = z.map(zi => zi/L);
   const r = cubicBezierArray(t, R*r0f, R*r1f, R*r2f, R*r3f);
   for (let i=1;i<r.length-1;i++) r[i] = Math.max(r[i], 1e-9); // avoid zero ring
   const rx = r.map(ri => KX*ri), ry = r.map(ri => KY*ri);
 
-  const ct = new Array(nt), st = new Array(nt);
-  for (let j=0;j<nt;j++){ const th=(2*Math.PI*j)/nt; ct[j]=Math.cos(th); st[j]=Math.sin(th); }
+  // Lathe points: x = radius, y = axial (map original z -> y)
+  const profile = [];
+  for (let i=0;i<nz;i++) profile.push(new THREE.Vector2(rx[i], z[i]));
 
-  const nPts = nz*nt;
-  const pts = new Float32Array(nPts*3);
-  // fill points
-  let p = 0;
-  for (let i=0;i<nz;i++){
-    const zi = z[i], rxi = rx[i], ryi = ry[i];
-    for (let j=0;j<nt;j++){
-      pts[p++] = rxi*ct[j];
-      pts[p++] = ryi*st[j];
-      pts[p++] = zi;
-    }
-  }
-  const points = vtkPoints.newInstance();
-  points.setData(pts, 3);
-  poly.setPoints(points);
+  // ----------- Geometry (side surface only) -----------
+  const geom = new THREE.LatheGeometry(profile, nt, 0, Math.PI*2);
+  geom.computeVertexNormals(); // normals for lighting
 
-  // build triangle side faces only (no caps, keep it simple)
-  const nTris = (nz-1)*nt*2;
-  const cells = new Uint32Array(nTris*4);
-  let k=0;
-  for (let i=0;i<nz-1;i++){
-    for (let j=0;j<nt;j++){
-      const jn = (j+1)%nt;
-      const v00 = idx(i,j,nt), v01 = idx(i,jn,nt);
-      const v10 = idx(i+1,j,nt), v11 = idx(i+1,jn,nt);
-      // tri 1: v00, v10, v11
-      cells[k++]=3; cells[k++]=v00; cells[k++]=v10; cells[k++]=v11;
-      // tri 2: v00, v11, v01
-      cells[k++]=3; cells[k++]=v00; cells[k++]=v11; cells[k++]=v01;
-    }
-  }
-  const cellArray = vtkCellArray.newInstance({ values: cells });
-  poly.setPolys(cellArray);
+  // ----------- Flowfield on triangles -----------
+  // We'll compute per-face cp/pr and then area-weighted PR at vertices
+  const pos = geom.attributes.position.array;
+  const idx = geom.index.array; // triangles
+  const nVerts = geom.attributes.position.count;
+  const nTris = idx.length / 3;
 
-  // compute normals/areas per triangle
-  const area = new Float64Array(nTris);
-  const nHat = new Float64Array(nTris*3);
-  const centroid = new Float64Array(nTris*3);
-  const a=[0,0,0], b=[0,0,0], c=[0,0,0], e0=[0,0,0], e1=[0,0,0], cr=[0,0,0];
+  const PR = new Float32Array(nVerts);
+  const W  = new Float32Array(nVerts);  // weights (areas)
 
-  function getP(i, out){ out[0]=pts[3*i]; out[1]=pts[3*i+1]; out[2]=pts[3*i+2]; }
-  function dot3(x,y){ return x[0]*y[0]+x[1]*y[1]+x[2]*y[2]; }
-
-  // quick center for outward flip
-  const pref=[0,0,0];
-  for (let i=0;i<nPts;i++){ pref[0]+=pts[3*i]; pref[1]+=pts[3*i+1]; pref[2]+=pts[3*i+2]; }
-  pref[0]/=nPts; pref[1]/=nPts; pref[2]/=nPts;
-
-  for (let tId=0,ci=0; tId<nTris; tId++, ci+=4){
-    const i0=cells[ci+1], i1=cells[ci+2], i2=cells[ci+3];
-    getP(i0,a); getP(i1,b); getP(i2,c);
-    e0[0]=b[0]-a[0]; e0[1]=b[1]-a[1]; e0[2]=b[2]-a[2];
-    e1[0]=c[0]-a[0]; e1[1]=c[1]-a[1]; e1[2]=c[2]-a[2];
-    // cross
-    cr[0]=e0[1]*e1[2]-e0[2]*e1[1];
-    cr[1]=e0[2]*e1[0]-e0[0]*e1[2];
-    cr[2]=e0[0]*e1[1]-e0[1]*e1[0];
-    const mag = Math.hypot(cr[0],cr[1],cr[2]);
-    area[tId]=0.5*mag;
-    let nx=cr[0]/(mag||1), ny=cr[1]/(mag||1), nzv=cr[2]/(mag||1);
-    const cx=(a[0]+b[0]+c[0])/3, cy=(a[1]+b[1]+c[1])/3, cz=(a[2]+b[2]+c[2])/3;
-    const vx=cx-pref[0], vy=cy-pref[1], vz=cz-pref[2];
-    if (vx*nx + vy*ny + vz*nzv < 0){ nx*=-1; ny*=-1; nzv*=-1; }
-    nHat[3*tId]=nx; nHat[3*tId+1]=ny; nHat[3*tId+2]=nzv;
-    centroid[3*tId]=cx; centroid[3*tId+1]=cy; centroid[3*tId+2]=cz;
-  }
-
-  // Newtonian pressure
-  const vhat = normalize(VHAT.slice());
+  // Newtonian model constants
   const c1 = Math.pow(((GAMMA+1)**2 * (M_INF**2)) / ((4*GAMMA*(M_INF**2)) - (2*GAMMA - 2)), GAMMA/(GAMMA-1));
   const c2 = (1 - GAMMA + (2*GAMMA*(M_INF**2))) / (GAMMA + 1);
   const CPmax = (c1 * c2 - 1.0) / ((GAMMA/2.0) * (M_INF**2));
   const qref = 0.5 * GAMMA * P_INF * (M_INF**2);
 
-  const cp_cells = new Float32Array(nTris);
-  const pr_cells = new Float32Array(nTris);
-  let Fx=0,Fy=0,Fz=0;
-  for (let tId=0; tId<nTris; tId++){
-    const nx=nHat[3*tId], ny=nHat[3*tId+1], nzv=nHat[3*tId+2];
-    const cth = Math.max(0, nx*vhat[0] + ny*vhat[1] + nzv*vhat[2]);
-    const cp = CPmax * (cth*cth);
-    const pr = qref*cp + P_INF;
-    cp_cells[tId]=cp; pr_cells[tId]=pr;
-    const a = area[tId]; Fx += pr*a*nx; Fy += pr*a*ny; Fz += pr*a*nzv;
+  // quick helpers to fetch vertex positions
+  const A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3();
+  const e0 = new THREE.Vector3(), e1 = new THREE.Vector3(), n = new THREE.Vector3();
+  const pref = new THREE.Vector3(); // center of mass (approx)
+  for (let i=0;i<nVerts;i++){ pref.x+=pos[3*i]; pref.y+=pos[3*i+1]; pref.z+=pos[3*i+2]; }
+  pref.multiplyScalar(1/nVerts);
+
+  let Fx=0, Fy=0, Fz=0;
+  for (let f=0; f<nTris; f++){
+    const i0 = idx[3*f], i1 = idx[3*f+1], i2 = idx[3*f+2];
+    A.set(pos[3*i0], pos[3*i0+1], pos[3*i0+2]);
+    B.set(pos[3*i1], pos[3*i1+1], pos[3*i1+2]);
+    C.set(pos[3*i2], pos[3*i2+1], pos[3*i2+2]);
+
+    e0.subVectors(B, A);
+    e1.subVectors(C, A);
+    n.crossVectors(e0, e1); // area-normal * 2
+    const area = 0.5 * n.length();
+    if (area === 0) continue;
+
+    // outward flip using centroid vs pref
+    const centroid = new THREE.Vector3().addVectors(A,B).add(C).multiplyScalar(1/3);
+    const nx = n.x, ny = n.y, nz = n.z;
+    let nUnit = n.multiplyScalar(1/(2*area)); // unit normal
+    const vCent = new THREE.Vector3().subVectors(centroid, pref);
+    if (vCent.dot(nUnit) < 0) nUnit.negate();
+
+    // Newtonian pressure
+    const ctheta = Math.max(0, nUnit.dot(VHAT));
+    const cp = CPmax * (ctheta*ctheta);
+    const pr = qref * cp + P_INF;
+
+    // accumulate force (for Cd) if needed in future
+    Fx += pr * area * nUnit.x;
+    Fy += pr * area * nUnit.y;
+    Fz += pr * area * nUnit.z;
+
+    // area-weight PR to vertices
+    const pa = pr * area;
+    PR[i0] += pa; W[i0] += area;
+    PR[i1] += pa; W[i1] += area;
+    PR[i2] += pa; W[i2] += area;
   }
+  for (let i=0;i<nVerts;i++) PR[i] = PR[i] / (W[i] > 0 ? W[i] : 1);
 
-  // Node PR via area-weighted face->vertex
-  const PR_points = new Float32Array(nPts);
-  const W = new Float64Array(nPts);
-  for (let tId=0,ci=0; tId<nTris; tId++, ci+=4){
-    const i0=cells[ci+1], i1=cells[ci+2], i2=cells[ci+3];
-    const a=area[tId], pa=pr_cells[tId]*a;
-    PR_points[i0]+=pa; PR_points[i1]+=pa; PR_points[i2]+=pa;
-    W[i0]+=a; W[i1]+=a; W[i2]+=a;
+  // ----------- Vertex colors from PR -----------
+  // Normalize PR to [0,1] for a blue-white-red LUT
+  let mn = +Infinity, mx = -Infinity;
+  for (let i=0;i<nVerts;i++){ const v=PR[i]; if (v<mn) mn=v; if (v>mx) mx=v; }
+  if (mx - mn < 1e-9) mx = mn + 1e-9;
+  const colors = new Float32Array(nVerts*3);
+  for (let i=0;i<nVerts;i++){
+    const t = (PR[i] - mn) / (mx - mn);          // 0..1
+    const col = bwr(t);                          // {r,g,b}
+    colors[3*i+0] = col.r;
+    colors[3*i+1] = col.g;
+    colors[3*i+2] = col.b;
   }
-  for (let i=0;i<nPts;i++) PR_points[i] = PR_points[i] / (W[i] > 0 ? W[i] : 1);
+  geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-  // Attach arrays
-  poly.getPointData().addArray(vtkDataArray.newInstance({ name:'PR', values:PR_points, numberOfComponents:1 }));
-  poly.getCellData().addArray(vtkDataArray.newInstance({ name:'cp', values:cp_cells, numberOfComponents:1 }));
-  poly.getCellData().addArray(vtkDataArray.newInstance({ name:'pr', values:pr_cells, numberOfComponents:1 }));
+  // ----------- Mesh -----------
+  const mat = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide });
+  const mesh = new THREE.Mesh(geom, mat);
+  scene.add(mesh);
 
-  // Scalar range + render
-  const [mn,mx] = minmax(PR_points);
-  const eps=1e-9; lut.setRange(mn, (mx-mn<eps)? mn+eps : mx);
-  renderer.resetCamera();
-  renderWindow.render();
+  // Frame the body
+  geom.computeBoundingSphere();
+  const bs = geom.boundingSphere;
+  camera.position.set(bs.center.x + 2.5*bs.radius, bs.center.y + 1.4*bs.radius, bs.center.z + 2.5*bs.radius);
+  camera.lookAt(bs.center);
+  controls.target.copy(bs.center);
 
-  // ---- helpers ----
-  function idx(i,j,nt){ return i*nt + j; }
+  // Scalar legend min/max
+  document.getElementById('min').textContent = fmt(mn);
+  document.getElementById('max').textContent = fmt(mx);
+
+  // ----------- Loop -----------
+  function tick(){
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // ----------- Resize -----------
+  window.addEventListener('resize', ()=>{
+    const w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w,h);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+  });
+
+  // ----------- Helpers -----------
   function linspace(a,b,n){ const h=(b-a)/(n-1), out=new Array(n); for (let i=0;i<n;i++) out[i]=a+i*h; return out; }
   function cubicBezier(t,r0,r1,r2,r3){ const u=1-t; return (u*u*u)*r0 + 3*(u*u)*t*r1 + 3*u*(t*t)*r2 + (t*t*t)*r3; }
   function cubicBezierArray(ts,r0,r1,r2,r3){ const out=new Array(ts.length); for (let i=0;i<ts.length;i++) out[i]=cubicBezier(ts[i],r0,r1,r2,r3); return out; }
-  function normalize(v){ const m=Math.hypot(v[0],v[1],v[2])||1; return [v[0]/m,v[1]/m,v[2]/m]; }
-  function minmax(arr){ let lo=+Infinity, hi=-Infinity; for (let i=0;i<arr.length;i++){ const v=arr[i]; if (v<lo) lo=v; if (v>hi) hi=v; } return [lo,hi]; }
-}
+  function bwr(t){
+    // simple blue-white-red; t in [0,1]
+    if (t<0) t=0; if (t>1) t=1;
+    // blend blue -> white -> red
+    if (t < 0.5){
+      const s = t/0.5; // 0..1
+      return { r: 0.231 + s*(0.865-0.231), g: 0.298 + s*(0.865-0.298), b: 0.753 + s*(0.865-0.753) };
+    } else {
+      const s = (t-0.5)/0.5;
+      return { r: 0.865 + s*(0.706-0.865), g: 0.865 + s*(0.016-0.865), b: 0.865 + s*(0.150-0.865) };
+    }
+  }
+  function fmt(x){ return (Math.abs(x) < 1e-3 || Math.abs(x) > 1e5) ? x.toExponential(3) : x.toFixed(3); }
+})();
 </script>
 </body>
 </html>
