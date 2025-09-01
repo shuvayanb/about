@@ -1,7 +1,552 @@
-<!doctype html><meta charset="utf-8">
-<title>Viewer placeholder</title>
-<body style="font-family:system-ui;margin:2rem">
-  <h2>Viewer placeholder is loading OK ✅</h2>
-  <p>If you can see this, the path is correct. Next, we’ll replace this with the real vtk.js viewer.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive CFD Viz — Bézier body + Newtonian pressure (vtk.js)</title>
+<style>
+  :root {
+    --bg: #0f1115; --panel:#171923; --muted:#8a91a2; --hi:#e8eaed; --accent:#6ea8fe;
+    --btn:#222638; --btnhi:#2b3250; --ok:#35c28f; --warn:#f6b26b;
+  }
+  html, body { height:100%; margin:0; background:var(--bg); color:var(--hi); font:14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"; }
+  #app { position:fixed; inset:0; }
+  /* control panel */
+  .ui {
+    position: fixed; top: 12px; right: 12px; width: 320px; max-height: calc(100% - 24px);
+    background: var(--panel); border: 1px solid #2b2f3a; border-radius: 12px; padding: 12px 12px 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35); overflow:auto; backdrop-filter: blur(4px);
+  }
+  .ui h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+  .row { display:grid; grid-template-columns: 1fr 70px; gap:10px; align-items:center; margin:8px 0; }
+  .row label { font-size: 12px; color: var(--muted); }
+  .row input[type=range]{ width:100%; }
+  .row input[type=number]{ width:100%; background:#0e1016; border:1px solid #2b2f3a; color:#ddd; border-radius:8px; padding:5px 8px; }
+  .row select { width:100%; background:#0e1016; border:1px solid #2b2f3a; color:#ddd; border-radius:8px; padding:6px 8px; }
+  .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+  .btn {
+    width:100%; background: var(--btn); color:#dfe3ea; border:1px solid #323850;
+    padding:8px 10px; border-radius:9px; cursor:pointer;
+  }
+  .btn:hover { background: var(--btnhi); }
+  .muted { color: var(--muted); }
+  .stat { font-weight:700; }
+  .kbd { background:#0e1016; border:1px solid #2b2f3a; border-bottom-color:#232634;
+         padding:0 6px; border-radius:6px; font-size:11px; color:#cfd6e4; }
+  .hr { border-top:1px dashed #333845; margin: 10px 0; }
+  .legend { font-size: 12px; color: var(--muted); margin-top:6px; }
+  .footer { font-size: 11px; color:#9aa0ae; margin-top: 6px; }
+  .link { color: var(--accent); text-decoration: none; }
+  .ok { color: var(--ok); }
+  .warn { color: var(--warn); }
+  /* canvas host */
+  #vtk { position:absolute; inset:0; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="vtk"></div>
+
+  <div class="ui">
+    <h3>Live Bézier Body & Flowfield</h3>
+
+    <div class="row">
+      <label>Color by</label>
+      <select id="arraySelect">
+        <option value="PR|point">PR (point)</option>
+        <option value="pr|cell">pr (cell)</option>
+        <option value="cp|cell">cp (cell)</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Wireframe</label>
+      <select id="wireframe">
+        <option value="0">Off</option>
+        <option value="1">On</option>
+      </select>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="row"><label>r₀ / R (tip)</label><input id="r0" type="range" min="0" max="1.2" step="0.01" value="0.01"></div>
+    <div class="row"><label>r₁ / R</label><input id="r1" type="range" min="0" max="1.2" step="0.01" value="0.68"></div>
+    <div class="row"><label>r₂ / R</label><input id="r2" type="range" min="0" max="1.2" step="0.01" value="0.96"></div>
+    <div class="row"><label>r₃ / R (base)</label><input id="r3" type="range" min="0" max="1.2" step="0.01" value="1.00"></div>
+
+    <div class="grid2">
+      <div class="row"><label>Kx</label><input id="kx" type="number" min="0.1" max="2.0" step="0.01" value="1.00"></div>
+      <div class="row"><label>Ky</label><input id="ky" type="number" min="0.1" max="2.0" step="0.01" value="1.00"></div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="grid2">
+      <div class="row"><label>Mach (M∞)</label><input id="mach" type="number" min="0.2" max="10" step="0.1" value="5.0"></div>
+      <div class="row"><label>γ</label><input id="gamma" type="number" min="1.1" max="1.67" step="0.01" value="1.4"></div>
+    </div>
+    <div class="row"><label>p∞ [Pa]</label><input id="pinf" type="number" min="100" max="2e6" step="100" value="101325"></div>
+
+    <div class="hr"></div>
+
+    <div class="grid2">
+      <button id="reset" class="btn">Reset camera</button>
+      <button id="play"  class="btn">Play morph</button>
+    </div>
+
+    <div class="legend">
+      <div>Freestream: <span class="kbd">[0,0,-1]</span> (arrow points upstream)</div>
+      <div>Triangles only · Axisymmetric revolve</div>
+    </div>
+
+    <div class="hr"></div>
+    <div class="muted">Cd (live): <span id="cd" class="stat">—</span></div>
+    <div class="muted">F·v̂: <span id="drag" class="stat">—</span> N (arbitrary units)</div>
+
+    <div class="footer">
+      <span class="ok">Client-side</span> compute (no backend). Built with vtk.js.
+    </div>
+  </div>
+</div>
+
+<!-- Try vtk.js (primary) -->
+<script src="https://unpkg.com/vtk.js"></script>
+<script>
+(function ensureVtk(cb){
+  if (window.vtk) return cb();
+  // Fallback to @kitware scope if needed
+  var s=document.createElement('script'); s.src='https://unpkg.com/@kitware/vtk.js'; s.onload=cb; document.head.appendChild(s);
+})(main);
+
+function main(){
+  const V = window.vtk;
+  const {
+    vtkFullScreenRenderWindow,
+  } = V.Rendering.Misc;
+  const {
+    vtkMapper, vtkActor, vtkScalarBarActor, vtkColorTransferFunction, vtkSphereSource,
+  } = V.Rendering.Core;
+  const { vtkAxesActor } = V.Rendering.Core;
+  const { vtkOrientationMarkerWidget } = V.Interaction.Widgets;
+  const { vtkArrowSource } = V.Filters.Sources;
+  const { vtkPolyData, vtkPoints, vtkCellArray, vtkDataArray } = V.Common.Core;
+  const { buildFromDegree } = V.Common.Core.vtkMatrixBuilder;
+  const { mat4 } = V.Common.Core.vtkMatrixBuilderHelper || { mat4: window.glMatrix && window.glMatrix.mat4 };
+
+  // ---------- DOM ----------
+  const host = document.querySelector('#vtk');
+  const ui = {
+    r0: byId('r0'), r1: byId('r1'), r2: byId('r2'), r3: byId('r3'),
+    kx: byId('kx'), ky: byId('ky'),
+    mach: byId('mach'), gamma: byId('gamma'), pinf: byId('pinf'),
+    arraySelect: byId('arraySelect'), wireframe: byId('wireframe'),
+    reset: byId('reset'), play: byId('play'),
+    Cd: byId('cd'), Drag: byId('drag'),
+  };
+  function byId(id){ return document.getElementById(id); }
+
+  // ---------- Constants (mirror your Python defaults) ----------
+  const L = 1.20;
+  const R = 0.50;
+  const REF_AREA = Math.PI * R * R;          // frontal area
+  const TARGET_EDGE = 0.06, NT_MIN = 64, NZ_MIN = 64;
+  const CAP_BASE = true;
+  const FREESTREAM_DIR = [0,0,-1];           // +v̂ points "into" the body; arrow points upstream
+
+  // ---------- VTK scene ----------
+  const fs = vtkFullScreenRenderWindow.newInstance({ rootContainer: document.querySelector('#app'), container: host, background: [0.07,0.08,0.12] });
+  const renderer = fs.getRenderer();
+  const renderWindow = fs.getRenderWindow();
+
+  const lut = vtkColorTransferFunction.newInstance();
+  // diverging (bwr-ish)
+  lut.addRGBPoint(0, 0.231, 0.298, 0.753);
+  lut.addRGBPoint(0.5, 0.865, 0.865, 0.865);
+  lut.addRGBPoint(1, 0.706, 0.016, 0.150);
+
+  const scalarBar = vtkScalarBarActor.newInstance();
+  scalarBar.setScalarsToColors(lut);
+  scalarBar.setAxisLabelColor(0.92,0.94,0.98);
+  scalarBar.setAxisTextStyle({ fontColor: [0.92,0.94,0.98], fontSize: 12 });
+  scalarBar.setTitle("PR");
+  scalarBar.setVisibility(true);
+  renderer.addActor2D(scalarBar);
+
+  // Orientation axes
+  const axes = vtkAxesActor.newInstance();
+  const omw = vtkOrientationMarkerWidget.newInstance({ actor: axes, interactor: fs.getInteractor() });
+  omw.setEnabled(true);
+  omw.setViewportCorner(VtkCorner('BOTTOM_LEFT'));
+  function VtkCorner(name){ return V.Interaction.Widgets.vtkOrientationMarkerWidget.Corners[name]; }
+
+  // Body actor
+  const poly = vtkPolyData.newInstance();
+  const mapper = vtkMapper.newInstance({ interpolateScalarsBeforeMapping: true, useLookupTableScalarRange: true });
+  mapper.setLookupTable(lut);
+  const actor = vtkActor.newInstance();
+  actor.setMapper(mapper);
+  actor.getProperty().setSpecular(0.1);
+  actor.getProperty().setSpecularPower(10);
+  renderer.addActor(actor);
+
+  // Freestream arrow actor
+  const arrowSrc = vtkArrowSource.newInstance({ tipLength: 0.22, tipRadius: 0.02, shaftRadius: 0.007 });
+  const arrowMapper = vtkMapper.newInstance();
+  const arrowActor = vtkActor.newInstance();
+  arrowMapper.setInputConnection(arrowSrc.getOutputPort());
+  arrowActor.setMapper(arrowMapper);
+  arrowActor.getProperty().setColor(0,0,0);  // black
+  renderer.addActor(arrowActor);
+
+  // ---------- Mesh buffers (topology constant) ----------
+  const { nz, nt } = chooseSampling(L, R, TARGET_EDGE, NZ_MIN, NT_MIN);
+  const topo = buildTopology(nz, nt, CAP_BASE, (t)=>cubicBezier(t, R*0.01, R*0.68, R*0.96, R*1.00)); // just to decide tip/base caps
+  const nPts = topo.nPts(nz, nt);
+  const ptsArray = new Float32Array(nPts * 3);
+  const polysArray = topo.triCells; // Uint32Array like [3, i0, i1, i2, 3, ...]
+  // set polys
+  const cellArray = vtkCellArray.newInstance({ values: polysArray });
+  poly.setPolys(cellArray);
+  // set points
+  const points = vtkPoints.newInstance();
+  points.setData(ptsArray, 3);
+  poly.setPoints(points);
+
+  // Scalars
+  const PR_points = new Float32Array(nPts);
+  const cp_cells  = new Float32Array(topo.nTris);
+  const pr_cells  = new Float32Array(topo.nTris);
+
+  const prPointArray = vtkDataArray.newInstance({ name: 'PR', values: PR_points, numberOfComponents: 1 });
+  const cpCellArray  = vtkDataArray.newInstance({ name: 'cp', values: cp_cells, numberOfComponents: 1 });
+  const prCellArray  = vtkDataArray.newInstance({ name: 'pr', values: pr_cells, numberOfComponents: 1 });
+
+  poly.getPointData().addArray(prPointArray);
+  poly.getCellData().addArray(cpCellArray);
+  poly.getCellData().addArray(prCellArray);
+
+  mapper.setInputData(poly);
+  mapper.setScalarModeToUsePointFieldData();
+  mapper.setColorByArrayName('PR');
+
+  // ---------- Initial build ----------
+  let state = {
+    r0: 0.01, r1: 0.68, r2: 0.96, r3: 1.00,
+    kx: 1.00, ky: 1.00,
+    mach: 5.0, gamma: 1.4, pinf: 101325,
+  };
+
+  rebuildAndColor(); // also updates Cd, arrow, camera
+  fs.resize();
+  renderer.resetCamera();
+  renderWindow.render();
+
+  // ---------- UI wiring ----------
+  for (const k of ['r0','r1','r2','r3']) ui[k].addEventListener('input', onParamsChange);
+  for (const k of ['kx','ky','mach','gamma','pinf']) ui[k].addEventListener('change', onParamsChange);
+  ui.arraySelect.addEventListener('change', updateColorMode);
+  ui.wireframe.addEventListener('change', () => {
+    const wf = ui.wireframe.value === '1';
+    if (wf) actor.getProperty().setRepresentationToWireframe();
+    else    actor.getProperty().setRepresentationToSurface();
+    renderWindow.render();
+  });
+  ui.reset.addEventListener('click', () => { renderer.resetCamera(); renderWindow.render(); });
+  ui.play.addEventListener('click', playMorph);
+
+  function onParamsChange(){
+    state = {
+      r0: +ui.r0.value, r1: +ui.r1.value, r2: +ui.r2.value, r3: +ui.r3.value,
+      kx: +ui.kx.value, ky: +ui.ky.value,
+      mach: +ui.mach.value, gamma: +ui.gamma.value, pinf: +ui.pinf.value,
+    };
+    rebuildAndColor(false);
+  }
+
+  function updateColorMode(){
+    const [name, where] = ui.arraySelect.value.split('|'); // 'PR|point', 'pr|cell', 'cp|cell'
+    if (where === 'point') mapper.setScalarModeToUsePointFieldData();
+    else mapper.setScalarModeToUseCellFieldData();
+    mapper.setColorByArrayName(name);
+    // range
+    let range;
+    if (name === 'PR') range = minmax(PR_points);
+    else if (name === 'pr') range = minmax(pr_cells);
+    else range = minmax(cp_cells);
+    // avoid degenerate range
+    if (range[1] - range[0] < 1e-9) { range[1] = range[0] + 1e-9; }
+    lut.setRange(range[0], range[1]);
+    scalarBar.setTitle(name);
+    renderWindow.render();
+  }
+
+  // ---------- Core: rebuild shape + flow + Cd ----------
+  function rebuildAndColor(resetCam = false){
+    // 1) geometry points
+    const { r0, r1, r2, r3, kx, ky } = state;
+    const z = linspace(0, L, nz);
+    const t = z.map((zi)=>zi/L);
+    const r = cubicBezierArray(t, R*r0, R*r1, R*r2, R*r3);
+    // floor for interior rings (avoid zero)
+    for (let i=1;i<r.length-1;i++) r[i] = Math.max(r[i], 1e-9);
+    const rx = r.map(ri => kx * ri);
+    const ry = r.map(ri => ky * ri);
+
+    // revolve coords
+    const theta = linspaceTheta(nt);
+    const ct = theta.cos, st = theta.sin;
+
+    let p = 0;
+    const addPt = (x,y,z)=>{ ptsArray[p++] = x; ptsArray[p++] = y; ptsArray[p++] = z; };
+    // main grid (nz x nt)
+    for (let i=0;i<nz;i++){
+      const zi = z[i];
+      const rxi = rx[i], ryi = ry[i];
+      for (let j=0;j<nt;j++){
+        addPt(rxi*ct[j], ryi*st[j], zi);
+      }
+    }
+    // optional tip/base centers as last points
+    const tipIsSharp = r[0] <= 1e-12;
+    let tipCenterIdx = -1;
+    if (tipIsSharp) {
+      tipCenterIdx = nPts - (CAP_BASE ? 2 : 1);
+      ptsArray[tipCenterIdx*3+0]=0; ptsArray[tipCenterIdx*3+1]=0; ptsArray[tipCenterIdx*3+2]=0;
+    }
+    let baseCenterIdx = -1;
+    if (CAP_BASE) {
+      baseCenterIdx = nPts - 1;
+      ptsArray[baseCenterIdx*3+0]=0; ptsArray[baseCenterIdx*3+1]=0; ptsArray[baseCenterIdx*3+2]=L;
+    }
+    points.modified();
+
+    // 2) face normals/areas (triangles only)
+    const T = topo.nTris;
+    const nHat = new Float64Array(T*3);
+    const area = new Float64Array(T);
+    const centroid = new Float64Array(T*3);
+
+    // quick point fetcher
+    function getP(idx, out, off=0){
+      out[off+0] = ptsArray[3*idx+0];
+      out[off+1] = ptsArray[3*idx+1];
+      out[off+2] = ptsArray[3*idx+2];
+    }
+    const a = [0,0,0], b=[0,0,0], c=[0,0,0], e0=[0,0,0], e1=[0,0,0], cr=[0,0,0];
+    for (let tId=0, k=0; tId<T; tId++, k+=4){
+      const i0 = polysArray[k+1], i1 = polysArray[k+2], i2 = polysArray[k+3];
+      getP(i0,a); getP(i1,b); getP(i2,c);
+      e0[0]=b[0]-a[0]; e0[1]=b[1]-a[1]; e0[2]=b[2]-a[2];
+      e1[0]=c[0]-a[0]; e1[1]=c[1]-a[1]; e1[2]=c[2]-a[2];
+      // cross
+      cr[0]=e0[1]*e1[2]-e0[2]*e1[1];
+      cr[1]=e0[2]*e1[0]-e0[0]*e1[2];
+      cr[2]=e0[0]*e1[1]-e0[1]*e1[0];
+      const mag = Math.hypot(cr[0], cr[1], cr[2]);
+      area[tId] = 0.5*mag;
+      // temp store (area-normal)
+      nHat[3*tId+0]=cr[0]/(mag||1);
+      nHat[3*tId+1]=cr[1]/(mag||1);
+      nHat[3*tId+2]=cr[2]/(mag||1);
+      centroid[3*tId+0]=(a[0]+b[0]+c[0])/3;
+      centroid[3*tId+1]=(a[1]+b[1]+c[1])/3;
+      centroid[3*tId+2]=(a[2]+b[2]+c[2])/3;
+    }
+    // outward flip: compare to mean point
+    const pRef = [0,0,0];
+    for (let i=0;i<nPts;i++){ pRef[0]+=ptsArray[3*i+0]; pRef[1]+=ptsArray[3*i+1]; pRef[2]+=ptsArray[3*i+2]; }
+    pRef[0]/=nPts; pRef[1]/=nPts; pRef[2]/=nPts;
+    for (let tId=0;tId<T;tId++){
+      const cx = centroid[3*tId+0]-pRef[0];
+      const cy = centroid[3*tId+1]-pRef[1];
+      const cz = centroid[3*tId+2]-pRef[2];
+      const dot = cx*nHat[3*tId+0]+cy*nHat[3*tId+1]+cz*nHat[3*tId+2];
+      if (dot < 0){ nHat[3*tId+0]*=-1; nHat[3*tId+1]*=-1; nHat[3*tId+2]*=-1; }
+    }
+
+    // 3) flow & scalars
+    const v = FREESTREAM_DIR.slice();
+    const vmag = Math.hypot(v[0],v[1],v[2]); const vhat = v.map(x=>x/(vmag||1));
+    const cosTheta = new Float64Array(T);
+    for (let tId=0;tId<T;tId++){
+      cosTheta[tId] = Math.max(0, nHat[3*tId+0]*vhat[0] + nHat[3*tId+1]*vhat[1] + nHat[3*tId+2]*vhat[2]);
+    }
+    const gamma = state.gamma, Minf = state.mach, pInf = state.pinf;
+    const c1 = Math.pow(((gamma+1)**2 * (Minf**2)) / ((4*gamma*(Minf**2)) - (2*gamma - 2)), gamma/(gamma-1));
+    const c2 = (1 - gamma + (2*gamma*(Minf**2))) / (gamma + 1);
+    const CPmax = (c1 * c2 - 1.0) / ((gamma/2.0) * (Minf**2));
+    const qref = 0.5 * gamma * pInf * (Minf**2);
+
+    let prMin=+Infinity, prMax=-Infinity, prFaceAcc=0, areaAcc=0;
+    let Fx=0,Fy=0,Fz=0;
+    for (let tId=0;tId<T;tId++){
+      const cp = CPmax * (cosTheta[tId]**2);
+      const pr = qref * cp + pInf;
+      cp_cells[tId] = cp;
+      pr_cells[tId] = pr;
+      if (pr < prMin) prMin = pr;
+      if (pr > prMax) prMax = pr;
+      // pressure force contribution
+      const a = area[tId];
+      Fx += pr * a * nHat[3*tId+0];
+      Fy += pr * a * nHat[3*tId+1];
+      Fz += pr * a * nHat[3*tId+2];
+    }
+    // node PR via area-weighted from faces
+    PR_points.fill(0); // sum p*a
+    const weights = new Float64Array(nPts); weights.fill(0);
+    for (let tId=0,k=0;tId<T;tId++,k+=4){
+      const i0 = polysArray[k+1], i1 = polysArray[k+2], i2 = polysArray[k+3];
+      const a = area[tId], pa = pr_cells[tId] * a;
+      PR_points[i0] += pa; PR_points[i1] += pa; PR_points[i2] += pa;
+      weights[i0] += a;    weights[i1] += a;    weights[i2] += a;
+    }
+    for (let i=0;i<nPts;i++){
+      PR_points[i] = PR_points[i] / (weights[i] > 0 ? weights[i] : 1);
+    }
+    prPointArray.modified(); cpCellArray.modified(); prCellArray.modified();
+
+    // 4) mapper ranges & scalar mode
+    updateColorMode();
+
+    // 5) freestream arrow placement (in front, pointing upstream = -vhat)
+    const b = poly.getBounds(); // [xmin,xmax,ymin,ymax,zmin,zmax]
+    const ext = [b[1]-b[0], b[3]-b[2], b[5]-b[4]];
+    const Lmax = Math.max(ext[0], ext[1], ext[2]);
+    const gap = 0.04 * Lmax;
+    const arrowLen = 0.35 * Lmax;
+    const cx = (b[0]+b[1])/2, cy=(b[2]+b[3])/2, cz=(b[4]+b[5])/2;
+    const flowDir = [-vhat[0], -vhat[1], -vhat[2]]; // upstream
+    // place start behind the "hit" proxy (approximate)
+    const proxyHit = [
+      cx - flowDir[0]*(0.5*ext[0]),
+      cy - flowDir[1]*(0.5*ext[1]),
+      cz - flowDir[2]*(0.5*ext[2]),
+    ];
+    const start = [
+      proxyHit[0] - flowDir[0]*(gap + arrowLen),
+      proxyHit[1] - flowDir[1]*(gap + arrowLen),
+      proxyHit[2] - flowDir[2]*(gap + arrowLen),
+    ];
+    // Orient arrow: default arrow is along +X; rotate from +X to flowDir
+    const from = [1,0,0], to = flowDir.slice();
+    const mat = new Float32Array(16); for (let i=0;i<16;i++) mat[i]= (i%5===0)?1:0;
+    buildFromDegree().identity().translate(...start).rotateFromDirections(from, to).scale(arrowLen).getMatrix(mat);
+    arrowActor.setUserMatrix(mat);
+
+    // 6) Cd and drag along +v̂
+    const Drag = Fx*vhat[0] + Fy*vhat[1] + Fz*vhat[2];
+    const Cd = Drag / (qref * REF_AREA);
+    ui.Cd.textContent   = (isFinite(Cd) ? Cd.toFixed(6) : '—');
+    ui.Drag.textContent = (isFinite(Drag) ? Drag.toFixed(6) : '—');
+
+    if (resetCam) renderer.resetCamera();
+    renderWindow.render();
+  }
+
+  // ---------- Morph animation ----------
+  function playMorph(){
+    const A = { r0: +ui.r0.value, r1:+ui.r1.value, r2:+ui.r2.value, r3:+ui.r3.value };
+    const B = { r0: 0.20, r1: 0.55, r2: 0.85, r3: 0.95 }; // a rounder, fuller target
+    const secs = 2.0;
+    const t0 = performance.now();
+    function step(now){
+      const t = Math.min(1, (now - t0) / (secs*1000));
+      const s = 0.5 - 0.5*Math.cos(Math.PI*t); // smoothstep
+      ui.r0.value = (A.r0 + (B.r0 - A.r0)*s).toFixed(3);
+      ui.r1.value = (A.r1 + (B.r1 - A.r1)*s).toFixed(3);
+      ui.r2.value = (A.r2 + (B.r2 - A.r2)*s).toFixed(3);
+      ui.r3.value = (A.r3 + (B.r3 - A.r3)*s).toFixed(3);
+      onParamsChange();
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ---------- Helpers ----------
+  function chooseSampling(L, R, target, nzMin, ntMin){
+    const nt = even(Math.ceil(Math.max((2*Math.PI*R)/Math.max(target,1e-6), ntMin)));
+    const nz = even(Math.ceil(Math.max(L/Math.max(target,1e-6), nzMin)));
+    return { nz, nt };
+    function even(x){ return x + (x % 2); }
+  }
+  function cubicBezier(t, r0, r1, r2, r3){
+    const u = 1-t;
+    return (u*u*u)*r0 + 3*(u*u)*t*r1 + 3*u*(t*t)*r2 + (t*t*t)*r3;
+  }
+  function cubicBezierArray(ts, r0, r1, r2, r3){
+    const out = new Array(ts.length);
+    for (let i=0;i<ts.length;i++) out[i] = cubicBezier(ts[i], r0, r1, r2, r3);
+    return out;
+  }
+  function linspace(a,b,n){
+    const arr = new Array(n);
+    const h = (b-a)/(n-1);
+    for (let i=0;i<n;i++) arr[i]=a+i*h;
+    return arr;
+  }
+  function linspaceTheta(n){
+    const cos = new Array(n), sin = new Array(n);
+    for (let j=0;j<n;j++){ const th = (2*Math.PI*j)/n; cos[j]=Math.cos(th); sin[j]=Math.sin(th); }
+    return { cos, sin };
+  }
+  function minmax(arr){
+    let lo=+Infinity, hi=-Infinity;
+    for (let i=0;i<arr.length;i++){ const v=arr[i]; if (v<lo) lo=v; if (v>hi) hi=v; }
+    return [lo,hi];
+  }
+
+  // Build constant triangle topology once, based on nz/nt and caps
+  function buildTopology(nz, nt, capBase, rFun){
+    const tipSharp = rFun(0) <= 1e-12;
+    const start_i = tipSharp ? 1 : 0;
+
+    const nGridPts = nz*nt;
+    const extra = (tipSharp?1:0) + (capBase?1:0);
+    const nPts = nGridPts + extra;
+
+    const tris = [];
+    // tip fan
+    if (tipSharp){
+      const tipId = nGridPts; // appended first
+      for (let j=0;j<nt;j++){
+        const jn = (j+1)%nt;
+        tris.push([tipId, idx(1,j,nt), idx(1,jn,nt)]);
+      }
+    }
+    // side strips
+    for (let i=start_i;i<nz-1;i++){
+      for (let j=0;j<nt;j++){
+        const jn=(j+1)%nt;
+        const v00 = idx(i,j,nt);
+        const v01 = idx(i,jn,nt);
+        const v10 = idx(i+1,j,nt);
+        const v11 = idx(i+1,jn,nt);
+        tris.push([v00, v10, v11]);
+        tris.push([v00, v11, v01]);
+      }
+    }
+    // base fan
+    if (capBase){
+      const baseCenter = nGridPts + (tipSharp?1:0);
+      const baseStart  = (nz-1)*nt;
+      for (let j=0;j<nt;j++){
+        const jn=(j+1)%nt;
+        tris.push([baseCenter, baseStart+j, baseStart+jn]);
+      }
+    }
+    // pack to VTK cells [3,i0,i1,i2]...
+    const nTris = tris.length;
+    const cells = new Uint32Array(nTris * 4);
+    for (let t=0, k=0; t<nTris; t++, k+=4){
+      const tri = tris[t];
+      cells[k+0]=3; cells[k+1]=tri[0]; cells[k+2]=tri[1]; cells[k+3]=tri[2];
+    }
+    return { triCells: cells, nTris, nPts: ()=>nPts };
+    function idx(i,j,nt){ return i*nt + j; }
+  }
+}
+</script>
 </body>
+</html>
 
