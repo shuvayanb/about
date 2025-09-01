@@ -3,139 +3,39 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Interactive CFD Viz — Bézier body + Newtonian pressure (vtk.js)</title>
+<title>CFD Viz (minimal) — Bézier body + Newtonian pressure</title>
 <style>
-  :root {
-    --bg:#0f1115; --panel:#171923; --muted:#8a91a2; --hi:#e8eaed; --accent:#6ea8fe;
-    --btn:#222638; --btnhi:#2b3250; --ok:#35c28f;
-  }
-  html, body { height:100%; margin:0; background:var(--bg); color:var(--hi); font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans";}
-  #app { position:fixed; inset:0; }
-  #vtk { position:absolute; inset:0; }
-  .ui {
-    position: fixed; top:12px; right:12px; width:320px; max-height:calc(100% - 24px);
-    background:var(--panel); border:1px solid #2b2f3a; border-radius:12px; padding:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35); overflow:auto; backdrop-filter:blur(4px);
-  }
-  .ui h3 { margin:0 0 10px; font-size:15px; font-weight:700; }
-  .row { display:grid; grid-template-columns: 1fr 70px; gap:10px; align-items:center; margin:8px 0; }
-  .row label{ font-size:12px; color:var(--muted); }
-  .row input[type=range]{ width:100%; }
-  .row input[type=number], .row select{
-    width:100%; background:#0e1016; border:1px solid #2b2f3a; color:#ddd; border-radius:8px; padding:6px 8px;
-  }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-  .btn { width:100%; background:var(--btn); color:#dfe3ea; border:1px solid #323850; padding:8px 10px; border-radius:9px; cursor:pointer; }
-  .btn:hover { background:var(--btnhi); }
-  .hr { border-top:1px dashed #333845; margin:10px 0; }
-  .muted { color:var(--muted); }
-  .stat { font-weight:700; }
-  .footer { font-size:11px; color:#9aa0ae; margin-top:6px; }
+  html, body { height:100%; margin:0; background:#0f1115; color:#e8eaed; font:14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; }
+  #vtk { position:fixed; inset:0; }
+  .note { position:fixed; left:12px; bottom:12px; background:#171923; border:1px solid #2b2f3a; padding:8px 10px; border-radius:8px; color:#cfd6e4; font-size:12px; }
 </style>
 </head>
 <body>
-<div id="app">
-  <div id="vtk"></div>
+<div id="vtk"></div>
+<div class="note">Minimal viewer: one shape + PR coloring. If blank, open DevTools Console for errors.</div>
 
-  <div class="ui">
-    <h3>Live Bézier Body & Flowfield</h3>
-
-    <div class="row">
-      <label>Color by</label>
-      <select id="arraySelect">
-        <option value="PR|point">PR (point)</option>
-        <option value="pr|cell">pr (cell)</option>
-        <option value="cp|cell">cp (cell)</option>
-      </select>
-    </div>
-
-    <div class="row">
-      <label>Wireframe</label>
-      <select id="wireframe">
-        <option value="0">Off</option>
-        <option value="1">On</option>
-      </select>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="row"><label>r₀ / R (tip)</label><input id="r0" type="range" min="0" max="1.2" step="0.01" value="0.01"></div>
-    <div class="row"><label>r₁ / R</label><input id="r1" type="range" min="0" max="1.2" step="0.01" value="0.68"></div>
-    <div class="row"><label>r₂ / R</label><input id="r2" type="range" min="0" max="1.2" step="0.01" value="0.96"></div>
-    <div class="row"><label>r₃ / R (base)</label><input id="r3" type="range" min="0" max="1.2" step="0.01" value="1.00"></div>
-
-    <div class="grid2">
-      <div class="row"><label>Kx</label><input id="kx" type="number" min="0.1" max="2.0" step="0.01" value="1.00"></div>
-      <div class="row"><label>Ky</label><input id="ky" type="number" min="0.1" max="2.0" step="0.01" value="1.00"></div>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="grid2">
-      <div class="row"><label>Mach (M∞)</label><input id="mach" type="number" min="0.2" max="10" step="0.1" value="5.0"></div>
-      <div class="row"><label>γ</label><input id="gamma" type="number" min="1.1" max="1.67" step="0.01" value="1.4"></div>
-    </div>
-    <div class="row"><label>p∞ [Pa]</label><input id="pinf" type="number" min="100" max="2e6" step="100" value="101325"></div>
-
-    <div class="hr"></div>
-
-    <div class="grid2">
-      <button id="reset" class="btn">Reset camera</button>
-      <button id="play"  class="btn">Play morph</button>
-    </div>
-
-    <div class="hr"></div>
-    <div class="muted">Cd (live): <span id="cd" class="stat">—</span></div>
-    <div class="muted">F·v̂: <span id="drag" class="stat">—</span></div>
-
-    <div class="footer">
-      <span style="color:var(--ok)">Client-side</span> compute (no backend). Built with vtk.js.
-    </div>
-  </div>
-</div>
-
-<!-- Correct UMD build of vtk.js -->
-<script src="https://unpkg.com/@kitware/vtk.js@latest/dist/vtk.js" onload="main()" defer></script>
+<!-- Pinned UMD build of vtk.js -->
+<script src="https://unpkg.com/@kitware/vtk.js@28.2.2/dist/vtk.js" onload="main()" defer></script>
 <script>
 function main(){
-  const V = window.vtk;
+  const vtk = window.vtk;
+  if (!vtk) { console.error('vtk.js failed to load'); return; }
 
-  // ----- Shorthands -----
-  const { vtkFullScreenRenderWindow } = V.Rendering.Misc;
-  const { vtkMapper, vtkActor, vtkScalarBarActor, vtkColorTransferFunction } = V.Rendering.Core;
-  const { vtkAxesActor } = V.Rendering.Core;
-  const { vtkOrientationMarkerWidget } = V.Interaction.Widgets;
-  const { vtkArrowSource } = V.Filters.Sources;
-  const { vtkPolyData, vtkPoints, vtkCellArray, vtkDataArray } = V.Common.Core;
-  const MatrixBuilder = V.Common.Core.vtkMatrixBuilder;
+  // --- Shorthands ---
+  const { vtkFullScreenRenderWindow } = vtk.Rendering.Misc;
+  const { vtkMapper, vtkActor, vtkScalarBarActor, vtkColorTransferFunction } = vtk.Rendering.Core;
+  const { vtkPolyData, vtkPoints, vtkCellArray, vtkDataArray } = vtk.Common.Core;
 
-  // ----- DOM/State -----
-  const ui = {
-    r0: g('r0'), r1: g('r1'), r2: g('r2'), r3: g('r3'),
-    kx: g('kx'), ky: g('ky'),
-    mach: g('mach'), gamma: g('gamma'), pinf: g('pinf'),
-    arraySelect: g('arraySelect'), wireframe: g('wireframe'),
-    reset: g('reset'), play: g('play'),
-    Cd: g('cd'), Drag: g('drag'),
-  };
-  function g(id){ return document.getElementById(id); }
-
-  const L = 1.20, R = 0.50;
-  const REF_AREA = Math.PI*R*R;
-  const TARGET_EDGE = 0.06, NT_MIN = 64, NZ_MIN = 64;
-  const CAP_BASE = true;
-  const FREESTREAM_DIR = [0,0,-1];
-
-  // ----- Renderer -----
+  // --- Scene ---
   const fs = vtkFullScreenRenderWindow.newInstance({
-    rootContainer: document.querySelector('#app'),
-    container: document.querySelector('#vtk'),
-    background: [0.07,0.08,0.12],
+    rootContainer: document.body,
+    container: document.getElementById('vtk'),
+    background: [0.07, 0.08, 0.12],
   });
   const renderer = fs.getRenderer();
   const renderWindow = fs.getRenderWindow();
 
-  // LUT + ScalarBar
+  // Color map + scalar bar (blue-white-red)
   const lut = vtkColorTransferFunction.newInstance();
   lut.addRGBPoint(0,   0.231, 0.298, 0.753);
   lut.addRGBPoint(0.5, 0.865, 0.865, 0.865);
@@ -145,286 +45,158 @@ function main(){
   scalarBar.setTitle('PR');
   renderer.addActor2D(scalarBar);
 
-  // Orientation axes
-  const axes = vtkAxesActor.newInstance();
-  const omw = vtkOrientationMarkerWidget.newInstance({
-    actor: axes, interactor: fs.getInteractor(),
-  });
-  const Corners = V.Interaction.Widgets.vtkOrientationMarkerWidget.Corners;
-  omw.setViewportCorner(Corners.BOTTOM_LEFT);
-  omw.setEnabled(true);
-
-  // Body actor
+  // PolyData container
   const poly = vtkPolyData.newInstance();
   const mapper = vtkMapper.newInstance({ interpolateScalarsBeforeMapping: true, useLookupTableScalarRange: true });
   mapper.setLookupTable(lut);
   mapper.setInputData(poly);
   mapper.setScalarModeToUsePointFieldData();
   mapper.setColorByArrayName('PR');
+
   const actor = vtkActor.newInstance();
   actor.setMapper(mapper);
-  actor.getProperty().setSpecular(0.1);
-  actor.getProperty().setSpecularPower(10);
   renderer.addActor(actor);
 
-  // Arrow actor
-  const arrowSrc = vtkArrowSource.newInstance({ tipLength: 0.22, tipRadius: 0.02, shaftRadius: 0.007 });
-  const arrowMapper = vtkMapper.newInstance();
-  arrowMapper.setInputConnection(arrowSrc.getOutputPort());
-  const arrowActor = vtkActor.newInstance();
-  arrowActor.setMapper(arrowMapper);
-  arrowActor.getProperty().setColor(0,0,0);
-  renderer.addActor(arrowActor);
+  // --- Geometry & flow computation (one static body) ---
+  // Parameters (match your Python defaults)
+  const L = 1.20, R = 0.50;
+  const r0f=0.01, r1f=0.68, r2f=0.96, r3f=1.00; // fractions of R
+  const KX=1.00, KY=1.00;
+  const TARGET_EDGE=0.06, NT_MIN=64, NZ_MIN=64;
+  const GAMMA=1.4, P_INF=101325.0, M_INF=5.0;
+  const REF_AREA=Math.PI*R*R;
+  const VHAT=[0,0,-1]; // freestream direction (unit)
 
-  // ----- Topology -----
-  const { nz, nt } = chooseSampling(L, R, TARGET_EDGE, NZ_MIN, NT_MIN);
-  const topo = buildTopology(nz, nt, CAP_BASE, (t)=>cubicBezier(t, R*0.01, R*0.68, R*0.96, R*1.00));
-  const nPts = topo.nPts(nz, nt);
-  const ptsArray = new Float32Array(nPts*3);
-  const cellArray = vtkCellArray.newInstance({ values: topo.triCells });
-  poly.setPolys(cellArray);
+  // sampling
+  const nt = even(Math.ceil(Math.max((2*Math.PI*R)/Math.max(TARGET_EDGE,1e-6), NT_MIN)));
+  const nz = even(Math.ceil(Math.max(L/Math.max(TARGET_EDGE,1e-6), NZ_MIN)));
+  function even(x){ return x + (x % 2); }
+
+  // helper math
+  const z = linspace(0, L, nz);
+  const t = z.map(zi => zi/L);
+  const r = cubicBezierArray(t, R*r0f, R*r1f, R*r2f, R*r3f);
+  for (let i=1;i<r.length-1;i++) r[i] = Math.max(r[i], 1e-9); // avoid zero ring
+  const rx = r.map(ri => KX*ri), ry = r.map(ri => KY*ri);
+
+  const ct = new Array(nt), st = new Array(nt);
+  for (let j=0;j<nt;j++){ const th=(2*Math.PI*j)/nt; ct[j]=Math.cos(th); st[j]=Math.sin(th); }
+
+  const nPts = nz*nt;
+  const pts = new Float32Array(nPts*3);
+  // fill points
+  let p = 0;
+  for (let i=0;i<nz;i++){
+    const zi = z[i], rxi = rx[i], ryi = ry[i];
+    for (let j=0;j<nt;j++){
+      pts[p++] = rxi*ct[j];
+      pts[p++] = ryi*st[j];
+      pts[p++] = zi;
+    }
+  }
   const points = vtkPoints.newInstance();
-  points.setData(ptsArray, 3);
+  points.setData(pts, 3);
   poly.setPoints(points);
 
-  // Scalars
-  const PR_points = new Float32Array(nPts);
-  const cp_cells  = new Float32Array(topo.nTris);
-  const pr_cells  = new Float32Array(topo.nTris);
-  const prPointArray = vtkDataArray.newInstance({ name:'PR', values:PR_points, numberOfComponents:1 });
-  const cpCellArray  = vtkDataArray.newInstance({ name:'cp', values:cp_cells,  numberOfComponents:1 });
-  const prCellArray  = vtkDataArray.newInstance({ name:'pr', values:pr_cells,  numberOfComponents:1 });
-  poly.getPointData().addArray(prPointArray);
-  poly.getCellData().addArray(cpCellArray);
-  poly.getCellData().addArray(prCellArray);
+  // build triangle side faces only (no caps, keep it simple)
+  const nTris = (nz-1)*nt*2;
+  const cells = new Uint32Array(nTris*4);
+  let k=0;
+  for (let i=0;i<nz-1;i++){
+    for (let j=0;j<nt;j++){
+      const jn = (j+1)%nt;
+      const v00 = idx(i,j,nt), v01 = idx(i,jn,nt);
+      const v10 = idx(i+1,j,nt), v11 = idx(i+1,jn,nt);
+      // tri 1: v00, v10, v11
+      cells[k++]=3; cells[k++]=v00; cells[k++]=v10; cells[k++]=v11;
+      // tri 2: v00, v11, v01
+      cells[k++]=3; cells[k++]=v00; cells[k++]=v11; cells[k++]=v01;
+    }
+  }
+  const cellArray = vtkCellArray.newInstance({ values: cells });
+  poly.setPolys(cellArray);
 
-  // ----- First build -----
-  let state = { r0:0.01, r1:0.68, r2:0.96, r3:1.00, kx:1.00, ky:1.00, mach:5.0, gamma:1.4, pinf:101325 };
-  rebuildAndColor(true);
+  // compute normals/areas per triangle
+  const area = new Float64Array(nTris);
+  const nHat = new Float64Array(nTris*3);
+  const centroid = new Float64Array(nTris*3);
+  const a=[0,0,0], b=[0,0,0], c=[0,0,0], e0=[0,0,0], e1=[0,0,0], cr=[0,0,0];
+
+  function getP(i, out){ out[0]=pts[3*i]; out[1]=pts[3*i+1]; out[2]=pts[3*i+2]; }
+  function dot3(x,y){ return x[0]*y[0]+x[1]*y[1]+x[2]*y[2]; }
+
+  // quick center for outward flip
+  const pref=[0,0,0];
+  for (let i=0;i<nPts;i++){ pref[0]+=pts[3*i]; pref[1]+=pts[3*i+1]; pref[2]+=pts[3*i+2]; }
+  pref[0]/=nPts; pref[1]/=nPts; pref[2]/=nPts;
+
+  for (let tId=0,ci=0; tId<nTris; tId++, ci+=4){
+    const i0=cells[ci+1], i1=cells[ci+2], i2=cells[ci+3];
+    getP(i0,a); getP(i1,b); getP(i2,c);
+    e0[0]=b[0]-a[0]; e0[1]=b[1]-a[1]; e0[2]=b[2]-a[2];
+    e1[0]=c[0]-a[0]; e1[1]=c[1]-a[1]; e1[2]=c[2]-a[2];
+    // cross
+    cr[0]=e0[1]*e1[2]-e0[2]*e1[1];
+    cr[1]=e0[2]*e1[0]-e0[0]*e1[2];
+    cr[2]=e0[0]*e1[1]-e0[1]*e1[0];
+    const mag = Math.hypot(cr[0],cr[1],cr[2]);
+    area[tId]=0.5*mag;
+    let nx=cr[0]/(mag||1), ny=cr[1]/(mag||1), nzv=cr[2]/(mag||1);
+    const cx=(a[0]+b[0]+c[0])/3, cy=(a[1]+b[1]+c[1])/3, cz=(a[2]+b[2]+c[2])/3;
+    const vx=cx-pref[0], vy=cy-pref[1], vz=cz-pref[2];
+    if (vx*nx + vy*ny + vz*nzv < 0){ nx*=-1; ny*=-1; nzv*=-1; }
+    nHat[3*tId]=nx; nHat[3*tId+1]=ny; nHat[3*tId+2]=nzv;
+    centroid[3*tId]=cx; centroid[3*tId+1]=cy; centroid[3*tId+2]=cz;
+  }
+
+  // Newtonian pressure
+  const vhat = normalize(VHAT.slice());
+  const c1 = Math.pow(((GAMMA+1)**2 * (M_INF**2)) / ((4*GAMMA*(M_INF**2)) - (2*GAMMA - 2)), GAMMA/(GAMMA-1));
+  const c2 = (1 - GAMMA + (2*GAMMA*(M_INF**2))) / (GAMMA + 1);
+  const CPmax = (c1 * c2 - 1.0) / ((GAMMA/2.0) * (M_INF**2));
+  const qref = 0.5 * GAMMA * P_INF * (M_INF**2);
+
+  const cp_cells = new Float32Array(nTris);
+  const pr_cells = new Float32Array(nTris);
+  let Fx=0,Fy=0,Fz=0;
+  for (let tId=0; tId<nTris; tId++){
+    const nx=nHat[3*tId], ny=nHat[3*tId+1], nzv=nHat[3*tId+2];
+    const cth = Math.max(0, nx*vhat[0] + ny*vhat[1] + nzv*vhat[2]);
+    const cp = CPmax * (cth*cth);
+    const pr = qref*cp + P_INF;
+    cp_cells[tId]=cp; pr_cells[tId]=pr;
+    const a = area[tId]; Fx += pr*a*nx; Fy += pr*a*ny; Fz += pr*a*nzv;
+  }
+
+  // Node PR via area-weighted face->vertex
+  const PR_points = new Float32Array(nPts);
+  const W = new Float64Array(nPts);
+  for (let tId=0,ci=0; tId<nTris; tId++, ci+=4){
+    const i0=cells[ci+1], i1=cells[ci+2], i2=cells[ci+3];
+    const a=area[tId], pa=pr_cells[tId]*a;
+    PR_points[i0]+=pa; PR_points[i1]+=pa; PR_points[i2]+=pa;
+    W[i0]+=a; W[i1]+=a; W[i2]+=a;
+  }
+  for (let i=0;i<nPts;i++) PR_points[i] = PR_points[i] / (W[i] > 0 ? W[i] : 1);
+
+  // Attach arrays
+  poly.getPointData().addArray(vtkDataArray.newInstance({ name:'PR', values:PR_points, numberOfComponents:1 }));
+  poly.getCellData().addArray(vtkDataArray.newInstance({ name:'cp', values:cp_cells, numberOfComponents:1 }));
+  poly.getCellData().addArray(vtkDataArray.newInstance({ name:'pr', values:pr_cells, numberOfComponents:1 }));
+
+  // Scalar range + render
+  const [mn,mx] = minmax(PR_points);
+  const eps=1e-9; lut.setRange(mn, (mx-mn<eps)? mn+eps : mx);
   renderer.resetCamera();
   renderWindow.render();
 
-  // ----- UI wiring -----
-  ['r0','r1','r2','r3'].forEach(k => ui[k].addEventListener('input', onParamsChange));
-  ['kx','ky','mach','gamma','pinf'].forEach(k => ui[k].addEventListener('change', onParamsChange));
-  ui.arraySelect.addEventListener('change', updateColorMode);
-  ui.wireframe.addEventListener('change', () => {
-    (ui.wireframe.value === '1')
-      ? actor.getProperty().setRepresentationToWireframe()
-      : actor.getProperty().setRepresentationToSurface();
-    renderWindow.render();
-  });
-  ui.reset.addEventListener('click', () => { renderer.resetCamera(); renderWindow.render(); });
-  ui.play.addEventListener('click', playMorph);
-
-  function onParamsChange(){
-    state = {
-      r0:+ui.r0.value, r1:+ui.r1.value, r2:+ui.r2.value, r3:+ui.r3.value,
-      kx:+ui.kx.value, ky:+ui.ky.value,
-      mach:+ui.mach.value, gamma:+ui.gamma.value, pinf:+ui.pinf.value,
-    };
-    rebuildAndColor(false);
-  }
-
-  function updateColorMode(){
-    const [name, where] = ui.arraySelect.value.split('|');
-    (where === 'point') ? mapper.setScalarModeToUsePointFieldData()
-                        : mapper.setScalarModeToUseCellFieldData();
-    mapper.setColorByArrayName(name);
-    const range = (name === 'PR') ? minmax(PR_points) : (name === 'pr' ? minmax(pr_cells) : minmax(cp_cells));
-    const eps = 1e-9; if (range[1]-range[0] < eps) range[1] = range[0] + eps;
-    lut.setRange(range[0], range[1]);
-    scalarBar.setTitle(name);
-    renderWindow.render();
-  }
-
-  // ----- Rebuild geometry + flow + Cd -----
-  function rebuildAndColor(resetCam){
-    // geometry
-    const z = linspace(0, L, nz);
-    const t = z.map(zi => zi/L);
-    const r = cubicBezierArray(t, R*state.r0, R*state.r1, R*state.r2, R*state.r3);
-    for (let i=1;i<r.length-1;i++) r[i] = Math.max(r[i], 1e-9);
-    const rx = r.map(ri => state.kx*ri);
-    const ry = r.map(ri => state.ky*ri);
-
-    const { cos:ct, sin:st } = linspaceTheta(nt);
-    let p=0;
-    for (let i=0;i<nz;i++){
-      const zi = z[i], rxi = rx[i], ryi = ry[i];
-      for (let j=0;j<nt;j++){
-        ptsArray[p++] = rxi*ct[j];
-        ptsArray[p++] = ryi*st[j];
-        ptsArray[p++] = zi;
-      }
-    }
-    // optional centers
-    const tipSharp = r[0] <= 1e-12;
-    let baseCenterIdx = -1, tipCenterIdx = -1;
-    if (tipSharp){
-      tipCenterIdx = nPts - (CAP_BASE?2:1);
-      ptsArray[3*tipCenterIdx+0]=0; ptsArray[3*tipCenterIdx+1]=0; ptsArray[3*tipCenterIdx+2]=0;
-    }
-    if (CAP_BASE){
-      baseCenterIdx = nPts - 1;
-      ptsArray[3*baseCenterIdx+0]=0; ptsArray[3*baseCenterIdx+1]=0; ptsArray[3*baseCenterIdx+2]=L;
-    }
-    poly.getPoints().modified();
-
-    // normals/areas
-    const T = topo.nTris;
-    const nHat = new Float64Array(T*3);
-    const area = new Float64Array(T);
-    const centroid = new Float64Array(T*3);
-    const cells = topo.triCells;
-    const a=[0,0,0], b=[0,0,0], c=[0,0,0], e0=[0,0,0], e1=[0,0,0], cr=[0,0,0];
-    function getP(idx,out,o=0){ out[o]=ptsArray[3*idx]; out[o+1]=ptsArray[3*idx+1]; out[o+2]=ptsArray[3*idx+2]; }
-    for (let tId=0,k=0;tId<T;tId++,k+=4){
-      const i0=cells[k+1], i1=cells[k+2], i2=cells[k+3];
-      getP(i0,a); getP(i1,b); getP(i2,c);
-      e0[0]=b[0]-a[0]; e0[1]=b[1]-a[1]; e0[2]=b[2]-a[2];
-      e1[0]=c[0]-a[0]; e1[1]=c[1]-a[1]; e1[2]=c[2]-a[2];
-      cr[0]=e0[1]*e1[2]-e0[2]*e1[1];
-      cr[1]=e0[2]*e1[0]-e0[0]*e1[2];
-      cr[2]=e0[0]*e1[1]-e0[1]*e1[0];
-      const mag = Math.hypot(cr[0],cr[1],cr[2]);
-      area[tId]=0.5*mag;
-      nHat[3*tId+0]=cr[0]/(mag||1);
-      nHat[3*tId+1]=cr[1]/(mag||1);
-      nHat[3*tId+2]=cr[2]/(mag||1);
-      centroid[3*tId+0]=(a[0]+b[0]+c[0])/3;
-      centroid[3*tId+1]=(a[1]+b[1]+c[1])/3;
-      centroid[3*tId+2]=(a[2]+b[2]+c[2])/3;
-    }
-    // outward flip
-    const pRef=[0,0,0];
-    for (let i=0;i<nPts;i++){ pRef[0]+=ptsArray[3*i]; pRef[1]+=ptsArray[3*i+1]; pRef[2]+=ptsArray[3*i+2]; }
-    pRef[0]/=nPts; pRef[1]/=nPts; pRef[2]/=nPts;
-    for (let tId=0;tId<T;tId++){
-      const cx=centroid[3*tId]-pRef[0], cy=centroid[3*tId+1]-pRef[1], cz=centroid[3*tId+2]-pRef[2];
-      if (cx*nHat[3*tId]+cy*nHat[3*tId+1]+cz*nHat[3*tId+2] < 0){
-        nHat[3*tId]*=-1; nHat[3*tId+1]*=-1; nHat[3*tId+2]*=-1;
-      }
-    }
-
-    // flow
-    const v=FREESTREAM_DIR.slice(); const vm=Math.hypot(v[0],v[1],v[2])||1; const vhat=[v[0]/vm, v[1]/vm, v[2]/vm];
-    const gamma=state.gamma, Minf=state.mach, pInf=state.pinf;
-    const c1=Math.pow(((gamma+1)**2*(Minf**2))/((4*gamma*(Minf**2))-(2*gamma-2)), gamma/(gamma-1));
-    const c2=(1-gamma+(2*gamma*(Minf**2)))/(gamma+1);
-    const CPmax=(c1*c2-1)/((gamma/2)*(Minf**2));
-    const qref=0.5*gamma*pInf*(Minf**2);
-
-    let Fx=0,Fy=0,Fz=0;
-    for (let tId=0,k=0;tId<T;tId++,k+=4){
-      const ndx=nHat[3*tId], ndy=nHat[3*tId+1], ndz=nHat[3*tId+2];
-      const ctheta=Math.max(0, ndx*vhat[0] + ndy*vhat[1] + ndz*vhat[2]);
-      const cp=CPmax*(ctheta**2);
-      const pr=qref*cp + pInf;
-      cp_cells[tId]=cp;
-      pr_cells[tId]=pr;
-      const a=area[tId]; Fx+=pr*a*ndx; Fy+=pr*a*ndy; Fz+=pr*a*ndz;
-    }
-    // point PR (area-weighted)
-    PR_points.fill(0);
-    const w = new Float64Array(nPts); w.fill(0);
-    for (let tId=0,k=0;tId<T;tId++,k+=4){
-      const i0=cells[k+1], i1=cells[k+2], i2=cells[k+3];
-      const a=area[tId], pa=pr_cells[tId]*a;
-      PR_points[i0]+=pa; PR_points[i1]+=pa; PR_points[i2]+=pa;
-      w[i0]+=a; w[i1]+=a; w[i2]+=a;
-    }
-    for (let i=0;i<nPts;i++){ PR_points[i] = PR_points[i] / (w[i] > 0 ? w[i] : 1); }
-    poly.getPointData().getArrayByName('PR').modified();
-    poly.getCellData().getArrayByName('cp').modified();
-    poly.getCellData().getArrayByName('pr').modified();
-
-    // color mode + range
-    updateColorMode();
-
-    // arrow placement/orientation
-    const b = poly.getBounds(); // [xmin,xmax,ymin,ymax,zmin,zmax]
-    const ext=[b[1]-b[0], b[3]-b[2], b[5]-b[4]];
-    const Lmax=Math.max(ext[0],ext[1],ext[2]);
-    const gap=0.04*Lmax, arrowLen=0.35*Lmax;
-    const cx=(b[0]+b[1])/2, cy=(b[2]+b[3])/2, cz=(b[4]+b[5])/2;
-    const flowDir=[-vhat[0], -vhat[1], -vhat[2]];
-    const proxyHit=[cx - flowDir[0]*(0.5*ext[0]), cy - flowDir[1]*(0.5*ext[1]), cz - flowDir[2]*(0.5*ext[2])];
-    const start=[ proxyHit[0] - flowDir[0]*(gap+arrowLen),
-                  proxyHit[1] - flowDir[1]*(gap+arrowLen),
-                  proxyHit[2] - flowDir[2]*(gap+arrowLen) ];
-    const mb = MatrixBuilder.buildFromDegree();
-    mb.identity().translate(...start).rotateFromDirections([1,0,0], flowDir).scale(arrowLen);
-    arrowActor.setUserMatrix(mb.getMatrix());
-
-    // Cd
-    const Drag = Fx*vhat[0] + Fy*vhat[1] + Fz*vhat[2];
-    const Cd = Drag / (qref * REF_AREA);
-    ui.Cd.textContent = isFinite(Cd) ? Cd.toFixed(6) : '—';
-    ui.Drag.textContent = isFinite(Drag) ? Drag.toFixed(6) : '—';
-
-    if (resetCam) renderer.resetCamera();
-    renderWindow.render();
-  }
-
-  // ----- Animation -----
-  function playMorph(){
-    const A={ r0:+ui.r0.value, r1:+ui.r1.value, r2:+ui.r2.value, r3:+ui.r3.value };
-    const B={ r0:0.20, r1:0.55, r2:0.85, r3:0.95 };
-    const secs=2.0, t0=performance.now();
-    const step=now=>{
-      const t=Math.min(1,(now-t0)/(secs*1000));
-      const s=0.5-0.5*Math.cos(Math.PI*t);
-      ui.r0.value=(A.r0+(B.r0-A.r0)*s).toFixed(3);
-      ui.r1.value=(A.r1+(B.r1-A.r1)*s).toFixed(3);
-      ui.r2.value=(A.r2+(B.r2-A.r2)*s).toFixed(3);
-      ui.r3.value=(A.r3+(B.r3-A.r3)*s).toFixed(3);
-      onParamsChange();
-      if (t<1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-
-  // ----- Helpers -----
-  function chooseSampling(L,R,target,nzMin,ntMin){
-    const nt = even(Math.ceil(Math.max((2*Math.PI*R)/Math.max(target,1e-6), ntMin)));
-    const nz = even(Math.ceil(Math.max(L/Math.max(target,1e-6), nzMin)));
-    return { nz, nt };
-    function even(x){ return x + (x % 2); }
-  }
+  // ---- helpers ----
+  function idx(i,j,nt){ return i*nt + j; }
+  function linspace(a,b,n){ const h=(b-a)/(n-1), out=new Array(n); for (let i=0;i<n;i++) out[i]=a+i*h; return out; }
   function cubicBezier(t,r0,r1,r2,r3){ const u=1-t; return (u*u*u)*r0 + 3*(u*u)*t*r1 + 3*u*(t*t)*r2 + (t*t*t)*r3; }
   function cubicBezierArray(ts,r0,r1,r2,r3){ const out=new Array(ts.length); for (let i=0;i<ts.length;i++) out[i]=cubicBezier(ts[i],r0,r1,r2,r3); return out; }
-  function linspace(a,b,n){ const arr=new Array(n), h=(b-a)/(n-1); for (let i=0;i<n;i++) arr[i]=a+i*h; return arr; }
-  function linspaceTheta(n){ const cos=new Array(n), sin=new Array(n); for (let j=0;j<n;j++){ const th=(2*Math.PI*j)/n; cos[j]=Math.cos(th); sin[j]=Math.sin(th); } return {cos,sin}; }
+  function normalize(v){ const m=Math.hypot(v[0],v[1],v[2])||1; return [v[0]/m,v[1]/m,v[2]/m]; }
   function minmax(arr){ let lo=+Infinity, hi=-Infinity; for (let i=0;i<arr.length;i++){ const v=arr[i]; if (v<lo) lo=v; if (v>hi) hi=v; } return [lo,hi]; }
-  function buildTopology(nz,nt,capBase,rFun){
-    const tipSharp = rFun(0) <= 1e-12;
-    const nGridPts = nz*nt;
-    const extra = (tipSharp?1:0) + (capBase?1:0);
-    const nPts = nGridPts + extra;
-    const tris=[];
-    if (tipSharp){
-      const tipId = nGridPts;
-      for (let j=0;j<nt;j++){ const jn=(j+1)%nt; tris.push([tipId, idx(1,j), idx(1,jn)]); }
-    }
-    for (let i=(tipSharp?1:0); i<nz-1; i++){
-      for (let j=0;j<nt;j++){
-        const jn=(j+1)%nt;
-        const v00=idx(i,j), v01=idx(i,jn), v10=idx(i+1,j), v11=idx(i+1,jn);
-        tris.push([v00,v10,v11]); tris.push([v00,v11,v01]);
-      }
-    }
-    if (capBase){
-      const baseCenter = nGridPts + (tipSharp?1:0);
-      const baseStart  = (nz-1)*nt;
-      for (let j=0;j<nt;j++){ const jn=(j+1)%nt; tris.push([baseCenter, baseStart+j, baseStart+jn]); }
-    }
-    const nTris = tris.length;
-    const cells = new Uint32Array(nTris*4);
-    for (let t=0,k=0;t<nTris;t++,k+=4){ const tri=tris[t]; cells[k]=3; cells[k+1]=tri[0]; cells[k+2]=tri[1]; cells[k+3]=tri[2]; }
-    return { triCells: cells, nTris, nPts: ()=>nPts };
-    function idx(i,j){ return i*nt + j; }
-  }
 }
 </script>
 </body>
