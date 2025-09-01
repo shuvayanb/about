@@ -21,6 +21,7 @@ header_pages:
   - Publications/publications.md
   - Publications/explore.html  
   - Projects/projects.md
+  - Projects/interactive_flow.md
   - repositories.md
   - blogs.md
 
