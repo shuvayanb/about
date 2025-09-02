@@ -92,7 +92,7 @@ permalink: /pop00-frames/
   const END    = 50;         // last frame index (inclusive)
   const PAD    = 3;          // zero-padding width in filenames
   const FPS    = 5;          // playback speed (frames per second)
-  const LOOP   = false;      // play forward once
+  const LOOP   = true;      // play forward once
   const SUFFIX = '_unlit';   // '' if you overwrote originals; '_unlit' if you created copies
   const EXT    = '.glb';
   const CACHE_BUST = '?v={{ site.time | date: "%s" }}'; // avoid stale cache on GH Pages
