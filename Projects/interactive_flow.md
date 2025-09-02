@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Population 00 — Frames Player
+title: Shape Optimization
 permalink: /pop00-frames/
 ---
 
