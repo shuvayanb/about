@@ -24,6 +24,8 @@ permalink: /pop00-frames/
     overflow: hidden;
   }
   .mv-layer {
+    transform: scale(1.18);      /* tweak 1.12–1.25 to taste */
+    transform-origin: 50% 50%;
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     background: #ffffff;
