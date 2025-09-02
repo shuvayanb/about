@@ -3,7 +3,7 @@ layout: page
 title: Projects
 ---
 
-* # <span style="color:blue">Shape design and Optimization </span>
+* # <span style="color:blue">Shape design and optimization </span>
 
 <!-- model-viewer runtime -->
 <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
