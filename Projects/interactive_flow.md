@@ -1,174 +1,153 @@
 ---
-layout: default
-title: Optimal Shapes — 4×2 Grid
+layout: page
+title: Design Optimisation
 permalink: /optim-grid/
 ---
 
-<!-- Minimal CSS for a responsive 4×2 grid -->
+<!-- model-viewer runtime -->
+<script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
+
 <style>
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 16px;
   }
   @media (max-width: 1200px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 700px)  { .grid { grid-template-columns: 1fr; } }
 
   .tile {
     position: relative;
-    background: #0b0b0b;
-    border-radius: 12px;
+    background: #ffffff;         /* white */
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,.25);
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
   }
   .tile model-viewer {
     width: 100%;
-    height: 260px; /* tweak if you want taller tiles */
-    background: #0b0b0b;
+    height: 260px;               /* adjust as you like */
+    background: #ffffff;         /* white canvas */
+    outline: none;
   }
   .caption {
     position: absolute;
-    left: 8px; bottom: 8px;
+    left: 10px; bottom: 10px;
     padding: 6px 10px;
-    background: rgba(0,0,0,.55);
-    color: #fff;
-    font: 500 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: rgba(255,255,255,.92);
+    color: #111;
+    font: 600 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     border-radius: 8px;
     letter-spacing: .2px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
   }
-  .caption .meta {
-    opacity: .9;
-  }
+  .caption .meta { opacity: .85; font-weight: 500; }
 </style>
-
-<!-- model-viewer (works on GitHub Pages) -->
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <div class="grid">
 
-  <!-- Repeat for 8 populations -->
-  <div class="tile" data-meta="/assets/flow/pop_00_meta.json">
-    <model-viewer src="/assets/flow/pop_00_opt.glb"
+  <!-- Repeat for eight populations -->
+  <div class="tile" data-meta="{{ '/assets/flow/pop_00_meta.json' | relative_url }}">
+    <model-viewer
+      src="{{ '/assets/flow/pop_00_opt.glb' | relative_url }}"
       autoplay
       camera-controls
       disable-zoom
       disable-pan
       interaction-prompt="none"
-      shadow-intensity="0"
       exposure="1"
-      ar="false"
+      shadow-intensity="0"
       animation-name="frames"
-      style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%"
-      min-camera-orbit="15deg 60deg 120%"
-      max-camera-orbit="15deg 60deg 120%"
+      camera-orbit="180deg 75deg auto"  <!-- same feel as your working single viewer -->
       loading="lazy"
       reveal="auto">
     </model-viewer>
-    <div class="caption">Pop 00 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+    <div class="caption">Pop 00 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_01_meta.json">
-    <model-viewer src="/assets/flow/pop_01_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 01 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_01_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_01_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 01 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_02_meta.json">
-    <model-viewer src="/assets/flow/pop_02_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 02 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_02_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_02_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 02 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_03_meta.json">
-    <model-viewer src="/assets/flow/pop_03_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 03 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_03_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_03_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 03 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_04_meta.json">
-    <model-viewer src="/assets/flow/pop_04_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 04 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_04_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_04_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 04 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_05_meta.json">
-    <model-viewer src="/assets/flow/pop_05_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 05 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_05_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_05_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 05 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_06_meta.json">
-    <model-viewer src="/assets/flow/pop_06_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 06 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_06_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_06_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 06 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
-  <div class="tile" data-meta="/assets/flow/pop_07_meta.json">
-    <model-viewer src="/assets/flow/pop_07_opt.glb" autoplay camera-controls disable-zoom disable-pan
-      interaction-prompt="none" shadow-intensity="0" exposure="1"
-      animation-name="frames" style="background:#0b0b0b"
-      camera-orbit="15deg 60deg 120%" min-camera-orbit="15deg 60deg 120%" max-camera-orbit="15deg 60deg 120%"
-      loading="lazy" reveal="auto"></model-viewer>
-    <div class="caption">Pop 07 — <span class="meta">Gen <span class="gen">?</span> • Cd <span class="cd">?</span></span></div>
+  <div class="tile" data-meta="{{ '/assets/flow/pop_07_meta.json' | relative_url }}">
+    <model-viewer src="{{ '/assets/flow/pop_07_opt.glb' | relative_url }}" autoplay camera-controls disable-zoom disable-pan
+      interaction-prompt="none" exposure="1" shadow-intensity="0" animation-name="frames"
+      camera-orbit="180deg 75deg auto" loading="lazy" reveal="auto"></model-viewer>
+    <div class="caption">Pop 07 — <span class="meta">Gen <span class="gen">—</span> • Cd <span class="cd">—</span></span></div>
   </div>
 
 </div>
 
-<!-- Sync playback (once), and fill Gen/Cd from meta JSONs -->
 <script>
+  // Start animation explicitly and fill labels from meta JSONs
   document.addEventListener('DOMContentLoaded', () => {
-    const tiles = document.querySelectorAll('.tile');
-    tiles.forEach(tile => {
+    document.querySelectorAll('.tile').forEach(tile => {
       const mv = tile.querySelector('model-viewer');
       const genSpan = tile.querySelector('.gen');
       const cdSpan  = tile.querySelector('.cd');
       const metaUrl = tile.getAttribute('data-meta');
 
-      // Ensure single forward play and clamp at final frame
       mv.addEventListener('load', () => {
+        // play the "frames" animation once
         try {
           mv.animationName = 'frames';
-          // turn off looping via JS to be explicit across versions
-          mv.animationLoop = false;
-          // Start the animation (autoplay is set, but calling play() is robust)
+          // model-viewer loops by default; stop at end:
+          mv.addEventListener('timeupdate', () => {
+            if (mv.currentTime >= mv.duration && mv.duration > 0) mv.pause();
+          }, { once: true });
           mv.play();
-        } catch (e) { /* no-op */ }
+        } catch (e) { /* ignore */ }
       });
 
-      // Fill labels from meta JSON (gens & final Cd)
+      // Fill Gen/Cd
       if (metaUrl) {
         fetch(metaUrl).then(r => r.json()).then(meta => {
           const gens = Array.isArray(meta.cd) ? meta.cd.length : (meta.gens || null);
-          if (gens) genSpan.textContent = gens - 1; // zero-based gens, final = N-1
+          if (gens != null) genSpan.textContent = gens - 1; // zero-based
           if (Array.isArray(meta.cd) && meta.cd.length) {
-            const lastCd = meta.cd[meta.cd.length - 1];
-            cdSpan.textContent = Number(lastCd).toFixed(4);
+            cdSpan.textContent = Number(meta.cd[meta.cd.length - 1]).toFixed(4);
           } else if (typeof meta.cd === 'number') {
             cdSpan.textContent = Number(meta.cd).toFixed(4);
           }
-        }).catch(() => {
-          genSpan.textContent = '—';
-          cdSpan.textContent  = '—';
-        });
+        }).catch(() => { /* leave defaults */ });
       }
     });
   });
