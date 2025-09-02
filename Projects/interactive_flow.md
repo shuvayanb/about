@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Interactive CFD
+title: Shape Design
 permalink: /interactive-flow/
 ---
 
