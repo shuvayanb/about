@@ -3,6 +3,7 @@ layout: page
 title: Projects
 ---
 
+* # <span style="color:blue">[Shape design and Optimization] </span>
 
 <h1 class="section-title" style="margin:0 0 12px; font: 700 28px/1.2 'Times New Roman', Times, serif;">
   Shape Design and Optimization
