@@ -31,12 +31,12 @@ permalink: /pop00-frames/
   <model-viewer id="mvA" class="mv-layer"
     camera-controls disable-zoom disable-pan interaction-prompt="none"
     exposure="1" shadow-intensity="0"
-    camera-orbit="180deg 75deg auto" autoplay></model-viewer>
+    camera-orbit="30deg 65deg 120%" autoplay></model-viewer>
 
   <model-viewer id="mvB" class="mv-layer hidden"
     camera-controls disable-zoom disable-pan interaction-prompt="none"
     exposure="1" shadow-intensity="0"
-    camera-orbit="180deg 75deg auto" autoplay></model-viewer>
+    camera-orbit="30deg 65deg 120%" autoplay></model-viewer>
 </div>
 
 <script>
