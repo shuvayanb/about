@@ -4,6 +4,10 @@ title: Shape Optimization
 permalink: /pop00-frames/
 ---
 
+<h1 class="section-title" style="margin:0 0 12px; font: 700 28px/1.2 'Times New Roman', Times, serif;">
+  Nose cone
+</h1>
+
 <!-- model-viewer runtime -->
 <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
 <script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
@@ -27,6 +31,9 @@ permalink: /pop00-frames/
 
   /* === NEW: big HUD for Cd === */
   .hud {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
+    font-weight: 600;
     position: absolute; top: 14px; left: 16px;
     padding: 8px 12px;
     background: rgba(255,255,255,0.92);
@@ -35,6 +42,11 @@ permalink: /pop00-frames/
     font: 700 20px/1.1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
+  .hud .sym em { font-style: italic; }
+  .hud .sym sub { font-size: 0.65em; vertical-align: -0.25em; }
+
+  #cdVal { font-weight: 400; }
+  
   .hud .small { font-weight: 600; font-size: 13px; opacity: .8; margin-left: 8px; }
 </style>
 
@@ -51,7 +63,8 @@ permalink: /pop00-frames/
     camera-orbit="200deg 65deg 120%" autoplay></model-viewer>
 
   <!-- === NEW: Cd overlay -->
-  <div class="hud">Cd: <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
+  <div class="hud"><span class="sym"><em>C</em><sub>d</sub></span> <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
+
 </div>
 
 <script>
