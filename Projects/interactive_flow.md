@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Single GLB Test
+title: Design Optimization
 permalink: /glb-test/
 ---
 
