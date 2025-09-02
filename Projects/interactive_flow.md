@@ -15,8 +15,8 @@ permalink: /pop00-frames/
 <style>
   .mv-wrap {
     position: relative;
-    width: 100%;
-    height: 82vh;
+    width: min(1100px, 92vw);
+    height: 68vh;           /* tweak */
     background: #ffffff;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,.10);
@@ -55,7 +55,13 @@ permalink: /pop00-frames/
   <model-viewer id="mvA" class="mv-layer"
     camera-controls disable-zoom disable-pan interaction-prompt="none"
     exposure="1" shadow-intensity="0"
-    camera-orbit="200deg 65deg 120%" autoplay></model-viewer>
+    camera-orbit="200deg 65deg 120%" 
+    camera-orbit="200deg 65deg 90%"
+    min-camera-orbit="200deg 65deg 90%"
+    max-camera-orbit="200deg 65deg 90%"
+    field-of-view="22deg"
+    camera-target="0m 0m 0m"
+    autoplay></model-viewer>
 
   <model-viewer id="mvB" class="mv-layer hidden"
     camera-controls disable-zoom disable-pan interaction-prompt="none"
