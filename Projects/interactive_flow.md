@@ -70,7 +70,7 @@ permalink: /pop00-frames/
 
   // === NEW: Cd JSON path (sits next to frames) ===
   // Expecting: { "cd": [cd_gen0, cd_gen1, ...] }
-  const CD_JSON = BASE + FOLDER + 'meta.json' + CACHE_BUST;
+  const CD_JSON = BASE + FOLDER + 'pop_00_meta.json' + CACHE_BUST;
 
   const mvA = document.getElementById('mvA');
   const mvB = document.getElementById('mvB');
