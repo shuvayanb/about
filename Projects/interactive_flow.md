@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Shape Optimization
+title: Population 00 — Frames Player
 permalink: /pop00-frames/
 ---
 
@@ -13,7 +13,7 @@ permalink: /pop00-frames/
     position: relative;
     width: 100%;
     height: 82vh;
-    background: #ffffff; /* white page background */
+    background: #ffffff;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,.10);
     overflow: hidden;
@@ -21,7 +21,7 @@ permalink: /pop00-frames/
   .mv-layer {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
-    background: #ffffff; /* white canvas inside viewer */
+    background: #ffffff;
   }
   .hidden { visibility: hidden; }
 </style>
@@ -41,47 +41,41 @@ permalink: /pop00-frames/
 
 <script>
 (function(){
-  // ----- CONFIG -----
-  const BASE = '{{ "/" | relative_url }}'.replace(/\/+$/, '') + '/';
-  const FOLDER = 'assets/flow/history_pop_00/';   // change to another pop folder if you want
-  const START  = 0;                                // first frame index
-  const END    = 50;                               // last frame index (inclusive)
-  const PAD    = 3;                                // zero-padding width in filenames
-  const FPS    = 5;                                // playback speed; 5 fps ≈ 0.2s per frame
-  const LOOP   = false;                            // play forward once; if true, restarts at START
+  // ----- CONFIG (edit these only) -----
+  const BASE   = '{{ "/" | relative_url }}'.replace(/\/+$/, '') + '/';
+  const FOLDER = 'assets/flow/history_pop_00/'; // change folder to another population if needed
+  const START  = 0;          // first frame index
+  const END    = 50;         // last frame index (inclusive)
+  const PAD    = 3;          // zero-padding width in filenames
+  const FPS    = 5;          // playback speed (frames per second)
+  const LOOP   = false;      // play forward once
+  const SUFFIX = '_unlit';   // <<< set to '' if you overwrote originals; '_unlit' if you created copies
+  const EXT    = '.glb';
+  const CACHE_BUST = '?v={{ site.time | date: "%s" }}'; // avoid stale cache on GH Pages
 
   const mvA = document.getElementById('mvA');
   const mvB = document.getElementById('mvB');
 
   let cur = START;
-  let front = mvA;         // currently visible
-  let back  = mvB;         // loads next frame
-  let playing = true;
+  let front = mvA;  // currently visible
+  let back  = mvB;  // preloads next frame
 
   function framePath(i){
     const id = String(i).padStart(PAD, '0');
-    return BASE + FOLDER + 'frame_' + id + '.glb';
+    return BASE + FOLDER + 'frame_' + id + SUFFIX + EXT + CACHE_BUST;
   }
 
   function swapLayers(){
-    // show 'back', hide 'front'
     front.classList.add('hidden');
     back.classList.remove('hidden');
-    // swap references
-    const tmp = front;
-    front = back;
-    back = tmp;
+    const tmp = front; front = back; back = tmp;
   }
 
   function scheduleNext(){
-    if (!playing) return;
-    if (cur > END) {
-      if (LOOP) { cur = START; } else { return; } // stop at final frame
-    }
-    // start loading next frame on the hidden viewer
+    if (cur > END) { if (!LOOP) return; cur = START; }
+
     back.src = framePath(cur);
 
-    // when it finishes loading, swap to it and schedule the subsequent one
     const onLoaded = () => {
       back.removeEventListener('load', onLoaded);
       swapLayers();
@@ -90,16 +84,15 @@ permalink: /pop00-frames/
     };
     back.addEventListener('load', onLoaded, { once: true });
 
-    // if a frame fails (e.g., missing), skip it
     const onError = () => {
       back.removeEventListener('error', onError);
+      // skip missing frames; try next
       cur += 1;
       setTimeout(scheduleNext, 0);
     };
     back.addEventListener('error', onError, { once: true });
   }
 
-  // init: show first frame immediately on the front layer, then start advancing
   function start(){
     front.src = framePath(START);
     front.addEventListener('load', () => {
