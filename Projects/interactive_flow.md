@@ -24,6 +24,18 @@ permalink: /pop00-frames/
     background: #ffffff;
   }
   .hidden { visibility: hidden; }
+
+  /* === NEW: big HUD for Cd === */
+  .hud {
+    position: absolute; top: 14px; left: 16px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.92);
+    color: #111;
+    border-radius: 10px;
+    font: 700 20px/1.1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .hud .small { font-weight: 600; font-size: 13px; opacity: .8; margin-left: 8px; }
 </style>
 
 <div class="mv-wrap">
@@ -37,6 +49,9 @@ permalink: /pop00-frames/
     camera-controls disable-zoom disable-pan interaction-prompt="none"
     exposure="1" shadow-intensity="0"
     camera-orbit="200deg 65deg 120%" autoplay></model-viewer>
+
+  <!-- === NEW: Cd overlay -->
+  <div class="hud">Cd: <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
 </div>
 
 <script>
@@ -49,20 +64,34 @@ permalink: /pop00-frames/
   const PAD    = 3;          // zero-padding width in filenames
   const FPS    = 5;          // playback speed (frames per second)
   const LOOP   = false;      // play forward once
-  const SUFFIX = '_unlit';   // <<< set to '' if you overwrote originals; '_unlit' if you created copies
+  const SUFFIX = '_unlit';   // '' if you overwrote originals; '_unlit' if you created copies
   const EXT    = '.glb';
   const CACHE_BUST = '?v={{ site.time | date: "%s" }}'; // avoid stale cache on GH Pages
 
+  // === NEW: Cd JSON path (sits next to frames) ===
+  // Expecting: { "cd": [cd_gen0, cd_gen1, ...] }
+  const CD_JSON = BASE + FOLDER + 'meta.json' + CACHE_BUST;
+
   const mvA = document.getElementById('mvA');
   const mvB = document.getElementById('mvB');
+  const cdEl  = document.getElementById('cdVal');
+  const genEl = document.getElementById('genIdx');
 
   let cur = START;
   let front = mvA;  // currently visible
   let back  = mvB;  // preloads next frame
+  let cdArr = null; // will hold array of Cd values
 
   function framePath(i){
     const id = String(i).padStart(PAD, '0');
     return BASE + FOLDER + 'frame_' + id + SUFFIX + EXT + CACHE_BUST;
+  }
+
+  function updateHUD(i){
+    if (genEl) genEl.textContent = i;
+    if (!cdArr || !cdArr.length) { cdEl && (cdEl.textContent = '—'); return; }
+    const val = cdArr[Math.max(0, Math.min(i, cdArr.length - 1))];
+    cdEl.textContent = (typeof val === 'number') ? val.toFixed(4) : '—';
   }
 
   function swapLayers(){
@@ -79,6 +108,7 @@ permalink: /pop00-frames/
     const onLoaded = () => {
       back.removeEventListener('load', onLoaded);
       swapLayers();
+      updateHUD(cur);           // === NEW: update Cd for this gen
       cur += 1;
       setTimeout(scheduleNext, 1000 / FPS);
     };
@@ -86,21 +116,33 @@ permalink: /pop00-frames/
 
     const onError = () => {
       back.removeEventListener('error', onError);
-      // skip missing frames; try next
       cur += 1;
       setTimeout(scheduleNext, 0);
     };
     back.addEventListener('error', onError, { once: true });
   }
 
-  function start(){
+  function startPlayback(){
     front.src = framePath(START);
     front.addEventListener('load', () => {
+      updateHUD(START);        // === NEW: show Cd for first gen
       cur = START + 1;
       setTimeout(scheduleNext, 1000 / FPS);
     }, { once: true });
   }
 
-  document.addEventListener('DOMContentLoaded', start);
+  // === NEW: fetch Cd data first (non-fatal if missing) ===
+  function loadCd(){
+    return fetch(CD_JSON)
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        if (j && Array.isArray(j.cd)) cdArr = j.cd;
+      })
+      .catch(() => { /* ignore; no HUD update if missing */ });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCd().finally(startPlayback);
+  });
 })();
 </script>
