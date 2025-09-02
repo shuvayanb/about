@@ -9,7 +9,7 @@ permalink: /interactive-flow/
 <script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
 
 <model-viewer
-  src="{{ '/assets/flow/body.glb' | relative_url }}"
+  src="{{ '/assets/flow/body_unlit.glb' | relative_url }}"
   alt="Bézier body colored by PR"
   camera-controls
   auto-rotate
