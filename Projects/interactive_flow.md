@@ -15,7 +15,7 @@ permalink: /pop00-frames/
 <style>
   .mv-wrap {
     position: relative;
-    width: min(900px, 60vw);   /* narrower card */
+    width: min(500px, 60vw);   /* narrower card */
     height: 60vh;              /* a bit shorter */
     margin: 0 auto;            /* center on page */
     background: #ffffff;
