@@ -4,11 +4,21 @@ title: Interactive CFD
 permalink: /interactive-flow/
 ---
 
-<figure style="margin:0">
-  <iframe
-    src="{{ '/assets/flow/flow.html' | relative_url }}?v={{ site.time | date: '%s' }}"
-    style="width:100%; height:82vh; border:0;"
-    loading="eager"
-    allowfullscreen
-  ></iframe>
-</figure>
+<!-- model-viewer runtime -->
+<script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
+
+<model-viewer
+  src="{{ '/assets/flow/body.glb' | relative_url }}"
+  alt="Bézier body colored by PR"
+  camera-controls
+  auto-rotate
+  exposure="1.2"
+  shadow-intensity="0"
+  style="width:100%; height:82vh; background:#0f1115;"
+  interaction-prompt="none">
+</model-viewer>
+
+<p style="color:#8a91a2; font-size:0.9rem; margin-top:0.6rem;">
+  Drag to orbit • Scroll to zoom • Colors = PR baked into vertices (blue → white → red)
+</p>
