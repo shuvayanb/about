@@ -12,11 +12,12 @@ permalink: /interactive-flow/
   src="{{ '/assets/flow/body.glb' | relative_url }}"
   alt="Bézier body colored by PR"
   camera-controls
-  camera-orbit="180deg 75deg auto"
+  camera-orbit="180deg 75deg auto"  <!-- or: orientation="0deg 180deg 0deg" -->
   auto-rotate
-  exposure="1.2"
+  exposure="1.0"
   shadow-intensity="0"
   style="width:100%; height:82vh; background:#ffffff;"
+  poster-color="#ffffff"
   interaction-prompt="none">
 </model-viewer>
 
