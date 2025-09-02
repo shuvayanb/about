@@ -29,7 +29,7 @@ permalink: /pop00-frames/
     background: #ffffff;
   
     /* enlarge + nudge down so the nose fits in frame */
-    transform: translateY(24px) scale(2.0);   /* tweak 16–40px to taste */
+    transform: translateY(24px) scale(2.5);   /* tweak 16–40px to taste */
     transform-origin: 50% 40%;                /* pivot slightly above center */
     will-change: transform;
   }
