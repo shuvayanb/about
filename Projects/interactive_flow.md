@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Interactive CFD (GLB)
+title: Interactive CFD
 permalink: /interactive-flow/
 ---
 
