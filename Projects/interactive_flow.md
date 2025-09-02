@@ -24,11 +24,14 @@ permalink: /pop00-frames/
     overflow: hidden;
   }
   .mv-layer {
-    transform: scale(2);      /* tweak 1.12–1.25 to taste */
-    transform-origin: 50% 50%;
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     background: #ffffff;
+  
+    /* enlarge + nudge down so the nose fits in frame */
+    transform: translateY(24px) scale(2.0);   /* tweak 16–40px to taste */
+    transform-origin: 50% 40%;                /* pivot slightly above center */
+    will-change: transform;
   }
   .hidden { visibility: hidden; }
 
