@@ -9,7 +9,7 @@ permalink: /interactive-flow/
 <script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
 
 <model-viewer
-  src="{{ '/assets/flow/body_unlit.glb' | relative_url }}"
+  src="{{ '/assets/flow/body_unlit.glb' | relative_url }}?v={{ site.time | date: '%s' }}"
   camera-controls
   camera-orbit="180deg 75deg auto"
   style="width:100%; height:82vh; background:#ffffff;"
