@@ -84,7 +84,7 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Intake evolution</h3>
+    <h3>Nose cone optimization</h3>
     <p>Animated history of candidate shapes; the badge shows the drag coefficient
        <em>C</em><sub>d</sub> for each generation.</p>
   </aside>
@@ -304,8 +304,8 @@ title: Projects
 
   <aside class="sidebox">
     <h3>Param sweep</h3>
-    <p>Adjust <strong>n</strong> (external) and <strong>m</strong> (internal) shock counts;
-       the model updates and keeps the same card dimensions.</p>
+    <p>Visualisation of Mach number along the walls of scramjet ramp and cowl with  <strong>n</strong> (external) ramps and <strong>m</strong> (internal) ramps;
+       </p>
   </aside>
 </div>
 
