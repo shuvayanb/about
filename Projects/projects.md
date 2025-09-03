@@ -219,7 +219,7 @@ title: Projects
     auto-rotate
     rotation-per-second="0deg"
     auto-rotate-delay="0"
-    camera-orbit="-90deg 180deg 120%" 
+    camera-orbit="-90deg 160deg 120%" 
     exposure="1.0"
     shadow-intensity="0"
     ar>
@@ -232,13 +232,12 @@ title: Projects
         <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
-    <g transform="scale(-1,1) translate(-300,0)">
-      <line x1="10" y1="30" x2="280" y2="30"
-            stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
-            marker-end="url(#scramjet-fs-head)"></line>
-    </g>
+  
+    <!-- CHANGED: no transform; draw from right (x1) to left (x2) -->
+    <line x1="290" y1="30" x2="20" y2="30"
+          stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
+          marker-end="url(#scramjet-fs-head)"></line>
   </svg>
-</div>
 
 <script>
 (function(){
