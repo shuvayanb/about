@@ -246,7 +246,7 @@ title: Projects
 <script>
 (function(){
   // ---- Arrow direction: 'rtl' = right→left (arrowhead on LEFT). 'ltr' = left→right (arrowhead on RIGHT)
-  const FLOW_DIR = 'rtl';
+  const FLOW_DIR = 'ltr';
 
   const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
   const manifestUrl = base + "manifest.json";
