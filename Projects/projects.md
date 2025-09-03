@@ -197,7 +197,7 @@ title: Projects
   alt="Scramjet intake walls colored by Mach; translucent side plates" 
   camera-controls auto-rotate rotation-per-second="0deg" 
   auto-rotate-delay="0" 
-  camera-orbit="80deg 50deg 110%" 
+  camera-orbit="80deg 120deg 110%" 
   exposure="1.0" 
   shadow-intensity="0" ar> 
   </model-viewer>
