@@ -303,7 +303,7 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Param sweep</h3>
+    <h3>Scramjet intake design</h3>
     <p>Visualisation of Mach number along the walls of scramjet ramp and cowl with  <strong>n</strong> (external) ramps and <strong>m</strong> (internal) ramps;
        </p>
   </aside>
