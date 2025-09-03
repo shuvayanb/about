@@ -192,7 +192,7 @@ title: Projects
   .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
   .scramjet-viewer{width:100%;height:560px;background:transparent;display:block}
-  .scramjet-arrow{position:absolute;right:.75rem;top:35%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2}
+  .scramjet-arrow{position:absolute;right:.0rem;top:35%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2}
 </style>
 
 <div class="scramjet-wrap" id="scramjet-wrap">
