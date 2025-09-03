@@ -24,15 +24,13 @@ title: Projects
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     background: #ffffff;
-  
-    /* enlarge + nudge down so the nose fits in frame */
     transform: translateY(24px) scale(2.5);   /* tweak 16–40px to taste */
-    transform-origin: 50% 40%;                /* pivot slightly above center */
+    transform-origin: 50% 40%;
     will-change: transform;
   }
   .hidden { visibility: hidden; }
 
-  /* === NEW: big HUD for Cd === */
+  /* HUD for Cd */
   .hud {
     font-family: "Times New Roman", Times, serif;
     font-size: 28px;
@@ -47,16 +45,13 @@ title: Projects
   }
   .hud .sym em { font-style: italic; }
   .hud .sym sub { font-size: 0.65em; vertical-align: -0.25em; }
-
   #cdVal { font-weight: 400; }
-  
   .hud .small { font-weight: 600; font-size: 13px; opacity: .8; margin-left: 8px; }
 </style>
 
 <!-- TOP: card + side text -->
 <div class="card-row">
   <div class="mv-wrap">
-    <!-- double buffer: A (front) + B (back) -->
     <!-- mvA -->
     <model-viewer id="mvA" class="mv-layer"
       camera-controls disable-zoom disable-pan interaction-prompt="none"
@@ -68,7 +63,7 @@ title: Projects
       camera-target="0m 0m 0m"
       autoplay></model-viewer>
 
-    <!-- mvB (must match mvA exactly) -->
+    <!-- mvB -->
     <model-viewer id="mvB" class="mv-layer hidden"
       camera-controls disable-zoom disable-pan interaction-prompt="none"
       exposure="1" shadow-intensity="0"
@@ -84,7 +79,7 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Nose cone optimization</h3>
+    <h3>Intake evolution</h3>
     <p>Animated history of candidate shapes; the badge shows the drag coefficient
        <em>C</em><sub>d</sub> for each generation.</p>
   </aside>
@@ -92,20 +87,17 @@ title: Projects
 
 <script>
 (function(){
-  // ----- CONFIG (edit these only) -----
   const BASE   = '{{ "/" | relative_url }}'.replace(/\/+$/, '') + '/';
-  const FOLDER = 'assets/flow/history_pop_00/'; // change folder to another population if needed
-  const START  = 0;          // first frame index
-  const END    = 50;         // last frame index (inclusive)
-  const PAD    = 3;          // zero-padding width in filenames
-  const FPS    = 5;          // playback speed (frames per second)
-  const LOOP   = true;      // play forward once
-  const SUFFIX = '_unlit';   // '' if you overwrote originals; '_unlit' if you created copies
+  const FOLDER = 'assets/flow/history_pop_00/';
+  const START  = 0;
+  const END    = 50;
+  const PAD    = 3;
+  const FPS    = 5;
+  const LOOP   = true;
+  const SUFFIX = '_unlit';
   const EXT    = '.glb';
-  const CACHE_BUST = '?v={{ site.time | date: "%s" }}'; // avoid stale cache on GH Pages
+  const CACHE_BUST = '?v={{ site.time | date: "%s" }}';
 
-  // === NEW: Cd JSON path (sits next to frames) ===
-  // Expecting: { "cd": [cd_gen0, cd_gen1, ...] }
   const CD_JSON = BASE + FOLDER + 'pop_00_meta.json' + CACHE_BUST;
 
   const mvA = document.getElementById('mvA');
@@ -114,9 +106,9 @@ title: Projects
   const genEl = document.getElementById('genIdx');
 
   let cur = START;
-  let front = mvA;  // currently visible
-  let back  = mvB;  // preloads next frame
-  let cdArr = null; // will hold array of Cd values
+  let front = mvA;
+  let back  = mvB;
+  let cdArr = null;
 
   function framePath(i){
     const id = String(i).padStart(PAD, '0');
@@ -138,13 +130,12 @@ title: Projects
 
   function scheduleNext(){
     if (cur > END) { if (!LOOP) return; cur = START; }
-
     back.src = framePath(cur);
 
     const onLoaded = () => {
       back.removeEventListener('load', onLoaded);
       swapLayers();
-      updateHUD(cur);           // === NEW: update Cd for this gen
+      updateHUD(cur);
       cur += 1;
       setTimeout(scheduleNext, 1000 / FPS);
     };
@@ -161,20 +152,17 @@ title: Projects
   function startPlayback(){
     front.src = framePath(START);
     front.addEventListener('load', () => {
-      updateHUD(START);        // === NEW: show Cd for first gen
+      updateHUD(START);
       cur = START + 1;
       setTimeout(scheduleNext, 1000 / FPS);
     }, { once: true });
   }
 
-  // === NEW: fetch Cd data first (non-fatal if missing) ===
   function loadCd(){
     return fetch(CD_JSON)
       .then(r => r.ok ? r.json() : null)
-      .then(j => {
-        if (j && Array.isArray(j.cd)) cdArr = j.cd;
-      })
-      .catch(() => { /* ignore; no HUD update if missing */ });
+      .then(j => { if (j && Array.isArray(j.cd)) cdArr = j.cd; })
+      .catch(() => {});
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -188,7 +176,7 @@ title: Projects
 
 
 <style>
-  /* puts a slim side text box next to a card */
+  /* side text layout */
   .card-row{
     display:grid;
     grid-template-columns: min(500px, 60vw) minmax(260px, 1fr);
@@ -207,8 +195,6 @@ title: Projects
     font: 400 15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     color:#222;
   }
-
-  /* for the bottom card: a simple container so the arrow can stay over the model */
   .card-cell{ position:relative; }
   @media (max-width: 900px){
     .card-row{ grid-template-columns: 1fr; }
@@ -229,7 +215,7 @@ title: Projects
     position: relative;
     width: min(500px, 60vw);   /* match top card width */
     margin: .75rem auto;
-    padding: 0;                /* no inner padding */
+    padding: 0;
   }
 
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
@@ -248,7 +234,7 @@ title: Projects
     overflow: hidden;
   }
   .scramjet-arrow{
-    position:absolute; right:0;  /* flush against the right edge */
+    position:absolute; left:0;   /* moved from right:0 to left:0 */
     top:35%; transform:translateY(-50%);
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
@@ -280,6 +266,7 @@ title: Projects
       src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
       alt="Scramjet intake walls colored by Mach; translucent side plates"
       camera-controls
+      interaction-prompt="none"   <!-- hide finger prompt -->
       auto-rotate
       rotation-per-second="0deg"
       auto-rotate-delay="0"
@@ -303,15 +290,14 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Scramjet intake design</h3>
-    <p>Visualisation of Mach number along the walls of scramjet ramp and cowl with  <strong>n</strong> (external) ramps and <strong>m</strong> (internal) ramps;
-       </p>
+    <h3>Param sweep</h3>
+    <p>Adjust <strong>n</strong> (external) and <strong>m</strong> (internal) shock counts;
+       the model updates and keeps the same card dimensions.</p>
   </aside>
 </div>
 
 <script>
 (function(){
-  // ---- Arrow direction: 'rtl' = right→left (arrowhead on LEFT). 'ltr' = left→right (arrowhead on RIGHT)
   const FLOW_DIR = 'ltr';
 
   const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
@@ -326,11 +312,10 @@ title: Projects
   const mTicks = document.getElementById('scramjet-mTicks');
   const fsLine = document.getElementById('scramjet-fs-line');
 
-  // apply arrow direction once
   function setArrowDirection(dir){
     if (dir === 'ltr'){         // left → right
       fsLine.setAttribute('x1','20');  fsLine.setAttribute('x2','290');
-    } else {                    // 'rtl' (default): right → left
+    } else {
       fsLine.setAttribute('x1','290'); fsLine.setAttribute('x2','20');
     }
   }
@@ -354,7 +339,6 @@ title: Projects
     nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
     mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
 
-    // start both sliders at the middle value
     const iN0 = Math.floor(nVals.length / 2);
     const iM0 = Math.floor(mVals.length / 2);
     nEl.value = iN0;  mEl.value = iM0;
@@ -385,10 +369,6 @@ title: Projects
     const n = nVals[iN], m = mVals[iM];
     nOut.textContent = n; mOut.textContent = m;
     mv.src = fileFor(n, m);
-
-    // keep your preferred default camera if needed
-    // mv.cameraOrbit = '-90deg 160deg 120%'; mv.jumpCameraToGoal();
-
     prefetchNeighbors(iN, iM);
   }
 
