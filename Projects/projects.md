@@ -190,7 +190,16 @@ title: Projects
   .scramjet-ctl label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
   .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
-  .scramjet-viewer{width:100%;height:560px;background:transparent;display:block}
+ 
+  .scramjet-viewer{
+  width:100%;
+  height:560px;
+  background:#ffffff;         /* white card */
+  display:block;
+  border-radius:14px;         /* rounded corners like the top figure */
+  box-shadow:0 6px 20px rgba(0,0,0,.10);  /* soft shadow */
+  overflow:hidden;            /* clip edges to the radius */
+}
   .scramjet-arrow{
     position:absolute; right:0;  /* flush against the right edge */
     top:35%; transform:translateY(-50%);
