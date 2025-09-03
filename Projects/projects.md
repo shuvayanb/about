@@ -180,19 +180,23 @@ title: Projects
 
 
 
-
 <!-- ── Scramjet param sweep block (Markdown-safe) ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
-  .scramjet-wrap { max-width:980px; margin:.75rem auto; position:relative; padding:0 .0rem 0 .5rem; }
+  .scramjet-wrap { max-width:980px; margin:.75rem auto; position:relative; padding:0 0 0 .5rem; } /* no right padding */
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
   .scramjet-ctl{flex:1}
   .scramjet-ctl label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
   .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
   .scramjet-viewer{width:100%;height:560px;background:transparent;display:block}
-  .scramjet-arrow{position:absolute;right:.0rem;top:35%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2}
+  .scramjet-arrow{
+    position:absolute; right:0;  /* flush against the right edge */
+    top:35%; transform:translateY(-50%);
+    width:18%; height:10%;
+    pointer-events:none; opacity:.95; z-index:2;
+  }
 </style>
 
 <div class="scramjet-wrap" id="scramjet-wrap">
@@ -219,7 +223,7 @@ title: Projects
     auto-rotate
     rotation-per-second="0deg"
     auto-rotate-delay="0"
-    camera-orbit="-90deg 160deg 120%" 
+    camera-orbit="-95deg 160deg 120%"
     exposure="1.0"
     shadow-intensity="0"
     ar>
@@ -232,16 +236,18 @@ title: Projects
         <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
-  
-  <line x1="290" y1="30" x2="20" y2="30"
+    <!-- single line; JS below sets its direction -->
+    <line id="scramjet-fs-line" x1="290" y1="30" x2="20" y2="30"
           stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
           marker-end="url(#scramjet-fs-head)"></line>
-
-    
   </svg>
+</div>
 
 <script>
 (function(){
+  // ---- Arrow direction: 'rtl' = right→left (arrowhead on LEFT). 'ltr' = left→right (arrowhead on RIGHT)
+  const FLOW_DIR = 'rtl';
+
   const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
   const manifestUrl = base + "manifest.json";
 
@@ -252,32 +258,43 @@ title: Projects
   const mOut = document.getElementById('scramjet-mOut');
   const nTicks = document.getElementById('scramjet-nTicks');
   const mTicks = document.getElementById('scramjet-mTicks');
+  const fsLine = document.getElementById('scramjet-fs-line');
+
+  // apply arrow direction once
+  function setArrowDirection(dir){
+    if (dir === 'ltr'){         // left → right
+      fsLine.setAttribute('x1','20');  fsLine.setAttribute('x2','290');
+    } else {                    // 'rtl' (default): right → left
+      fsLine.setAttribute('x1','290'); fsLine.setAttribute('x2','20');
+    }
+  }
+  setArrowDirection(FLOW_DIR);
 
   let nVals = [2,3,10,32,100], mVals = [2,3,10,32,100];
   let pattern = "scramjet_n{n}_m{m}.glb";
 
   fetch(manifestUrl, {cache:'no-store'}).then(r => r.ok ? r.json() : null).then(man => {
-    if (man){ if (Array.isArray(man.n_values)) nVals = man.n_values;
-              if (Array.isArray(man.m_values)) mVals = man.m_values;
-              if (man.pattern) pattern = man.pattern; }
+    if (man){
+      if (Array.isArray(man.n_values)) nVals = man.n_values;
+      if (Array.isArray(man.m_values)) mVals = man.m_values;
+      if (man.pattern) pattern = man.pattern;
+    }
     init();
   }).catch(init);
 
-function init(){
-  nEl.max = String(nVals.length - 1);
-  mEl.max = String(mVals.length - 1);
-  nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
-  mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
+  function init(){
+    nEl.max = String(nVals.length - 1);
+    mEl.max = String(mVals.length - 1);
+    nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
+    mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
 
-  // --- CHANGED: use mid index, not 0 ---
-  const iN0 = Math.floor(nVals.length / 2);
-  const iM0 = Math.floor(mVals.length / 2);
-  nEl.value = iN0;
-  mEl.value = iM0;
+    // start both sliders at the middle value
+    const iN0 = Math.floor(nVals.length / 2);
+    const iM0 = Math.floor(mVals.length / 2);
+    nEl.value = iN0;  mEl.value = iM0;
 
-  // updateModel() will set the outputs and load the correct GLB
-  updateModel();
-}
+    updateModel();
+  }
 
   const fileFor = (n, m) => base + pattern.replace("{n}", n).replace("{m}", m);
 
@@ -302,6 +319,10 @@ function init(){
     const n = nVals[iN], m = mVals[iM];
     nOut.textContent = n; mOut.textContent = m;
     mv.src = fileFor(n, m);
+
+    // keep your preferred default camera if needed
+    // mv.cameraOrbit = '-90deg 160deg 120%'; mv.jumpCameraToGoal();
+
     prefetchNeighbors(iN, iM);
   }
 
@@ -314,6 +335,10 @@ function init(){
   mEl.addEventListener('input', onInput);
 })();
 </script>
+<!-- ───────────────────────────────────────────────────────────── -->
+
+
+
 
 
 
