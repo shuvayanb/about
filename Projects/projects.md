@@ -177,14 +177,41 @@ title: Projects
 </script>
 
 
+<!-- model-viewer -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-<div style="position:relative;max-width:980px;margin:.25rem auto;">
-  <!-- YOUR viewer, unchanged -->
+<style>
+  .wrap{max-width:980px;margin:.5rem auto;padding:0 .5rem}
+  .controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
+  .control{flex:1}
+  .control label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
+  .control output{font:600 14px;color:#111;background:#eef; padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
+  .ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
+  input[type="range"]{width:100%}
+  .viewer{width:100%;height:560px;background:transparent;display:block}
+</style>
+
+<div class="wrap">
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="control">
+      <label>n (external shocks) <output id="nOut">…</output></label>
+      <input id="nSlider" type="range" min="0" max="4" step="1" value="0" />
+      <div id="nTicks" class="ticks"></div>
+    </div>
+    <div class="control">
+      <label>m (internal shocks) <output id="mOut">…</output></label>
+      <input id="mSlider" type="range" min="0" max="4" step="1" value="0" />
+      <div id="mTicks" class="ticks"></div>
+    </div>
+  </div>
+
+  <!-- Viewer -->
   <model-viewer
+    id="mv"
     class="viewer"
-    style="width:100%;height:560px;background:transparent;display:block;"
-    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"  <!-- fallback if manifest not found -->
     alt="Scramjet intake walls colored by Mach; translucent side plates"
     camera-controls
     auto-rotate rotation-per-second="0deg"
@@ -195,7 +222,7 @@ title: Projects
     ar>
   </model-viewer>
 
-  <!-- freestream arrow (right side, pointing right→left) -->
+  <!-- Freestream arrow overlay -->
   <svg aria-hidden="true"
        viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet"
        style="position:absolute;right:.75rem;top:35%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2;">
@@ -204,18 +231,102 @@ title: Projects
         <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
-    <!-- flip group so arrow points right→left; remove this <g> to make it left→right -->
     <g transform="scale(-1,1) translate(-300,0)">
       <line x1="10" y1="30" x2="280" y2="30"
             stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
             marker-end="url(#fs-head)"></line>
-      <text x="12" y="22"
-            style="font:600 14px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#1d4ed8;">
-        
-      </text>
     </g>
   </svg>
 </div>
+
+<script>
+(async () => {
+  const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/') ;
+  const manifestUrl = base + "manifest.json";
+
+  const mv = document.getElementById('mv');
+  const nSlider = document.getElementById('nSlider');
+  const mSlider = document.getElementById('mSlider');
+  const nOut = document.getElementById('nOut');
+  const mOut = document.getElementById('mOut');
+  const nTicks = document.getElementById('nTicks');
+  const mTicks = document.getElementById('mTicks');
+
+  let nVals = [2, 3, 10, 32, 100];  // sensible defaults; replaced by manifest if present
+  let mVals = [2, 3, 10, 32, 100];
+  let pattern = "scramjet_n{n}_m{m}.glb";
+
+  try {
+    const res = await fetch(manifestUrl, {cache:'no-store'});
+    if (res.ok) {
+      const man = await res.json();
+      if (Array.isArray(man.n_values)) nVals = man.n_values;
+      if (Array.isArray(man.m_values)) mVals = man.m_values;
+      if (man.pattern) pattern = man.pattern;
+    }
+  } catch(e){ /* use defaults */ }
+
+  // Snap sliders to 0..len-1 and print tick labels
+  nSlider.max = String(nVals.length - 1);
+  mSlider.max = String(mVals.length - 1);
+  nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
+  mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
+
+  // start at first entries
+  let iN = 0, iM = 0;
+  nSlider.value = iN; mSlider.value = iM;
+  nOut.textContent = nVals[iN];
+  mOut.textContent = mVals[iM];
+
+  // filename builder
+  const fileFor = (n, m) => base + pattern.replace("{n}", n).replace("{m}", m);
+
+  // light prefetch of neighbors
+  const seen = new Set();
+  function prefetch(url){
+    if (seen.has(url)) return;
+    const l = document.createElement('link');
+    l.rel = 'prefetch';
+    l.href = url;
+    document.head.appendChild(l);
+    seen.add(url);
+  }
+  function prefetchNeighbors(iN, iM){
+    const idx = [[iN-1,iM],[iN+1,iM],[iN,iM-1],[iN,iM+1],[iN-1,iM-1],[iN+1,iM+1],[iN-1,iM+1],[iN+1,iM-1]];
+    for (const [a,b] of idx){
+      if (a>=0 && a<nVals.length && b>=0 && b<mVals.length){
+        prefetch( fileFor(nVals[a], mVals[b]) );
+      }
+    }
+  }
+
+  // swap the model without touching camera-orbit attribute
+  let rafToken = null;
+  function updateModel(){
+    const n = nVals[iN], m = mVals[iM];
+    nOut.textContent = n; mOut.textContent = m;
+    const url = fileFor(n, m);
+    // keep same view; just change src
+    mv.src = url;
+    prefetchNeighbors(iN, iM);
+  }
+  function onInput(){
+    // coalesce rapid drags
+    if (rafToken) cancelAnimationFrame(rafToken);
+    rafToken = requestAnimationFrame(() => {
+      iN = parseInt(nSlider.value,10);
+      iM = parseInt(mSlider.value,10);
+      updateModel();
+      rafToken = null;
+    });
+  }
+  nSlider.addEventListener('input', onInput);
+  mSlider.addEventListener('input', onInput);
+
+  // initial load + neighbor prefetch
+  updateModel();
+})();
+</script>
 
 
 * # <span style="color:blue">[SciML for forward and inverse problems](Sub_projects/p_deep_learning.md) </span>
