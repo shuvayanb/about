@@ -193,16 +193,13 @@ title: Projects
 </style>
 
 <model-viewer class="viewer"
-  src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
-  alt="Scramjet intake walls colored by Mach; translucent side plates"
+  src="{{ '/assets/flow/scramjet/scramjet.glb?v=2' | relative_url }}"
   camera-controls
-  auto-rotate
-  rotation-per-second="0deg"
-  auto-rotate-delay="0"
-  camera-orbit="50deg 100deg 110%"
-  exposure="1.0"
-  shadow-intensity="0"
-  ar>
+  camera-orbit="230deg 70deg 110%"
+  min-camera-orbit="auto 15deg auto"
+  max-camera-orbit="auto 88deg auto"
+  auto-rotate rotation-per-second="0deg"
+  exposure="1.0" shadow-intensity="0" ar>
 </model-viewer>
 
 
