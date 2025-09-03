@@ -179,8 +179,9 @@ title: Projects
 
 
 
-<!-- ── Scramjet param sweep block (safe to paste in any .md page) ─────────── -->
-<!-- model-viewer runtime -->
+
+
+<!-- ── Scramjet param sweep block (Markdown-safe) ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
@@ -195,7 +196,6 @@ title: Projects
 </style>
 
 <div class="scramjet-wrap" id="scramjet-wrap">
-  <!-- Controls -->
   <div class="scramjet-controls">
     <div class="scramjet-ctl">
       <label>n (external shocks) <output id="scramjet-nOut">…</output></label>
@@ -209,14 +209,15 @@ title: Projects
     </div>
   </div>
 
-  <!-- Viewer -->
+  <!-- Viewer (NO inline comments inside the tag) -->
   <model-viewer
     id="scramjet-mv"
     class="scramjet-viewer"
-    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"  <!-- fallback if manifest missing -->
+    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
     alt="Scramjet intake walls colored by Mach; translucent side plates"
     camera-controls
-    auto-rotate rotation-per-second="0deg"
+    auto-rotate
+    rotation-per-second="0deg"
     auto-rotate-delay="0"
     camera-orbit="90deg 155deg 110%"
     exposure="1.0"
@@ -241,7 +242,7 @@ title: Projects
 
 <script>
 (function(){
-  const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/') ;
+  const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
   const manifestUrl = base + "manifest.json";
 
   const mv   = document.getElementById('scramjet-mv');
@@ -263,7 +264,6 @@ title: Projects
   }).catch(init);
 
   function init(){
-    // slider ranges + tick labels
     nEl.max = String(nVals.length - 1);
     mEl.max = String(mVals.length - 1);
     nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
@@ -295,7 +295,7 @@ title: Projects
     const iM = parseInt(mEl.value,10);
     const n = nVals[iN], m = mVals[iM];
     nOut.textContent = n; mOut.textContent = m;
-    mv.src = fileFor(n, m);           // swap model only; keeps camera/orbit
+    mv.src = fileFor(n, m);
     prefetchNeighbors(iN, iM);
   }
 
@@ -308,7 +308,7 @@ title: Projects
   mEl.addEventListener('input', onInput);
 })();
 </script>
-<!-- ────────────────────────────────────────────────────────────────────────── -->
+<!-- ───────────────────────────────────────────────────────────── -->
 
 
 
