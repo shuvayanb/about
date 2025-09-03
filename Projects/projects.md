@@ -177,6 +177,38 @@ title: Projects
 </script>
 
 
+<!-- Model Viewer + overlayed freestream arrow -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<style>
+  .mv-wrap { position: relative; max-width: 980px; margin: 1rem auto; }
+  .mv-wrap model-viewer { width: 100%; height: 560px; background: transparent; }
+
+  /* --- arrow overlay --- */
+  .flow-arrow {
+    /* position the arrow on the right, vertically centered */
+    position: absolute;
+    right: 1.25rem;            /* nudge inward from the right edge */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22%;                /* arrow length relative to viewer width */
+    height: 12%;
+    pointer-events: none;      /* keep viewer fully interactive */
+    opacity: 0.95;
+  }
+  .flow-arrow line    { stroke: #1d4ed8; stroke-width: 6; stroke-linecap: round; }
+  .flow-arrow polygon { fill:   #1d4ed8; }
+  .flow-arrow .label  {
+    font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    fill: #1d4ed8;
+  }
+
+  /* tweak sizing on small screens */
+  @media (max-width: 640px) {
+    .mv-wrap model-viewer { height: 420px; }
+    .flow-arrow { width: 34%; }
+  }
+</style>
 
 <!-- Model Viewer -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
