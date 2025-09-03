@@ -193,7 +193,7 @@ title: Projects
  
   .scramjet-viewer{
   width:100%;
-  height:560px;
+  height:400px;
   background:#ffffff;         /* white card */
   display:block;
   border-radius:14px;         /* rounded corners like the top figure */
