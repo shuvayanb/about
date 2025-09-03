@@ -74,7 +74,7 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Intake evolution</h3>
+    <h3>Nose cone optimisation</h3>
     <p>Animated history of candidate shapes; the badge shows the drag coefficient
        <em>C</em><sub>d</sub> for each generation.</p>
   </aside>
@@ -220,9 +220,9 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Param sweep</h3>
-    <p>Adjust <strong>n</strong> (external) and <strong>m</strong> (internal) shock counts;
-       the model updates and keeps the same card dimensions.</p>
+    <h3>Scramjet intake design</h3>
+    <p>Scramjet intake with <strong>n</strong> (external) and <strong>m</strong> (internal) shock;
+       See how the Mach number distribution along the ramp and cowl walls changes shocks.</p>
   </aside>
 </div>
 
