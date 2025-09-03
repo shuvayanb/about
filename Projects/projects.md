@@ -182,58 +182,56 @@ title: Projects
 
 <style>
   .mv-wrap { position: relative; max-width: 980px; margin: 1rem auto; }
-  .mv-wrap model-viewer { width: 100%; height: 560px; background: transparent; }
+  .mv-wrap .viewer { width: 100%; height: 560px; background: transparent; }
 
   /* --- arrow overlay --- */
-  .flow-arrow {
-    /* position the arrow on the right, vertically centered */
-    position: absolute;
-    right: 1.25rem;            /* nudge inward from the right edge */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 22%;                /* arrow length relative to viewer width */
-    height: 12%;
-    pointer-events: none;      /* keep viewer fully interactive */
-    opacity: 0.95;
+  .flow-arrow{
+    position:absolute;
+    right:1.25rem;            /* nudge from right edge */
+    top:50%;
+    transform:translateY(-50%);
+    width:22%; height:12%;
+    pointer-events:none;      /* keep viewer interactive */
+    opacity:.95;
+    z-index:2;
   }
-  .flow-arrow line    { stroke: #1d4ed8; stroke-width: 6; stroke-linecap: round; }
-  .flow-arrow polygon { fill:   #1d4ed8; }
+  .flow-arrow line    { stroke:#1d4ed8; stroke-width:6; stroke-linecap:round; }
+  .flow-arrow polygon { fill:#1d4ed8; }
   .flow-arrow .label  {
-    font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    fill: #1d4ed8;
+    font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    fill:#1d4ed8;
   }
-
-  /* tweak sizing on small screens */
-  @media (max-width: 640px) {
-    .mv-wrap model-viewer { height: 420px; }
-    .flow-arrow { width: 34%; }
+  @media (max-width:640px){
+    .mv-wrap .viewer{ height:420px; }
+    .flow-arrow{ width:34%; }
   }
 </style>
 
-<!-- Model Viewer -->
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-<style>
-  /* make the viewer responsive */
-  .viewer {
-    width: 100%;
-    max-width: 980px;
-    height: 560px;   /* tweak to taste */
-    margin: 1rem auto;
-    background: transparent;
-  }
-</style>
-
-<model-viewer 
-  class="viewer" src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}" 
-  alt="Scramjet intake walls colored by Mach; translucent side plates" 
-  camera-controls auto-rotate rotation-per-second="0deg" 
-  auto-rotate-delay="0" 
-  camera-orbit="90deg 155deg 110%" 
-  exposure="1.0" 
-  shadow-intensity="0" ar> 
+<div class="mv-wrap">
+  <model-viewer
+    class="viewer"
+    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+    alt="Scramjet intake walls colored by Mach; translucent side plates"
+    camera-controls
+    auto-rotate rotation-per-second="0deg"
+    auto-rotate-delay="0"
+    camera-orbit="90deg 155deg 110%"
+    exposure="1.0"
+    shadow-intensity="0"
+    ar>
   </model-viewer>
 
+  <!-- right-side freestream arrow (left -> right) -->
+  <svg class="flow-arrow" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <defs>
+      <marker id="fs-head" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7"></polygon>
+      </marker>
+    </defs>
+    <line x1="10" y1="30" x2="280" y2="30" marker-end="url(#fs-head)"></line>
+    <text x="12" y="22" class="label">Freestream</text>
+  </svg>
+</div>
 
 * # <span style="color:blue">[SciML for forward and inverse problems](Sub_projects/p_deep_learning.md) </span>
 
