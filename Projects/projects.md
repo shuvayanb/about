@@ -223,7 +223,7 @@ title: Projects
   <aside class="sidebox">
     <h3>Scramjet intake design</h3>
     <p>Scramjet intake with <strong>n</strong> (external) and <strong>m</strong> (internal) shock;
-       See how the Mach number distribution along the ramp and cowl walls changes shocks.</p>
+       See how the Mach number distribution changes along the ramp and cowl walls.</p>
   </aside>
 </div>
 
