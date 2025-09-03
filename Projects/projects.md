@@ -178,6 +178,33 @@ title: Projects
 
 
 
+<!-- Model Viewer -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<style>
+  /* make the viewer responsive */
+  .viewer {
+    width: 100%;
+    max-width: 980px;
+    height: 560px;   /* tweak to taste */
+    margin: 1rem auto;
+    background: transparent;
+  }
+</style>
+
+<model-viewer class="viewer"
+  src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+  alt="Scramjet intake walls colored by Mach; translucent side plates"
+  camera-controls
+  auto-rotate
+  rotation-per-second="8deg"
+  auto-rotate-delay="0"
+  camera-orbit="30deg 60deg 110%"
+  exposure="1.0"
+  shadow-intensity="0"
+  ar>
+</model-viewer>
+
 
 * # <span style="color:blue">[SciML for forward and inverse problems](Sub_projects/p_deep_learning.md) </span>
 
