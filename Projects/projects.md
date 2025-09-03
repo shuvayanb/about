@@ -1,3 +1,185 @@
+---
+layout: page
+title: Projects
+---
+
+* # <span style="color:blue">Shape design and optimization </span>
+
+<!-- model-viewer runtime -->
+<script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
+
+<style>
+  .mv-wrap {
+    position: relative;
+    width: min(500px, 60vw);   /* narrower card */
+    height: 40vh;              /* a bit shorter */
+    margin: 0 auto;            /* center on page */
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.10);
+    overflow: hidden;
+  }
+  .mv-layer {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    background: #ffffff;
+  
+    /* enlarge + nudge down so the nose fits in frame */
+    transform: translateY(24px) scale(2.5);   /* tweak 16–40px to taste */
+    transform-origin: 50% 40%;                /* pivot slightly above center */
+    will-change: transform;
+  }
+  .hidden { visibility: hidden; }
+
+  /* === NEW: big HUD for Cd === */
+  .hud {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
+    font-weight: 600;
+    position: absolute; top: 14px; left: 16px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.92);
+    color: #111;
+    border-radius: 10px;
+    font: 700 20px/1.1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .hud .sym em { font-style: italic; }
+  .hud .sym sub { font-size: 0.65em; vertical-align: -0.25em; }
+
+  #cdVal { font-weight: 400; }
+  
+  .hud .small { font-weight: 600; font-size: 13px; opacity: .8; margin-left: 8px; }
+</style>
+
+<div class="mv-wrap">
+  <!-- double buffer: A (front) + B (back) -->
+  <!-- mvA -->
+<model-viewer id="mvA" class="mv-layer"
+  camera-controls disable-zoom disable-pan interaction-prompt="none"
+  exposure="1" shadow-intensity="0"
+  camera-orbit="200deg 65deg 100%"
+  min-camera-orbit="200deg 65deg 100%"
+  max-camera-orbit="200deg 65deg 100%"
+  field-of-view="22deg"
+  camera-target="0m 0m 0m"
+  autoplay></model-viewer>
+
+<!-- mvB (must match mvA exactly) -->
+<model-viewer id="mvB" class="mv-layer hidden"
+  camera-controls disable-zoom disable-pan interaction-prompt="none"
+  exposure="1" shadow-intensity="0"
+  camera-orbit="200deg 65deg 100%"
+  min-camera-orbit="200deg 65deg 100%"
+  max-camera-orbit="200deg 65deg 100%"
+  field-of-view="22deg"
+  camera-target="0m 0m 0m"
+  autoplay></model-viewer>
+
+
+  <!-- === NEW: Cd overlay -->
+  <div class="hud"><span class="sym"><em>C</em><sub>d</sub></span> <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
+
+</div>
+
+<script>
+(function(){
+  // ----- CONFIG (edit these only) -----
+  const BASE   = '{{ "/" | relative_url }}'.replace(/\/+$/, '') + '/';
+  const FOLDER = 'assets/flow/history_pop_00/'; // change folder to another population if needed
+  const START  = 0;          // first frame index
+  const END    = 50;         // last frame index (inclusive)
+  const PAD    = 3;          // zero-padding width in filenames
+  const FPS    = 5;          // playback speed (frames per second)
+  const LOOP   = true;      // play forward once
+  const SUFFIX = '_unlit';   // '' if you overwrote originals; '_unlit' if you created copies
+  const EXT    = '.glb';
+  const CACHE_BUST = '?v={{ site.time | date: "%s" }}'; // avoid stale cache on GH Pages
+
+  // === NEW: Cd JSON path (sits next to frames) ===
+  // Expecting: { "cd": [cd_gen0, cd_gen1, ...] }
+  const CD_JSON = BASE + FOLDER + 'pop_00_meta.json' + CACHE_BUST;
+
+  const mvA = document.getElementById('mvA');
+  const mvB = document.getElementById('mvB');
+  const cdEl  = document.getElementById('cdVal');
+  const genEl = document.getElementById('genIdx');
+
+  let cur = START;
+  let front = mvA;  // currently visible
+  let back  = mvB;  // preloads next frame
+  let cdArr = null; // will hold array of Cd values
+
+  function framePath(i){
+    const id = String(i).padStart(PAD, '0');
+    return BASE + FOLDER + 'frame_' + id + SUFFIX + EXT + CACHE_BUST;
+  }
+
+  function updateHUD(i){
+    if (genEl) genEl.textContent = i;
+    if (!cdArr || !cdArr.length) { cdEl && (cdEl.textContent = '—'); return; }
+    const val = cdArr[Math.max(0, Math.min(i, cdArr.length - 1))];
+    cdEl.textContent = (typeof val === 'number') ? val.toFixed(4) : '—';
+  }
+
+  function swapLayers(){
+    front.classList.add('hidden');
+    back.classList.remove('hidden');
+    const tmp = front; front = back; back = tmp;
+  }
+
+  function scheduleNext(){
+    if (cur > END) { if (!LOOP) return; cur = START; }
+
+    back.src = framePath(cur);
+
+    const onLoaded = () => {
+      back.removeEventListener('load', onLoaded);
+      swapLayers();
+      updateHUD(cur);           // === NEW: update Cd for this gen
+      cur += 1;
+      setTimeout(scheduleNext, 1000 / FPS);
+    };
+    back.addEventListener('load', onLoaded, { once: true });
+
+    const onError = () => {
+      back.removeEventListener('error', onError);
+      cur += 1;
+      setTimeout(scheduleNext, 0);
+    };
+    back.addEventListener('error', onError, { once: true });
+  }
+
+  function startPlayback(){
+    front.src = framePath(START);
+    front.addEventListener('load', () => {
+      updateHUD(START);        // === NEW: show Cd for first gen
+      cur = START + 1;
+      setTimeout(scheduleNext, 1000 / FPS);
+    }, { once: true });
+  }
+
+  // === NEW: fetch Cd data first (non-fatal if missing) ===
+  function loadCd(){
+    return fetch(CD_JSON)
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        if (j && Array.isArray(j.cd)) cdArr = j.cd;
+      })
+      .catch(() => { /* ignore; no HUD update if missing */ });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCd().finally(startPlayback);
+  });
+})();
+</script>
+
+
+
+
+
 <!-- ── Scramjet param sweep block (Markdown-safe) ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -10,7 +192,7 @@
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
   .scramjet-viewer{width:100%;height:560px;background:transparent;display:block}
   .scramjet-arrow{
-    position:absolute; right:0;               /* truly flush right */
+    position:absolute; right:0;  /* flush against the right edge */
     top:35%; transform:translateY(-50%);
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
@@ -31,6 +213,7 @@
     </div>
   </div>
 
+  <!-- Viewer (NO inline comments inside the tag) -->
   <model-viewer
     id="scramjet-mv"
     class="scramjet-viewer"
@@ -40,29 +223,29 @@
     auto-rotate
     rotation-per-second="0deg"
     auto-rotate-delay="0"
-    camera-orbit="-90deg 160deg 120%"
+    camera-orbit="-92deg 160deg 120%"
     exposure="1.0"
     shadow-intensity="0"
     ar>
   </model-viewer>
 
-  <!-- Freestream arrow (viewport is 100x20 'units'; we draw with %) -->
-  <svg aria-hidden="true" viewBox="0 0 100 20" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
+  <!-- Freestream arrow -->
+  <svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
     <defs>
-      <marker id="scramjet-fs-head" markerWidth="10" markerHeight="6" refX="7" refY="3" orient="auto">
-        <polygon points="0 0, 8 3, 0 6" fill="#1d4ed8"></polygon>
+      <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
-    <line id="scramjet-fs-line"
-          x1="95%" y1="50%" x2="15%" y2="50%"   <!-- default: right→left -->
-          stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"
+    <!-- single line; JS below sets its direction -->
+    <line id="scramjet-fs-line" x1="290" y1="30" x2="20" y2="30"
+          stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
           marker-end="url(#scramjet-fs-head)"></line>
   </svg>
 </div>
 
 <script>
 (function(){
-  // 'rtl' = right→left (arrowhead on LEFT).  'ltr' = left→right (arrowhead on RIGHT).
+  // ---- Arrow direction: 'rtl' = right→left (arrowhead on LEFT). 'ltr' = left→right (arrowhead on RIGHT)
   const FLOW_DIR = 'rtl';
 
   const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
@@ -77,12 +260,15 @@
   const mTicks = document.getElementById('scramjet-mTicks');
   const fsLine = document.getElementById('scramjet-fs-line');
 
-  // Apply arrow direction exactly once.
-  if (FLOW_DIR === 'ltr'){
-    fsLine.setAttribute('x1','15%'); fsLine.setAttribute('x2','95%');
-  } else { // 'rtl'
-    fsLine.setAttribute('x1','95%'); fsLine.setAttribute('x2','15%');
+  // apply arrow direction once
+  function setArrowDirection(dir){
+    if (dir === 'ltr'){         // left → right
+      fsLine.setAttribute('x1','20');  fsLine.setAttribute('x2','290');
+    } else {                    // 'rtl' (default): right → left
+      fsLine.setAttribute('x1','290'); fsLine.setAttribute('x2','20');
+    }
   }
+  setArrowDirection(FLOW_DIR);
 
   let nVals = [2,3,10,32,100], mVals = [2,3,10,32,100];
   let pattern = "scramjet_n{n}_m{m}.glb";
@@ -102,7 +288,7 @@
     nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
     mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
 
-    // start sliders at the middle value
+    // start both sliders at the middle value
     const iN0 = Math.floor(nVals.length / 2);
     const iM0 = Math.floor(mVals.length / 2);
     nEl.value = iN0;  mEl.value = iM0;
@@ -134,7 +320,7 @@
     nOut.textContent = n; mOut.textContent = m;
     mv.src = fileFor(n, m);
 
-    // keep your default camera if desired
+    // keep your preferred default camera if needed
     // mv.cameraOrbit = '-90deg 160deg 120%'; mv.jumpCameraToGoal();
 
     prefetchNeighbors(iN, iM);
@@ -150,3 +336,7 @@
 })();
 </script>
 <!-- ───────────────────────────────────────────────────────────── -->
+
+
+
+
