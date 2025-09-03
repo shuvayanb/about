@@ -313,9 +313,6 @@ function init(){
   mEl.addEventListener('input', onInput);
 })();
 </script>
-<!-- ───────────────────────────────────────────────────────────── -->
-
-
 
 
 
