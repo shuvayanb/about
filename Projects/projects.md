@@ -184,21 +184,27 @@ title: Projects
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
-  .scramjet-wrap { max-width:980px; margin:.75rem auto; position:relative; padding:0 0 0 .5rem; } /* no right padding */
+  .scramjet-wrap{
+  position: relative;
+  width: min(500px, 60vw);   /* match top card width */
+  margin: .75rem auto;
+  padding: 0;                /* no inner padding */
+}
+
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
   .scramjet-ctl{flex:1}
   .scramjet-ctl label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
   .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
  
-  .scramjet-viewer{
-  width:100%;
-  height:400px;
-  background:#ffffff;         /* white card */
-  display:block;
-  border-radius:14px;         /* rounded corners like the top figure */
-  box-shadow:0 6px 20px rgba(0,0,0,.10);  /* soft shadow */
-  overflow:hidden;            /* clip edges to the radius */
+.scramjet-viewer{
+  width: 100%;
+  height: 40vh;              /* match top card height */
+  background: #ffffff;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  overflow: hidden;
 }
   .scramjet-arrow{
     position:absolute; right:0;  /* flush against the right edge */
