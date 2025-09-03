@@ -192,7 +192,7 @@ title: Projects
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
   .scramjet-viewer{width:100%;height:560px;background:transparent;display:block}
   .scramjet-arrow{
-    position:absolute; right:0;  /* flush against the right edge */
+    position:absolute; right:0;               /* truly flush right */
     top:35%; transform:translateY(-50%);
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
@@ -213,7 +213,6 @@ title: Projects
     </div>
   </div>
 
-  <!-- Viewer (NO inline comments inside the tag) -->
   <model-viewer
     id="scramjet-mv"
     class="scramjet-viewer"
@@ -223,29 +222,29 @@ title: Projects
     auto-rotate
     rotation-per-second="0deg"
     auto-rotate-delay="0"
-    camera-orbit="-92deg 160deg 120%"
+    camera-orbit="-90deg 160deg 120%"
     exposure="1.0"
     shadow-intensity="0"
     ar>
   </model-viewer>
 
-  <!-- Freestream arrow -->
-  <svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
+  <!-- Freestream arrow (viewport is 100x20 'units'; we draw with %) -->
+  <svg aria-hidden="true" viewBox="0 0 100 20" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
     <defs>
-      <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
+      <marker id="scramjet-fs-head" markerWidth="10" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
-    <!-- single line; JS below sets its direction -->
-    <line id="scramjet-fs-line" x1="290" y1="30" x2="20" y2="30"
-          stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
+    <line id="scramjet-fs-line"
+          x1="95%" y1="50%" x2="15%" y2="50%"   <!-- default: right→left -->
+          stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"
           marker-end="url(#scramjet-fs-head)"></line>
   </svg>
 </div>
 
 <script>
 (function(){
-  // ---- Arrow direction: 'rtl' = right→left (arrowhead on LEFT). 'ltr' = left→right (arrowhead on RIGHT)
+  // 'rtl' = right→left (arrowhead on LEFT).  'ltr' = left→right (arrowhead on RIGHT).
   const FLOW_DIR = 'rtl';
 
   const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
@@ -260,15 +259,12 @@ title: Projects
   const mTicks = document.getElementById('scramjet-mTicks');
   const fsLine = document.getElementById('scramjet-fs-line');
 
-  // apply arrow direction once
-  function setArrowDirection(dir){
-    if (dir === 'ltr'){         // left → right
-      fsLine.setAttribute('x1','20');  fsLine.setAttribute('x2','290');
-    } else {                    // 'rtl' (default): right → left
-      fsLine.setAttribute('x1','290'); fsLine.setAttribute('x2','20');
-    }
+  // Apply arrow direction exactly once.
+  if (FLOW_DIR === 'ltr'){
+    fsLine.setAttribute('x1','15%'); fsLine.setAttribute('x2','95%');
+  } else { // 'rtl'
+    fsLine.setAttribute('x1','95%'); fsLine.setAttribute('x2','15%');
   }
-  setArrowDirection(FLOW_DIR);
 
   let nVals = [2,3,10,32,100], mVals = [2,3,10,32,100];
   let pattern = "scramjet_n{n}_m{m}.glb";
@@ -288,7 +284,7 @@ title: Projects
     nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
     mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
 
-    // start both sliders at the middle value
+    // start sliders at the middle value
     const iN0 = Math.floor(nVals.length / 2);
     const iM0 = Math.floor(mVals.length / 2);
     nEl.value = iN0;  mEl.value = iM0;
@@ -320,7 +316,7 @@ title: Projects
     nOut.textContent = n; mOut.textContent = m;
     mv.src = fileFor(n, m);
 
-    // keep your preferred default camera if needed
+    // keep your default camera if desired
     // mv.cameraOrbit = '-90deg 160deg 120%'; mv.jumpCameraToGoal();
 
     prefetchNeighbors(iN, iM);
