@@ -198,9 +198,9 @@ title: Projects
   <!-- freestream arrow (right side, pointing right→left) -->
   <svg aria-hidden="true"
        viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet"
-       style="position:absolute;right:.75rem;top:42%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2;">
+       style="position:absolute;right:.75rem;top:35%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2;">
     <defs>
-      <marker id="fs-head" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <marker id="fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
         <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
@@ -211,7 +211,7 @@ title: Projects
             marker-end="url(#fs-head)"></line>
       <text x="12" y="22"
             style="font:600 14px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#1d4ed8;">
-        Freestream
+        
       </text>
     </g>
   </svg>
