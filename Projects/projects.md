@@ -180,20 +180,22 @@ title: Projects
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <div style="position:relative;max-width:980px;margin:.25rem auto;">
+  <!-- YOUR viewer, unchanged -->
   <model-viewer
+    class="viewer"
     style="width:100%;height:560px;background:transparent;display:block;"
-    src="{{ '/assets/flow/scramjet/scramjet.glb?v=3' | relative_url }}"
-    alt="Scramjet intake walls colored by Mach; translucent side plate"
+    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+    alt="Scramjet intake walls colored by Mach; translucent side plates"
     camera-controls
-    auto-rotate rotation-per-second="0deg" auto-rotate-delay="0"
-    camera-orbit="230deg 70deg 110%"
-    min-camera-orbit="auto 15deg auto"
-    max-camera-orbit="auto 88deg auto"
-    environment-image="neutral" exposure="1.0" shadow-intensity="0"
+    auto-rotate rotation-per-second="0deg"
+    auto-rotate-delay="0"
+    camera-orbit="90deg 155deg 110%"
+    exposure="1.0"
+    shadow-intensity="0"
     ar>
   </model-viewer>
 
-  <!-- Right-side freestream arrow, pointing right→left, outside the body -->
+  <!-- freestream arrow (right side, pointing right→left) -->
   <svg aria-hidden="true"
        viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet"
        style="position:absolute;right:.75rem;top:42%;transform:translateY(-50%);width:18%;height:10%;pointer-events:none;opacity:.95;z-index:2;">
@@ -202,18 +204,18 @@ title: Projects
         <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
       </marker>
     </defs>
-    <!-- flip whole group so it points right→left -->
+    <!-- flip group so arrow points right→left; remove this <g> to make it left→right -->
     <g transform="scale(-1,1) translate(-300,0)">
       <line x1="10" y1="30" x2="280" y2="30"
             stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
             marker-end="url(#fs-head)"></line>
-      <text x="12" y="22" style="font:600 14px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#1d4ed8;">
+      <text x="12" y="22"
+            style="font:600 14px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#1d4ed8;">
         Freestream
       </text>
     </g>
   </svg>
 </div>
-
 
 
 * # <span style="color:blue">[SciML for forward and inverse problems](Sub_projects/p_deep_learning.md) </span>
