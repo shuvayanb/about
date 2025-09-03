@@ -53,34 +53,41 @@ title: Projects
   .hud .small { font-weight: 600; font-size: 13px; opacity: .8; margin-left: 8px; }
 </style>
 
-<div class="mv-wrap">
-  <!-- double buffer: A (front) + B (back) -->
-  <!-- mvA -->
-<model-viewer id="mvA" class="mv-layer"
-  camera-controls disable-zoom disable-pan interaction-prompt="none"
-  exposure="1" shadow-intensity="0"
-  camera-orbit="200deg 65deg 100%"
-  min-camera-orbit="200deg 65deg 100%"
-  max-camera-orbit="200deg 65deg 100%"
-  field-of-view="22deg"
-  camera-target="0m 0m 0m"
-  autoplay></model-viewer>
+<!-- TOP: card + side text -->
+<div class="card-row">
+  <div class="mv-wrap">
+    <!-- double buffer: A (front) + B (back) -->
+    <!-- mvA -->
+    <model-viewer id="mvA" class="mv-layer"
+      camera-controls disable-zoom disable-pan interaction-prompt="none"
+      exposure="1" shadow-intensity="0"
+      camera-orbit="200deg 65deg 100%"
+      min-camera-orbit="200deg 65deg 100%"
+      max-camera-orbit="200deg 65deg 100%"
+      field-of-view="22deg"
+      camera-target="0m 0m 0m"
+      autoplay></model-viewer>
 
-<!-- mvB (must match mvA exactly) -->
-<model-viewer id="mvB" class="mv-layer hidden"
-  camera-controls disable-zoom disable-pan interaction-prompt="none"
-  exposure="1" shadow-intensity="0"
-  camera-orbit="200deg 65deg 100%"
-  min-camera-orbit="200deg 65deg 100%"
-  max-camera-orbit="200deg 65deg 100%"
-  field-of-view="22deg"
-  camera-target="0m 0m 0m"
-  autoplay></model-viewer>
+    <!-- mvB (must match mvA exactly) -->
+    <model-viewer id="mvB" class="mv-layer hidden"
+      camera-controls disable-zoom disable-pan interaction-prompt="none"
+      exposure="1" shadow-intensity="0"
+      camera-orbit="200deg 65deg 100%"
+      min-camera-orbit="200deg 65deg 100%"
+      max-camera-orbit="200deg 65deg 100%"
+      field-of-view="22deg"
+      camera-target="0m 0m 0m"
+      autoplay></model-viewer>
 
+    <!-- Cd overlay -->
+    <div class="hud"><span class="sym"><em>C</em><sub>d</sub></span> <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
+  </div>
 
-  <!-- === NEW: Cd overlay -->
-  <div class="hud"><span class="sym"><em>C</em><sub>d</sub></span> <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
-
+  <aside class="sidebox">
+    <h3>Intake evolution</h3>
+    <p>Animated history of candidate shapes; the badge shows the drag coefficient
+       <em>C</em><sub>d</sub> for each generation.</p>
+  </aside>
 </div>
 
 <script>
@@ -180,16 +187,50 @@ title: Projects
 
 
 
+<style>
+  /* puts a slim side text box next to a card */
+  .card-row{
+    display:grid;
+    grid-template-columns: min(500px, 60vw) minmax(260px, 1fr);
+    align-items:start;
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: .75rem auto;
+  }
+  .sidebox h3{
+    margin: 0 0 .4rem;
+    font: 700 20px/1.25 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:#111;
+  }
+  .sidebox p{
+    margin:0;
+    font: 400 15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:#222;
+  }
+
+  /* for the bottom card: a simple container so the arrow can stay over the model */
+  .card-cell{ position:relative; }
+  @media (max-width: 900px){
+    .card-row{ grid-template-columns: 1fr; }
+  }
+</style>
+
+
+
+
+
+
+
 <!-- ── Scramjet param sweep block (Markdown-safe) ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
   .scramjet-wrap{
-  position: relative;
-  width: min(500px, 60vw);   /* match top card width */
-  margin: .75rem auto;
-  padding: 0;                /* no inner padding */
-}
+    position: relative;
+    width: min(500px, 60vw);   /* match top card width */
+    margin: .75rem auto;
+    padding: 0;                /* no inner padding */
+  }
 
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
   .scramjet-ctl{flex:1}
@@ -197,15 +238,15 @@ title: Projects
   .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
  
-.scramjet-viewer{
-  width: 100%;
-  height: 40vh;              /* match top card height */
-  background: #ffffff;
-  display: block;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.10);
-  overflow: hidden;
-}
+  .scramjet-viewer{
+    width: 100%;
+    height: 40vh;              /* match top card height */
+    background: #ffffff;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.10);
+    overflow: hidden;
+  }
   .scramjet-arrow{
     position:absolute; right:0;  /* flush against the right edge */
     top:35%; transform:translateY(-50%);
@@ -227,35 +268,45 @@ title: Projects
       <div id="scramjet-mTicks" class="scramjet-ticks"></div>
     </div>
   </div>
+</div>
 
-  <!-- Viewer (NO inline comments inside the tag) -->
-  <model-viewer
-    id="scramjet-mv"
-    class="scramjet-viewer"
-    src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
-    alt="Scramjet intake walls colored by Mach; translucent side plates"
-    camera-controls
-    auto-rotate
-    rotation-per-second="0deg"
-    auto-rotate-delay="0"
-    camera-orbit="-92deg 160deg 75%"
-    exposure="1.0"
-    shadow-intensity="0"
-    ar>
-  </model-viewer>
+<!-- BOTTOM: card + side text -->
+<div class="card-row">
+  <div class="card-cell">
+    <!-- Viewer -->
+    <model-viewer
+      id="scramjet-mv"
+      class="scramjet-viewer"
+      src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+      alt="Scramjet intake walls colored by Mach; translucent side plates"
+      camera-controls
+      auto-rotate
+      rotation-per-second="0deg"
+      auto-rotate-delay="0"
+      camera-orbit="-92deg 160deg 75%"
+      exposure="1.0"
+      shadow-intensity="0"
+      ar>
+    </model-viewer>
 
-  <!-- Freestream arrow -->
-  <svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
-    <defs>
-      <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
-      </marker>
-    </defs>
-    <!-- single line; JS below sets its direction -->
-    <line id="scramjet-fs-line" x1="290" y1="30" x2="20" y2="30"
-          stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
-          marker-end="url(#scramjet-fs-head)"></line>
-  </svg>
+    <!-- Freestream arrow -->
+    <svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
+      <defs>
+        <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
+        </marker>
+      </defs>
+      <line id="scramjet-fs-line" x1="20" y1="30" x2="290" y2="30"
+            stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
+            marker-end="url(#scramjet-fs-head)"></line>
+    </svg>
+  </div>
+
+  <aside class="sidebox">
+    <h3>Param sweep</h3>
+    <p>Adjust <strong>n</strong> (external) and <strong>m</strong> (internal) shock counts;
+       the model updates and keeps the same card dimensions.</p>
+  </aside>
 </div>
 
 <script>
@@ -350,8 +401,3 @@ title: Projects
   mEl.addEventListener('input', onInput);
 })();
 </script>
-<!-- ───────────────────────────────────────────────────────────── -->
-
-
-
-
