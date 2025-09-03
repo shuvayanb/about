@@ -168,7 +168,7 @@ title: Projects
   }
   .scramjet-arrow{
     position:absolute; left:0;               /* moved to left side */
-    top:50%; transform:translateY(-50%);
+    top:55%; transform:translateY(-50%);
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
   }
