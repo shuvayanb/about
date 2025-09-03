@@ -1,0 +1,19 @@
+{
+  "n_values": [
+    2,
+    5,
+    14,
+    38,
+    100
+  ],
+  "m_values": [
+    2,
+    5,
+    14,
+    38,
+    100
+  ],
+  "pattern": "scramjet_n{n}_m{m}.glb",
+  "color_by": "M",
+  "cmap": "turbo"
+}
