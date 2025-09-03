@@ -185,7 +185,7 @@ title: Projects
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
-  .scramjet-wrap {max-width:980px;margin:0.75rem auto;position:relative;padding:0 .5rem}
+  .scramjet-wrap { max-width:980px; margin:.75rem auto; position:relative; padding:0 .0rem 0 .5rem; }
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
   .scramjet-ctl{flex:1}
   .scramjet-ctl label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
@@ -233,10 +233,11 @@ title: Projects
       </marker>
     </defs>
   
-    <!-- CHANGED: no transform; draw from right (x1) to left (x2) -->
-    <line x1="290" y1="30" x2="20" y2="30"
+  <line x1="290" y1="30" x2="20" y2="30"
           stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
           marker-end="url(#scramjet-fs-head)"></line>
+
+    
   </svg>
 
 <script>
