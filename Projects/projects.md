@@ -12,9 +12,9 @@ title: Projects
 <style>
   .mv-wrap {
     position: relative;
-    width: min(500px, 60vw);   /* narrower card */
-    height: 40vh;              /* a bit shorter */
-    margin: 0 auto;            /* center on page */
+    width: min(500px, 60vw);
+    height: 40vh;
+    margin: 0 auto;
     background: #ffffff;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,.10);
@@ -24,13 +24,12 @@ title: Projects
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     background: #ffffff;
-    transform: translateY(24px) scale(2.5);   /* tweak 16–40px to taste */
+    transform: translateY(24px) scale(2.5);
     transform-origin: 50% 40%;
     will-change: transform;
   }
   .hidden { visibility: hidden; }
 
-  /* HUD for Cd */
   .hud {
     font-family: "Times New Roman", Times, serif;
     font-size: 28px;
@@ -49,10 +48,8 @@ title: Projects
   .hud .small { font-weight: 600; font-size: 13px; opacity: .8; margin-left: 8px; }
 </style>
 
-<!-- TOP: card + side text -->
 <div class="card-row">
   <div class="mv-wrap">
-    <!-- mvA -->
     <model-viewer id="mvA" class="mv-layer"
       camera-controls disable-zoom disable-pan interaction-prompt="none"
       exposure="1" shadow-intensity="0"
@@ -63,7 +60,6 @@ title: Projects
       camera-target="0m 0m 0m"
       autoplay></model-viewer>
 
-    <!-- mvB -->
     <model-viewer id="mvB" class="mv-layer hidden"
       camera-controls disable-zoom disable-pan interaction-prompt="none"
       exposure="1" shadow-intensity="0"
@@ -74,7 +70,6 @@ title: Projects
       camera-target="0m 0m 0m"
       autoplay></model-viewer>
 
-    <!-- Cd overlay -->
     <div class="hud"><span class="sym"><em>C</em><sub>d</sub></span> <span id="cdVal">—</span> <span class="small">(gen <span id="genIdx">0</span>)</span></div>
   </div>
 
@@ -89,15 +84,9 @@ title: Projects
 (function(){
   const BASE   = '{{ "/" | relative_url }}'.replace(/\/+$/, '') + '/';
   const FOLDER = 'assets/flow/history_pop_00/';
-  const START  = 0;
-  const END    = 50;
-  const PAD    = 3;
-  const FPS    = 5;
-  const LOOP   = true;
-  const SUFFIX = '_unlit';
-  const EXT    = '.glb';
+  const START  = 0, END = 50, PAD = 3, FPS = 5, LOOP = true;
+  const SUFFIX = '_unlit', EXT = '.glb';
   const CACHE_BUST = '?v={{ site.time | date: "%s" }}';
-
   const CD_JSON = BASE + FOLDER + 'pop_00_meta.json' + CACHE_BUST;
 
   const mvA = document.getElementById('mvA');
@@ -105,78 +94,31 @@ title: Projects
   const cdEl  = document.getElementById('cdVal');
   const genEl = document.getElementById('genIdx');
 
-  let cur = START;
-  let front = mvA;
-  let back  = mvB;
-  let cdArr = null;
+  let cur = START, front = mvA, back = mvB, cdArr = null;
 
-  function framePath(i){
-    const id = String(i).padStart(PAD, '0');
-    return BASE + FOLDER + 'frame_' + id + SUFFIX + EXT + CACHE_BUST;
-  }
-
+  function framePath(i){ return BASE + FOLDER + 'frame_' + String(i).padStart(PAD,'0') + SUFFIX + EXT + CACHE_BUST; }
   function updateHUD(i){
     if (genEl) genEl.textContent = i;
-    if (!cdArr || !cdArr.length) { cdEl && (cdEl.textContent = '—'); return; }
-    const val = cdArr[Math.max(0, Math.min(i, cdArr.length - 1))];
-    cdEl.textContent = (typeof val === 'number') ? val.toFixed(4) : '—';
+    if (!cdArr || !cdArr.length){ if(cdEl) cdEl.textContent = '—'; return; }
+    const v = cdArr[Math.max(0, Math.min(i, cdArr.length-1))];
+    cdEl.textContent = (typeof v === 'number') ? v.toFixed(4) : '—';
   }
-
-  function swapLayers(){
-    front.classList.add('hidden');
-    back.classList.remove('hidden');
-    const tmp = front; front = back; back = tmp;
-  }
-
+  function swapLayers(){ front.classList.add('hidden'); back.classList.remove('hidden'); const t=front; front=back; back=t; }
   function scheduleNext(){
-    if (cur > END) { if (!LOOP) return; cur = START; }
+    if (cur > END){ if(!LOOP) return; cur = START; }
     back.src = framePath(cur);
-
-    const onLoaded = () => {
-      back.removeEventListener('load', onLoaded);
-      swapLayers();
-      updateHUD(cur);
-      cur += 1;
-      setTimeout(scheduleNext, 1000 / FPS);
-    };
-    back.addEventListener('load', onLoaded, { once: true });
-
-    const onError = () => {
-      back.removeEventListener('error', onError);
-      cur += 1;
-      setTimeout(scheduleNext, 0);
-    };
-    back.addEventListener('error', onError, { once: true });
+    const onLoaded = () => { back.removeEventListener('load', onLoaded); swapLayers(); updateHUD(cur); cur++; setTimeout(scheduleNext, 1000/FPS); };
+    const onError  = () => { back.removeEventListener('error', onError);  cur++; setTimeout(scheduleNext, 0); };
+    back.addEventListener('load', onLoaded, {once:true});
+    back.addEventListener('error', onError, {once:true});
   }
-
-  function startPlayback(){
-    front.src = framePath(START);
-    front.addEventListener('load', () => {
-      updateHUD(START);
-      cur = START + 1;
-      setTimeout(scheduleNext, 1000 / FPS);
-    }, { once: true });
-  }
-
-  function loadCd(){
-    return fetch(CD_JSON)
-      .then(r => r.ok ? r.json() : null)
-      .then(j => { if (j && Array.isArray(j.cd)) cdArr = j.cd; })
-      .catch(() => {});
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    loadCd().finally(startPlayback);
-  });
+  function start(){ front.src = framePath(START); front.addEventListener('load', ()=>{ updateHUD(START); cur=START+1; setTimeout(scheduleNext, 1000/FPS); }, {once:true}); }
+  function loadCd(){ return fetch(CD_JSON).then(r=>r.ok?r.json():null).then(j=>{ if(j && Array.isArray(j.cd)) cdArr=j.cd; }).catch(()=>{}); }
+  document.addEventListener('DOMContentLoaded', ()=>{ loadCd().finally(start); });
 })();
 </script>
 
-
-
-
-
 <style>
-  /* side text layout */
   .card-row{
     display:grid;
     grid-template-columns: min(500px, 60vw) minmax(260px, 1fr);
@@ -196,37 +138,27 @@ title: Projects
     color:#222;
   }
   .card-cell{ position:relative; }
-  @media (max-width: 900px){
-    .card-row{ grid-template-columns: 1fr; }
-  }
+  @media (max-width: 900px){ .card-row{ grid-template-columns: 1fr; } }
 </style>
 
-
-
-
-
-
-
-<!-- ── Scramjet param sweep block (Markdown-safe) ─────────── -->
+<!-- ── Scramjet param sweep block ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
   .scramjet-wrap{
     position: relative;
-    width: min(500px, 60vw);   /* match top card width */
+    width: min(500px, 60vw);
     margin: .75rem auto;
     padding: 0;
   }
-
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
   .scramjet-ctl{flex:1}
   .scramjet-ctl label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
   .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
   .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
- 
   .scramjet-viewer{
     width: 100%;
-    height: 40vh;              /* match top card height */
+    height: 40vh;
     background: #ffffff;
     display: block;
     border-radius: 14px;
@@ -234,7 +166,7 @@ title: Projects
     overflow: hidden;
   }
   .scramjet-arrow{
-    position:absolute; left:0;   /* moved from right:0 to left:0 */
+    position:absolute; left:0;               /* moved to left side */
     top:35%; transform:translateY(-50%);
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
@@ -256,37 +188,35 @@ title: Projects
   </div>
 </div>
 
-<!-- BOTTOM: card + side text -->
+<!-- IMPORTANT: blank line + flush-left HTML so Markdown doesn't code-block it -->
 <div class="card-row">
   <div class="card-cell">
-    <!-- Viewer -->
-    <model-viewer
-      id="scramjet-mv"
-      class="scramjet-viewer"
-      src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
-      alt="Scramjet intake walls colored by Mach; translucent side plates"
-      camera-controls
-      interaction-prompt="none"   <!-- hide finger prompt -->
-      auto-rotate
-      rotation-per-second="0deg"
-      auto-rotate-delay="0"
-      camera-orbit="-92deg 160deg 75%"
-      exposure="1.0"
-      shadow-intensity="0"
-      ar>
-    </model-viewer>
+<model-viewer
+  id="scramjet-mv"
+  class="scramjet-viewer"
+  src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+  alt="Scramjet intake walls colored by Mach; translucent side plates"
+  camera-controls
+  interaction-prompt="none"
+  auto-rotate
+  rotation-per-second="0deg"
+  auto-rotate-delay="0"
+  camera-orbit="-92deg 160deg 75%"
+  exposure="1.0"
+  shadow-intensity="0"
+  ar>
+</model-viewer>
 
-    <!-- Freestream arrow -->
-    <svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
-      <defs>
-        <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
-          <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
-        </marker>
-      </defs>
-      <line id="scramjet-fs-line" x1="20" y1="30" x2="290" y2="30"
-            stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
-            marker-end="url(#scramjet-fs-head)"></line>
-    </svg>
+<svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
+  <defs>
+    <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
+    </marker>
+  </defs>
+  <line id="scramjet-fs-line" x1="20" y1="30" x2="290" y2="30"
+        stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
+        marker-end="url(#scramjet-fs-head)"></line>
+</svg>
   </div>
 
   <aside class="sidebox">
@@ -299,7 +229,6 @@ title: Projects
 <script>
 (function(){
   const FLOW_DIR = 'ltr';
-
   const base = "{{ '/assets/flow/scramjet/' | relative_url }}".replace(/\/+$/,'/');
   const manifestUrl = base + "manifest.json";
 
@@ -313,11 +242,8 @@ title: Projects
   const fsLine = document.getElementById('scramjet-fs-line');
 
   function setArrowDirection(dir){
-    if (dir === 'ltr'){         // left → right
-      fsLine.setAttribute('x1','20');  fsLine.setAttribute('x2','290');
-    } else {
-      fsLine.setAttribute('x1','290'); fsLine.setAttribute('x2','20');
-    }
+    if (dir === 'ltr'){ fsLine.setAttribute('x1','20');  fsLine.setAttribute('x2','290'); }
+    else { fsLine.setAttribute('x1','290'); fsLine.setAttribute('x2','20'); }
   }
   setArrowDirection(FLOW_DIR);
 
