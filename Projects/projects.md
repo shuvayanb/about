@@ -263,15 +263,21 @@ title: Projects
     init();
   }).catch(init);
 
-  function init(){
-    nEl.max = String(nVals.length - 1);
-    mEl.max = String(mVals.length - 1);
-    nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
-    mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
-    nEl.value = 0; mEl.value = 0;
-    nOut.textContent = nVals[0]; mOut.textContent = mVals[0];
-    updateModel();
-  }
+function init(){
+  nEl.max = String(nVals.length - 1);
+  mEl.max = String(mVals.length - 1);
+  nTicks.innerHTML = nVals.map(v => `<span>${v}</span>`).join('');
+  mTicks.innerHTML = mVals.map(v => `<span>${v}</span>`).join('');
+
+  // --- CHANGED: use mid index, not 0 ---
+  const iN0 = Math.floor(nVals.length / 2);
+  const iM0 = Math.floor(mVals.length / 2);
+  nEl.value = iN0;
+  mEl.value = iM0;
+
+  // updateModel() will set the outputs and load the correct GLB
+  updateModel();
+}
 
   const fileFor = (n, m) => base + pattern.replace("{n}", n).replace("{m}", m);
 
