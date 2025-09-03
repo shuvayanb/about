@@ -199,7 +199,7 @@ title: Projects
   auto-rotate
   rotation-per-second="2deg"
   auto-rotate-delay="0"
-  camera-orbit="60deg 60deg 110%"
+  camera-orbit="120deg 60deg 110%"
   exposure="1.0"
   shadow-intensity="0"
   ar>
