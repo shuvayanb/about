@@ -16,7 +16,7 @@ title: Projects
     width: min(500px, 60vw);
     height: 40vh;
     margin: 0 auto;
-    background: #ffffff;
+    background: #e5e7eb;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,.10);
     overflow: hidden;
@@ -24,7 +24,7 @@ title: Projects
   .mv-layer {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
-    background: #ffffff;
+    background: #e5e7eb;
     transform: translateY(24px) scale(2.5);
     transform-origin: 50% 40%;
     will-change: transform;
@@ -142,6 +142,7 @@ title: Projects
   @media (max-width: 900px){ .card-row{ grid-template-columns: 1fr; } }
 </style>
 
+
 <!-- ── Scramjet param sweep block ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -160,7 +161,7 @@ title: Projects
   .scramjet-viewer{
     width: 100%;
     height: 40vh;
-    background: #ffffff;
+    background: #e5e7eb;
     display: block;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,.10);
