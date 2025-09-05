@@ -319,9 +319,14 @@ title: Projects
 
 <style>
   .nozzle-card{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;
-    width:min(980px, 95vw); margin:1rem auto;}
-  .nozzle-view{width:100%;height:340px;background:#f6f8fb;border-radius:14px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);overflow:hidden}
+    width:min(500px, 60vw); margin:0.75rem auto;}
+  .nozzle-view{
+    width:100%;
+    height:40px;
+    background:#e5e7eb;
+    border-radius:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    overflow:hidden}
   .nozzle-copy h3{margin:.25rem 0 .5rem;font:700 20px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
   .nozzle-copy p{margin:.25rem 0 .5rem;color:#333}
   .nozzle-copy ul{margin:.25rem 0 0 1rem;color:#444}
@@ -335,7 +340,7 @@ title: Projects
       alt="Optimized axisymmetric nozzle colored by Mach"
       camera-controls auto-rotate rotation-per-second="12deg" auto-rotate-delay="0"
       camera-orbit="80deg 100deg 110%" exposure="1.0" shadow-intensity="0"
-      style="width:100%;height:100%;background:#f6f8fb;">
+      style="width:100%;height:100%;background:#e5e7eb;">
     </model-viewer>
   </div>
 
