@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Projects
+title: Research
 ---
 
 * # <span style="color:blue">Shape design and optimization </span>
