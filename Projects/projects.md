@@ -368,6 +368,8 @@ title: Projects
     <ul>
       <li>Ar (γ=1.667), T<sub>0</sub>=2000 K</li>
       <li>r<sub>i</sub>=1 mm → r<sub>o</sub>=8 mm, L=70 mm</li>
+      <li>Flow regime: high-speed compressible</li>
+      <li>Flow solver: area-Mach number relations</li>
       <li>Colors baked from <code>Mach</code> as vertex colors.</li>
     </ul>
   </aside>
