@@ -311,40 +311,43 @@ title: Projects
 </script>
 
 
-
-
-
-<!-- ── Nozzle (final) block ───────────────────────────── -->
+<!-- ── Nozzle (final) card ───────────────────────────── -->
+<!-- Load once per page; safe to keep here if you don't elsewhere -->
 <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
 
 <style>
-  .nozzle-card{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;
-    width:min(980px, 95vw); margin:0.75rem auto;} 
-  .nozzle-view{
-    width:100%;
-    height:40vh;
-    min-height:320px; 
+  /* Same layout as your scramjet block */
+  .card-row{
+    display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+    gap:18px; align-items:center;
+    width:min(980px,95vw); margin:.75rem auto;
+  }
+  @media (max-width:860px){ .card-row{ grid-template-columns:1fr } }
+
+  /* Reuse the viewer look & feel */
+  .scramjet-viewer{
+    width:100%; height:40vh; min-height:320px;
     background:#e5e7eb;
     border-radius:14px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
-    overflow:hidden}
-  .nozzle-copy h3{margin:.25rem 0 .5rem;font:700 20px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-  .nozzle-copy p{margin:.25rem 0 .5rem;color:#333}
-  .nozzle-copy ul{margin:.25rem 0 0 1rem;color:#444}
-  @media (max-width: 860px){ .nozzle-card{grid-template-columns:1fr} }
-</style>
+    box-shadow:0 6px 20px rgba(0,0,0,.10);
+    overflow:hidden;
+    display:block;
+  }
 
-<!-- keep your existing <style> for .scramjet-viewer from the scramjet block -->
-<!-- i.e., height:40vh; background:#e5e7eb; border-radius:14px; box-shadow:... -->
+  /* Optional: tidy text column */
+  .sidebox h3{ margin:.25rem 0 .5rem; font:700 20px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif }
+  .sidebox p{ margin:.25rem 0 .5rem; color:#333 }
+  .sidebox ul{ margin:.25rem 0 0 1rem; color:#444 }
+</style>
 
 <div class="card-row">
   <div class="card-cell">
     <model-viewer
-      class="scramjet-viewer"             <!-- reuse SAME class -->
+      class="scramjet-viewer"
       src="{{ '/assets/flow/nozzle/final_opt.glb' | relative_url }}"
       alt="Optimized axisymmetric nozzle colored by Mach"
       camera-controls
-      interaction-prompt="none"            <!-- hides the hand icon -->
+      interaction-prompt="none"
       auto-rotate rotation-per-second="12deg" auto-rotate-delay="0"
       camera-orbit="80deg 100deg 110%"
       exposure="1.0" shadow-intensity="0"
@@ -356,12 +359,13 @@ title: Projects
     <h3>Axisymmetric nozzle — final optimum</h3>
     <p>Body of revolution generated from the Bézier profile; surface colors encode the Mach distribution.</p>
     <ul>
-      <li>Ar (γ=1.667), T₀=2000 K</li>
-      <li>rᵢ=1 mm → rₒ=8 mm, L=70 mm</li>
+      <li>Ar (γ=1.667), T<sub>0</sub>=2000 K</li>
+      <li>r<sub>i</sub>=1 mm → r<sub>o</sub>=8 mm, L=70 mm</li>
       <li>Colors baked from <code>Mach</code> as vertex colors.</li>
     </ul>
   </aside>
 </div>
+<!-- ──────────────────────────────────────────────────── -->
 
 
 
