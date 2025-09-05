@@ -1,0 +1,21 @@
+{
+  "n_values": [
+    2,
+    4,
+    10,
+    22,
+    50
+  ],
+  "m_values": [
+    2,
+    4,
+    10,
+    22,
+    50
+  ],
+  "pattern": "scramjet_n{n}_m{m}.glb",
+  "color_by": "M",
+  "cmap": "turbo",
+  "thickness": 0.5,
+  "side_plate_extend": 0.25
+}
