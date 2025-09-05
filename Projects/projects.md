@@ -233,6 +233,8 @@ title: Projects
     <ul class="vars">
       <li><em>n</em> — number of external shocks</li>
       <li><em>m</em> — number of internal shocks</li>
+      <li>Flow solver: Gas dynamics relations</li>
+      <li>Flow regime: Supersonic/hypersonic</li>
       <li>Surface coloring shows wall <em>M</em> (Mach) distribution along ramp &amp; cowl</li>
     </ul>
   </aside>
