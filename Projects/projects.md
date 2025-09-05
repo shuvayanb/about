@@ -363,7 +363,7 @@ title: Projects
   </div>
 
   <aside class="sidebox">
-    <h3>Axisymmetric nozzle — final optimum</h3>
+    <h3>Optimal axisymmetric nozzle</h3>
     <p>Body of revolution generated from the Bézier profile; surface colors encode the Mach distribution.</p>
     <ul>
       <li>Ar (γ=1.667), T<sub>0</sub>=2000 K</li>
