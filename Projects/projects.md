@@ -334,29 +334,35 @@ title: Projects
   @media (max-width: 860px){ .nozzle-card{grid-template-columns:1fr} }
 </style>
 
-<div class="nozzle-card">
-  <div class="nozzle-view">
+<!-- keep your existing <style> for .scramjet-viewer from the scramjet block -->
+<!-- i.e., height:40vh; background:#e5e7eb; border-radius:14px; box-shadow:... -->
+
+<div class="card-row">
+  <div class="card-cell">
     <model-viewer
+      class="scramjet-viewer"             <!-- reuse SAME class -->
       src="{{ '/assets/flow/nozzle/final_opt.glb' | relative_url }}"
       alt="Optimized axisymmetric nozzle colored by Mach"
-      camera-controls auto-rotate rotation-per-second="12deg" auto-rotate-delay="0"
-      camera-orbit="80deg 100deg 110%" exposure="1.0" shadow-intensity="0"
-      style="width:100%;height:100%;background:#e5e7eb;">
+      camera-controls
+      interaction-prompt="none"            <!-- hides the hand icon -->
+      auto-rotate rotation-per-second="12deg" auto-rotate-delay="0"
+      camera-orbit="80deg 100deg 110%"
+      exposure="1.0" shadow-intensity="0"
+      style="width:100%;height:100%;">
     </model-viewer>
   </div>
 
-  <div class="nozzle-copy">
+  <aside class="sidebox">
     <h3>Axisymmetric nozzle — final optimum</h3>
-    <p>Body of revolution generated from the Bézier profile; surface colors encode the Mach
-       distribution at each station along the wall.</p>
+    <p>Body of revolution generated from the Bézier profile; surface colors encode the Mach distribution.</p>
     <ul>
-      <li>Gas: Ar (γ=1.667), <em>T</em><sub>0</sub>=2000 K</li>
-      <li>Throat radius <em>r</em><sub>i</sub>=1 mm, exit <em>r</em><sub>o</sub>=8 mm, length <em>L</em>=70 mm</li>
-      <li>Colors come from the <code>Mach</code> scalar baked into the GLB (vertex colors).</li>
+      <li>Ar (γ=1.667), T₀=2000 K</li>
+      <li>rᵢ=1 mm → rₒ=8 mm, L=70 mm</li>
+      <li>Colors baked from <code>Mach</code> as vertex colors.</li>
     </ul>
-  </div>
+  </aside>
 </div>
-<!-- ───────────────────────────────────────────────────── -->
+
 
 
 
