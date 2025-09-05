@@ -143,6 +143,9 @@ title: Projects
 </style>
 
 
+
+
+
 <!-- ── Scramjet param sweep block ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -168,60 +171,59 @@ title: Projects
     overflow: hidden;
   }
   .scramjet-arrow{
-    position:absolute; left:0;               /* moved to left side */
+    position:absolute; left:0;
     top:55%; transform:translateY(-50%);
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
   }
 </style>
 
-<div class="scramjet-wrap" id="scramjet-wrap">
-  <div class="scramjet-controls">
-    <div class="scramjet-ctl">
-      <label>n (external shocks) <output id="scramjet-nOut">…</output></label>
-      <input id="scramjet-n" type="range" min="0" max="4" step="1" value="0" />
-      <div id="scramjet-nTicks" class="scramjet-ticks"></div>
-    </div>
-    <div class="scramjet-ctl">
-      <label>m (internal shocks) <output id="scramjet-mOut">…</output></label>
-      <input id="scramjet-m" type="range" min="0" max="4" step="1" value="0" />
-      <div id="scramjet-mTicks" class="scramjet-ticks"></div>
-    </div>
-  </div>
-</div>
-
-<!-- IMPORTANT: blank line + flush-left HTML so Markdown doesn't code-block it -->
+<!-- Controls moved into the aside so they appear above the text -->
 <div class="card-row">
   <div class="card-cell">
-<model-viewer
-  id="scramjet-mv"
-  class="scramjet-viewer"
-  src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
-  alt="Scramjet intake walls colored by Mach; translucent side plates"
-  camera-controls
-  interaction-prompt="none"
-  auto-rotate
-  rotation-per-second="0deg"
-  auto-rotate-delay="0"
-  camera-orbit="-92deg 160deg 75%"
-  exposure="1.0"
-  shadow-intensity="0"
-  ar>
-</model-viewer>
+    <model-viewer
+      id="scramjet-mv"
+      class="scramjet-viewer"
+      src="{{ '/assets/flow/scramjet/scramjet.glb' | relative_url }}"
+      alt="Scramjet intake walls colored by Mach; translucent side plates"
+      camera-controls
+      interaction-prompt="none"
+      auto-rotate
+      rotation-per-second="0deg"
+      auto-rotate-delay="0"
+      camera-orbit="-92deg 160deg 75%"
+      exposure="1.0"
+      shadow-intensity="0"
+      ar>
+    </model-viewer>
 
-<svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
-  <defs>
-    <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
-    </marker>
-  </defs>
-  <line id="scramjet-fs-line" x1="20" y1="30" x2="290" y2="30"
-        stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
-        marker-end="url(#scramjet-fs-head)"></line>
-</svg>
+    <svg aria-hidden="true" viewBox="0 0 300 60" preserveAspectRatio="xMidYMid meet" class="scramjet-arrow">
+      <defs>
+        <marker id="scramjet-fs-head" markerWidth="15" markerHeight="10" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#1d4ed8"></polygon>
+        </marker>
+      </defs>
+      <line id="scramjet-fs-line" x1="20" y1="30" x2="290" y2="30"
+            stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"
+            marker-end="url(#scramjet-fs-head)"></line>
+    </svg>
   </div>
 
   <aside class="sidebox">
+    <!-- sliders now appear here, above the text -->
+    <div class="scramjet-controls">
+      <div class="scramjet-ctl">
+        <label>n (external shocks) <output id="scramjet-nOut">…</output></label>
+        <input id="scramjet-n" type="range" min="0" max="4" step="1" value="0" />
+        <div id="scramjet-nTicks" class="scramjet-ticks"></div>
+      </div>
+      <div class="scramjet-ctl">
+        <label>m (internal shocks) <output id="scramjet-mOut">…</output></label>
+        <input id="scramjet-m" type="range" min="0" max="4" step="1" value="0" />
+        <div id="scramjet-mTicks" class="scramjet-ticks"></div>
+      </div>
+    </div>
+
     <h3>Scramjet intake design</h3>
     <p>Scramjet intake with <strong>n</strong> (external) and <strong>m</strong> (internal) shock;
        See how the Mach number distribution changes along the ramp and cowl walls.</p>
@@ -309,6 +311,11 @@ title: Projects
   mEl.addEventListener('input', onInput);
 })();
 </script>
+
+
+
+
+
 
 
 <!-- ── Nozzle (final) card ───────────────────────────── -->
