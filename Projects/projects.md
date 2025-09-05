@@ -319,10 +319,11 @@ title: Projects
 
 <style>
   .nozzle-card{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;
-    width:min(500px, 60vw); margin:0.75rem auto;}
+    width:min(980px, 95vw); margin:0.75rem auto;} 
   .nozzle-view{
     width:100%;
-    height:40px;
+    height:40vh;
+    min-height:320px; 
     background:#e5e7eb;
     border-radius:14px;
     box-shadow:0 6px 20px rgba(0,0,0,.08);
