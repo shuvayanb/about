@@ -145,7 +145,6 @@ title: Projects
 
 
 
-
 <!-- ── Scramjet param sweep block ─────────── -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -176,6 +175,11 @@ title: Projects
     width:18%; height:10%;
     pointer-events:none; opacity:.95; z-index:2;
   }
+
+  /* NEW: bullets with italic symbols */
+  .sidebox ul.vars{ margin:.35rem 0 0 1rem; padding:0; list-style:disc; }
+  .sidebox ul.vars li{ margin:.25rem 0; color:#444; }
+  .sidebox ul.vars em{ font-style:italic; font-weight:600; }
 </style>
 
 <!-- Controls moved into the aside so they appear above the text -->
@@ -225,8 +229,12 @@ title: Projects
     </div>
 
     <h3>Scramjet intake design</h3>
-    <p>Scramjet intake with <strong>n</strong> (external) and <strong>m</strong> (internal) shock;
-       See how the Mach number distribution changes along the ramp and cowl walls.</p>
+    <!-- REPLACED <p>…</p> with a bulleted list -->
+    <ul class="vars">
+      <li><em>n</em> — number of external shocks</li>
+      <li><em>m</em> — number of internal shocks</li>
+      <li>Surface coloring shows wall <em>M</em> (Mach) distribution along ramp &amp; cowl</li>
+    </ul>
   </aside>
 </div>
 
@@ -311,6 +319,7 @@ title: Projects
   mEl.addEventListener('input', onInput);
 })();
 </script>
+
 
 
 
