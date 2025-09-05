@@ -13,8 +13,9 @@ title: Projects
 <style>
   .mv-wrap {
     position: relative;
-    width: min(500px, 60vw);
+    width: 100%;
     height: 40vh;
+    min-height: 320px;
     margin: 0 auto;
     background: #e5e7eb;
     border-radius: 14px;
@@ -122,10 +123,10 @@ title: Projects
 <style>
   .card-row{
     display:grid;
-    grid-template-columns: min(500px, 60vw) minmax(260px, 1fr);
+    grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
     align-items:start;
     gap: 1.25rem;
-    max-width: 1100px;
+    width: min(980px, 95vw);
     margin: .75rem auto;
   }
   .sidebox h3{
