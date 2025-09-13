@@ -22,7 +22,7 @@ title: Research
 
   <aside class="sidebox">
     <h3>Pareto-front evolution</h3>
-    <p>3D animation of dominated (dark), infeasible (red), and current non-dominated (blue) points across generations. Use the controls in the embed to play or scrub.</p>
+    <p>Progression of dominated (dark) and current non-dominated (blue) points across generations. Use the controls in the embed to play.</p>
   </aside>
 </div>
 <!-- ──────────────────────────────────────────────────── -->
