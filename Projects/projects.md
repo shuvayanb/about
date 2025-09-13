@@ -5,6 +5,28 @@ title: Research
 
 * # <span style="color:blue">Shape design and optimization </span>
 
+<!-- ── Pareto evolution (iframe card) ────────────────── -->
+<div class="card-row">
+  <div class="card-cell">
+    <iframe
+      src="{{ '/assets/flow/pod/pof_anim.html' | relative_url }}"
+      loading="lazy"
+      title="Pareto evolution animation"
+      style="
+        width:100%; height:40vh; min-height:320px;
+        background:#e5e7eb; border:0; border-radius:14px;
+        box-shadow:0 6px 20px rgba(0,0,0,.10); overflow:hidden;
+        display:block;">
+    </iframe>
+  </div>
+
+  <aside class="sidebox">
+    <h3>Pareto-front evolution</h3>
+    <p>3D animation of dominated (dark), infeasible (red), and current non-dominated (blue) points across generations. Use the controls in the embed to play or scrub.</p>
+  </aside>
+</div>
+<!-- ──────────────────────────────────────────────────── -->
+
 
 <!-- model-viewer runtime -->
 <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
