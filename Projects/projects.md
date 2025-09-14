@@ -3,6 +3,36 @@ layout: page
 title: Research
 ---
 
+<!-- ── Scramjet mesh reveal (iframe card) ───────────────── -->
+<div class="card-row">
+  <div class="card-cell">
+    <iframe
+      src="{{ '/about/assets/flow/mesh/index.html' | relative_url }}"
+      loading="lazy"
+      title="Scramjet mesh reveal"
+      style="
+        width:100%; height:40vh; min-height:320px;
+        background:#e5e7eb; border:0; border-radius:14px;
+        box-shadow:0 6px 20px rgba(0,0,0,.10); overflow:hidden;
+        display:block;">
+    </iframe>
+  </div>
+
+  <aside class="sidebox">
+    <h3>Structured mesh — block-by-block reveal</h3>
+    <p>
+      Structured mesh for a 3-ramp scramjet intake with structured mesh coming into play. Use the controls in the embed to play and scrub frames.
+    </p>
+    <ul>
+      <li>Single-file payload (<code>pack.json.gz</code>) for fast GitHub Pages loading</li>
+      <li>Gray background, thin black lines; rotate/zoom/pan enabled</li>
+      <li>Custom block order: (9+10) → (1+8) → (2+7) → (3+6) → (4+5)</li>
+    </ul>
+  </aside>
+</div>
+<!-- ─────────────────────────────────────────────────────── -->
+
+
 * # <span style="color:blue">Shape design and optimization </span>
 
 <!-- ── Pareto evolution (iframe card) ────────────────── -->
