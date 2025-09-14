@@ -7,7 +7,7 @@ title: Research
 <div class="card-row">
   <div class="card-cell">
     <iframe
-      src="{{ '/about/assets/flow/mesh/index.html' | relative_url }}"
+      src="{{ 'about/assets/flow/mesh/index.html' | relative_url }}"
       loading="lazy"
       title="Scramjet mesh reveal"
       style="
