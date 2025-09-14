@@ -31,3 +31,7 @@ exclude:
   - scripts
   - vendor
   - _site
+
+include:
+  - assets/flow/mesh/index.html
+  - assets/flow/mesh/pack.json.gz
