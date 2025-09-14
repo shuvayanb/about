@@ -19,15 +19,10 @@ title: Research
   </div>
 
   <aside class="sidebox">
-    <h3>Structured mesh — block-by-block reveal</h3>
+    <h3>Structured mesh</h3>
     <p>
       Structured mesh for a 3-ramp scramjet intake with structured mesh coming into play. Use the controls in the embed to play and scrub frames.
     </p>
-    <ul>
-      <li>Single-file payload (<code>pack.json.gz</code>) for fast GitHub Pages loading</li>
-      <li>Gray background, thin black lines; rotate/zoom/pan enabled</li>
-      <li>Custom block order: (9+10) → (1+8) → (2+7) → (3+6) → (4+5)</li>
-    </ul>
   </aside>
 </div>
 <!-- ─────────────────────────────────────────────────────── -->
