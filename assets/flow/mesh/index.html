@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scramjet Mesh Animation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #e5e7eb; /* gray background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      background: #e5e7eb; /* same gray */
+      max-width: 95vw;
+      max-height: 70vh;
+    }
+    .controls {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    input[type=range] { width: 400px; }
+  </style>
+</head>
+<body>
+  <canvas id="meshCanvas"></canvas>
+  <div class="controls">
+    <button id="playPause">⏵ Play</button>
+    <input id="frameSlider" type="range" min="1" max="72" step="1" value="1">
+    <span id="frameLabel">1 / 72</span>
+  </div>
+
+  <script>
+    const FRAME_COUNT = 72;
+    const FILES = Array.from({length: FRAME_COUNT}, (_, i) =>
+      `edges_${String(i+1).padStart(3,'0')}.json`
+    );
+
+    const canvas = document.getElementById('meshCanvas');
+    const ctx = canvas.getContext('2d');
+    const slider = document.getElementById('frameSlider');
+    const label = document.getElementById('frameLabel');
+    const playPause = document.getElementById('playPause');
+
+    let frames = [];
+    let bounds = null;
+    let cur = 0;
+    let playing = false;
+    let timer = null;
+
+    async function loadAll() {
+      // Load bounds first
+      bounds = await fetch('bounds.json').then(r => r.json());
+      canvas.width = 800;
+      canvas.height = 600;
+      for (let f of FILES) {
+        const data = await fetch(f).then(r => r.json());
+        frames.push(data);
+      }
+      drawFrame(0);
+    }
+
+    function drawFrame(i) {
+      const {xmin, xmax, ymin, ymax} = bounds;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      const x = frames[i].x;
+      const y = frames[i].y;
+
+      ctx.lineWidth = 0.5;   // thin lines
+      ctx.strokeStyle = "#000"; // black
+      ctx.beginPath();
+
+      for (let j=0;j<x.length;j+=3){
+        if (x[j]===null || x[j+1]===null) continue;
+        const x1 = (x[j] - xmin)/(xmax-xmin) * canvas.width;
+        const y1 = canvas.height - (y[j] - ymin)/(ymax-ymin) * canvas.height;
+        const x2 = (x[j+1] - xmin)/(xmax-xmin) * canvas.width;
+        const y2 = canvas.height - (y[j+1] - ymin)/(ymax-ymin) * canvas.height;
+        ctx.moveTo(x1,y1);
+        ctx.lineTo(x2,y2);
+      }
+      ctx.stroke();
+
+      slider.value = i+1;
+      label.textContent = `${i+1} / ${FRAME_COUNT}`;
+    }
+
+    function play() {
+      playing = true;
+      playPause.textContent = "⏸ Pause";
+      timer = setInterval(()=>{
+        cur = (cur+1) % FRAME_COUNT;
+        drawFrame(cur);
+      }, 200); // 5 FPS
+    }
+
+    function pause() {
+      playing = false;
+      playPause.textContent = "⏵ Play";
+      clearInterval(timer);
+    }
+
+    playPause.addEventListener('click', ()=>{
+      if (playing) pause(); else play();
+    });
+
+    slider.addEventListener('input', ()=>{
+      cur = parseInt(slider.value)-1;
+      drawFrame(cur);
+    });
+
+    loadAll();
+  </script>
+</body>
+</html>
