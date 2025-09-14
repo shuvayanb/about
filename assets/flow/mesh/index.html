@@ -1,123 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Scramjet Mesh Animation</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #e5e7eb; /* gray background */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    canvas {
-      border: 1px solid #ccc;
-      background: #e5e7eb; /* same gray */
-      max-width: 95vw;
-      max-height: 70vh;
-    }
-    .controls {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    input[type=range] { width: 400px; }
-  </style>
+<meta charset="UTF-8">
+<title>Scramjet Mesh Animation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  :root { --bg:#e5e7eb; }
+  html,body{margin:0;height:100%;background:var(--bg);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}
+  .wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%}
+  #stage{width:min(95vw,1100px);height:min(70vh,640px);background:var(--bg);border:1px solid #cfcfd4;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.08);position:relative}
+  canvas{position:absolute;inset:0;width:100%;height:100%}
+  .controls{display:flex;align-items:center;gap:1rem;margin-top:10px;width:min(95vw,1100px)}
+  .controls input[type=range]{flex:1}
+  #err{position:fixed;left:12px;bottom:12px;background:rgba(255,255,255,.95);color:#b00020;padding:.6rem .8rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15);display:none;max-width:min(95vw,800px)}
+</style>
 </head>
 <body>
-  <canvas id="meshCanvas"></canvas>
+<div class="wrap">
+  <div id="stage"><canvas id="mesh"></canvas></div>
   <div class="controls">
-    <button id="playPause">⏵ Play</button>
-    <input id="frameSlider" type="range" min="1" max="72" step="1" value="1">
-    <span id="frameLabel">1 / 72</span>
+    <button id="playPause">▶ Play</button>
+    <input id="frame" type="range" min="1" max="10" step="1" value="1">
+    <span id="lab">1 / 10</span>
+    <label style="display:flex;align-items:center;gap:.5rem">Line:
+      <input id="lw" type="range" min="0.3" max="2.5" step="0.1" value="0.7">
+      <span id="lwv">0.7</span>px
+    </label>
   </div>
+</div>
+<pre id="err"></pre>
 
-  <script>
-    const FRAME_COUNT = 10;
-    const FILES = Array.from({length: FRAME_COUNT}, (_, i) =>
-      `edges_${String(i+1).padStart(3,'0')}.json`
-    );
+<script>
+(async function(){
+  const FRAME_COUNT = 10;  // <-- you said you uploaded 10 frames
+  const FILES = Array.from({length: FRAME_COUNT}, (_,i)=>`edges_${String(i+1).padStart(3,'0')}.json`);
 
-    const canvas = document.getElementById('meshCanvas');
-    const ctx = canvas.getContext('2d');
-    const slider = document.getElementById('frameSlider');
-    const label = document.getElementById('frameLabel');
-    const playPause = document.getElementById('playPause');
+  const stage = document.getElementById('stage');
+  const canvas = document.getElementById('mesh');
+  const ctx = canvas.getContext('2d', {alpha:false});
+  const slider = document.getElementById('frame');
+  const label  = document.getElementById('lab');
+  const playBtn= document.getElementById('playPause');
+  const lw     = document.getElementById('lw');
+  const lwv    = document.getElementById('lwv');
+  const errBox = document.getElementById('err');
 
-    let frames = [];
-    let bounds = null;
-    let cur = 0;
-    let playing = false;
-    let timer = null;
+  let frames = [];
+  let bounds = null;
+  let cur = 0, timer = null, playing = false;
 
-    async function loadAll() {
-      // Load bounds first
-      bounds = await fetch('bounds.json').then(r => r.json());
-      canvas.width = 800;
-      canvas.height = 600;
-      for (let f of FILES) {
-        const data = await fetch(f).then(r => r.json());
-        frames.push(data);
+  function showErr(msg){
+    errBox.textContent = msg;
+    errBox.style.display = 'block';
+    console.error(msg);
+  }
+
+  // Resize canvas to device pixels
+  function fitCanvas(){
+    const dpr = window.devicePixelRatio || 1;
+    const w = stage.clientWidth, h = stage.clientHeight;
+    canvas.width = Math.max(1, Math.floor(w * dpr));
+    canvas.height= Math.max(1, Math.floor(h * dpr));
+    ctx.setTransform(dpr,0,0,dpr,0,0); // draw in CSS pixels
+  }
+  window.addEventListener('resize', fitCanvas);
+
+  // Load bounds.json if present; compute from frames otherwise
+  async function tryLoadBounds(){
+    try{
+      const r = await fetch('bounds.json', {cache:'no-store'});
+      if (r.ok) return await r.json();
+    }catch(_){}
+    return null;
+  }
+
+  function expandBounds(b,x,y){
+    if (x==null || y==null) return b;
+    if (!isFinite(x) || !isFinite(y)) return b;
+    if (!b) return {xmin:x,xmax:x,ymin:y,ymax:y};
+    b.xmin = Math.min(b.xmin, x); b.xmax = Math.max(b.xmax, x);
+    b.ymin = Math.min(b.ymin, y); b.ymax = Math.max(b.ymax, y);
+    return b;
+  }
+
+  // Load frames (JSON numbers or numeric strings are fine)
+  async function loadFrames(){
+    for (const f of FILES){
+      const j = await fetch(f, {cache:'no-store'}).then(r=>{
+        if(!r.ok) throw new Error(`Fetch failed ${f} ${r.status}`);
+        return r.json();
+      });
+      const xf = j.x.map(v => v===null ? null : +v);
+      const yf = j.y.map(v => v===null ? null : +v);
+      frames.push({x:xf, y:yf});
+    }
+  }
+
+  function computeBoundsFromFrames(){
+    let b=null;
+    for (const fr of frames){
+      const x = fr.x, y = fr.y;
+      for (let i=0;i<x.length;i++){
+        if (x[i]===null || y[i]===null) continue;
+        b = expandBounds(b, x[i], y[i]);
       }
-      drawFrame(0);
     }
+    // add a tiny pad if degenerate
+    if (!b || b.xmax===b.xmin) { b=(b||{xmin:0,xmax:1,ymin:0,ymax:1}); b.xmax=b.xmin+1e-6; }
+    if (b.ymax===b.ymin) { b.ymax=b.ymin+1e-6; }
+    return b;
+  }
 
-    function drawFrame(i) {
-      const {xmin, xmax, ymin, ymax} = bounds;
-      ctx.clearRect(0,0,canvas.width,canvas.height);
+  function draw(i){
+    if (!bounds){ showErr('No bounds available.'); return; }
+    const {xmin,xmax,ymin,ymax} = bounds;
+    const w = stage.clientWidth, h = stage.clientHeight;
 
-      const x = frames[i].x;
-      const y = frames[i].y;
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#e5e7eb';
+    ctx.fillRect(0,0,w,h);
 
-      ctx.lineWidth = 0.5;   // thin lines
-      ctx.strokeStyle = "#000"; // black
-      ctx.beginPath();
+    const fx = frames[i];
+    if (!fx){ showErr(`Frame ${i+1} missing`); return; }
 
-      for (let j=0;j<x.length;j+=3){
-        if (x[j]===null || x[j+1]===null) continue;
-        const x1 = (x[j] - xmin)/(xmax-xmin) * canvas.width;
-        const y1 = canvas.height - (y[j] - ymin)/(ymax-ymin) * canvas.height;
-        const x2 = (x[j+1] - xmin)/(xmax-xmin) * canvas.width;
-        const y2 = canvas.height - (y[j+1] - ymin)/(ymax-ymin) * canvas.height;
-        ctx.moveTo(x1,y1);
-        ctx.lineTo(x2,y2);
-      }
-      ctx.stroke();
+    const X = fx.x, Y = fx.y;
+    const sx = w/(xmax-xmin), sy = h/(ymax-ymin);
+    const lineW = parseFloat(lw.value)||0.7;
 
-      slider.value = i+1;
-      label.textContent = `${i+1} / ${FRAME_COUNT}`;
+    ctx.beginPath();
+    // Draw triplets [x1,y1, x2,y2, null]
+    for (let k=0;k<X.length;k+=3){
+      const x1 = X[k],   y1 = Y[k];
+      const x2 = X[k+1], y2 = Y[k+1];
+      if (x1==null || x2==null || y1==null || y2==null) continue;
+      const X1 = (x1 - xmin)*sx, Y1 = h - (y1 - ymin)*sy;
+      const X2 = (x2 - xmin)*sx, Y2 = h - (y2 - ymin)*sy;
+      if (!isFinite(X1) || !isFinite(Y1) || !isFinite(X2) || !isFinite(Y2)) continue;
+      ctx.moveTo(X1, Y1);
+      ctx.lineTo(X2, Y2);
     }
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = lineW;
+    ctx.stroke();
 
-    function play() {
-      playing = true;
-      playPause.textContent = "⏸ Pause";
-      timer = setInterval(()=>{
-        cur = (cur+1) % FRAME_COUNT;
-        drawFrame(cur);
-      }, 200); // 5 FPS
-    }
+    slider.value = i+1;
+    label.textContent = `${i+1} / ${FILES.length}`;
+    lwv.textContent = lineW.toFixed(1);
+  }
 
-    function pause() {
-      playing = false;
-      playPause.textContent = "⏵ Play";
-      clearInterval(timer);
-    }
+  function play(){
+    if (playing) return;
+    playing = true;
+    playBtn.textContent = '⏸ Pause';
+    timer = setInterval(()=>{
+      cur = (cur+1) % frames.length;
+      draw(cur);
+    }, 200); // 5 fps
+  }
+  function pause(){
+    playing = false;
+    playBtn.textContent = '▶ Play';
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
 
-    playPause.addEventListener('click', ()=>{
-      if (playing) pause(); else play();
-    });
+  playBtn.addEventListener('click', ()=> playing ? pause() : play());
+  slider.addEventListener('input', e => { cur = +e.target.value - 1; draw(cur); });
+  lw.addEventListener('input', ()=> draw(cur));
 
-    slider.addEventListener('input', ()=>{
-      cur = parseInt(slider.value)-1;
-      drawFrame(cur);
-    });
-
-    loadAll();
-  </script>
+  try{
+    fitCanvas();
+    await loadFrames();
+    bounds = await tryLoadBounds();
+    if (!bounds) bounds = computeBoundsFromFrames();
+    draw(0);
+    play();  // auto-start
+  }catch(e){
+    showErr(String(e));
+  }
+})();
+</script>
 </body>
 </html>
