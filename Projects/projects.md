@@ -3,30 +3,6 @@ layout: page
 title: Research
 ---
 
-<!-- ── Scramjet mesh reveal (iframe card) ───────────────── -->
-<div class="card-row">
-  <div class="card-cell">
-    <iframe
-      src="{{ '/assets/flow/mesh/index.html' | relative_url }}"
-      loading="lazy"
-      title="Scramjet mesh reveal"
-      style="
-        width:100%; height:40vh; min-height:320px;
-        background:#e5e7eb; border:0; border-radius:14px;
-        box-shadow:0 6px 20px rgba(0,0,0,.10); overflow:hidden;
-        display:block;">
-    </iframe>
-  </div>
-
-  <aside class="sidebox">
-    <h3>Structured mesh</h3>
-    <p>
-      Structured mesh for a 3-ramp scramjet intake with structured mesh coming into play. Use the controls in the embed to play and scrub frames.
-    </p>
-  </aside>
-</div>
-<!-- ─────────────────────────────────────────────────────── -->
-
 
 * # <span style="color:blue">Shape design and optimization </span>
 
