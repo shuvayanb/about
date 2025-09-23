@@ -1,0 +1,7 @@
+.note-background {
+  background-color: #f9f9f9;   /* light gray, easy on the eyes */
+  border-left: 4px solid #ccc; /* subtle vertical line */
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+}
