@@ -5,7 +5,7 @@ email: "b.shuvayan@gmail.com"
 
 # site URL config (needed so {{ ... | relative_url }} resolves correctly)
 url:  "https://shuvayanb.github.io"
-baseurl: "/about"   # your site is published under /about
+baseurl: "about"   # your site is published under /about
 
 # theme & markdown
 theme: minima
