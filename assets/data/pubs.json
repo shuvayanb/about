@@ -466,6 +466,24 @@
     "tags": []
   },
   {
+    "id": "sciFM_NN",
+    "type": "preprint",
+    "title": "On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey",
+    "authors": [
+      "Menon, Sidharth S",
+      "Mondal, Trishit",
+      "Brahmachary, Shuvayan",
+      "Panda, Aniruddha",
+      "Joshi, Subodh M",
+      "Kalyanaraman, Kaushic",
+      "Jagtap, Ameya D"
+    ],
+    "year": 2025,
+    "venue": "NeuralNetworks",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0893608026000304",
+    "tags": []
+  },
+  {
     "id": "dudas2020high",
     "type": "article",
     "title": "High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy",
