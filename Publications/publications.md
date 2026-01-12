@@ -5,7 +5,7 @@ title: Publications
 
 ## Preprint
 
-1. Menon, Sidharth S, Mondal, Trishit, Brahmachary, Shuvayan, Panda, Aniruddha, Joshi, Subodh M, Kalyanaraman, Kaushic, Jagtap, Ameya D, _On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey_, **SSRN**, 2025 [Link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5409063)
+_No entries._
 
 
 

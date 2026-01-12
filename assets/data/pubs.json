@@ -503,24 +503,6 @@
     ]
   },
   {
-    "id": "menonscientific",
-    "type": "preprint",
-    "title": "On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey",
-    "authors": [
-      "Menon, Sidharth S",
-      "Mondal, Trishit",
-      "Brahmachary, Shuvayan",
-      "Panda, Aniruddha",
-      "Joshi, Subodh M",
-      "Kalyanaraman, Kaushic",
-      "Jagtap, Ameya D"
-    ],
-    "year": 2025,
-    "venue": "SSRN",
-    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5409063",
-    "tags": []
-  },
-  {
     "id": "dudas2020high",
     "type": "article",
     "title": "High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy",
