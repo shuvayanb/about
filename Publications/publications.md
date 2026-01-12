@@ -11,7 +11,7 @@ _No entries._
 
 ## Journals
 
-1. Menon, Sidharth S, Mondal, Trishit, Brahmachary, Shuvayan, Panda, Aniruddha, Joshi, Subodh M, Kalyanaraman, Kaushic, Jagtap, Ameya D, _On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey_, **NeuralNetworks**, 2025 [Link](https://www.sciencedirect.com/science/article/pii/S0893608026000304)
+1. Menon, Sidharth S, Mondal, Trishit, Brahmachary, Shuvayan, Panda, Aniruddha, Joshi, Subodh M, Kalyanaraman, Kaushic, Jagtap, Ameya D, _On Scientific Foundation Models: Rigorous Definitions, Key Applications, and a Survey_, **Neural Networks**, 2025 [Link](https://www.sciencedirect.com/science/article/pii/S0893608026000304)
 
 2. Brahmachary, Shuvayan, Joshi, Subodh M, Panda, Aniruddha, Koneripalli, Kaushik, Sagotra, Arun Kumar, Patel, Harshil, Sharma, Ankush, Jagtap, Ameya D, Kalyanaraman, Kaushic, _Large language model-based evolutionary optimizer: Reasoning with elitism_, **Neurocomputing**, 2025 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0925231224020435)
 

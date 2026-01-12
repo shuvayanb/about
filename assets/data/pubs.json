@@ -13,7 +13,7 @@
       "Jagtap, Ameya D"
     ],
     "year": 2025,
-    "venue": "NeuralNetworks",
+    "venue": "Neural Networks",
     "url": "https://www.sciencedirect.com/science/article/pii/S0893608026000304",
     "tags": [
       "LLM",
@@ -23,6 +23,7 @@
       "training strategies",
       "applications",
       "evaluation",
+      "SciML",
       "pretraining",
       "physics priors",
       "operator learning",
