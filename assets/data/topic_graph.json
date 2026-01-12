@@ -10,7 +10,7 @@
       "id": "adaptive step λ",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "aerodynamic shape optimization",
@@ -22,7 +22,7 @@
       "id": "analysis",
       "count": 1,
       "degree_w": 5,
-      "community": 9
+      "community": 11
     },
     {
       "id": "ansys fluent (euler)",
@@ -32,15 +32,21 @@
     },
     {
       "id": "applications",
+      "count": 2,
+      "degree_w": 15,
+      "community": 3
+    },
+    {
+      "id": "architecture",
       "count": 1,
-      "degree_w": 4,
-      "community": 11
+      "degree_w": 5,
+      "community": 12
     },
     {
       "id": "ausm convective flux",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "ausm flux",
@@ -52,19 +58,37 @@
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 13
     },
     {
       "id": "benchmarking",
       "count": 1,
       "degree_w": 5,
-      "community": 2
+      "community": 13
+    },
+    {
+      "id": "benchmarking & metrics",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "biology",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "busemann-based",
       "count": 2,
       "degree_w": 2,
-      "community": 3
+      "community": 4
+    },
+    {
+      "id": "capabilities",
+      "count": 1,
+      "degree_w": 5,
+      "community": 1
     },
     {
       "id": "cell classification (f/i/s)",
@@ -76,7 +100,7 @@
       "id": "cell reynolds number",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 14
     },
     {
       "id": "cfd",
@@ -85,58 +109,100 @@
       "community": 0
     },
     {
+      "id": "chaotic dynamics",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
+    },
+    {
       "id": "critical radii",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 15
     },
     {
       "id": "cross-referencing across intake classes",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 11
     },
     {
       "id": "deflected gap",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "density via eos",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "differentiable physics",
       "count": 2,
       "degree_w": 4,
+      "community": 2
+    },
+    {
+      "id": "domain adaptation",
+      "count": 1,
+      "degree_w": 1,
       "community": 1
+    },
+    {
+      "id": "domain generalization",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "earth observation",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "elitism guardrails",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "engineering applications",
       "count": 1,
       "degree_w": 4,
-      "community": 2
+      "community": 1
+    },
+    {
+      "id": "ethical integrity",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "evaluation",
+      "count": 1,
+      "degree_w": 5,
+      "community": 1
     },
     {
       "id": "explicit runge–kutta",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "explore-exploit balance",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
+    },
+    {
+      "id": "fine-tuning",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
     },
     {
       "id": "finite-volume",
@@ -148,19 +214,19 @@
       "id": "finite-volume solver",
       "count": 1,
       "degree_w": 5,
-      "community": 8
+      "community": 9
     },
     {
       "id": "flat plate (ma≈6",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "flip-flopping (chaotic)",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "flow modeling",
@@ -178,24 +244,30 @@
       "id": "fourier neural operators (fno)",
       "count": 1,
       "degree_w": 3,
-      "community": 1
+      "community": 2
     },
     {
       "id": "full wave inversion",
       "count": 1,
       "degree_w": 3,
-      "community": 1
+      "community": 2
     },
     {
       "id": "generic (bézier)",
       "count": 1,
       "degree_w": 1,
-      "community": 3
+      "community": 4
     },
     {
       "id": "geometry",
       "count": 3,
       "degree_w": 9,
+      "community": 4
+    },
+    {
+      "id": "geophysics",
+      "count": 1,
+      "degree_w": 1,
       "community": 3
     },
     {
@@ -208,13 +280,13 @@
       "id": "goldstein-price function",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 13
     },
     {
       "id": "gradient method",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "gradient reconstruction",
@@ -223,10 +295,16 @@
       "community": 0
     },
     {
+      "id": "graph neural networks",
+      "count": 1,
+      "degree_w": 1,
+      "community": 12
+    },
+    {
       "id": "green–gauss gradients",
       "count": 1,
       "degree_w": 1,
-      "community": 8
+      "community": 9
     },
     {
       "id": "h) grid search",
@@ -238,13 +316,13 @@
       "id": "high re)",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "himmelblau function",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 13
     },
     {
       "id": "hybrid cartesian ib (hcib)",
@@ -265,28 +343,34 @@
       "community": 0
     },
     {
+      "id": "interpretability & explainability",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
       "id": "leading-edge bluntness",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 15
     },
     {
       "id": "llm",
-      "count": 1,
-      "degree_w": 4,
-      "community": 2
+      "count": 2,
+      "degree_w": 10,
+      "community": 1
     },
     {
       "id": "local refinement",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 14
     },
     {
       "id": "local rob (k-means)",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "low-fidelity approach",
@@ -295,21 +379,33 @@
       "community": 0
     },
     {
+      "id": "materials & chemistry",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
+    },
+    {
       "id": "maximize compression efficiency",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 16
     },
     {
       "id": "ma≈6)",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "mesh & adaptation",
       "count": 1,
       "degree_w": 5,
+      "community": 14
+    },
+    {
+      "id": "meta-learning",
+      "count": 1,
+      "degree_w": 1,
       "community": 10
     },
     {
@@ -322,13 +418,13 @@
       "id": "mid-horizon chaotic switching capture",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 3
     },
     {
       "id": "minimize drag",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 16
     },
     {
       "id": "ml",
@@ -364,79 +460,103 @@
       "id": "multi-objective optimization",
       "count": 1,
       "degree_w": 5,
-      "community": 2
+      "community": 1
     },
     {
       "id": "near-wall resolution",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 14
+    },
+    {
+      "id": "neural operators",
+      "count": 1,
+      "degree_w": 1,
+      "community": 12
     },
     {
       "id": "nonconformal cartesian",
       "count": 1,
       "degree_w": 1,
-      "community": 10
+      "community": 14
     },
     {
       "id": "nonpolynomial option (temperature)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "normal-line interpolation",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "nsga-ii modularization",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
+    },
+    {
+      "id": "nuclear science",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "objective: separation length",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
     },
     {
       "id": "objectives & constraints",
       "count": 1,
       "degree_w": 3,
-      "community": 13
+      "community": 16
     },
     {
       "id": "off-design assessment",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 11
+    },
+    {
+      "id": "operator learning",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
     },
     {
       "id": "optimization",
       "count": 2,
       "degree_w": 8,
-      "community": 4
+      "community": 5
     },
     {
       "id": "pareto front",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 11
     },
     {
       "id": "pareto optimal front",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     },
     {
       "id": "pca-based clustering",
       "count": 1,
       "degree_w": 1,
       "community": 0
+    },
+    {
+      "id": "pdes",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "perfect-gas ns",
@@ -448,7 +568,19 @@
       "id": "phiflow-in-the-loop",
       "count": 1,
       "degree_w": 1,
+      "community": 2
+    },
+    {
+      "id": "physics priors",
+      "count": 1,
+      "degree_w": 1,
       "community": 1
+    },
+    {
+      "id": "pinns",
+      "count": 1,
+      "degree_w": 1,
+      "community": 12
     },
     {
       "id": "pod-coefficient prediction",
@@ -460,31 +592,55 @@
       "id": "pod/svd",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "population-based methods",
       "count": 1,
       "degree_w": 1,
-      "community": 4
+      "community": 5
+    },
+    {
+      "id": "pre-training",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
     },
     {
       "id": "preserving boundary layer & global wake dynamics",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 3
     },
     {
       "id": "pressure (∂p/∂n=0; quadratic option)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
+    },
+    {
+      "id": "pretraining",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "problem adaptation",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
+    },
+    {
+      "id": "problem generalization",
+      "count": 1,
+      "degree_w": 1,
+      "community": 1
     },
     {
       "id": "quasi-in-/anti-phase",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "quasi-optimal (dmi",
@@ -508,25 +664,31 @@
       "id": "reconstruction & bcs",
       "count": 1,
       "degree_w": 7,
-      "community": 5
+      "community": 7
     },
     {
       "id": "reference solver (foamextend)  coarse-grained surrogate",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
+    },
+    {
+      "id": "robotics & control",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "rom",
       "count": 1,
       "degree_w": 4,
-      "community": 1
+      "community": 2
     },
     {
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 13
     },
     {
       "id": "saea (nsga-ii)",
@@ -535,28 +697,34 @@
       "community": 0
     },
     {
+      "id": "scifm",
+      "count": 1,
+      "degree_w": 4,
+      "community": 1
+    },
+    {
       "id": "sciml",
       "count": 4,
       "degree_w": 11,
-      "community": 1
+      "community": 2
     },
     {
       "id": "scramjet intake",
       "count": 2,
       "degree_w": 2,
-      "community": 3
+      "community": 4
     },
     {
       "id": "semicylinder (ma≈8)",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "sensitivity",
       "count": 1,
       "degree_w": 1,
-      "community": 9
+      "community": 11
     },
     {
       "id": "sharp-interface",
@@ -568,58 +736,88 @@
       "id": "single bluff-body",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 2
     },
     {
       "id": "sphere–cone (axisymmetric",
       "count": 1,
       "degree_w": 1,
-      "community": 7
+      "community": 8
     },
     {
       "id": "steady-state heat transfer",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     },
     {
       "id": "subsurface",
       "count": 1,
       "degree_w": 3,
-      "community": 1
+      "community": 2
     },
     {
       "id": "supersonic nozzle shape optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     },
     {
       "id": "swbli",
       "count": 1,
       "degree_w": 3,
-      "community": 12
+      "community": 15
     },
     {
       "id": "temperature (isothermal wall)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "test cases",
       "count": 1,
       "degree_w": 6,
-      "community": 7
+      "community": 8
     },
     {
       "id": "three-ramp",
       "count": 1,
       "degree_w": 1,
+      "community": 4
+    },
+    {
+      "id": "time series",
+      "count": 1,
+      "degree_w": 1,
       "community": 3
     },
     {
+      "id": "training strategies",
+      "count": 1,
+      "degree_w": 5,
+      "community": 10
+    },
+    {
+      "id": "transfer learning",
+      "count": 1,
+      "degree_w": 1,
+      "community": 10
+    },
+    {
+      "id": "transformers",
+      "count": 1,
+      "degree_w": 1,
+      "community": 12
+    },
+    {
       "id": "truncated modes",
+      "count": 1,
+      "degree_w": 1,
+      "community": 2
+    },
+    {
+      "id": "uncertainty quantification",
       "count": 1,
       "degree_w": 1,
       "community": 1
@@ -628,25 +826,31 @@
       "id": "unsteady wakes around arbitrary bodies",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 3
     },
     {
       "id": "velocity (no-slip & impermeability)",
       "count": 1,
       "degree_w": 1,
-      "community": 5
+      "community": 7
     },
     {
       "id": "venkatakrishnan limiter",
       "count": 2,
       "degree_w": 2,
-      "community": 8
+      "community": 9
     },
     {
       "id": "wake regimes",
       "count": 1,
       "degree_w": 5,
-      "community": 1
+      "community": 2
+    },
+    {
+      "id": "weather & climate",
+      "count": 1,
+      "degree_w": 1,
+      "community": 3
     },
     {
       "id": "weighting functions",
@@ -658,22 +862,197 @@
       "id": "windfarm layout optimization",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     },
     {
       "id": "zdt1",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     },
     {
       "id": "zdt3",
       "count": 1,
       "degree_w": 1,
-      "community": 2
+      "community": 1
     }
   ],
   "links": [
+    {
+      "source": "llm",
+      "target": "scifm",
+      "weight": 1
+    },
+    {
+      "source": "capabilities",
+      "target": "llm",
+      "weight": 1
+    },
+    {
+      "source": "architecture",
+      "target": "llm",
+      "weight": 1
+    },
+    {
+      "source": "llm",
+      "target": "training strategies",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "llm",
+      "weight": 1
+    },
+    {
+      "source": "evaluation",
+      "target": "llm",
+      "weight": 1
+    },
+    {
+      "source": "pretraining",
+      "target": "scifm",
+      "weight": 1
+    },
+    {
+      "source": "physics priors",
+      "target": "scifm",
+      "weight": 1
+    },
+    {
+      "source": "operator learning",
+      "target": "scifm",
+      "weight": 1
+    },
+    {
+      "source": "capabilities",
+      "target": "domain adaptation",
+      "weight": 1
+    },
+    {
+      "source": "capabilities",
+      "target": "domain generalization",
+      "weight": 1
+    },
+    {
+      "source": "capabilities",
+      "target": "problem adaptation",
+      "weight": 1
+    },
+    {
+      "source": "capabilities",
+      "target": "problem generalization",
+      "weight": 1
+    },
+    {
+      "source": "architecture",
+      "target": "transformers",
+      "weight": 1
+    },
+    {
+      "source": "architecture",
+      "target": "neural operators",
+      "weight": 1
+    },
+    {
+      "source": "architecture",
+      "target": "graph neural networks",
+      "weight": 1
+    },
+    {
+      "source": "architecture",
+      "target": "pinns",
+      "weight": 1
+    },
+    {
+      "source": "pre-training",
+      "target": "training strategies",
+      "weight": 1
+    },
+    {
+      "source": "meta-learning",
+      "target": "training strategies",
+      "weight": 1
+    },
+    {
+      "source": "training strategies",
+      "target": "transfer learning",
+      "weight": 1
+    },
+    {
+      "source": "fine-tuning",
+      "target": "training strategies",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "pdes",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "materials & chemistry",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "biology",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "weather & climate",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "earth observation",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "geophysics",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "robotics & control",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "nuclear science",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "chaotic dynamics",
+      "weight": 1
+    },
+    {
+      "source": "applications",
+      "target": "time series",
+      "weight": 1
+    },
+    {
+      "source": "benchmarking & metrics",
+      "target": "evaluation",
+      "weight": 1
+    },
+    {
+      "source": "evaluation",
+      "target": "uncertainty quantification",
+      "weight": 1
+    },
+    {
+      "source": "evaluation",
+      "target": "interpretability & explainability",
+      "weight": 1
+    },
+    {
+      "source": "ethical integrity",
+      "target": "evaluation",
+      "weight": 1
+    },
     {
       "source": "llm",
       "target": "optimization",
