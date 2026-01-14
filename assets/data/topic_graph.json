@@ -19,6 +19,12 @@
       "community": 0
     },
     {
+      "id": "ai agents",
+      "count": 1,
+      "degree_w": 2,
+      "community": 0
+    },
+    {
       "id": "analysis",
       "count": 1,
       "degree_w": 5,
@@ -40,7 +46,7 @@
       "id": "architecture",
       "count": 1,
       "degree_w": 5,
-      "community": 1
+      "community": 11
     },
     {
       "id": "ausm convective flux",
@@ -58,19 +64,19 @@
       "id": "beale function",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 12
     },
     {
       "id": "benchmarking",
       "count": 1,
       "degree_w": 5,
-      "community": 11
+      "community": 12
     },
     {
       "id": "benchmarking & metrics",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 13
     },
     {
       "id": "biology",
@@ -88,7 +94,7 @@
       "id": "capabilities",
       "count": 1,
       "degree_w": 5,
-      "community": 12
+      "community": 1
     },
     {
       "id": "cell classification (f/i/s)",
@@ -100,12 +106,12 @@
       "id": "cell reynolds number",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 14
     },
     {
       "id": "cfd",
       "count": 13,
-      "degree_w": 31,
+      "degree_w": 32,
       "community": 0
     },
     {
@@ -148,13 +154,13 @@
       "id": "domain adaptation",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 1
     },
     {
       "id": "domain generalization",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 1
     },
     {
       "id": "earth observation",
@@ -178,13 +184,19 @@
       "id": "ethical integrity",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 13
     },
     {
       "id": "evaluation",
       "count": 1,
       "degree_w": 5,
-      "community": 1
+      "community": 13
+    },
+    {
+      "id": "evaluations",
+      "count": 1,
+      "degree_w": 2,
+      "community": 0
     },
     {
       "id": "explicit runge–kutta",
@@ -280,7 +292,7 @@
       "id": "goldstein-price function",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 12
     },
     {
       "id": "gradient method",
@@ -298,7 +310,7 @@
       "id": "graph neural networks",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "green–gauss gradients",
@@ -322,16 +334,10 @@
       "id": "himmelblau function",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 12
     },
     {
       "id": "hybrid cartesian ib (hcib)",
-      "count": 1,
-      "degree_w": 1,
-      "community": 0
-    },
-    {
-      "id": "immersed boudnary method",
       "count": 1,
       "degree_w": 1,
       "community": 0
@@ -346,7 +352,7 @@
       "id": "interpretability & explainability",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 13
     },
     {
       "id": "leading-edge bluntness",
@@ -364,7 +370,7 @@
       "id": "local refinement",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 14
     },
     {
       "id": "local rob (k-means)",
@@ -400,7 +406,7 @@
       "id": "mesh & adaptation",
       "count": 1,
       "degree_w": 5,
-      "community": 13
+      "community": 14
     },
     {
       "id": "meta-learning",
@@ -460,25 +466,25 @@
       "id": "multi-objective optimization",
       "count": 1,
       "degree_w": 5,
-      "community": 14
+      "community": 1
     },
     {
       "id": "near-wall resolution",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 14
     },
     {
       "id": "neural operators",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "nonconformal cartesian",
       "count": 1,
       "degree_w": 1,
-      "community": 13
+      "community": 14
     },
     {
       "id": "nonpolynomial option (temperature)",
@@ -496,7 +502,7 @@
       "id": "nsga-ii modularization",
       "count": 1,
       "degree_w": 1,
-      "community": 14
+      "community": 1
     },
     {
       "id": "nuclear science",
@@ -544,7 +550,7 @@
       "id": "pareto optimal front",
       "count": 1,
       "degree_w": 1,
-      "community": 14
+      "community": 1
     },
     {
       "id": "pca-based clustering",
@@ -580,7 +586,7 @@
       "id": "pinns",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "pod-coefficient prediction",
@@ -628,13 +634,13 @@
       "id": "problem adaptation",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 1
     },
     {
       "id": "problem generalization",
       "count": 1,
       "degree_w": 1,
-      "community": 12
+      "community": 1
     },
     {
       "id": "quasi-in-/anti-phase",
@@ -688,7 +694,7 @@
       "id": "rosenbrock function",
       "count": 1,
       "degree_w": 1,
-      "community": 11
+      "community": 12
     },
     {
       "id": "saea (nsga-ii)",
@@ -808,7 +814,7 @@
       "id": "transformers",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 11
     },
     {
       "id": "truncated modes",
@@ -820,7 +826,7 @@
       "id": "uncertainty quantification",
       "count": 1,
       "degree_w": 1,
-      "community": 1
+      "community": 13
     },
     {
       "id": "unsteady wakes around arbitrary bodies",
@@ -868,13 +874,13 @@
       "id": "zdt1",
       "count": 1,
       "degree_w": 1,
-      "community": 14
+      "community": 1
     },
     {
       "id": "zdt3",
       "count": 1,
       "degree_w": 1,
-      "community": 14
+      "community": 1
     }
   ],
   "links": [
@@ -1594,8 +1600,18 @@
       "weight": 1
     },
     {
+      "source": "ai agents",
+      "target": "cfd",
+      "weight": 1
+    },
+    {
+      "source": "ai agents",
+      "target": "evaluations",
+      "weight": 1
+    },
+    {
       "source": "cfd",
-      "target": "immersed boudnary method",
+      "target": "evaluations",
       "weight": 1
     },
     {

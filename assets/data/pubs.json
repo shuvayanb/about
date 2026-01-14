@@ -393,19 +393,18 @@
   {
     "id": "brahmachary2020sharp",
     "type": "incollection",
-    "title": "A sharp-interface immersed boundary method for high-speed compressible flows",
+    "title": "Evaluations Framework for Scientific Simulation Agents",
     "authors": [
-      "Brahmachary, Shuvayan",
-      "Natarajan, Ganesh",
-      "Kulkarni, Vinayak",
-      "Sahoo, Niranjan"
+      "Bardia, Raunak., Brahmachary, Shuvayan., Panda, Aniruddha, Tyagi, Ankit., Joshi, Subodh., Konerapalli, Kaushik,",
+      "Kalyanaraman, Kaushic"
     ],
-    "year": 2020,
-    "venue": "Immersed Boundary Method: Development and Applications",
-    "url": "https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9",
+    "year": 2025,
+    "venue": "",
+    "url": "https://casml.cc/wp-content/uploads/2025/12/spotlight1.pdf",
     "tags": [
+      "AI Agents",
       "CFD",
-      "Immersed Boudnary Method"
+      "Evaluations"
     ]
   },
   {

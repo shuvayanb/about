@@ -47,7 +47,7 @@ _No entries._
 
 ## Book Chapters
 
-1. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _A sharp-interface immersed boundary method for high-speed compressible flows_, **Immersed Boundary Method: Development and Applications**, 2020 [Link](https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9)
+1. Bardia, Raunak., Brahmachary, Shuvayan., Panda, Aniruddha, Tyagi, Ankit., Joshi, Subodh., Konerapalli, Kaushik,, Kalyanaraman, Kaushic, _Evaluations Framework for Scientific Simulation Agents_, 2025 [Link](https://casml.cc/wp-content/uploads/2025/12/spotlight1.pdf)
 
 2. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, Nanda, Soumya Ranjan, _Application of greedy and heuristic algorithm-based optimisation methods towards aerodynamic shape optimisation_, **Soft Computing for Problem Solving: SocProS 2017, Volume 1**, 2018 [Link](https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75)
 
