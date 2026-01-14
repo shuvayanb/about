@@ -1606,6 +1606,16 @@
       "weight": 1
     },
     {
+      "source": "cfd",
+      "target": "immersed boudnary method",
+      "weight": 1
+    },
+    {
+      "source": "aerodynamic shape optimization",
+      "target": "multi-fidelity framework",
+      "weight": 1
+    },
+    {
       "source": "ai agents",
       "target": "cfd",
       "weight": 1
@@ -1618,16 +1628,6 @@
     {
       "source": "cfd",
       "target": "evaluations",
-      "weight": 1
-    },
-    {
-      "source": "cfd",
-      "target": "immersed boudnary method",
-      "weight": 1
-    },
-    {
-      "source": "aerodynamic shape optimization",
-      "target": "multi-fidelity framework",
       "weight": 1
     },
     {
