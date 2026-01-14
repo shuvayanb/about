@@ -391,7 +391,7 @@
     ]
   },
   {
-    "id": "brahmachary2020sharp",
+    "id": "brahmachary2025agents",
     "type": "incollection",
     "title": "Evaluations Framework for Scientific Simulation Agents",
     "authors": [
@@ -405,6 +405,24 @@
       "AI Agents",
       "CFD",
       "Evaluations"
+    ]
+  },
+  {
+    "id": "brahmachary2020sharp",
+    "type": "incollection",
+    "title": "A sharp-interface immersed boundary method for high-speed compressible flows",
+    "authors": [
+      "Brahmachary, Shuvayan",
+      "Natarajan, Ganesh",
+      "Kulkarni, Vinayak",
+      "Sahoo, Niranjan"
+    ],
+    "year": 2020,
+    "venue": "Immersed Boundary Method: Development and Applications",
+    "url": "https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9",
+    "tags": [
+      "CFD",
+      "Immersed Boudnary Method"
     ]
   },
   {
@@ -488,7 +506,7 @@
     "title": "Multi-target rendezvous optimization for active debris removal via multi-fidelity framework",
     "authors": [
       "Brahmachary, Shuvayan",
-      "TOKUDA, Atsuki",
+      "Tokuda, Atsuki",
       "Ogawa, Hideaki",
       "Bang, Jun",
       "Ahn, Jaemyung",

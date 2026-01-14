@@ -33,7 +33,7 @@ _No entries._
 
 11. Deka, Mandeep, Brahmachary, Shuvayan, Thirumalaisamy, Ramakrishnan, Dalal, Amaresh, Natarajan, Ganesh, _A new Green--Gauss reconstruction on unstructured meshes. Part I: Gradient reconstruction_, **Journal of Computational Physics**, 2020 [Link](https://www.sciencedirect.com/science/article/abs/pii/S0021999118306909)
 
-12. Brahmachary, Shuvayan, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+12. Brahmachary, Shuvayan, Tokuda, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, **計測自動制御学会制御部門マルチシンポジウム (CD-ROM)**, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
 
 13. Dud{\'a}s, Eszter, Suas-David, Nicolas, Brahmachary, Shuvayan, Kulkarni, Vinayak, Benidar, Abdessamad, Kassi, Samir, Charles, Christine, Georges, Robert, _High-temperature hypersonic Laval nozzle for non-LTE cavity ringdown spectroscopy_, **The Journal of Chemical Physics**, 2020 [Link](https://pubs.aip.org/aip/jcp/article-abstract/152/13/134201/198143/High-temperature-hypersonic-Laval-nozzle-for-non?redirectedFrom=fulltext)
 
@@ -49,9 +49,11 @@ _No entries._
 
 1. Bardia, Raunak., Brahmachary, Shuvayan., Panda, Aniruddha, Tyagi, Ankit., Joshi, Subodh., Konerapalli, Kaushik,, Kalyanaraman, Kaushic, _Evaluations Framework for Scientific Simulation Agents_, 2025 [Link](https://casml.cc/wp-content/uploads/2025/12/spotlight1.pdf)
 
-2. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, Nanda, Soumya Ranjan, _Application of greedy and heuristic algorithm-based optimisation methods towards aerodynamic shape optimisation_, **Soft Computing for Problem Solving: SocProS 2017, Volume 1**, 2018 [Link](https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75)
+2. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, _A sharp-interface immersed boundary method for high-speed compressible flows_, **Immersed Boundary Method: Development and Applications**, 2020 [Link](https://link.springer.com/chapter/10.1007/978-981-15-3940-4_9)
 
-3. Brahmachary, Shuvayan, Natarajan, Ganesh, Sahoo, Niranjan, _A hybrid aerodynamic shape optimization approach for axisymmetric body in hypersonic flow_, **Fluid Mechanics and Fluid Power--Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014**, 2016 [Link](https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29)
+3. Brahmachary, Shuvayan, Natarajan, Ganesh, Kulkarni, Vinayak, Sahoo, Niranjan, Nanda, Soumya Ranjan, _Application of greedy and heuristic algorithm-based optimisation methods towards aerodynamic shape optimisation_, **Soft Computing for Problem Solving: SocProS 2017, Volume 1**, 2018 [Link](https://link.springer.com/chapter/10.1007/978-981-13-1592-3_75)
+
+4. Brahmachary, Shuvayan, Natarajan, Ganesh, Sahoo, Niranjan, _A hybrid aerodynamic shape optimization approach for axisymmetric body in hypersonic flow_, **Fluid Mechanics and Fluid Power--Contemporary Research: Proceedings of the 5th International and 41st National Conference on FMFP 2014**, 2016 [Link](https://link.springer.com/chapter/10.1007/978-81-322-2743-4_29)
 
 
 
@@ -61,4 +63,4 @@ _No entries._
 
 2. Brahmachary, S, Thuerey, Nils, _Leveraging Differentiable Physics to Efficiently Learn Flow Past Arbitrary Geometries_, **MS1-09B - Learning models for CFD: opportunities and limitations**, 2023 [Link](https://cfc2023.iacm.info/event/contribution/c60f2ee2-3830-11ed-8e5b-000c29ddfc0c)
 
-3. Brahmachary, Shuvayan, TOKUDA, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
+3. Brahmachary, Shuvayan, Tokuda, Atsuki, Ogawa, Hideaki, Bang, Jun, Ahn, Jaemyung, Ueda, Satoshi, _Multi-target rendezvous optimization for active debris removal via multi-fidelity framework_, 2020 [Link](https://kyushu-u.elsevierpure.com/en/publications/multi-target-rendezvous-optimization-for-active-debris-removal-vi)
