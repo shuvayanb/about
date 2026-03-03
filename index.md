@@ -82,7 +82,7 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 
 ### Contact
-`shuvayan.brahmachary@shell.com`<br/>
+`shuvayan.brahmachary@databricks.com`<br/>
 `b.shuvayan@gmail.com`<br/>
 `Products and Technology`<br/>
 `Shell Technology Center`<br/>
