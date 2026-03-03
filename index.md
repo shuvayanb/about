@@ -8,7 +8,7 @@ title: Home
 
 <div class="sticky-note">
   <div class="tape"></div>
-  Currently: AI Researcher @ Shell<br>Working on Agentic AI & SciML
+  Currently: Sr. AI Engineer @ Databricks<br>Working on Agentic AI & SciML
 </div>
 
 <style>
@@ -30,7 +30,7 @@ title: Home
 
 
 
-Hi! I am Shuvayan Brahmachary. I am an AI researcher working for Shell Technology Center Bengaluru. Previously, I worked as postdoctoral researcher at the [Technical University of Munich](https://www.tum.de/en/), Germany, under the supervision of [Dr. Nils Thuerey](https://ge.in.tum.de/) (Jan. 2022- Sept. 2023). Previously, I have worked as a postdoc fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, under the mentorship of [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html) (Sept. 2019 untill Sept. 2021) after having obtained my Ph.D from [Indian Institute of Technology Guwahati](http://www.iitg.ac.in/) in the Department of Mechanical Engineering under the guidance of [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417). My Ph.D <a href="Thesis_short_version.pdf" target="_blank">thesis.</a> title is "Finite Volume/Immersed Boundary Solvers for Compressible Flows: Development and Applications".
+Hi! I am Shuvayan Brahmachary. I am an Sr. AI engineer working for Databricks. Previously, I worked as a SciML researcher at Shell after having worked as a postdoctoral researcher at the [Technical University of Munich](https://www.tum.de/en/), Germany, under the supervision of [Dr. Nils Thuerey](https://ge.in.tum.de/) (Jan. 2022- Sept. 2023). Previously, I have worked as a postdoc fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, under the mentorship of [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html) (Sept. 2019 untill Sept. 2021) after having obtained my Ph.D from [Indian Institute of Technology Guwahati](http://www.iitg.ac.in/) in the Department of Mechanical Engineering under the guidance of [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417). My Ph.D <a href="Thesis_short_version.pdf" target="_blank">thesis.</a> title is "Finite Volume/Immersed Boundary Solvers for Compressible Flows: Development and Applications".
 
 Feel free to browse through the projects, publications and Jupyter Notebooks and email for queries. Have a good one!
 
