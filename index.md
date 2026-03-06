@@ -68,7 +68,7 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 
 
 
-### Research Interest
+### Interest
 
 - AI
   - AI Agents for complex scientific workflows [`Langchain`](https://www.langchain.com/) 
@@ -91,8 +91,6 @@ Feel free to browse through the projects, publications and Jupyter Notebooks and
 ### Contact
 `shuvayan.brahmachary@databricks.com`<br/>
 `b.shuvayan@gmail.com`<br/>
-`Products and Technology`<br/>
-`Shell Technology Center`<br/>
 `Bengaluru, Karnataka, India`<br/>
 
 
