@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Repositories
+nav_id: repositories
 ---
 
 Here's a list of Github repos that might be useful

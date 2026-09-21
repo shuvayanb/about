@@ -1,0 +1,28 @@
+# Career / research spine shown in the left rail.
+# Every field here is drawn from content already present on the site
+# (index.md biography, thesis title, publications, research pages).
+- id: databricks
+  label: Databricks
+  role: Sr. AI Engineer
+  domain: Agentic AI · SciML
+  current: true
+- id: shell
+  label: Shell
+  role: SciML Researcher
+  domain: Scientific ML
+- id: tum
+  label: TUM
+  full: Technical University of Munich
+  role: Postdoctoral Researcher
+  period: 2022 – 2023
+  domain: Differentiable Physics
+- id: kyushu
+  label: Kyushu University
+  role: Postdoctoral Fellow
+  period: 2019 – 2021
+  domain: Shape Optimisation · ROM
+- id: iitg
+  label: IIT Guwahati
+  full: Indian Institute of Technology Guwahati
+  role: Ph.D., Mechanical Engineering
+  domain: Immersed Boundary · CFD

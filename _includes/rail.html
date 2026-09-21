@@ -1,0 +1,88 @@
+{%- assign nav_id = page.nav_id | default: 'home' -%}
+<aside class="rail" id="rail">
+  <div class="rail__inner">
+
+    <a class="ident" href="{{ '/' | relative_url }}" data-node="home" data-kind="home">
+      <img class="ident__avatar" src="{{ '/assets/dp/avatar.png' | relative_url }}"
+           alt="" width="44" height="44" decoding="async">
+      <span class="ident__text">
+        <span class="ident__name">Shuvayan Brahmachary</span>
+        <span class="ident__role">Sr. AI Engineer · Databricks</span>
+      </span>
+    </a>
+
+    <nav class="rail__nav" aria-label="Career and site navigation">
+      <!-- Connecting paths are drawn from measured node positions by rail.js. -->
+      <svg class="rail__graph" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="railGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" class="railGrad__a" />
+            <stop offset="1" class="railGrad__b" />
+          </linearGradient>
+        </defs>
+        <path class="rail__trunk" fill="none" />
+        <path class="rail__lead" fill="none" />
+      </svg>
+
+      <p class="rail__legend" id="rail-journey-label">Journey</p>
+      <ol class="rail__group rail__group--journey" aria-labelledby="rail-journey-label">
+        {%- for c in site.data.journey %}
+        <li>
+          <a class="rail__item rail__item--stop{% if c.current %} is-current{% endif %}"
+             href="{{ '/' | relative_url }}#{{ c.id }}"
+             data-node="{{ c.id }}" data-kind="chapter"
+             {% if c.full %}title="{{ c.full }}"{% endif %}>
+            <span class="rail__dot" aria-hidden="true"></span>
+            <span class="rail__body">
+              <span class="rail__label">{{ c.label }}</span>
+              <span class="rail__role">{{ c.role }}{% if c.period %} · {{ c.period }}{% endif %}</span>
+              <span class="rail__domain">{{ c.domain }}</span>
+            </span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ol>
+
+      <p class="rail__legend" id="rail-sections-label">Work</p>
+      <ul class="rail__group rail__group--sections" aria-labelledby="rail-sections-label">
+        {%- for s in site.data.sections %}
+        <li>
+          <a class="rail__item rail__item--section{% if nav_id == s.id %} is-active{% endif %}"
+             href="{{ s.url | relative_url }}" data-node="{{ s.id }}" data-kind="section"
+             {% if nav_id == s.id %}aria-current="page"{% endif %}>
+            <span class="rail__dot" aria-hidden="true"></span>
+            <span class="rail__label">{{ s.label }}</span>
+          </a>
+          {%- if s.children %}
+          <ul class="rail__sub">
+            {%- for k in s.children %}
+            <li>
+              <a class="rail__item rail__item--sub{% if nav_id == k.id %} is-active{% endif %}"
+                 href="{{ k.url | relative_url }}" data-node="{{ k.id }}" data-kind="sub"
+                 {% if nav_id == k.id %}aria-current="page"{% endif %}>
+                <span class="rail__dot" aria-hidden="true"></span>
+                <span class="rail__label">{{ k.label }}</span>
+              </a>
+            </li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <div class="rail__foot">
+      {% include social.html %}
+      <button class="themetoggle" type="button" id="themetoggle"
+              aria-label="Switch colour theme" title="Switch colour theme">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none"
+             stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</aside>

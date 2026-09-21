@@ -393,7 +393,9 @@ def main():
     log(f"buckets: pre={len(pre)} jnl={len(jnl)} chp={len(chp)} cnf={len(cnf)}")
 
     # page
-    out = ["---","layout: page","title: Publications","---\n"]
+    # nav_id drives the active state in the site's left rail; it must survive
+    # every regeneration of this page.
+    out = ["---","layout: page","title: Publications","nav_id: publications","---\n"]
     out.extend(render_list("Preprint",       pre, "preprint"));  out.append("\n")
     out.extend(render_list("Journals",       jnl, "journal"));   out.append("\n")
     out.extend(render_list("Book Chapters",  chp, "chapter"));   out.append("\n")

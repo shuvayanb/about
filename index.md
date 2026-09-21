@@ -1,127 +1,127 @@
 ---
-layout: default
+layout: home
 title: Home
+nav_id: home
+eyebrow: Sr. AI Engineer · Databricks · Bengaluru
+tagline: Working at the intersection of agentic AI, scientific machine learning and physical simulation.
+description: Shuvayan Brahmachary — Sr. AI Engineer at Databricks. Agentic AI, scientific machine learning, differentiable physics and computational fluid dynamics.
+thread:
+  - label: CFD
+    tag: cfd
+  - label: Optimization
+    tag: optimization
+  - label: Differentiable Physics
+    tag: differentiable physics
+  - label: SciML for PDEs
+    tag: sciml
+  - label: AI for Science
+  - label: AI Agents
+    tag: ai agents
 ---
 
-<img src="{{ '/assets/dp/profilepicture.png' | relative_url }}" alt="Shuvayan Brahmachary" width="235" height="235">
+<section class="now" id="now" aria-label="Current role">
+<p class="eyebrow">Currently</p>
+<p class="now__line">Sr. AI Engineer @ Databricks</p>
+<p class="now__sub">Working on Agentic AI &amp; SciML</p>
+</section>
 
+<section class="journey" aria-label="Career">
+<p class="eyebrow">Journey</p>
 
-<div class="sticky-note">
-  <div class="tape"></div>
-  Currently: Sr. AI Engineer @ Databricks<br>Working on Agentic AI & SciML
+<div class="chapter" id="databricks" data-chapter="databricks">
+<p class="chapter__meta"><span class="chapter__org">Databricks</span><span class="chapter__dot"></span>Sr. AI Engineer</p>
+<div class="chapter__body" markdown="1">
+Hi! I’m Shuvayan Brahmachary, a Sr. AI Engineer at Databricks.
+</div>
 </div>
 
-<style>
-.sticky-note{
-  display:inline-block; padding:14px 16px; background:#fffbe6; color:#4a3b00;
-  border:1px solid #f4e2a1; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,.08);
-  transform:rotate(-1.5deg); margin:14px 0; position:relative; font-size:14px;
-}
-.sticky-note .tape{
-  position:absolute; top:-10px; left:20px; width:60px; height:18px;
-  background:rgba(173,216,230,.65); transform:rotate(-8deg);
-}
-@media (prefers-color-scheme: dark){
-  .sticky-note{ background:#2b2a1f; color:#f2e6b3; border-color:#5c5430; }
-  .sticky-note .tape{ background:rgba(100,149,237,.45); }
-}
-</style>
+<div class="chapter" id="shell" data-chapter="shell">
+<p class="chapter__meta"><span class="chapter__org">Shell</span><span class="chapter__dot"></span>SciML Researcher</p>
+<div class="chapter__body" markdown="1">
+I previously worked as a SciML researcher at Shell.
+</div>
+</div>
 
-
-Hi! I’m Shuvayan Brahmachary, a Sr. AI Engineer at Databricks. I previously worked as a SciML researcher at Shell.
-
+<div class="chapter" id="tum" data-chapter="tum">
+<p class="chapter__meta"><span class="chapter__org">Technical University of Munich</span><span class="chapter__dot"></span>Postdoctoral Researcher<span class="chapter__dot"></span>Jan. 2022 – Sept. 2023</p>
+<div class="chapter__body" markdown="1">
 Before that, I was a postdoctoral researcher at the [Technical University of Munich](https://www.tum.de/en/), Germany, where I worked with [Dr. Nils Thuerey](https://ge.in.tum.de/) (Jan. 2022 – Sept. 2023).
+</div>
+</div>
 
+<div class="chapter" id="kyushu" data-chapter="kyushu">
+<p class="chapter__meta"><span class="chapter__org">Kyushu University</span><span class="chapter__dot"></span>Postdoctoral Fellow<span class="chapter__dot"></span>Sept. 2019 – Sept. 2021</p>
+<div class="chapter__body" markdown="1">
 I also spent time as a postdoctoral fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, working with [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html) (Sept. 2019 – Sept. 2021).
+</div>
+</div>
 
+<div class="chapter" id="iitg" data-chapter="iitg">
+<p class="chapter__meta"><span class="chapter__org">Indian Institute of Technology Guwahati</span><span class="chapter__dot"></span>Ph.D., Mechanical Engineering</p>
+<div class="chapter__body" markdown="1">
 I received my Ph.D. from the Department of Mechanical Engineering at [Indian Institute of Technology Guwahati](http://www.iitg.ac.in/), where I was advised by [Dr. Ganesh Natarajan](https://sites.google.com/site/ganucfd/) and [Prof. Niranjan Sahoo](https://iitg.irins.org/profile/128417).
+</div>
+<p class="thesis">
+<span class="thesis__label">Ph.D. thesis</span>
+<a class="thesis__title" href="{{ '/Thesis_short_version.pdf' | relative_url }}" target="_blank" rel="noopener">Finite Volume/Immersed Boundary Solvers for Compressible Flows: Development and Applications</a>
+</p>
+</div>
+</section>
 
-My Ph.D <a href="Thesis_short_version.pdf" target="_blank">thesis.</a> title is "Finite Volume/Immersed Boundary Solvers for Compressible Flows: Development and Applications".
+<section class="interests" id="interests" aria-label="Interest">
+<p class="eyebrow">Interest</p>
+<div class="interests__grid">
 
-
-Feel free to browse through the projects, publications and Jupyter Notebooks and email for queries. Have a good one!
-
-### Here's my <a href="Resume.pdf" target="_blank">Resume</a>
-
-
-<div class="stickers-row">
-  <span class="sticker-pill">AI for Science</span>
-  <span class="sticker-pill">AI Agents</span>
-  <span class="sticker-pill">Differentiable Physics</span>
-  <span class="sticker-pill">SciML for PDEs</span>
-  <span class="sticker-pill">Optimization</span>  
-  <span class="sticker-pill">CFD</span>
+<div class="interest">
+<h2 class="interest__head">AI</h2>
+<div class="interest__list" markdown="1">
+- AI Agents for complex scientific workflows [`Langchain`](https://www.langchain.com/)
+- Foundation models for scientific domains (SciFMs)
+- Character language models
+- Stable diffusion models
+</div>
 </div>
 
-<style>
-.stickers-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
-.sticker-pill {
-  --bg: rgba(0, 122, 255, 0.08);
-  --bd: rgba(0, 122, 255, 0.25);
-  padding:6px 10px; border-radius:999px; border:1px solid var(--bd);
-  background:var(--bg); font-size:14px; line-height:1; backdrop-filter:saturate(1.2);
-}
-@media (prefers-color-scheme: dark) {
-  .sticker-pill { --bg: rgba(100, 180, 255, 0.12); --bd: rgba(100, 180, 255, 0.35); }
-}
-</style>
-
-
-
-### Interest
-
-- AI
-  - AI Agents for complex scientific workflows [`Langchain`](https://www.langchain.com/) 
-  - Foundation models for scientific domains (SciFMs)
-  - Character language models
-  - Stable diffusion models
-- Machine Learning:
-  - Differentiable physics for forward and inverse problems [`Phiflow`](https://github.com/tum-pbs/PhiFlow) 
-  - Spatio-temporal and time-series forecasting
-  - Reduced-order model
-  - LLM-based agentic framework for fluid control and optimisation
-- Computational Modelling: 
-  - In-house non-conformal immersed boundary solver for high-speed flows
-  - [`FoamExtend`](https://openfoamwiki.net/index.php/Installation/Linux/foam-extend-4.1) for low-speed incompressible flows
-- Aerodynamic Shape Optimisation and Design: 
-  - Surrogate Assisted Evolutionary Algo [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm  [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
-  - [`Low-Fidelity Framework`](https://github.com/shuvayanb/LFF-for-design-and-optimisation) for design and optimisation
-
-
-### Contact
-`shuvayan.brahmachary@databricks.com`<br/>
-`b.shuvayan@gmail.com`<br/>
-`Bengaluru, Karnataka, India`<br/>
-
-
-### Additional Links
-
-<!-- Social icons -->
-<div class="social-icons">
-  <a href="https://scholar.google.co.in/citations?user=bPpIoyUAAAAJ&hl=en" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/googlescholar.svg' | relative_url }}" alt="Google Scholar">
-  </a>
-  <a href="https://github.com/shuvayanb" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/github.svg' | relative_url }}" alt="GitHub">
-  </a>
-  <a href="https://twitter.com/b_shuvayan" aria-label="X (Twitter)" title="X (Twitter)" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/x.svg' | relative_url }}" alt="X (Twitter)">
-  </a>
-  <a href="https://www.linkedin.com/in/shuvayan-brahmachary/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/linkedin.svg' | relative_url }}" alt="LinkedIn">
-  </a>
-  <a href="https://orcid.org/0000-0003-4383-0875" aria-label="ORCID" title="ORCID" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/orcid.svg' | relative_url }}" alt="ORCID">
-  </a>
-  <a href="https://www.researchgate.net/profile/Shuvayan-Brahmachary" aria-label="ResearchGate" title="ResearchGate" target="_blank" rel="noopener">
-    <img src="{{ '/assets/icons/researchgate.svg' | relative_url }}" alt="ResearchGate">
-  </a>
+<div class="interest">
+<h2 class="interest__head">Machine Learning</h2>
+<div class="interest__list" markdown="1">
+- Differentiable physics for forward and inverse problems [`Phiflow`](https://github.com/tum-pbs/PhiFlow)
+- Spatio-temporal and time-series forecasting
+- Reduced-order model
+- LLM-based agentic framework for fluid control and optimisation
+</div>
 </div>
 
-<style>
-/* Consistent sizing & spacing */
-.social-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.social-icons a { display: inline-flex; line-height: 0; }
-.social-icons img { width: 28px; height: 28px; display: block; transition: transform 120ms ease; }
-.social-icons a:hover img { transform: scale(1.08); }
-</style>
+<div class="interest">
+<h2 class="interest__head">Computational Modelling</h2>
+<div class="interest__list" markdown="1">
+- In-house non-conformal immersed boundary solver for high-speed flows
+- [`FoamExtend`](https://openfoamwiki.net/index.php/Installation/Linux/foam-extend-4.1) for low-speed incompressible flows
+</div>
+</div>
+
+<div class="interest">
+<h2 class="interest__head">Aerodynamic Shape Optimisation and Design</h2>
+<div class="interest__list" markdown="1">
+- Surrogate Assisted Evolutionary Algo [`SAEA`](http://www.mdolab.net/research_resources.html), Non-Dominated Sorting Algorithm [`NSGA-II`](https://www.iitk.ac.in/kangal/codes.shtml)
+- [`Low-Fidelity Framework`](https://github.com/shuvayanb/LFF-for-design-and-optimisation) for design and optimisation
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="contact" id="contact" aria-label="Contact">
+<p class="eyebrow">Contact</p>
+<p class="contact__note">Feel free to browse through the projects, publications and Jupyter Notebooks and email for queries. Have a good one!</p>
+<ul class="contact__list">
+<li><a href="mailto:shuvayan.brahmachary@databricks.com">shuvayan.brahmachary@databricks.com</a></li>
+<li><a href="mailto:b.shuvayan@gmail.com">b.shuvayan@gmail.com</a></li>
+<li><span class="contact__where">Bengaluru, Karnataka, India</span></li>
+</ul>
+<p class="contact__links">
+<a class="btn" href="{{ '/Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Resume</a>
+<a class="btn" href="{{ '/Thesis_short_version.pdf' | relative_url }}" target="_blank" rel="noopener">Ph.D. thesis</a>
+</p>
+{% include social.html %}
+</section>

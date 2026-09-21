@@ -2,6 +2,7 @@
 layout: page
 title: Agentic AI
 permalink: /research/llm_and_agentic_ai/
+nav_id: agentic
 ---
 
 ## Blog Posts

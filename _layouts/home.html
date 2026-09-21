@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<div class="stream stream--home" data-swap>
+
+  <section class="hero" id="hero" data-hero>
+    <div class="hero__content">
+      <p class="eyebrow">{{ page.eyebrow }}</p>
+      <h1 class="hero__name">{{ site.author }}</h1>
+      <p class="hero__tagline">{{ page.tagline }}</p>
+      <p class="hero__actions">
+        <a class="btn btn--primary" href="{{ '/Resume.pdf' | relative_url }}" target="_blank" rel="noopener">Resume</a>
+        <a class="btn" href="{{ '/Publications/publications.html' | relative_url }}">Publications</a>
+        <a class="btn" href="{{ '/Projects/projects.html' | relative_url }}">Research</a>
+      </p>
+    </div>
+    <p class="hero__hint" data-hint>
+      <span class="hero__hintdot" aria-hidden="true"></span>
+      Damped wave field — move or click to disturb
+    </p>
+  </section>
+
+  <div class="sheet">
+
+    <!-- Research thread: the six interests already listed on the site,
+         ordered chronologically to show how the work evolved. -->
+    <section class="thread" aria-label="Research thread">
+      <p class="eyebrow">Research thread</p>
+      <ol class="thread__list">
+        {%- for t in page.thread %}
+        <li class="thread__item">
+          {%- if t.tag %}
+          <a class="thread__pill" href="{{ '/Publications/explore.html' | relative_url }}?tag={{ t.tag | uri_escape }}">{{ t.label }}</a>
+          {%- else %}
+          <span class="thread__pill">{{ t.label }}</span>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ol>
+    </section>
+
+    <article class="prose">
+      {{ content }}
+    </article>
+
+  </div>
+</div>

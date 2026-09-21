@@ -2,6 +2,7 @@
 layout: page
 title: SciML
 permalink: /research/sciml/
+nav_id: sciml
 ---
 
 

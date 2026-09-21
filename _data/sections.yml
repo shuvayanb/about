@@ -1,0 +1,26 @@
+# Section branch of the rail. URLs match the existing published URLs exactly.
+- id: research
+  label: Research
+  url: /Projects/projects.html
+  children:
+    - id: shape_optimisation
+      label: Shape Design & Optimisation
+      url: /research/shape_optimisation/
+    - id: agentic
+      label: Agentic AI
+      url: /research/llm_and_agentic_ai/
+    - id: sciml
+      label: SciML
+      url: /research/sciml/
+- id: publications
+  label: Publications
+  url: /Publications/publications.html
+- id: explore
+  label: Explore Topics
+  url: /Publications/explore.html
+- id: repositories
+  label: Repositories
+  url: /repositories.html
+- id: media
+  label: Media
+  url: /blogs.html

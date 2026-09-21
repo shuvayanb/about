@@ -2,6 +2,7 @@
 layout: page
 title: Shape Design & Optimisation
 permalink: /research/shape_optimisation/
+nav_id: shape_optimisation
 ---
 
 
@@ -171,7 +172,7 @@ permalink: /research/shape_optimisation/
 
 
 <!-- ── Scramjet param sweep block ─────────── -->
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<!-- model-viewer runtime already loaded above (duplicate loader removed: it registered the custom element twice) -->
 
 <style>
   .scramjet-wrap{
@@ -356,7 +357,7 @@ permalink: /research/shape_optimisation/
 
 <!-- ── Nozzle (final) card ───────────────────────────── -->
 <!-- Load once per page; safe to keep here if you don't elsewhere -->
-<script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+<!-- model-viewer runtime already loaded above (duplicate loader removed: it registered the custom element twice) -->
 
 <style>
   /* Same layout as your scramjet block */

@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Explore Topics
+nav_id: explore
+lede: Click any topic to see the papers tagged with it. Node size follows paper count; colour follows community.
 ---
 
 <div id="explore">
@@ -14,45 +16,59 @@ title: Explore Topics
 </div>
 
 <style>
-#explore { display: grid; grid-template-rows: auto auto; gap: 16px; }
+/* Colours come from the site's design tokens so this view follows both the
+   system preference and the manual theme toggle. */
+#explore { display: grid; grid-template-rows: auto auto; gap: 16px; margin-top: 8px; }
 #graph {
-  position: relative; height: 520px; border: 1px solid #eee; border-radius: 8px;
-  background: rgba(0,0,0,0.02); overflow: hidden;
+  position: relative; height: 520px;
+  border: 1px solid var(--rule); border-radius: 12px;
+  background: var(--bg-soft); overflow: hidden;
 }
 .fit-btn{
-  position: absolute; right: 8px; top: 8px; z-index: 2;
-  font-size: 12px; padding: 4px 8px; border-radius: 6px;
-  border: 1px solid rgba(0,0,0,.15); background: #fff; cursor: pointer;
+  position: absolute; right: 10px; top: 10px; z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 7px;
+  border: 1px solid var(--rule); background: var(--surface);
+  color: var(--muted); cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
 }
-.fit-btn:hover{ filter: brightness(0.97); }
+.fit-btn:hover{ border-color: var(--accent); color: var(--accent); }
 
-#details { padding: 8px 12px; border: 1px solid #eee; border-radius: 8px; }
-#details ul { margin: 0; padding-left: 18px; }
+#details {
+  padding: 16px 18px; border: 1px solid var(--rule); border-radius: 12px;
+  background: var(--surface);
+}
+#details h3 { margin: 0 0 8px; font-size: 15px; }
+#details ul { margin: 10px 0 0; padding-left: 18px; }
+#details li { margin: 6px 0; font-size: 14px; color: var(--ink-2); }
 
 /* Links & nodes */
-.link { stroke: #000; stroke-opacity: .6; }
+.link { stroke: var(--ink); stroke-opacity: .22; }
 .node { cursor: pointer; }
-.node circle { transition: r 120ms ease, opacity 120ms ease; }
+/* overrides the fill="#fff" presentation attribute so nodes follow the theme */
+.node circle { fill: var(--bg-soft); transition: r 120ms ease, opacity 120ms ease; }
 
 /* Label halo for readability */
 .node text.label{
   paint-order: stroke fill;
-  stroke: rgba(255,255,255,0.95);
+  stroke: var(--bg-soft);
   stroke-width: 3px;
   letter-spacing: 0.2px;
   user-select: none;
   pointer-events: none;
-  fill: currentColor;
+  fill: var(--ink);
+  font-family: var(--font-sans);
 }
 
 .legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-.badge { display:inline-block; padding:3px 6px; border-radius:6px; font-size:12px; border:1px solid rgba(0,0,0,.1); }
-
-@media (prefers-color-scheme: dark){
-  #graph  { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,.12); }
-  #details{ border-color: rgba(255,255,255,.12); }
+.badge {
+  display:inline-block; padding:3px 8px; border-radius:999px;
+  font-family: var(--font-mono); font-size:11px;
+  border:1px solid var(--rule); color: var(--muted);
 }
-@media (max-width: 900px){ #graph { height: 58vh; } }
+
+@media (max-width: 900px){ #graph { height: 56vh; } }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -221,11 +237,19 @@ title: Explore Topics
     var commIds = useCommunity ? Array.from(commCounts.keys()).sort(function(a,b){
       return (commCounts.get(b) - commCounts.get(a)) || (a - b);
     }) : [0];
+    // Restrained, low-saturation palette that sits with the site's accent
+    // rather than competing with it; lifted in lightness for dark mode.
     var palette = [
-      "#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd",
-      "#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf",
-      "#3182bd","#e6550d"
+      "#0e6e70","#5b7f9e","#8c7351","#6f7681","#7b6b90","#4f7f6b",
+      "#9a6b5e","#5f7a4f","#84667a","#4d6d86","#8a8355","#6f6f96"
     ];
+    var isDark = (function(){
+      var t = document.documentElement.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    })();
+    if (isDark) palette = palette.map(function(c){ return d3.hcl(c).brighter(0.85).formatHex(); });
+
     var commColor = new Map();
     commIds.forEach(function(cid, i){ commColor.set(cid, palette[i % palette.length]); });
 

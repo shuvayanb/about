@@ -2,6 +2,7 @@
 layout: page
 title: "nanoGPT"
 permalink: /research/llm_and_agentic_ai/nanoGPT/
+nav_id: agentic
 ---
 
 *Author: Shuvayan Brahmachary — Sep 21, 2025*
