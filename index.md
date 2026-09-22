@@ -36,7 +36,7 @@ Hi! I’m Shuvayan Brahmachary, a Sr. AI Engineer at Databricks.
 </div>
 
 <div class="chapter" id="shell" data-chapter="shell">
-<p class="chapter__meta"><span class="chapter__org">Shell</span><span class="chapter__dot"></span>SciML Researcher</p>
+<p class="chapter__meta"><span class="chapter__org">Shell</span><span class="chapter__dot"></span>SciML Researcher<span class="chapter__dot"></span>Sept. 2023 – Feb. 2025</p>
 <div class="chapter__body" markdown="1">
 I previously worked as a SciML researcher at Shell.
 </div>
@@ -45,14 +45,14 @@ I previously worked as a SciML researcher at Shell.
 <div class="chapter" id="tum" data-chapter="tum">
 <p class="chapter__meta"><span class="chapter__org">Technical University of Munich</span><span class="chapter__dot"></span>Postdoctoral Researcher<span class="chapter__dot"></span>Jan. 2022 – Sept. 2023</p>
 <div class="chapter__body" markdown="1">
-Before that, I was a postdoctoral researcher at the [Technical University of Munich](https://www.tum.de/en/), Germany, where I worked with [Dr. Nils Thuerey](https://ge.in.tum.de/) (Jan. 2022 – Sept. 2023).
+Before that, I was a postdoctoral researcher at the [Technical University of Munich](https://www.tum.de/en/), Germany, where I worked with [Dr. Nils Thuerey](https://ge.in.tum.de/).
 </div>
 </div>
 
 <div class="chapter" id="kyushu" data-chapter="kyushu">
 <p class="chapter__meta"><span class="chapter__org">Kyushu University</span><span class="chapter__dot"></span>Postdoctoral Fellow<span class="chapter__dot"></span>Sept. 2019 – Sept. 2021</p>
 <div class="chapter__body" markdown="1">
-I also spent time as a postdoctoral fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, working with [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html) (Sept. 2019 – Sept. 2021).
+I also spent time as a postdoctoral fellow in the Department of Aeronautics and Astronautics at [Kyushu University](https://www.kyushu-u.ac.jp/en/), Japan, working with [Dr. Hideaki Ogawa](http://aero.kyushu-u.ac.jp/stsel/about.html).
 </div>
 </div>
 
@@ -77,7 +77,7 @@ I received my Ph.D. from the Department of Mechanical Engineering at [Indian Ins
 <div class="interest__list" markdown="1">
 - AI Agents for complex scientific workflows [`Langchain`](https://www.langchain.com/)
 - Foundation models for scientific domains (SciFMs)
-- Character language models
+- Character language models [`nanoGPT`](https://github.com/karpathy/nanoGPT)
 - Stable diffusion models
 </div>
 </div>

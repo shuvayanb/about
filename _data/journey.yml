@@ -9,6 +9,7 @@
 - id: shell
   label: Shell
   role: SciML Researcher
+  period: 2023 – 2025
   domain: Scientific ML
 - id: tum
   label: TUM
