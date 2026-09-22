@@ -14,10 +14,8 @@
  * Fallback:     Canvas2D on a small Float32Array grid.
  * Last resort:  static background (handled by CSS).
  *
- * Three visualisations of the same field, selectable with ?field=<name>:
- *   schlieren  1 - exp(-k|grad h|)     numerical schlieren (default)
- *   surface    refraction + specular   free-surface shading
- *   contour    iso-contours of h
+ * Rendered as numerical schlieren, S = 1 - exp(-k|grad h|), so the wavefronts
+ * read the way they would in a knife-edge schlieren image.
  * ------------------------------------------------------------------------- */
 (function () {
   'use strict';
@@ -38,19 +36,7 @@
   // two solver iterations per frame so wavefronts actually cross the domain
   var SUBSTEPS = small.matches ? 1 : 2;
 
-  /* Visualisation of the same height field. Switch live with ?field=<name>
-     or window.SBRipple.setMode(name). */
-  var MODES = { schlieren: 0, surface: 1, contour: 2 };
-  var GAIN  = [104.0, 66.0, 60.0];   // per-mode contrast, indexed by mode
-  var mode = (function () {
-    var q = new URLSearchParams(location.search).get('field');
-    if (q && MODES.hasOwnProperty(q)) return MODES[q];
-    try {
-      var s = localStorage.getItem('sb-field');
-      if (s && MODES.hasOwnProperty(s)) return MODES[s];
-    } catch (e) {}
-    return MODES.schlieren;
-  })();
+  var GAIN = 104.0;           // schlieren contrast, normalised by grid spacing
 
   /* ---------------------------------------------------------------- utils */
 
@@ -219,55 +205,25 @@
     'uniform vec3  uBg;',
     'uniform vec3  uInk;',
     'uniform vec3  uAccent;',
-    'uniform int   uMode;',
     'uniform float uGain;',
     'out vec4 outColor;',
     '',
+    '// Numerical schlieren:  S = 1 - exp(-k |grad h|)',
+    '// The standard density-gradient rendering, so wavefronts appear as sharp',
+    '// bands the way they do in a knife-edge schlieren photograph. Mixing',
+    '// towards --ink means the bands are dark on the light theme and bright on',
+    '// the dark one without any branching.',
     'void main(){',
-    '  float h  = texture(uState, vUv).r;',
     '  // central differences -> grad h',
     '  float hx = (texture(uState, vUv + vec2(uTexel.x, 0.0)).r',
     '            - texture(uState, vUv - vec2(uTexel.x, 0.0)).r) * 0.5;',
     '  float hy = (texture(uState, vUv + vec2(0.0, uTexel.y)).r',
     '            - texture(uState, vUv - vec2(0.0, uTexel.y)).r) * 0.5;',
-    '  vec2  g  = vec2(hx, hy);',
-    '  float gm = length(g);',
     '',
-    '  vec3 col = uBg;',
+    '  float s = pow(1.0 - exp(-length(vec2(hx, hy)) * uGain), 0.85);',
     '',
-    '  if (uMode == 0) {',
-    '    // ---- numerical schlieren: S = 1 - exp(-k|grad h|) -------------',
-    '    // the standard density-gradient rendering; wavefronts read as',
-    '    // sharp bands, exactly like a knife-edge schlieren photograph.',
-    '    float s = 1.0 - exp(-gm * uGain);',
-    '    s = pow(s, 0.85);',
-    '    col = mix(uBg, uInk, s * 0.62);',
-    '    col = mix(col, uAccent, smoothstep(0.50, 1.0, s) * 0.20);',
-    '',
-    '  } else if (uMode == 1) {',
-    '    // ---- free-surface shading: refraction + specular --------------',
-    '    vec3 n = normalize(vec3(-hx * uGain * 1.6, -hy * uGain * 1.6, 1.0));',
-    '    vec3 L = normalize(vec3(-0.40, 0.58, 0.71));',
-    '    float diff = dot(n, L) - 0.71;',
-    '    vec3  r    = reflect(-L, n);',
-    '    float spec = pow(max(r.z, 0.0), 48.0);',
-    '    col = uBg + sign(diff) * pow(abs(diff), 0.85) * 0.42;',
-    '    col = mix(col, uInk, clamp(-diff, 0.0, 1.0) * 0.24);',
-    '    col += (uAccent * 0.55 + 0.45) * spec * 0.30;',
-    '',
-    '  } else {',
-    '    // ---- iso-contours of the height field --------------------------',
-    '    float env    = smoothstep(0.0004, 0.010, abs(h));',
-    '    float levels = 16.0;',
-    '    float f      = fract(h * levels);',
-    '    float w      = fwidth(h * levels) * 1.25 + 1e-5;',
-    '    float line   = (1.0 - smoothstep(0.0, w, min(f, 1.0 - f))) * env;',
-    '    float shade  = -(hx * 0.42 + hy * 0.58) * uGain * 0.55;',
-    '    col = uBg + shade * 0.12;',
-    '    col = mix(col, uInk,    line * 0.50);',
-    '    col = mix(col, uAccent, line * 0.22);',
-    '  }',
-    '',
+    '  vec3 col = mix(uBg, uInk, s * 0.62);',
+    '  col = mix(col, uAccent, smoothstep(0.50, 1.0, s) * 0.20);',
     '  outColor = vec4(clamp(col, 0.0, 1.0), 1.0);',
     '}'
   ].join('\n');
@@ -334,7 +290,7 @@
     ['uState', 'uTexel', 'uRes', 'uP0', 'uP1', 'uStrength', 'uRadius',
      'uClickPos', 'uClickStrength', 'uClickRadius', 'uC2', 'uDamp']
       .forEach(function (n) { uSim[n] = gl.getUniformLocation(simP, n); });
-    ['uState', 'uTexel', 'uBg', 'uInk', 'uAccent', 'uMode', 'uGain']
+    ['uState', 'uTexel', 'uBg', 'uInk', 'uAccent', 'uGain']
       .forEach(function (n) { uDraw[n] = gl.getUniformLocation(drawP, n); });
 
     var colors = { bg: [1, 1, 1], ink: [0, 0, 0], accent: [0, 0.4, 0.4] };
@@ -425,9 +381,8 @@
         gl.uniform3fv(uDraw.uBg, colors.bg);
         gl.uniform3fv(uDraw.uInk, colors.ink);
         gl.uniform3fv(uDraw.uAccent, colors.accent);
-        gl.uniform1i(uDraw.uMode, mode);
         // gradients scale with grid spacing, so normalise the gain by it
-        gl.uniform1f(uDraw.uGain, GAIN[mode] * (W / 560));
+        gl.uniform1f(uDraw.uGain, GAIN * (W / 560));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       }
     };
@@ -516,32 +471,21 @@
 
       draw: function () {
         var bg = colors.bg, ink = colors.ink, ac = colors.accent;
-        var gain = GAIN[mode] * (W / 560);
-        var surface = (mode === 1);
+        var gain = GAIN * (W / 560);
         for (var y = 1; y < H - 1; y++) {
           var row = y * W;
           for (var x = 1; x < W - 1; x++) {
             var i = row + x;
             var hx = (cur[i + 1] - cur[i - 1]) * 0.5;
             var hy = (cur[i + W] - cur[i - W]) * 0.5;
-            var r, g, b;
-            if (surface) {
-              var sh = -(hx * 0.40 + hy * 0.58) * gain * 0.5;
-              var t = Math.sign(sh) * Math.pow(Math.abs(sh), 0.85) * 0.55;
-              r = bg[0] + t; g = bg[1] + t; b = bg[2] + t;
-            } else {
-              // numerical schlieren, matching the WebGL path
-              var s = Math.pow(1 - Math.exp(-Math.sqrt(hx * hx + hy * hy) * gain), 0.85);
-              var k = s * 0.80;
-              var a = s > 0.45 ? (s - 0.45) / 0.55 * 0.22 : 0;
-              r = (bg[0] + (ink[0] - bg[0]) * k) * (1 - a) + ac[0] * a;
-              g = (bg[1] + (ink[1] - bg[1]) * k) * (1 - a) + ac[1] * a;
-              b = (bg[2] + (ink[2] - bg[2]) * k) * (1 - a) + ac[2] * a;
-            }
+            // numerical schlieren, matching the WebGL path
+            var s = Math.pow(1 - Math.exp(-Math.sqrt(hx * hx + hy * hy) * gain), 0.85);
+            var k = s * 0.62;
+            var a = s > 0.50 ? (s - 0.50) / 0.50 * 0.20 : 0;
             var p = i * 4;
-            buf[p]     = clamp(r, 0, 1) * 255;
-            buf[p + 1] = clamp(g, 0, 1) * 255;
-            buf[p + 2] = clamp(b, 0, 1) * 255;
+            buf[p]     = clamp((bg[0] + (ink[0] - bg[0]) * k) * (1 - a) + ac[0] * a, 0, 1) * 255;
+            buf[p + 1] = clamp((bg[1] + (ink[1] - bg[1]) * k) * (1 - a) + ac[1] * a, 0, 1) * 255;
+            buf[p + 2] = clamp((bg[2] + (ink[2] - bg[2]) * k) * (1 - a) + ac[2] * a, 0, 1) * 255;
           }
         }
         bctx.putImageData(img, 0, 0);
@@ -682,16 +626,7 @@
   window.SBRipple = {
     refresh: function () { bindHero(); resize(); },
     pause: stop,
-    kind: impl.kind,
-    modes: Object.keys(MODES),
-    getMode: function () { return Object.keys(MODES)[mode]; },
-    setMode: function (name) {
-      if (!MODES.hasOwnProperty(name)) return false;
-      mode = MODES[name];
-      try { localStorage.setItem('sb-field', name); } catch (e) {}
-      impl.draw();
-      return true;
-    }
+    kind: impl.kind
   };
 
   resize();
