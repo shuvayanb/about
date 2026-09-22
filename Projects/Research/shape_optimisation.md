@@ -31,9 +31,19 @@ nav_id: shape_optimisation
 <!-- ──────────────────────────────────────────────────── -->
 
 
-<!-- model-viewer runtime -->
-<script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
-<script nomodule src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer-legacy.js"></script>
+<!-- model-viewer runtime.
+     Pinned: @latest costs an extra redirect on every visit and cannot be
+     cached long-term. The .glb artifacts on this page are Draco-compressed
+     (~12x smaller), so point the decoder at our self-hosted copy rather than
+     letting model-viewer pull one from a third-party CDN. -->
+<script type="module">
+  import { ModelViewerElement }
+    from "https://unpkg.com/@google/model-viewer@4.3.1/dist/model-viewer.min.js";
+  // relative_url, not absolute_url: the latter picks up the dev server's host
+  // and trips CORS when the page is opened on a different loopback alias.
+  ModelViewerElement.dracoDecoderLocation =
+    "{{ '/assets/vendor/draco/' | relative_url }}";
+</script>
 
 <style>
   .mv-wrap {
@@ -113,8 +123,9 @@ nav_id: shape_optimisation
   const FOLDER = 'assets/flow/history_pop_00/';
   const START  = 0, END = 50, PAD = 3, FPS = 5, LOOP = true;
   const SUFFIX = '_unlit', EXT = '.glb';
-  const CACHE_BUST = '?v={{ site.time | date: "%s" }}';
-  const CD_JSON = BASE + FOLDER + 'pop_00_meta.json' + CACHE_BUST;
+  // No per-build cache-buster: it forced a full re-download of every frame on
+  // each deploy. The filenames are already content-stable.
+  const CD_JSON = BASE + FOLDER + 'pop_00_meta.json';
 
   const mvA = document.getElementById('mvA');
   const mvB = document.getElementById('mvB');
@@ -123,7 +134,7 @@ nav_id: shape_optimisation
 
   let cur = START, front = mvA, back = mvB, cdArr = null;
 
-  function framePath(i){ return BASE + FOLDER + 'frame_' + String(i).padStart(PAD,'0') + SUFFIX + EXT + CACHE_BUST; }
+  function framePath(i){ return BASE + FOLDER + 'frame_' + String(i).padStart(PAD,'0') + SUFFIX + EXT; }
   function updateHUD(i){
     if (genEl) genEl.textContent = i;
     if (!cdArr || !cdArr.length){ if(cdEl) cdEl.textContent = '—'; return; }
@@ -141,7 +152,28 @@ nav_id: shape_optimisation
   }
   function start(){ front.src = framePath(START); front.addEventListener('load', ()=>{ updateHUD(START); cur=START+1; setTimeout(scheduleNext, 1000/FPS); }, {once:true}); }
   function loadCd(){ return fetch(CD_JSON).then(r=>r.ok?r.json():null).then(j=>{ if(j && Array.isArray(j.cd)) cdArr=j.cd; }).catch(()=>{}); }
-  document.addEventListener('DOMContentLoaded', ()=>{ loadCd().finally(start); });
+
+  // Warm the HTTP cache once so the loop never waits on the network. The
+  // frames are Draco-compressed (~10 KB each, ~0.5 MB for all 51).
+  function prefetch(){
+    for (let i = START; i <= END; i++) {
+      const l = document.createElement('link');
+      l.rel = 'prefetch'; l.as = 'fetch'; l.href = framePath(i);
+      document.head.appendChild(l);
+    }
+  }
+
+  // Do not touch the network until the card is actually approached.
+  function whenVisible(el, fn){
+    if (!('IntersectionObserver' in window)) { fn(); return; }
+    const io = new IntersectionObserver((es) => {
+      if (es.some(e => e.isIntersecting)) { io.disconnect(); fn(); }
+    }, { rootMargin: '300px' });
+    io.observe(el);
+  }
+
+  const card = mvA.closest('.mv-wrap') || mvA;
+  whenVisible(card, () => { prefetch(); loadCd().finally(start); });
 })();
 </script>
 
