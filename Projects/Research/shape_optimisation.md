@@ -189,12 +189,12 @@ nav_id: shape_optimisation
   .sidebox h3{
     margin: 0 0 .4rem;
     font: 700 20px/1.25 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    color:#111;
+    color: var(--ink);
   }
   .sidebox p{
     margin:0;
     font: 400 15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    color:#222;
+    color: var(--ink-2);
   }
   .card-cell{ position:relative; }
   @media (max-width: 900px){ .card-row{ grid-template-columns: 1fr; } }
@@ -216,8 +216,8 @@ nav_id: shape_optimisation
   .scramjet-controls{display:flex;gap:1rem;align-items:center;justify-content:space-between;margin:0 0 .5rem}
   .scramjet-ctl{flex:1}
   .scramjet-ctl label{display:flex;align-items:center;justify-content:space-between;font:600 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0 0 .25rem}
-  .scramjet-ctl output{font:600 14px;color:#111;background:#eef;padding:.15rem .45rem;border-radius:.4rem;border:1px solid #cfe}
-  .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#555;margin:.2rem 0 0}
+  .scramjet-ctl output{font:600 14px;color:var(--ink);background:var(--accent-bg);padding:.15rem .45rem;border-radius:.4rem;border:1px solid var(--rule)}
+  .scramjet-ticks{display:flex;justify-content:space-between;font:12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--muted);margin:.2rem 0 0}
   .scramjet-viewer{
     width: 100%;
     height: 40vh;
@@ -236,7 +236,7 @@ nav_id: shape_optimisation
 
   /* NEW: bullets with italic symbols */
   .sidebox ul.vars{ margin:.35rem 0 0 1rem; padding:0; list-style:disc; }
-  .sidebox ul.vars li{ margin:.25rem 0; color:#444; }
+  .sidebox ul.vars li{ margin:.25rem 0; color: var(--ink-2); }
   .sidebox ul.vars em{ font-style:italic; font-weight:600; }
 </style>
 
@@ -412,8 +412,8 @@ nav_id: shape_optimisation
 
   /* Optional: tidy text column */
   .sidebox h3{ margin:.25rem 0 .5rem; font:700 20px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif }
-  .sidebox p{ margin:.25rem 0 .5rem; color:#333 }
-  .sidebox ul{ margin:.25rem 0 0 1rem; color:#444 }
+  .sidebox p{ margin:.25rem 0 .5rem; color: var(--ink-2) }
+  .sidebox ul{ margin:.25rem 0 0 1rem; color: var(--ink-2) }
 </style>
 
 <div class="card-row">
